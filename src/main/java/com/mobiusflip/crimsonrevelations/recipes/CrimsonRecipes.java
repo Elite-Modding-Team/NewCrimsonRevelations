@@ -28,7 +28,7 @@ public class CrimsonRecipes {
                 new InfusionRecipe("CRIMSON_BLADE", new ItemStack(ItemsTC.crimsonBlade), 7,
                         new AspectList().add(Aspect.AVERSION, 75).add(Aspect.DEATH, 75).add(Aspect.TRAP, 25).add(Aspect.DESIRE, 25),
                         new ItemStack(ItemsTC.voidSword), new Object[]{
-                        ThaumcraftApiHelper.makeCrystal(Aspect.AVERSION), ThaumcraftApiHelper.makeCrystal(Aspect.DEATH), new ItemStack(ItemsTC.plate, 1, 3), BlocksTC.bannerCrimsonCult
+                        ThaumcraftApiHelper.makeCrystal(Aspect.AVERSION), ThaumcraftApiHelper.makeCrystal(Aspect.DEATH), "plateVoid", BlocksTC.bannerCrimsonCult
                 }
                 ));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation("crimsonrevelations", "praetor_helm"),
@@ -80,7 +80,7 @@ public class CrimsonRecipes {
                 new CrucibleRecipe("ENTROPIC_PROCESSING", new ItemStack(Items.SUGAR, 2, 0), new ItemStack(Items.REEDS, 1, 0), new AspectList().add(Aspect.ENTROPY, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderwool"),
-                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.STRING, 4, 0), new ItemStack(Blocks.WOOL, 1, 0), new AspectList().add(Aspect.ORDER, 25)));
+                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.STRING, 4, 0), "wool", new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderbrick"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.BRICK, 4, 0), new ItemStack(Blocks.BRICK_BLOCK), new AspectList().add(Aspect.ORDER, 25)));
@@ -89,16 +89,16 @@ public class CrimsonRecipes {
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.NETHERBRICK, 4, 0), new ItemStack(Blocks.NETHER_BRICK), new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderquartz"),
-                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.QUARTZ, 4, 0), new ItemStack(Blocks.QUARTZ_BLOCK), new AspectList().add(Aspect.ORDER, 25)));
+                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.QUARTZ, 4, 0), "blockQuartz", new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderprismarine"),
-                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.PRISMARINE_SHARD, 9, 0), new ItemStack(Blocks.PRISMARINE, 1, 1), new AspectList().add(Aspect.ORDER, 25)));
+                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.PRISMARINE_SHARD, 9, 0), "blockPrismarine", new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderchorus"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.CHORUS_FRUIT_POPPED, 4, 0), new ItemStack(Blocks.PURPUR_BLOCK), new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "quartzcluster"),
-                new CrucibleRecipe("QUARTZ_PURIFICATION", new ItemStack(ItemsTC.clusters, 1, 7), "oreQuartz", new AspectList().add(Aspect.ORDER, 5).add(Aspect.CRYSTAL, 5)));
+                new CrucibleRecipe("QUARTZ_PURIFICATION", new ItemStack(ItemsTC.clusters, 2, 7), "oreQuartz", new AspectList().add(Aspect.ORDER, 5).add(Aspect.CRYSTAL, 5)));
     }
 
     private static void initArcaneCrafting() {
@@ -111,7 +111,7 @@ public class CrimsonRecipes {
                 "WS",
                 "IS",
                 "WD",
-                'S', Items.STICK, 'D', new ItemStack(Blocks.WOODEN_SLAB), 'W', new ItemStack(Blocks.WOOL, 1, 14), 'I', new ItemStack(BlocksTC.inlay)
+                'S', Items.STICK, 'D', "slabWood", 'W', new ItemStack(Blocks.WOOL, 1, 14), 'I', new ItemStack(BlocksTC.inlay)
         }
         ));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("crimsonrevelations", "ancientstonetile"), new ShapedArcaneRecipe(
