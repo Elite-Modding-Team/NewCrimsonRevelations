@@ -135,34 +135,6 @@
             "addenda": []
         },
         {
-            "key": "ELDRITCH_CRAB",
-            "name": "crimsonrevelations.research.ELDRITCH_CRAB.title",
-            "icons": ["thaumcraft:textures/research/r_crab.png"],
-            "category": "CR",
-            "parents": ["ANCIENT_STONE","CRIMSON_ARMOR","~BASEELDRITCH"],
-            "siblings": [],
-            "meta": ["SPIKY"],
-            "location": [0, -2],
-            "reward_item": [],
-            "reward_knowledge": [],
-            "stages": [
-                {
-                    "text": "crimsonrevelations.research.ELDRITCH_CRAB.text.stage.1",
-                    "required_knowledge": ["THEORY;ELDRITCH;2"],
-                    "required_research": ["!exanimis"],
-                    "required_craft": ["thaumcraft:crimson_plate_helm", "thaumcraft:stone_ancient_glyphed"]
-                },
-                {
-                    "text": "crimsonrevelations.research.ELDRITCH_CRAB.text.stage.2",
-                    "recipes": [
-                        "crimsonrevelations:eldritchcrab"
-                    ],
-                    "warp": 3
-                }
-            ],
-            "addenda": []
-        },
-        {
             "key": "ERYTHURGY",
             "name": "crimsonrevelations.research.ERYTHURGY.title",
             "icons": ["thaumcraft:textures/research/r_eldritchminor.png"],

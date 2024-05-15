@@ -52,15 +52,6 @@ public class CrimsonRecipes {
                         new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(ItemsTC.plate, 1, 0), BlocksTC.bannerCrimsonCult
                 }
                 ));
-        ItemStack crabStack = new ItemStack(Items.SPAWN_EGG);
-        ItemMonsterPlacer.applyEntityIdToItemStack(crabStack, new ResourceLocation("thaumcraft", "eldritchcrab"));
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation("crimsonrevelations", "eldritchcrab"),
-                new InfusionRecipe("PRAETOR_ARMOR", crabStack, 9,
-                        new AspectList().add(Aspect.UNDEAD, 50).add(Aspect.ELDRITCH, 75).add(Aspect.PROTECT, 50),
-                        new ItemStack(ItemsTC.voidSeed), new Object[]{
-                        new ItemStack(Items.ENDER_EYE), new ItemStack(BlocksTC.stoneAncientGlyphed), new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(ItemsTC.plate, 1, 0), new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(ItemsTC.plate, 1, 1), new ItemStack(BlocksTC.stoneAncientGlyphed)
-                }
-                ));
     }
 
     private static void initCrucible() {
