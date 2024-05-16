@@ -95,8 +95,8 @@
             "THEORY;ARTIFICE;1"
           ],
           "required_item": [
-            "minecraft:iron_ingot",
-            "thaumcraft:fabric"
+            "crimsonrevelations:crimson_plate",
+            "crimsonrevelations:crimson_fabric"
           ],
           "required_craft": [
             "thaumcraft:banner_crimson_cult"
@@ -305,9 +305,10 @@
           "text": "crimsonrevelations.research.ORDERED_DECONSTRUCTION.text.stage.1",
           "recipes": [
             "crimsonrevelations:orderwool",
-            "crimsonrevelations:orderbrick",
-            "crimsonrevelations:ordernetherbrick",
+            "crimsonrevelations:orderglowstone",
+            "crimsonrevelations:ordermagma",
             "crimsonrevelations:orderquartz",
+            "crimsonrevelations:ordersandstone",
             "crimsonrevelations:orderprismarine",
             "crimsonrevelations:orderchorus"
           ]

@@ -135,14 +135,17 @@ public class RecipeHandler {
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderwool"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.STRING, 4, 0), "wool", new AspectList().add(Aspect.ORDER, 25)));
 
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderbrick"),
-                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.BRICK, 4, 0), new ItemStack(Blocks.BRICK_BLOCK), new AspectList().add(Aspect.ORDER, 25)));
+        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderglowstone"),
+                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.GLOWSTONE_DUST, 4, 0), new ItemStack(Blocks.GLOWSTONE), new AspectList().add(Aspect.ORDER, 25)));
 
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "ordernetherbrick"),
-                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.NETHERBRICK, 4, 0), new ItemStack(Blocks.NETHER_BRICK), new AspectList().add(Aspect.ORDER, 25)));
+        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "ordermagma"),
+                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.MAGMA_CREAM, 2, 0), new ItemStack(Blocks.MAGMA), new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderquartz"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.QUARTZ, 4, 0), "blockQuartz", new AspectList().add(Aspect.ORDER, 25)));
+        
+        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "ordersandstone"),
+                new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Blocks.SAND, 4, 0), "sandstone", new AspectList().add(Aspect.ORDER, 25)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderprismarine"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.PRISMARINE_SHARD, 4, 0), "blockPrismarine", new AspectList().add(Aspect.ORDER, 25)));
