@@ -30,7 +30,7 @@ public class CrimsonRevelations {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         CrimsonRecipes.initRecipes();
-        ResearchCategories.registerCategory("CR", "CrimsonRites", new AspectList(), new ResourceLocation("thaumcraft", "textures/items/crimson_rites.png"), new ResourceLocation("crimsonrevelations", "textures/gui/research_background.jpg"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_over.png"));
+        ResearchCategories.registerCategory("REVELATIONS", "CrimsonRites", new AspectList(), new ResourceLocation("thaumcraft", "textures/items/crimson_rites.png"), new ResourceLocation("crimsonrevelations", "textures/gui/research_background.jpg"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_over.png"));
         ThaumcraftApi.registerResearchLocation(new ResourceLocation("crimsonrevelations", "research/revelations"));
     }
 

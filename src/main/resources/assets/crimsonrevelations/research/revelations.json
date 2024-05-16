@@ -6,7 +6,7 @@
       "icons": [
         "thaumcraft:curio;1;6"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "~CrimsonRites",
         "~INFUSIONSTABLE"
@@ -38,7 +38,7 @@
       "icons": [
         "thaumcraft:stone_ancient"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "CRIMSON_REVELATIONS"
       ],
@@ -74,7 +74,7 @@
       "icons": [
         "thaumcraft:crimson_robe_helm"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "CRIMSON_REVELATIONS",
         "BASEARTIFICE",
@@ -122,7 +122,7 @@
       "icons": [
         "thaumcraft:crimson_blade"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "CRIMSON_REVELATIONS",
         "BASEELDRITCH"
@@ -166,7 +166,7 @@
       "icons": [
         "thaumcraft:crimson_praetor_helm"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "CRIMSON_ARMOR",
         "ARMORFORTRESS"
@@ -211,7 +211,7 @@
       "icons": [
         "thaumcraft:textures/research/r_eldritchminor.png"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "CRIMSON_REVELATIONS"
       ],
@@ -255,7 +255,7 @@
       "icons": [
         "crimsonrevelations:textures/research/perditio.png"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "ERYTHURGY"
       ],
@@ -288,7 +288,7 @@
       "icons": [
         "crimsonrevelations:textures/research/ordo.png"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "ERYTHURGY"
       ],
@@ -320,7 +320,7 @@
       "icons": [
         "thaumcraft:textures/items/cluster_quartz.png"
       ],
-      "category": "CR",
+      "category": "REVELATIONS",
       "parents": [
         "ORDERED_DECONSTRUCTION",
         "~METALPURIFICATION",
