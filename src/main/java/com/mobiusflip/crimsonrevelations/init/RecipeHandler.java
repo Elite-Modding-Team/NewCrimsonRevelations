@@ -162,7 +162,7 @@ public class RecipeHandler {
                 new InfusionRecipe("CRIMSON_BLADE", new ItemStack(ItemsTC.crimsonBlade), 7,
                         new AspectList().add(Aspect.AVERSION, 75).add(Aspect.DEATH, 75).add(Aspect.TRAP, 25).add(Aspect.DESIRE, 25),
                         new ItemStack(ItemsTC.voidSword), new Object[]{
-                        ThaumcraftApiHelper.makeCrystal(Aspect.AVERSION), ThaumcraftApiHelper.makeCrystal(Aspect.DEATH), "plateVoid", BlocksTC.bannerCrimsonCult
+                        ThaumcraftApiHelper.makeCrystal(Aspect.AVERSION), ThaumcraftApiHelper.makeCrystal(Aspect.DEATH), "plateVoid", "plateVoid", RegistryHandler.crimsonFabric, RegistryHandler.crimsonFabric
                 }
                 ));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation("crimsonrevelations", "praetor_helm"),
