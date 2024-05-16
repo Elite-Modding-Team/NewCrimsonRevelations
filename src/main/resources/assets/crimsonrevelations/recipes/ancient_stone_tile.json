@@ -1,0 +1,11 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumcraft:stone_ancient"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:stone_ancient_tile"
+  }
+}

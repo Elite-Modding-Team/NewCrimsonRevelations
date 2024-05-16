@@ -62,7 +62,7 @@
           "text": "crimsonrevelations.research.ANCIENT_STONE.text.stage.2",
           "recipes": [
             "crimsonrevelations:ancientstone",
-            "crimsonrevelations:ancientstonetile",
+            "crimsonrevelations:ancient_stone_tile",
             "crimsonrevelations:glyphstone"
           ]
         }
