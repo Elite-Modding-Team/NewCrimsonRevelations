@@ -1,5 +1,5 @@
 # Crimson Revelations
-Extra recipes for difficult or unobtainable Thaumcraft materials.
+Discover what lies within the Crimson Cult!
 
 
 
