@@ -209,7 +209,7 @@
       "key": "ERYTHURGY",
       "name": "crimsonrevelations.research.ERYTHURGY.title",
       "icons": [
-        "thaumcraft:textures/research/r_eldritchminor.png"
+        "thaumcraft:textures/research/r_enchant.png"
       ],
       "category": "REVELATIONS",
       "parents": [
