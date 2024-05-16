@@ -16,6 +16,7 @@ import thaumcraft.api.items.ItemsTC;
 
 public class RecipeHandler {
     public static void initArcaneCrafting() {
+    	// defaultGroup is meant for recipe books and is not really needed here.
         ResourceLocation defaultGroup = new ResourceLocation("");
 
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("crimsonrevelations", "crimsonbanner"), new ShapedArcaneRecipe(
