@@ -13,13 +13,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -27,7 +24,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
-import thaumcraft.Thaumcraft;
 
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = CrimsonRevelations.MODID)
@@ -51,14 +47,6 @@ public class RegistryHandler {
         RecipeHandler.initArcaneCrafting();
         RecipeHandler.initCrucible();
         RecipeHandler.initInfusion();
-    }
-
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onLootTableLoad(LootTableLoadEvent event) {
-        if (event.getName().equals(new ResourceLocation(Thaumcraft.MODID, "cultist"))) {
-            LootTable lootCultist = event.getLootTableManager().getLootTableFromLocation(LootTableHandler.CULTIST);
-            event.getTable().addPool(lootCultist.getPool("crimson_material"));
-        }
     }
 
     @SubscribeEvent

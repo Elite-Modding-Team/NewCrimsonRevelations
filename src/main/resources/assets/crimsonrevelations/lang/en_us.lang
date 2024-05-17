@@ -37,3 +37,11 @@ crimsonrevelations.research.ORDERED_DECONSTRUCTION.text.stage.1=While many simpl
 crimsonrevelations.research.QUARTZ_PURIFICATION.title=Quartz Purification
 crimsonrevelations.research.QUARTZ_PURIFICATION.text.stage.1=With my new knowledge of Ordo, it may be time to return to one of my earlier attempts with alchemy: native metal clusters. My experiments with most metals were successful, but although I know native quartz clusters can form, I haven't been able to recreate them in the same way. Perhaps examining other native clusters can provide me with some insight.
 crimsonrevelations.research.QUARTZ_PURIFICATION.text.stage.2=The key insight proved deceptively simple: quartz is not a metal, and the Metallum usually present in my purifications must be replaced with Vitreus to account for its crystalline nature. The raw Ordo must be shaped slightly differently as well, but that proved to be trivial with the knowledge gained from studying erythurgy.<BR>Admittedly, the existence of the Fortune enchantment might make this process a bit underwhelming. Still, as a test of my abilities, it was quite interesting.
+
+crimsonrevelations.research.FOCUS_POISON.title=Focus Effect: Poison
+crimsonrevelations.research.FOCUS_POISON.stage.0=The poison inflicted from this blast of noxious goo lasts twice as long when compared to other effects.<BR>I must be wary however that a fair amount of monsters are resistant to being poisoned, such as the undead, spiders, and other rather fearsome opponents.
+
+focus.crimsonrevelations.poison.name=Poison
+focus.crimsonrevelations.poison.text=Summons a blob of goo at your target and poisons it for double the usual duration.
+
+focus.common.double_duration=Duration (two seconds)

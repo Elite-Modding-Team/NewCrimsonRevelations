@@ -20,7 +20,6 @@ public class CrimsonRevelations {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        event.getModLog();
     }
 
     @EventHandler

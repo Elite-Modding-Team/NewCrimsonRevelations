@@ -355,6 +355,33 @@
           ]
         }
       ]
+    },
+    {
+      "key": "FOCUS_POISON",
+      "name": "crimsonrevelations.research.FOCUS_POISON.title",
+      "icons": [
+        "focus:focus.crimsonrevelations.poison"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS",
+        "FOCUSELEMENTAL"
+      ],
+      "location": [
+        0,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.FOCUS_POISON.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_research": [
+            "!alkimia"
+          ]
+        }
+      ]
     }
   ]
 }
