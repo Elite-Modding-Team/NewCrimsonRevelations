@@ -110,7 +110,7 @@ dependencies {
     // Example of deobfuscating a dependency
     // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
     implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')
-    implementation 'curse.maven:thaumic-augmentation-319441:5129458'
+    implementation rfg.deobf('curse.maven:thaumic-augmentation-319441:5129455')
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
