@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import com.mobiusflip.crimsonrevelations.compat.CompatHandler;
 import com.mobiusflip.crimsonrevelations.init.CRCreativeTabs;
 import com.mobiusflip.crimsonrevelations.init.ResearchHandler;
 
@@ -24,11 +25,11 @@ public class CrimsonRevelations {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	ResearchHandler.init();
+        ResearchHandler.init();
     }
 
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-
+        CompatHandler.init();
     }
 }
