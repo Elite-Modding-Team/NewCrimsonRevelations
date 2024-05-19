@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "key": "!OVERGROWN_TAINTACLE",
+      "name": "crimsonrevelations.research.OVERGROWN_TAINTACLE.title",
+      "icons": [
+        "crimsonrevelations:textures/research/r_overgrown_taintacle.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "location": [
+        -1,
+        -1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.OVERGROWN_TAINTACLE.stage.0"
+        }
+      ]
+    }
+  ]
+}

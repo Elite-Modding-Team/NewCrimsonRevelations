@@ -4,11 +4,13 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
 import com.mobiusflip.crimsonrevelations.CrimsonRevelations;
+import com.mobiusflip.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
@@ -18,12 +20,19 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectEventProxy;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.aspects.AspectRegistryEvent;
 
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = CrimsonRevelations.MODID)
@@ -47,6 +56,28 @@ public class RegistryHandler {
         RecipeHandler.initArcaneCrafting();
         RecipeHandler.initCrucible();
         RecipeHandler.initInfusion();
+    }
+
+    @SubscribeEvent
+    public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
+        int id = 0;
+
+        entityRegistryHelper("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
+    }
+
+    @SubscribeEvent
+    public static void registerAspects(AspectRegistryEvent event) {
+        ThaumcraftApi.registerEntityTag(CrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
+    }
+
+    public static void entityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2) {
+        EntityRegistry.registerModEntity(new ResourceLocation(CrimsonRevelations.MODID, name), clazz, CrimsonRevelations.MODID + "." + name, id, CrimsonRevelations.instance, trackingRange,
+                updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
+    }
+
+    public static void egglessEntityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates) {
+        EntityRegistry.registerModEntity(new ResourceLocation(CrimsonRevelations.MODID, name), clazz, CrimsonRevelations.MODID + "." + name, id, CrimsonRevelations.instance, trackingRange,
+                updateFrequency, sendVelocityUpdates);
     }
 
     @SubscribeEvent

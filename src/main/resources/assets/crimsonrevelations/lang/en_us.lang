@@ -1,5 +1,7 @@
 itemGroup.CrimsonRevelationsTab=New Crimson Revelations
 
+entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
+
 item.crimsonrevelations.crimson_fabric.name=Crimson Fabric
 item.crimsonrevelations.crimson_plate.name=Crimson Plate
 
@@ -40,6 +42,9 @@ crimsonrevelations.research.QUARTZ_PURIFICATION.text.stage.2=The key insight pro
 
 crimsonrevelations.research.FOCUS_POISON.title=Focus Effect: Poison
 crimsonrevelations.research.FOCUS_POISON.stage.0=The poison inflicted from this blast of noxious goo lasts twice as long when compared to other effects.<BR>I must be wary however that a fair amount of monsters are resistant to being poisoned, such as the undead, spiders, and other rather fearsome opponents.
+
+crimsonrevelations.research.OVERGROWN_TAINTACLE.title=Overgrown Taintacle
+crimsonrevelations.research.OVERGROWN_TAINTACLE.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
 focus.crimsonrevelations.poison.name=Poison
 focus.crimsonrevelations.poison.text=Summons a blob of goo at your target and poisons it for double the usual duration.

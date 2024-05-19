@@ -367,10 +367,14 @@
         "CRIMSON_REVELATIONS",
         "FOCUSELEMENTAL"
       ],
+      "siblings": [],
+      "meta": [],
       "location": [
         0,
         -2
       ],
+      "reward_item": [],
+      "reward_knowledge": [],
       "stages": [
         {
           "text": "crimsonrevelations.research.FOCUS_POISON.stage.0",

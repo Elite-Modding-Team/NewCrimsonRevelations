@@ -13,7 +13,10 @@ import thaumcraft.Thaumcraft;
 @EventBusSubscriber(modid = CrimsonRevelations.MODID)
 public class LootTableHandler {
     public static final ResourceLocation CULTIST = new ResourceLocation(CrimsonRevelations.MODID, ("entities/cultist"));
-    
+
+    // Bosses
+    public static final ResourceLocation OVERGROWN_TAINTACLE = new ResourceLocation(CrimsonRevelations.MODID, ("entities/boss/overgrown_taintacle"));
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onLootTableLoad(LootTableLoadEvent event) {
         if (event.getName().equals(new ResourceLocation(Thaumcraft.MODID, "cultist"))) {

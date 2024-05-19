@@ -16,7 +16,7 @@ import thaumcraft.api.items.ItemsTC;
 
 public class RecipeHandler {
     public static void initArcaneCrafting() {
-    	// defaultGroup is meant for recipe books and is not really needed here.
+        // defaultGroup is meant for recipe books and is not really needed here.
         ResourceLocation defaultGroup = new ResourceLocation("");
 
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("crimsonrevelations", "crimsonbanner"), new ShapedArcaneRecipe(
@@ -144,7 +144,7 @@ public class RecipeHandler {
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "orderquartz"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Items.QUARTZ, 4, 0), "blockQuartz", new AspectList().add(Aspect.ORDER, 25)));
-        
+
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("crimsonrevelations", "ordersandstone"),
                 new CrucibleRecipe("ORDERED_DECONSTRUCTION", new ItemStack(Blocks.SAND, 4, 0), "sandstone", new AspectList().add(Aspect.ORDER, 25)));
 

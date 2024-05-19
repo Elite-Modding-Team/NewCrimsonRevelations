@@ -88,8 +88,8 @@ public class FocusEffectPoison extends FocusEffect {
         pp.setGravity(-0.2F);
         pp.setMaxAge(7 + world.rand.nextInt(5));
         pp.setAlphaF(0.7F);
-        pp.setSlowDown(0.75);
-        pp.setScale(new float[]{(float)(0.1F + world.rand.nextGaussian() * 0.2F), 2.0F});
+        pp.setSlowDown(0.75D);
+        pp.setScale(new float[]{(float) (0.1F + world.rand.nextGaussian() * 0.2F), 2.0F});
         pp.setParticles(575, 8, 8);
         pp.setRBGColorF(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
         ParticleEngine.addEffect(world, pp);
