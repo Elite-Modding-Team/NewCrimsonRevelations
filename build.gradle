@@ -125,7 +125,6 @@ dependencies {
             transitive = false
         }
     }
-
 }
 
 // Adds Access Transformer files to tasks
