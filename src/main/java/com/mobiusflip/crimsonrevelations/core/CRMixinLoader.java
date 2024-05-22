@@ -20,7 +20,7 @@ public class CRMixinLoader implements ILateMixinLoader {
 
     private static final Map<String, Supplier<Boolean>> commonMixinConfigs = ImmutableMap.copyOf(new HashMap<String, Supplier<Boolean>>() {
         {
-
+        	put("mixins.crimsonrevelations.json", () -> true);
         }
     });
 
