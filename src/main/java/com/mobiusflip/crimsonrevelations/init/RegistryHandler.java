@@ -51,7 +51,7 @@ public class RegistryHandler {
     @GameRegistry.ObjectHolder("crimson_sword")
     public static Item crimsonSword;
 
-    static ToolMaterial TOOL_CULTIST = EnumHelper.addToolMaterial("CULTIST", 3, 371, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(crimsonPlate));
+    static ToolMaterial TOOL_CULTIST = EnumHelper.addToolMaterial("CULTIST", 3, 321, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(crimsonPlate));
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
