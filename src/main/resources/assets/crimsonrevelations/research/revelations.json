@@ -80,7 +80,9 @@
         "BASEARTIFICE",
         "METALLURGY"
       ],
-      "siblings": [],
+      "siblings": [
+        "CRIMSON_SWORD"
+      ],
       "meta": [],
       "location": [
         2,
@@ -112,6 +114,33 @@
             "crimsonrevelations:crimson_hood",
             "crimsonrevelations:crimson_robes",
             "crimsonrevelations:crimson_leggings"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRIMSON_SWORD",
+      "name": "crimsonrevelations.research.CRIMSON_SWORD.title",
+      "icons": [
+        "crimsonrevelations:crimson_sword"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_ARMOR"
+      ],
+      "siblings": [],
+      "meta": [],
+      "location": [
+        3,
+        -2
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.CRIMSON_SWORD.text.stage.1",
+          "recipes": [
+            "crimsonrevelations:crimson_sword"
           ]
         }
       ]

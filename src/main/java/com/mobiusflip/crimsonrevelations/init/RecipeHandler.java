@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
@@ -104,6 +105,16 @@ public class RecipeHandler {
                 "F F",
                 "P P",
                 'P', RegistryHandler.crimsonPlate, 'F', RegistryHandler.crimsonFabric
+        }
+        ));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("crimsonrevelations", "crimson_sword"), new ShapedArcaneRecipe(
+                defaultGroup, "CRIMSON_SWORD", 50,
+                new AspectList(),
+                new ItemStack(RegistryHandler.crimsonSword), new Object[]{
+                "EPE",
+                "EIE",
+                "EPE",
+                'P', RegistryHandler.crimsonPlate, 'I', new ItemStack(Items.IRON_SWORD, 1, OreDictionary.WILDCARD_VALUE), 'E', Items.SPIDER_EYE
         }
         ));
     }
