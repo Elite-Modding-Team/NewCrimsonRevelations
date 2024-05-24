@@ -5,18 +5,24 @@ import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.mobiusflip.crimsonrevelations.CrimsonRevelations;
 import com.mobiusflip.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
+import com.mobiusflip.crimsonrevelations.item.ItemCR;
+import com.mobiusflip.crimsonrevelations.item.ItemCRSword;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -42,12 +48,17 @@ public class RegistryHandler {
     public static Item crimsonFabric;
     @GameRegistry.ObjectHolder("crimson_plate")
     public static Item crimsonPlate;
+    @GameRegistry.ObjectHolder("crimson_sword")
+    public static Item crimsonSword;
+
+    static ToolMaterial TOOL_CULTIST = EnumHelper.addToolMaterial("CULTIST", 3, 371, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(crimsonPlate));
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                setup(new Item(), "crimson_fabric"),
-                setup(new Item(), "crimson_plate")
+                setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_fabric"),
+                setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_plate"),
+                setup(new ItemCRSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword")
         );
     }
 

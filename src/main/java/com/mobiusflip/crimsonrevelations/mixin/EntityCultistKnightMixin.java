@@ -5,9 +5,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.init.Items;
+import com.mobiusflip.crimsonrevelations.init.RegistryHandler;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import thaumcraft.api.items.ItemsTC;
@@ -45,7 +50,19 @@ public class EntityCultistKnightMixin extends EntityCultist {
                 this.setItemStackToSlot(EntityEquipmentSlot.HEAD, ItemStack.EMPTY);
             }
         } else {
-            this.setHeldItem(this.getActiveHand(), new ItemStack(Items.IRON_SWORD));
+            this.setHeldItem(this.getActiveHand(), new ItemStack(RegistryHandler.crimsonSword));
         }
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn) {
+        boolean flag = super.attackEntityAsMob(entityIn);
+
+        // Poison while cultist sword is equipped
+        if (flag && this.getHeldItemMainhand().getItem() == RegistryHandler.crimsonSword && entityIn instanceof EntityLivingBase) {
+            ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.POISON, 6 * 20, 1));
+        }
+
+        return flag;
     }
 }
