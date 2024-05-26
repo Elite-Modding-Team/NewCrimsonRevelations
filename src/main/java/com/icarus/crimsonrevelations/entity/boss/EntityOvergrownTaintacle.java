@@ -110,6 +110,11 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
     }
 
     @Override
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
+
+    @Override
     public boolean canBreatheUnderwater() {
         return true;
     }
@@ -135,6 +140,7 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
         return super.onInitialSpawn(diff, data);
     }
 
+    @Override
     public boolean isNonBoss() {
         return false;
     }

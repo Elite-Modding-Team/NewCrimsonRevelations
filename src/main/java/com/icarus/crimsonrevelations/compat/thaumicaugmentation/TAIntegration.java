@@ -1,5 +1,7 @@
 package com.icarus.crimsonrevelations.compat.thaumicaugmentation;
 
+import com.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
+
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import thaumcraft.common.entities.monster.tainted.EntityTaintSeed;
@@ -12,5 +14,8 @@ public class TAIntegration {
         // Extra taint mobs
         EntityRegistry.addSpawn(EntityTaintSeed.class, 20, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
         EntityRegistry.addSpawn(EntityTaintSwarm.class, 10, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
+
+        // Boss
+        EntityRegistry.addSpawn(EntityOvergrownTaintacle.class, 1, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
     }
 }
