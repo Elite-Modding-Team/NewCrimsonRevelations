@@ -25,23 +25,11 @@
           "type": "item",
           "name": "thaumcraft:primordial_pearl",
           "entryName": "pearl_very_damaged",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": 0.125
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "thaumcraft:primordial_pearl",
-          "entryName": "pearl_damaged",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_damage",
-              "damage": 0.25
+              "damage": 0.1
             }
           ]
         }

@@ -57,6 +57,7 @@
           ],
           "required_research": [
             "!OVERGROWN_TAINTACLE",
+            "!TaintSwarm",
             "!vitium",
             "!alienis"
           ]
