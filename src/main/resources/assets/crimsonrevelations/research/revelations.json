@@ -411,7 +411,8 @@
             "OBSERVATION;AUROMANCY;1"
           ],
           "required_research": [
-            "!alkimia"
+            "!alkimia",
+            "!mortuus"
           ]
         }
       ]

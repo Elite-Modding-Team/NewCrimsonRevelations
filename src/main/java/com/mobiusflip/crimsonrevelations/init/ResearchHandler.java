@@ -3,6 +3,7 @@ package com.mobiusflip.crimsonrevelations.init;
 import com.mobiusflip.crimsonrevelations.CrimsonRevelations;
 import com.mobiusflip.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import com.mobiusflip.crimsonrevelations.item.foci.FocusEffectPoison;
+import com.mobiusflip.crimsonrevelations.item.foci.FocusEffectTaintPoison;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
@@ -18,6 +19,8 @@ public class ResearchHandler {
     public static void init() {
         // Focus Effects
         FocusEngine.registerElement(FocusEffectPoison.class, new ResourceLocation(CrimsonRevelations.MODID, "textures/foci/poison.png"), 9039872);
+        if (Loader.isModLoaded("thaumicaugmentation"))
+            FocusEngine.registerElement(FocusEffectTaintPoison.class, new ResourceLocation(CrimsonRevelations.MODID, "textures/foci/taint_poison.png"), 10354925);
 
         // Research Categories
         ResearchCategories.registerCategory("REVELATIONS", "CrimsonRites", new AspectList(), new ResourceLocation(Thaumcraft.MODID, "textures/items/crimson_rites.png"), new ResourceLocation(CrimsonRevelations.MODID, "textures/gui/research_background.jpg"), new ResourceLocation(Thaumcraft.MODID, "textures/gui/gui_research_back_over.png"));
