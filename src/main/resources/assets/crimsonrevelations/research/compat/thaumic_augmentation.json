@@ -2,7 +2,7 @@
   "entries": [
     {
       "key": "!OVERGROWN_TAINTACLE",
-      "name": "crimsonrevelations.research.OVERGROWN_TAINTACLE.title",
+      "name": "crimsonrevelations.research.overgrown_taintacle.title",
       "icons": [
         "crimsonrevelations:textures/research/r_overgrown_taintacle.png"
       ],
@@ -21,21 +21,21 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.OVERGROWN_TAINTACLE.stage.0"
+          "text": "crimsonrevelations.research.overgrown_taintacle.stage.0"
         }
       ]
     },
     {
       "key": "FOCUS_TAINT_POISON",
-      "name": "crimsonrevelations.research.FOCUS_TAINT_POISON.title",
+      "name": "crimsonrevelations.research.focus_taint_poison.title",
       "icons": [
         "focus:focus.crimsonrevelations.taint_poison"
       ],
       "category": "REVELATIONS",
       "parents": [
-        "FOCUSCURSE",
         "FOCUS_POISON",
-        "!OVERGROWN_TAINTACLE"
+        "!OVERGROWN_TAINTACLE",
+        "~FOCUSCURSE"
       ],
       "siblings": [],
       "meta": [],
@@ -47,7 +47,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.FOCUS_TAINT_POISON.stage.0",
+          "text": "crimsonrevelations.research.focus_taint_poison.stage.0",
           "required_knowledge": [
             "THEORY;ELDRITCH;2",
             "THEORY;AUROMANCY;2"
