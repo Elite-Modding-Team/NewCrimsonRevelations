@@ -19,10 +19,10 @@ public class CompatHandler {
     }
 
     public static void init() {
-        if (Loader.isModLoaded("thaumicaugmentation")) TAIntegration.init();
         //if (Loader.isModLoaded("jeresources")) JERIntegration.init();
     }
 
     public static void postInit() {
+        if (Loader.isModLoaded("thaumicaugmentation")) TAIntegration.postInit();
     }
 }

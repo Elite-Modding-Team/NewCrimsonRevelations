@@ -10,12 +10,12 @@ import thecodex6824.thaumicaugmentation.api.world.TABiomes;
 
 // TODO: Make it all configurable
 public class TAIntegration {
-    public static void init() {
+    public static void postInit() {
         // Extra taint mobs
         EntityRegistry.addSpawn(EntityTaintSeed.class, 20, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
-        EntityRegistry.addSpawn(EntityTaintSwarm.class, 10, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
+        EntityRegistry.addSpawn(EntityTaintSwarm.class, 20, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
 
         // Boss
-        EntityRegistry.addSpawn(EntityOvergrownTaintacle.class, 1, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
+        EntityRegistry.addSpawn(EntityOvergrownTaintacle.class, 2, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
     }
 }

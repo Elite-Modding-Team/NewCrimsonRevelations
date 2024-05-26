@@ -30,11 +30,11 @@ public class CrimsonRevelations {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        CompatHandler.init();
         ResearchHandler.init();
     }
 
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
+        CompatHandler.postInit();
     }
 }
