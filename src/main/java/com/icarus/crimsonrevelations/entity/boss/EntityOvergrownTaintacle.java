@@ -9,8 +9,10 @@ import com.icarus.crimsonrevelations.init.LootTableHandler;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.DifficultyInstance;
@@ -18,11 +20,13 @@ import net.minecraft.world.World;
 import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.entities.ITaintedMob;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.entities.monster.mods.ChampionModifier;
 import thaumcraft.common.entities.monster.tainted.EntityTaintacle;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.utils.EntityUtils;
+import thecodex6824.thaumicaugmentation.common.entity.EntityItemImportant;
 
 public class EntityOvergrownTaintacle extends EntityTaintacle implements ITaintedMob {
     protected final BossInfoServer bossInfo;
@@ -172,5 +176,33 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
     @Nullable
     protected ResourceLocation getLootTable() {
         return LootTableHandler.OVERGROWN_TAINTACLE;
+    }
+
+    @Override
+    @Nullable
+    public EntityItem entityDropItem(ItemStack stack, float offsetY) {
+        if (stack.isEmpty()) {
+            return null;
+        } else {
+            EntityItem entity = null;
+            if (stack.getItem() == ItemsTC.primordialPearl) {
+                entity = new EntityItemImportant(world, posX, posY + offsetY, posZ, stack);
+                entity.motionX = 0.0;
+                entity.motionY = 0.1;
+                entity.motionZ = 0.0;
+            } else {
+                entity = new EntityItem(world, posX, posY + offsetY, posZ, stack);
+            }
+
+            entity.setDefaultPickupDelay();
+            entity.setNoDespawn();
+            if (captureDrops) {
+                capturedDrops.add(entity);
+            } else {
+                world.spawnEntity(entity);
+            }
+
+            return entity;
+        }
     }
 }
