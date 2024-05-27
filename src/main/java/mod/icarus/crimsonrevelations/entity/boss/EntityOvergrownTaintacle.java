@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.entity.boss;
 
+import mod.icarus.crimsonrevelations.core.CRConfig;
 import mod.icarus.crimsonrevelations.init.LootTableHandler;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -54,13 +55,13 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
     @Override
     public void removeTrackingPlayer(final EntityPlayerMP player) {
         super.removeTrackingPlayer(player);
-        this.bossInfo.removePlayer(player);
+        if (CRConfig.TA_integration_settings.OVERGROWN_TAINTACLE_BOSS_BAR) this.bossInfo.removePlayer(player);
     }
 
     @Override
     public void addTrackingPlayer(final EntityPlayerMP player) {
         super.addTrackingPlayer(player);
-        this.bossInfo.addPlayer(player);
+        if (CRConfig.TA_integration_settings.OVERGROWN_TAINTACLE_BOSS_BAR) this.bossInfo.addPlayer(player);
     }
 
     // Fixes it spawning with lower health
