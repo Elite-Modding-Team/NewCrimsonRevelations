@@ -111,6 +111,8 @@ dependencies {
     // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
     implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')
     implementation rfg.deobf('curse.maven:thaumic-augmentation-319441:5129455')
+    implementation 'curse.maven:just-enough-resources-jer-240630:4440936'
+    runtimeOnly 'curse.maven:jei-238222:4538010'
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:

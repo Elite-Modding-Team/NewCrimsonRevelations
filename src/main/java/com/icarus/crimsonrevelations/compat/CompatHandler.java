@@ -1,6 +1,7 @@
 package com.icarus.crimsonrevelations.compat;
 
 import com.icarus.crimsonrevelations.CrimsonRevelations;
+import com.icarus.crimsonrevelations.compat.jer.JERIntegration;
 import com.icarus.crimsonrevelations.compat.thaumicaugmentation.TAIntegration;
 import com.icarus.crimsonrevelations.core.CRConfig;
 
@@ -20,10 +21,12 @@ public class CompatHandler {
     }
 
     public static void init() {
-        //if (Loader.isModLoaded("jeresources")) JERIntegration.init();
+        if (Loader.isModLoaded("jeresources") && CRConfig.general_settings.JER_INTEGRATION)
+            JERIntegration.init();
     }
 
     public static void postInit() {
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION) TAIntegration.postInit();
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
+            TAIntegration.postInit();
     }
 }

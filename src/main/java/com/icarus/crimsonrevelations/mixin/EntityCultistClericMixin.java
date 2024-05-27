@@ -17,11 +17,6 @@ import thaumcraft.common.entities.monster.cult.EntityCultistCleric;
 public class EntityCultistClericMixin extends EntityCultist {
     public EntityCultistClericMixin(World world) {
         super(world);
-        this.setDropChance(EntityEquipmentSlot.CHEST, 0.025F);
-        this.setDropChance(EntityEquipmentSlot.FEET, 0.025F);
-        this.setDropChance(EntityEquipmentSlot.HEAD, 0.025F);
-        this.setDropChance(EntityEquipmentSlot.LEGS, 0.025F);
-        this.setDropChance(EntityEquipmentSlot.MAINHAND, -1.0F);
     }
 
     // Replaces the original equip event with ours

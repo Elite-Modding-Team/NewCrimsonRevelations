@@ -17,8 +17,13 @@ public class CRConfig {
     public static TAIntegrationSettings TA_integration_settings = new TAIntegrationSettings();
 
     public static class GeneralSettings {
+        @Config.Name("Just Enough Resources Integration")
+        @Config.Comment("Enables Just Enough Resources integration [default: true]")
+        @Config.RequiresMcRestart
+        public boolean JER_INTEGRATION = true;
+
         @Config.Name("Thaumic Augmentation Integration")
-        @Config.Comment("Enables integration of new content while Thaumic Augmentation is installed [default: true]")
+        @Config.Comment("Enables Thaumic Augmentation integration [default: true]")
         @Config.RequiresMcRestart
         public boolean TA_INTEGRATION = true;
     }
