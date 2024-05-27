@@ -56,7 +56,6 @@
             "thaumcraft:void_seed;8"
           ],
           "required_research": [
-            "!OVERGROWN_TAINTACLE",
             "!TaintSwarm",
             "!vitium",
             "!alienis"

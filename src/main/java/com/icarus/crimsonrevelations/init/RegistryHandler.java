@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
 import com.icarus.crimsonrevelations.CrimsonRevelations;
+import com.icarus.crimsonrevelations.core.CRConfig;
 import com.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import com.icarus.crimsonrevelations.item.ItemCR;
 import com.icarus.crimsonrevelations.item.ItemCRSword;
@@ -73,13 +74,13 @@ public class RegistryHandler {
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         int id = 0;
 
-        if (Loader.isModLoaded("thaumicaugmentation"))
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
             entityRegistryHelper("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
     }
 
     @SubscribeEvent
     public static void registerAspects(AspectRegistryEvent event) {
-        if (Loader.isModLoaded("thaumicaugmentation"))
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
             ThaumcraftApi.registerEntityTag(CrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
     }
 

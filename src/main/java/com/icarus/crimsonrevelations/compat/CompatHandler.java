@@ -2,6 +2,7 @@ package com.icarus.crimsonrevelations.compat;
 
 import com.icarus.crimsonrevelations.CrimsonRevelations;
 import com.icarus.crimsonrevelations.compat.thaumicaugmentation.TAIntegration;
+import com.icarus.crimsonrevelations.core.CRConfig;
 
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
@@ -23,6 +24,6 @@ public class CompatHandler {
     }
 
     public static void postInit() {
-        if (Loader.isModLoaded("thaumicaugmentation")) TAIntegration.postInit();
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_Integration) TAIntegration.postInit();
     }
 }
