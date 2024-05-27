@@ -24,6 +24,6 @@ public class CompatHandler {
     }
 
     public static void postInit() {
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_Integration) TAIntegration.postInit();
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION) TAIntegration.postInit();
     }
 }
