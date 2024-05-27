@@ -1,5 +1,5 @@
 {
-  "package": "com.icarus.crimsonrevelations.mixin",
+  "package": "mod.icarus.crimsonrevelations.mixin",
   "refmap": "crimsonrevelations.refmap.json",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
