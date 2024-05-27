@@ -18,8 +18,7 @@ public class JERIntegration {
         World jerWorld = jerApi.getWorld();
 
         // TODO: Add spawn biomes?
-        // Lesser Crimson Portals should display 40 experience rather than 10 experience
-        jerMobRegistry.register(new EntityCultistPortalLesser(jerWorld), LightLevel.any, LootTableHandler.LESSER_CULTIST_PORTAL);
+        jerMobRegistry.register(new EntityCultistPortalLesser(jerWorld), LightLevel.any, 40, LootTableHandler.LESSER_CULTIST_PORTAL);
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
             jerMobRegistry.register(new EntityOvergrownTaintacle(jerWorld), LightLevel.any, LootTableHandler.OVERGROWN_TAINTACLE);
     }
