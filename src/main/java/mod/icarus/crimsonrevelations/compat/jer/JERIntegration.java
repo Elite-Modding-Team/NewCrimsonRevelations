@@ -17,9 +17,8 @@ public class JERIntegration {
         IMobRegistry jerMobRegistry = jerApi.getMobRegistry();
         World jerWorld = jerApi.getWorld();
 
-        // TODO: Add spawn biomes?
         jerMobRegistry.register(new EntityCultistPortalLesser(jerWorld), LightLevel.any, 40, LootTableHandler.LESSER_CULTIST_PORTAL);
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
-            jerMobRegistry.register(new EntityOvergrownTaintacle(jerWorld), LightLevel.any, LootTableHandler.OVERGROWN_TAINTACLE);
+            jerMobRegistry.register(new EntityOvergrownTaintacle(jerWorld), LightLevel.any, new String[] {"Tainted Lands"}, LootTableHandler.OVERGROWN_TAINTACLE);
     }
 }
