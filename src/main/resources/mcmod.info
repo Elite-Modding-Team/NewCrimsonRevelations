@@ -1,7 +1,7 @@
 [
   {
     "modid": "crimsonrevelations",
-    "name": "Crimson Revelations",
+    "name": "New Crimson Revelations",
     "description": "A Thaumcraft addon that allows you to research more about the Crimson Cult.",
     "version": "${version}",
     "mcversion": "${mcversion}",
