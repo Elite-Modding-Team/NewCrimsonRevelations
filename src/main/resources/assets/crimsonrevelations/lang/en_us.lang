@@ -2,6 +2,9 @@ itemGroup.CrimsonRevelationsTab=New Crimson Revelations
 
 entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
 
+item.crimsonrevelations.crimson_archer_helmet.name=Crimson Archer Helm
+item.crimsonrevelations.crimson_archer_chestplate.name=Crimson Archer Chestplate
+item.crimsonrevelations.crimson_archer_leggings.name=Crimson Archer Leggings
 item.crimsonrevelations.crimson_fabric.name=Crimson Fabric
 item.crimsonrevelations.crimson_plate.name=Crimson Plate
 item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
@@ -53,6 +56,8 @@ crimsonrevelations.research.focus_taint_poison.stage.0=Taint Poison is much more
 crimsonrevelations.research.overgrown_taintacle.title=Overgrown Taintacle
 crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
+crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
+
 focus.crimsonrevelations.poison.name=Poison
 focus.crimsonrevelations.poison.text=Summons a blob of goo at your target and poisons it for double the usual duration.
 
@@ -60,3 +65,5 @@ focus.crimsonrevelations.taint_poison.name=Taint Poison
 focus.crimsonrevelations.taint_poison.text=Unleashes a glob of infectious taint at your target and poisons it for double the usual duration. Vulnerable targets can become corrupted with taint.
 
 focus.common.double_duration=Duration (two seconds)
+
+research.m_OVERGROWN_TAINTACLE.text=Eliminate an Overgrown Taintacle.
