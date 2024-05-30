@@ -3,6 +3,7 @@ package mod.icarus.crimsonrevelations.init;
 import com.google.common.base.Preconditions;
 import mod.icarus.crimsonrevelations.CrimsonRevelations;
 import mod.icarus.crimsonrevelations.core.CRConfig;
+import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.item.ItemCR;
 import mod.icarus.crimsonrevelations.item.ItemCRSword;
@@ -49,6 +50,14 @@ import javax.annotation.Nonnull;
 @EventBusSubscriber(modid = CrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(CrimsonRevelations.MODID)
 public class RegistryHandler {
+    @GameRegistry.ObjectHolder("bone_bow")
+    public static Item boneBow;
+    @GameRegistry.ObjectHolder("crimson_archer_helmet")
+    public static Item crimsonArcherHelmet;
+    @GameRegistry.ObjectHolder("crimson_archer_chestplate")
+    public static Item crimsonArcherChestplate;
+    @GameRegistry.ObjectHolder("crimson_archer_leggings")
+    public static Item crimsonArcherLeggings;
     @GameRegistry.ObjectHolder("crimson_fabric")
     public static Item crimsonFabric;
     @GameRegistry.ObjectHolder("crimson_plate")
@@ -85,6 +94,8 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         int id = 0;
+
+        entityRegistryHelper("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
             entityRegistryHelper("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
