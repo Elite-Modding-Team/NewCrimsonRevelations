@@ -10,7 +10,7 @@ import net.minecraft.item.crafting.Ingredient;
 public class ItemBoneBow extends ItemCRBow {
     public ItemBoneBow() {
         // Durability, Damage Multiplier, Velocity Multiplier, Draw Time Multipler, Inaccuracy, Rarity, Repair Material
-        super(512, 1.5F, 1.5F, 0.8F, 0.8F, EnumRarity.UNCOMMON, Ingredient.fromStacks(new ItemStack(Items.BONE)));
+        super(512, 1.5F, 1.5F, 0.8F, 0.8F, EnumRarity.RARE, Ingredient.fromStacks(new ItemStack(Items.BONE)));
     }
 
     @Override
