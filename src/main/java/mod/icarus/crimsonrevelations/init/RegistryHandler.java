@@ -7,7 +7,7 @@ import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.item.ItemCR;
 import mod.icarus.crimsonrevelations.item.ItemCRSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
-
+import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -69,7 +69,9 @@ public class RegistryHandler {
 
                 setup(new ItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 setup(new ItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings")
+                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
+
+                setup(new ItemBoneBow(), "bone_bow")
         );
     }
 
