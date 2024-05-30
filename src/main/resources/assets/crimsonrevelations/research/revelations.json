@@ -25,7 +25,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.crimson_revelations.text.stage.0",
+          "text": "crimsonrevelations.research.crimson_revelations.stage.0",
           "recipes": [
             "crimsonrevelations:crimsonbanner"
           ]
@@ -52,14 +52,14 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.ancient_stone.text.stage.0",
+          "text": "crimsonrevelations.research.ancient_stone.stage.0",
           "required_knowledge": [
             "THEORY;ALCHEMY;1",
             "OBSERVATION;ELDRITCH;2"
           ]
         },
         {
-          "text": "crimsonrevelations.research.ancient_stone.text.stage.1",
+          "text": "crimsonrevelations.research.ancient_stone.stage.1",
           "recipes": [
             "crimsonrevelations:ancientstone",
             "crimsonrevelations:ancient_stone_tile",
@@ -92,7 +92,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.crimson_armor.text.stage.0",
+          "text": "crimsonrevelations.research.crimson_armor.stage.0",
           "required_knowledge": [
             "THEORY;ARTIFICE;1"
           ],
@@ -105,7 +105,7 @@
           ]
         },
         {
-          "text": "crimsonrevelations.research.crimson_armor.text.stage.1",
+          "text": "crimsonrevelations.research.crimson_armor.stage.1",
           "recipes": [
             "crimsonrevelations:crimson_helm",
             "crimsonrevelations:crimson_chestplate",
@@ -138,7 +138,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.crimson_sword.text.stage.0",
+          "text": "crimsonrevelations.research.crimson_sword.stage.0",
           "recipes": [
             "crimsonrevelations:crimson_sword"
           ]
@@ -167,7 +167,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.crimson_blade.text.stage.0",
+          "text": "crimsonrevelations.research.crimson_blade.stage.0",
           "required_knowledge": [
             "THEORY;INFUSION;1",
             "THEORY;ELDRITCH;1"
@@ -181,7 +181,7 @@
           ]
         },
         {
-          "text": "crimsonrevelations.research.crimson_blade.text.stage.1",
+          "text": "crimsonrevelations.research.crimson_blade.stage.1",
           "recipes": [
             "crimsonrevelations:crimsonblade"
           ],
@@ -213,7 +213,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.praetor_armor.text.stage.0",
+          "text": "crimsonrevelations.research.praetor_armor.stage.0",
           "required_knowledge": [
             "THEORY;INFUSION;1",
             "OBSERVATION;INFUSION;1"
@@ -225,7 +225,7 @@
           ]
         },
         {
-          "text": "crimsonrevelations.research.praetor_armor.text.stage.1",
+          "text": "crimsonrevelations.research.praetor_armor.stage.1",
           "recipes": [
             "crimsonrevelations:praetor_helm",
             "crimsonrevelations:praetor_chestplate",
@@ -260,7 +260,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.erythurgy.text.stage.0",
+          "text": "crimsonrevelations.research.erythurgy.stage.0",
           "required_knowledge": [
             "THEORY;ALCHEMY;1",
             "OBSERVATION;BASICS;2"
@@ -275,7 +275,7 @@
           ]
         },
         {
-          "text": "crimsonrevelations.research.erythurgy.text.stage.1"
+          "text": "crimsonrevelations.research.erythurgy.stage.1"
         }
       ]
     },
@@ -299,7 +299,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.entropic_processing.text.stage.0",
+          "text": "crimsonrevelations.research.entropic_processing.stage.0",
           "recipes": [
             "crimsonrevelations:entropyblazepowder",
             "crimsonrevelations:entropybonemeal",
@@ -332,7 +332,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.ordered_deconstruction.text.stage.0",
+          "text": "crimsonrevelations.research.ordered_deconstruction.stage.0",
           "recipes": [
             "crimsonrevelations:orderwool",
             "crimsonrevelations:orderglowstone",
@@ -367,7 +367,7 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.quartz_purification.text.stage.0",
+          "text": "crimsonrevelations.research.quartz_purification.stage.0",
           "required_knowledge": [
             "OBSERVATION;ALCHEMY;1",
             "OBSERVATION;BASICS;1"
@@ -379,7 +379,7 @@
           ]
         },
         {
-          "text": "crimsonrevelations.research.quartz_purification.text.stage.1",
+          "text": "crimsonrevelations.research.quartz_purification.stage.1",
           "recipes": [
             "crimsonrevelations:quartzcluster"
           ]
@@ -414,6 +414,49 @@
           "required_research": [
             "!alkimia",
             "!mortuus"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BONE_BOW",
+      "name": "crimsonrevelations.research.bone_bow.title",
+      "icons": [
+        "crimsonrevelations:bone_bow"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS",
+        "~ELEMENTALTOOLS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "location": [
+        -3,
+        1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.bone_bow.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;2",
+            "OBSERVATION;GOLEMANCY;2"
+          ],
+          "required_item": [
+            "minecraft:bone;3",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'perditio'}]}",
+            "minecraft:string;3"
+          ],
+          "required_craft": [
+            "minecraft:bow"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.bone_bow.stage.1",
+          "recipes": [
+            "crimsonrevelations:bone_bow"
           ]
         }
       ]
