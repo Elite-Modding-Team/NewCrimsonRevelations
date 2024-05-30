@@ -1,10 +1,15 @@
 package mod.icarus.crimsonrevelations.client.model.gear;
 
-import org.lwjgl.opengl.GL11;
-
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelCultistArcherArmor extends ModelBiped {
@@ -71,6 +76,7 @@ public class ModelCultistArcherArmor extends ModelBiped {
 
     public ModelRenderer MbeltB;
 
+    // TODO: Further polishing
     public ModelCultistArcherArmor(float f) {
         super(f, 0.0F, 128, 64);
         this.textureWidth = 128;
@@ -366,8 +372,6 @@ public class ModelCultistArcherArmor extends ModelBiped {
         this.ClothBackL3.setTextureSize(128, 64);
         setRotation(this.ClothBackL3, 0.2268928F, 0.0F, 0.0F);
 
-
-        // TODO: Child Mods
         this.bipedHeadwear.cubeList.clear();
         this.bipedHead.cubeList.clear();
         this.bipedHead.addChild(this.Helmet);
@@ -382,7 +386,7 @@ public class ModelCultistArcherArmor extends ModelBiped {
         this.bipedBody.addChild(this.MbeltL);
         this.bipedBody.addChild(this.MbeltR);
         this.bipedBody.addChild(this.MbeltB);
-        
+
         if (f >= 1.0F) {
             this.bipedBody.addChild(this.Quiver);
             this.bipedBody.addChild(this.Chestthing);
@@ -406,7 +410,7 @@ public class ModelCultistArcherArmor extends ModelBiped {
             this.bipedBody.addChild(this.ClothBackL2);
             this.bipedBody.addChild(this.ClothBackL3);
         }
-        
+
         this.bipedRightArm.cubeList.clear();
         this.bipedRightArm.addChild(this.ShoulderR);
         this.bipedRightArm.addChild(this.ShoulderR1);
@@ -440,10 +444,93 @@ public class ModelCultistArcherArmor extends ModelBiped {
         this.bipedLeftLeg.addChild(this.BackpanelL4);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        float a = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-        float b = MathHelper.cos(f * 0.6662F + 3.1415927F) * 1.4F * f1;
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    @Override
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
+        if (entity instanceof EntityLivingBase) {
+            EntityLivingBase living = (EntityLivingBase) entity;
+            swingProgress = living.getSwingProgress(Minecraft.getMinecraft().getRenderPartialTicks());
+            isSneak = living.isSneaking();
+            isRiding = living.isRiding();
+            isChild = living.isChild();
+            ItemStack mainHand = living.getHeldItemMainhand();
+            ItemStack offHand = living.getHeldItemOffhand();
+            ArmPose mainPose = ArmPose.EMPTY;
+            ArmPose offPose = ArmPose.EMPTY;
+
+            if (!mainHand.isEmpty()) {
+                mainPose = ModelBiped.ArmPose.ITEM;
+                if (living.getItemInUseCount() > 0) {
+                    EnumAction action = mainHand.getItemUseAction();
+                    if (action == EnumAction.BLOCK) {
+                        mainPose = ArmPose.BLOCK;
+                    } else if (action == EnumAction.BOW) {
+                        mainPose = ArmPose.BOW_AND_ARROW;
+                    }
+                }
+            }
+
+            if (!offHand.isEmpty()) {
+                offPose = ModelBiped.ArmPose.ITEM;
+                if (living.getItemInUseCount() > 0) {
+                    EnumAction action = offHand.getItemUseAction();
+                    if (action == EnumAction.BLOCK) {
+                        offPose = ArmPose.BLOCK;
+                    } else if (action == EnumAction.BOW) {
+                        offPose = ArmPose.BOW_AND_ARROW;
+                    }
+                }
+            }
+
+            if (living.getPrimaryHand() == EnumHandSide.RIGHT) {
+                rightArmPose = mainPose;
+                leftArmPose = offPose;
+            } else {
+                rightArmPose = offPose;
+                leftArmPose = mainPose;
+            }
+
+            if (entity instanceof EntityArmorStand) {
+                EntityArmorStand stand = (EntityArmorStand) entity;
+                bipedHead.rotateAngleX = 0.017453292F * stand.getHeadRotation().getX();
+                bipedHead.rotateAngleY = 0.017453292F * stand.getHeadRotation().getY();
+                bipedHead.rotateAngleZ = 0.017453292F * stand.getHeadRotation().getZ();
+                bipedHead.setRotationPoint(0.0F, 1.0F, 0.0F);
+                bipedBody.rotateAngleX = 0.017453292F * stand.getBodyRotation().getX();
+                bipedBody.rotateAngleY = 0.017453292F * stand.getBodyRotation().getY();
+                bipedBody.rotateAngleZ = 0.017453292F * stand.getBodyRotation().getZ();
+                bipedLeftArm.rotateAngleX = 0.017453292F * stand.getLeftArmRotation().getX();
+                bipedLeftArm.rotateAngleY = 0.017453292F * stand.getLeftArmRotation().getY();
+                bipedLeftArm.rotateAngleZ = 0.017453292F * stand.getLeftArmRotation().getZ();
+                bipedRightArm.rotateAngleX = 0.017453292F * stand.getRightArmRotation().getX();
+                bipedRightArm.rotateAngleY = 0.017453292F * stand.getRightArmRotation().getY();
+                bipedRightArm.rotateAngleZ = 0.017453292F * stand.getRightArmRotation().getZ();
+                bipedLeftLeg.rotateAngleX = 0.017453292F * stand.getLeftLegRotation().getX();
+                bipedLeftLeg.rotateAngleY = 0.017453292F * stand.getLeftLegRotation().getY();
+                bipedLeftLeg.rotateAngleZ = 0.017453292F * stand.getLeftLegRotation().getZ();
+                bipedLeftLeg.setRotationPoint(1.9F, 11.0F, 0.0F);
+                bipedRightLeg.rotateAngleX = 0.017453292F * stand.getRightLegRotation().getX();
+                bipedRightLeg.rotateAngleY = 0.017453292F * stand.getRightLegRotation().getY();
+                bipedRightLeg.rotateAngleZ = 0.017453292F * stand.getRightLegRotation().getZ();
+                bipedRightLeg.setRotationPoint(-1.9F, 11.0F, 0.0F);
+                copyModelAngles(bipedHead, bipedHeadwear);
+            } else {
+                super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
+            }
+        }
+    }
+
+    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+        GlStateManager.pushMatrix();
+
+        float a = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        float b = MathHelper.cos(limbSwing * 0.6662F + 3.1415927F) * 1.4F * limbSwingAmount;
         float c = Math.min(a, b);
 
         this.FrontclothR1.rotateAngleX = (this.FrontclothL1.rotateAngleX = c - 0.1047198F);
@@ -452,40 +539,36 @@ public class ModelCultistArcherArmor extends ModelBiped {
         this.ClothBackR1.rotateAngleX = (this.ClothBackL1.rotateAngleX = -c + 0.1047198F);
         this.ClothBackR2.rotateAngleX = (this.ClothBackL2.rotateAngleX = this.ClothBackR3.rotateAngleX = this.ClothBackL3.rotateAngleX = -c + 0.2268928F);
 
-        if (this.isChild) {
-            float f6 = 2.0F;
-            GL11.glPushMatrix();
-            GL11.glScalef(1.5F / f6, 1.5F / f6, 1.5F / f6);
-            GL11.glTranslatef(0.0F, 16.0F * f5, 0.0F);
-            this.bipedHead.render(f5);
-            GL11.glPopMatrix();
-            GL11.glPushMatrix();
-            GL11.glScalef(1.0F / f6, 1.0F / f6, 1.0F / f6);
-            GL11.glTranslatef(0.0F, 24.0F * f5, 0.0F);
-            this.bipedBody.render(f5);
-            this.bipedRightArm.render(f5);
-            this.bipedLeftArm.render(f5);
-            this.bipedRightLeg.render(f5);
-            this.bipedLeftLeg.render(f5);
-            this.bipedHeadwear.render(f5);
-            GL11.glPopMatrix();
+        if (isChild) {
+            GlStateManager.scale(0.75F, 0.75F, 0.75F);
+            GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+            bipedHead.render(scale);
+            GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+            GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+            bipedBody.render(scale);
+            bipedRightArm.render(scale);
+            bipedLeftArm.render(scale);
+            bipedRightLeg.render(scale);
+            bipedLeftLeg.render(scale);
+            bipedHeadwear.render(scale);
         } else {
-            GL11.glPushMatrix();
-            GL11.glScalef(1.01F, 1.01F, 1.01F);
-            this.bipedHead.render(f5);
-            GL11.glPopMatrix();
-            this.bipedBody.render(f5);
-            this.bipedRightArm.render(f5);
-            this.bipedLeftArm.render(f5);
-            this.bipedRightLeg.render(f5);
-            this.bipedLeftLeg.render(f5);
-            this.bipedHeadwear.render(f5);
-        }
-    }
+            GlStateManager.scale(1.01F, 1.01F, 1.01F);
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.rotateAngleX = x;
-        model.rotateAngleY = y;
-        model.rotateAngleZ = z;
+            if (entity.isSneaking()) {
+                GlStateManager.translate(0.0F, 0.2F, 0.0F);
+            }
+
+            bipedHead.render(scale);
+            bipedBody.render(scale);
+            bipedRightArm.render(scale);
+            bipedLeftArm.render(scale);
+            bipedRightLeg.render(scale);
+            bipedLeftLeg.render(scale);
+            bipedHeadwear.render(scale);
+        }
+
+        GlStateManager.popMatrix();
     }
 }
