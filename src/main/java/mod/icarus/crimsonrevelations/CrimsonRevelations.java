@@ -10,6 +10,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = CrimsonRevelations.MODID, name = CrimsonRevelations.NAME, version = CrimsonRevelations.VERSION, dependencies = CrimsonRevelations.DEPENDENCIES)
 public class CrimsonRevelations {
@@ -23,6 +25,7 @@ public class CrimsonRevelations {
     public static CrimsonRevelations instance;
 
     @EventHandler
+    @SideOnly(Side.CLIENT)
     public void preInit(FMLPreInitializationEvent event) {
         RenderingHandler.preInit();
     }
