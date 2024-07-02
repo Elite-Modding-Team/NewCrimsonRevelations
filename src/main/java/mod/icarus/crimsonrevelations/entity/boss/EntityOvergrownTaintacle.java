@@ -15,6 +15,7 @@ import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.entities.ITaintedMob;
 import thaumcraft.api.items.ItemsTC;
@@ -165,9 +166,11 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
         this.setDead();
         this.playSound(SoundsTC.gore, 1.0F, 0.65F / (rand.nextFloat() * 0.4F + 0.8F));
 
-        for (int k = 0; k < 40; ++k) {
-            FXDispatcher.INSTANCE.splooshFX(this);
-            FXDispatcher.INSTANCE.taintsplosionFX(this);
+        if (FMLLaunchHandler.side().isClient()) {
+            for (int k = 0; k < 40; ++k) {
+                FXDispatcher.INSTANCE.splooshFX(this);
+                FXDispatcher.INSTANCE.taintsplosionFX(this);
+            }
         }
     }
 
