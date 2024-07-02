@@ -76,9 +76,9 @@ public class RegistryHandler {
                 setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_plate"),
                 setup(new ItemCRSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
 
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
+                //setup(new ItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
+                //setup(new ItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
+                //setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
 
                 setup(new ItemBoneBow(), "bone_bow")
         );
@@ -95,7 +95,7 @@ public class RegistryHandler {
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         int id = 0;
 
-        entityRegistryHelper("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
+        //entityRegistryHelper("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
             entityRegistryHelper("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
