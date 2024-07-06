@@ -1,15 +1,14 @@
 {
   "entries": [
     {
-      "key": "CRIMSON_REVELATIONS",
+      "key": "CRIMSON_REVELATIONS_BASE",
       "name": "crimsonrevelations.research.crimson_revelations.title",
       "icons": [
         "thaumcraft:curio;1;6"
       ],
       "category": "REVELATIONS",
       "parents": [
-        "~CrimsonRites",
-        "~INFUSIONSTABLE"
+        "~CrimsonRites"
       ],
       "siblings": [
         "~CrimsonRites"
@@ -40,7 +39,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS"
+        "CRIMSON_REVELATIONS_BASE"
       ],
       "siblings": [],
       "meta": [],
@@ -76,7 +75,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS",
+        "CRIMSON_REVELATIONS_BASE",
         "~BASEARTIFICE",
         "~METALLURGY"
       ],
@@ -153,7 +152,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS",
+        "CRIMSON_REVELATIONS_BASE",
         "~CRIMSON_SWORD",
         "~BASEELDRITCH"
       ],
@@ -243,7 +242,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS"
+        "CRIMSON_REVELATIONS_BASE"
       ],
       "siblings": [
         "ENTROPIC_PROCESSING",
@@ -394,7 +393,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS",
+        "CRIMSON_REVELATIONS_BASE",
         "~FOCUSELEMENTAL"
       ],
       "siblings": [],
@@ -426,7 +425,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS",
+        "CRIMSON_REVELATIONS_BASE",
         "~ELEMENTALTOOLS"
       ],
       "siblings": [],
