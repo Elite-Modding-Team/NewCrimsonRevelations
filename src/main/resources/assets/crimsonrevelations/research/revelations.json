@@ -26,7 +26,8 @@
         {
           "text": "crimsonrevelations.research.crimson_revelations.stage.0",
           "recipes": [
-            "crimsonrevelations:crimsonbanner"
+            "crimsonrevelations:crimson_banner",
+            "crimsonrevelations:embellished_crimson_fabric"
           ]
         }
       ]
@@ -238,7 +239,7 @@
       "key": "ERYTHURGY",
       "name": "crimsonrevelations.research.erythurgy.title",
       "icons": [
-        "thaumcraft:textures/research/r_enchant.png"
+        "crimsonrevelations:textures/research/r_erythurgy.png"
       ],
       "category": "REVELATIONS",
       "parents": [

@@ -14,6 +14,7 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
+import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
 
 public class RecipeHandler {
@@ -21,14 +22,11 @@ public class RecipeHandler {
         // defaultGroup is meant for recipe books and is not really needed here.
         ResourceLocation defaultGroup = new ResourceLocation("");
 
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimsonbanner"), new ShapedArcaneRecipe(
-                defaultGroup, "CRIMSON_REVELATIONS", 10,
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "embellished_crimson_fabric"), new ShapelessArcaneRecipe(
+                defaultGroup, "CRIMSON_REVELATIONS_BASE", 10,
                 new AspectList(),
-                new ItemStack(BlocksTC.bannerCrimsonCult),
-                "FS",
-                "PS",
-                "FD",
-                'S', "stickWood", 'D', "slabWood", 'F', RegistryHandler.crimsonFabric, 'P', RegistryHandler.crimsonPlate));
+                new ItemStack(RegistryHandler.embellishedCrimsonFabric),
+                new Object[]{RegistryHandler.crimsonFabric, RegistryHandler.crimsonPlate}));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "glyphstone"), new ShapedArcaneRecipe(
                 defaultGroup, "ANCIENT_STONE", 15,
                 new AspectList(),
@@ -51,7 +49,7 @@ public class RecipeHandler {
                 "P P",
                 "FBF",
                 "PFP",
-                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(BlocksTC.bannerCrimsonCult), 'P', RegistryHandler.crimsonPlate));
+                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_greaves"), new ShapedArcaneRecipe(
                 defaultGroup, "CRIMSON_ARMOR", 50,
                 new AspectList(),
@@ -74,7 +72,7 @@ public class RecipeHandler {
                 "F F",
                 "PBP",
                 "FPF",
-                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(BlocksTC.bannerCrimsonCult), 'P', RegistryHandler.crimsonPlate));
+                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_leggings"), new ShapedArcaneRecipe(
                 defaultGroup, "CRIMSON_ARMOR", 50,
                 new AspectList(),
@@ -172,11 +170,11 @@ public class RecipeHandler {
                 new InfusionRecipe("PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorChest), 2,
                         new AspectList().add(Aspect.METAL, 50).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 30),
                         new ItemStack(ItemsTC.crimsonPlateChest),
-                        RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, BlocksTC.bannerCrimsonCult));
+                        RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.embellishedCrimsonFabric));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "praetor_greaves"),
                 new InfusionRecipe("PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorLegs), 2,
                         new AspectList().add(Aspect.METAL, 50).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 25),
                         new ItemStack(ItemsTC.crimsonPlateLegs),
-                        RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, BlocksTC.bannerCrimsonCult));
+                        RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.crimsonPlate, RegistryHandler.embellishedCrimsonFabric));
     }
 }

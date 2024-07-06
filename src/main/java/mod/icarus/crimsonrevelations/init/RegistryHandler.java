@@ -46,6 +46,7 @@ import thaumcraft.api.aspects.AspectRegistryEvent;
 
 import javax.annotation.Nonnull;
 
+// TODO: Organize and split this class
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = CrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(CrimsonRevelations.MODID)
@@ -64,6 +65,8 @@ public class RegistryHandler {
     public static Item crimsonPlate;
     @GameRegistry.ObjectHolder("crimson_sword")
     public static Item crimsonSword;
+    @GameRegistry.ObjectHolder("embellished_crimson_fabric")
+    public static Item embellishedCrimsonFabric;
 
     public static ArmorMaterial ARMOR_CULTIST_ARCHER = EnumHelper.addArmorMaterial("CULTIST_ARCHER", "CULTIST_ARCHER", 17, new int[]{2, 5, 5, 2}, 13, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F).setRepairItem(new ItemStack(crimsonPlate));
 
@@ -73,6 +76,7 @@ public class RegistryHandler {
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
                 setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_fabric"),
+                setup(new ItemCR(EnumRarity.UNCOMMON), "embellished_crimson_fabric"),
                 setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_plate"),
                 setup(new ItemCRSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
 
@@ -98,7 +102,7 @@ public class RegistryHandler {
         //entityRegistryHelper("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
-            entityRegistryHelper("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
+            registerEntity("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
     }
 
     @SubscribeEvent
@@ -107,12 +111,12 @@ public class RegistryHandler {
             ThaumcraftApi.registerEntityTag(CrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
     }
 
-    public static void entityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2) {
+    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2) {
         EntityRegistry.registerModEntity(new ResourceLocation(CrimsonRevelations.MODID, name), clazz, CrimsonRevelations.MODID + "." + name, id, CrimsonRevelations.instance, trackingRange,
                 updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
     }
 
-    public static void egglessEntityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates) {
+    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates) {
         EntityRegistry.registerModEntity(new ResourceLocation(CrimsonRevelations.MODID, name), clazz, CrimsonRevelations.MODID + "." + name, id, CrimsonRevelations.instance, trackingRange,
                 updateFrequency, sendVelocityUpdates);
     }

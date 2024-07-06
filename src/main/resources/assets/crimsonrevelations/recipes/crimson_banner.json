@@ -1,0 +1,27 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "FS",
+    "ES",
+    "FD"
+  ],
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    },
+    "D": {
+      "type": "forge:ore_dict",
+      "ore": "slabWood"
+    },
+    "F": {
+      "item": "crimsonrevelations:crimson_fabric"
+    },
+    "E": {
+      "item": "crimsonrevelations:embellished_crimson_fabric"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:banner_crimson_cult"
+  }
+}

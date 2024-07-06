@@ -5,12 +5,14 @@
     "description": "A Thaumcraft addon that allows you to research more about the Crimson Cult.",
     "version": "${version}",
     "mcversion": "${mcversion}",
+    "url": "https://github.com/Elite-Modding-Team/NewCrimsonRevelations",
     "authorList": [
       "IcarussOne",
+      "J. Carver",
       "ACGaming",
       "xJon"
     ],
-    "credits": "Azanor for making Thaumcraft and MobiusFlip for making the original Crimson Revelations mod.",
+    "credits": "Azanor for making Thaumcraft, MobiusFlip for making the original Crimson Revelations mod, and Carver for a lot of ideas and amazing models/textures.",
     "dependencies": [
       "thaumcraft"
     ]
