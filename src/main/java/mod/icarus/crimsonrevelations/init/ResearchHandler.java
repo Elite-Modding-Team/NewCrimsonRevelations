@@ -3,6 +3,7 @@ package mod.icarus.crimsonrevelations.init;
 import mod.icarus.crimsonrevelations.CrimsonRevelations;
 import mod.icarus.crimsonrevelations.core.CRConfig;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
+import mod.icarus.crimsonrevelations.item.foci.FocusEffectBlindingFlash;
 import mod.icarus.crimsonrevelations.item.foci.FocusEffectPoison;
 import mod.icarus.crimsonrevelations.item.foci.FocusEffectTaintPoison;
 import net.minecraft.util.ResourceLocation;
@@ -18,6 +19,7 @@ import thaumcraft.api.research.ScanningManager;
 public class ResearchHandler {
     public static void init() {
         // Focus Effects
+        FocusEngine.registerElement(FocusEffectBlindingFlash.class, new ResourceLocation(CrimsonRevelations.MODID, "textures/foci/blinding_flash.png"), 16776421);
         FocusEngine.registerElement(FocusEffectPoison.class, new ResourceLocation(CrimsonRevelations.MODID, "textures/foci/poison.png"), 9039872);
 
         // Research Categories

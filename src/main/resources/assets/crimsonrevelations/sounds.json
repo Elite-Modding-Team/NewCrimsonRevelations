@@ -1,0 +1,12 @@
+{
+  "focus.blinding_light.hit": {
+    "sounds": [
+      "crimsonrevelations:foci/blinding_light/hit"
+    ]
+  },
+  "focus.blinding_light.shoot": {
+    "sounds": [
+      "crimsonrevelations:foci/blinding_light/shoot"
+    ]
+  }
+}

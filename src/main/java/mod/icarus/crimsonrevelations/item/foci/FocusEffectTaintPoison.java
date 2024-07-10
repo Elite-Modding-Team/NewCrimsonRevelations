@@ -35,7 +35,7 @@ public class FocusEffectTaintPoison extends FocusEffect {
 
     @Override
     public NodeSetting[] createSettings() {
-        return new NodeSetting[]{new NodeSetting("power", "focus.common.power", new NodeSetting.NodeSettingIntRange(1, 5)), new NodeSetting("duration", "focus.common.double_duration", new NodeSetting.NodeSettingIntRange(2, 10))};
+        return new NodeSetting[]{new NodeSetting("power", "focus.common.power", new NodeSetting.NodeSettingIntRange(1, 5)), new NodeSetting("duration", "focus.common.double_duration", new NodeSetting.NodeSettingIntRange(1, 10))};
     }
 
     @Override
@@ -45,7 +45,7 @@ public class FocusEffectTaintPoison extends FocusEffect {
 
     @Override
     public float getDamageForDisplay(final float finalPower) {
-        return (4 + this.getSettingValue("power")) * finalPower;
+        return (4.0F + this.getSettingValue("power")) * finalPower;
     }
 
     @Override
@@ -85,10 +85,10 @@ public class FocusEffectTaintPoison extends FocusEffect {
         int color = 10354925;
         pp.setGravity(-0.2F);
         pp.setMaxAge(10 + world.rand.nextInt(5));
-        pp.setSlowDown(0.65);
-        pp.setScale((float) (0.1F + world.rand.nextGaussian() * 0.2F), 3.0F);
         pp.setParticles(575, 8, 8);
         pp.setRBGColorF(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
+        pp.setSlowDown(0.65);
+        pp.setScale((float) (0.1F + world.rand.nextGaussian() * 0.2F), 3.0F);
         ParticleEngine.addEffect(world, pp);
     }
 }
