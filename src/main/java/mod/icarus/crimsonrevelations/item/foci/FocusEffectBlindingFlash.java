@@ -4,7 +4,6 @@ import mod.icarus.crimsonrevelations.CrimsonRevelations;
 import mod.icarus.crimsonrevelations.init.SoundHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;

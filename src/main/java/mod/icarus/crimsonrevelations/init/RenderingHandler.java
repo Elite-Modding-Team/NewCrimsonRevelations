@@ -1,10 +1,11 @@
 package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.client.renderer.RenderOvergrownTaintacle;
+import mod.icarus.crimsonrevelations.client.renderer.RenderPrimalArrow;
 import mod.icarus.crimsonrevelations.core.CRConfig;
 import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
-
+import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -20,7 +21,9 @@ import thaumcraft.client.renderers.entity.mob.RenderCultist;
 @SideOnly(Side.CLIENT)
 public class RenderingHandler {
     public static void preInit() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityCultistArcher.class, RenderCultist::new);
+        //RenderingRegistry.registerEntityRenderingHandler(EntityCultistArcher.class, RenderCultist::new);
+        
+        RenderingRegistry.registerEntityRenderingHandler(EntityPrimalArrow.class, RenderPrimalArrow::new);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
             RenderingRegistry.registerEntityRenderingHandler(EntityOvergrownTaintacle.class, RenderOvergrownTaintacle::new);

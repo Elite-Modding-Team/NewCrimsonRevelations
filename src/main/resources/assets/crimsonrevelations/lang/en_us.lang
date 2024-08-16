@@ -3,19 +3,25 @@ itemGroup.CrimsonRevelationsTab=New Crimson Revelations
 entity.crimsonrevelations.cultist_archer.name=Crimson Archer
 entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
 
+item.crimsonrevelations.air_primal_arrow.name=Air Primal Arrow
 item.crimsonrevelations.bone_bow.name=Bow of Bone
 item.crimsonrevelations.crimson_archer_helmet.name=Crimson Archer Helm
 item.crimsonrevelations.crimson_archer_chestplate.name=Crimson Archer Chestplate
-item.crimsonrevelations.crimson_archer_leggings.name=Crimson Archer Leggings
-item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
+item.crimsonrevelations.crimson_archer_leggings.name=Crimson Archer Greaves
 item.crimsonrevelations.crimson_fabric.name=Crimson Fabric
 item.crimsonrevelations.crimson_plate.name=Crimson Plate
 item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
+item.crimsonrevelations.earth_primal_arrow.name=Earth Primal Arrow
+item.crimsonrevelations.entropy_primal_arrow.name=Entropy Primal Arrow
+item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
+item.crimsonrevelations.fire_primal_arrow.name=Fire Primal Arrow
+item.crimsonrevelations.order_primal_arrow.name=Order Primal Arrow
+item.crimsonrevelations.water_primal_arrow.name=Water Primal Arrow
 
 tc.research_category.REVELATIONS=Revelations
 
 crimsonrevelations.research.crimson_revelations.title=Crimson Revelations
-crimsonrevelations.research.crimson_revelations.stage.0=While most of the Crimson Rites is written in an unintelligible script, there are patterns in the symbols which suggest I might be able to translate a bit more than I first thought. That's not to say it will be an easy task, but I may know where to start.<BR>On close inspection, the markings on the Crimson Cult's banners bear a strong resemblance to certain thaumaturgical sigils. Maybe their meanings will become clear as I expand my thaumaturgical knowledge?<BR>In the meantime, I've spent so long studying the banners that it would be easy to make a few of my own. Using Vis, I'll be able to work the Crimson Cult's components together to create an embellished fabric, I've also noted down the materials I discovered on the next page.<PAGE>§lCrimson Materials§r<DIV><IMG>crimsonrevelations:textures/items/crimson_fabric.png:0:0:255:255:0.125</IMG><IMG>crimsonrevelations:textures/items/crimson_plate.png:0:0:255:255:0.125</IMG>I've caught my eye on the components used for the Crimson Cult's armor. They appear to be made from unknown materials that I have been perplexed trying to figure out the origins of.<PAGE>The main components consist of a blood red fabric that is rather cold to the touch, and a dark gray plate made out of a lightweight yet strong metal that also bears the same familiar sigil.<BR>Unfortunately, replicating these items for my own use is impossible at this rate and I would have to get them from the Crimson Cultists themselves for now.
+crimsonrevelations.research.crimson_revelations.stage.0=While most of the Crimson Rites is written in an unintelligible script, there are patterns in the symbols which suggest I might be able to translate a bit more than I first thought. That's not to say it will be an easy task, but I may know where to start.<BR>On close inspection, the markings on the Crimson Cult's banners bear a strong resemblance to certain thaumaturgical sigils. Maybe their meanings will become clear as I expand my thaumaturgical knowledge?<BR>In the meantime, I've spent so long studying the banners that it would be easy to make a few of my own. Using Vis, I'll be able to work the Crimson Cult's components together to create an embellished fabric, I've also noted down the materials I discovered on the next few pages.<PAGE>§lCrimson Materials§r<DIV><IMG>crimsonrevelations:textures/items/crimson_fabric.png:0:0:255:255:0.125</IMG><IMG>crimsonrevelations:textures/items/crimson_plate.png:0:0:255:255:0.125</IMG>I've caught my eye on the components used for the Crimson Cult's armor. They appear to be made from unknown materials that I have been perplexed trying to figure out the origins of.<PAGE>The main components consist of a blood red fabric that is rather cold to the touch, and a dark gray plate made out of a lightweight yet strong metal that also bears the same familiar sigil.<BR>Unfortunately, replicating these items for my own use is impossible at this rate and I would have to get them from the Crimson Cultists themselves for now.
 
 crimsonrevelations.research.ancient_stone.title=Manufacturing Ancient Stone
 crimsonrevelations.research.ancient_stone.stage.0=Upon translating more of the Crimson Rites, "Apertis Oculis" seems to be the creation of a portal to another dimension. The Crimson Cultists describe it as an eldritch labyrinth made of strange, ancient stonework and inhabited by monstrous guardians.<BR>My studies into thaumaturgy lead me to believe that this dimension, if it ever existed, can no longer be accessed.<BR>However, the labyrinth's stonework is said to have interesting properties which may be worth replicating.
@@ -50,6 +56,13 @@ crimsonrevelations.research.quartz_purification.title=Quartz Purification
 crimsonrevelations.research.quartz_purification.stage.0=With my new knowledge of Ordo, it may be time to return to one of my earlier attempts with alchemy: native metal clusters. My experiments with most metals were successful, but although I know native quartz clusters can form, I haven't been able to recreate them in the same way. Perhaps examining other native clusters can provide me with some insight.
 crimsonrevelations.research.quartz_purification.stage.1=The key insight proved deceptively simple: quartz is not a metal, and the Metallum usually present in my purifications must be replaced with Vitreus to account for its crystalline nature. The raw Ordo must be shaped slightly differently as well, but that proved to be trivial with the knowledge gained from studying erythurgy.<BR>Admittedly, the existence of the Fortune enchantment might make this process a bit underwhelming. Still, as a test of my abilities, it was quite interesting.
 
+crimsonrevelations.research.primal_arrows.title=Primal Arrows
+crimsonrevelations.research.primal_arrows.stage.0=The Bow of Bone was not the only ancient item that I have discovered in the Crimson Rites. There is mention of powerful arrows utilized by the Crimson Cult that are infused with various different aspects from Vis Crystals, I was only able to properly translate the most basic kind utilizing primal aspects.<BR>Now I just need to perform some experiments and hope it all turns out well...
+crimsonrevelations.research.primal_arrows.stage.1=I have succeeded on utilizing the power of Vis Crystals to create my own primal arrows like the Crimson Cult did.<BR>Each primal element is powerful in their own way and I have detailed the information about each type on the next few pages.<PAGE>
+
+crimsonrevelations.research.focus_blinding_flash.title=Focus Effect: Blinding Flash
+crimsonrevelations.research.focus_blinding_flash.stage.0=Blinding Flash has the ability to blind and blur targets, as well as weaken non-player targets. The damage is doubled against undead but is halved against non-undead, it is best to utilize this effect only during certain situations.
+
 crimsonrevelations.research.focus_poison.title=Focus Effect: Poison
 crimsonrevelations.research.focus_poison.stage.0=The poison inflicted from this blast of noxious goo lasts twice as long when compared to other effects.<BR>I must be wary however that a fair amount of monsters are resistant to being poisoned, such as the undead, spiders, and other rather fearsome opponents.
 
@@ -64,6 +77,9 @@ crimsonrevelations.research.bone_bow.stage.0=I've managed to find some old schem
 crimsonrevelations.research.bone_bow.stage.1=That was unexpected...<BR>After struggling to construct it at an Arcane Workbench as detailed in these schematics, I've decided that infusion would be the best way to go like how I did for my elemental tools, it ended up being a success after much trial and error.<BR>The 'Bow of Bone' as they call it is able to shoot arrows more quickly in comparison to a regular bow, the arrows fired are also stronger and will go farther than normal.<BR>The bow has its own autofire mechanism, simply hold right-click and it will keep firing without having to charge it again manually. This will be quite useful against those pesky skeletons.
 
 crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
+
+focus.crimsonrevelations.blinding_flash.name=Blinding Flash
+focus.crimsonrevelations.blinding_flash.text=Forms an orb of bright light that blinds and blurs targets while also causing weakness to non-players. Damage is doubled against undead targets but halved against non-undead targets.
 
 focus.crimsonrevelations.poison.name=Poison
 focus.crimsonrevelations.poison.text=Summons a blob of goo at your target and poisons it for double the usual duration.

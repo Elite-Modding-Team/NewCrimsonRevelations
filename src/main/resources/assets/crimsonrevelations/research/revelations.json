@@ -493,6 +493,59 @@
           ]
         }
       ]
+    },
+    {
+      "key": "PRIMAL_ARROWS",
+      "name": "crimsonrevelations.research.primal_arrows.title",
+      "icons": [
+        "crimsonrevelations:air_primal_arrow",
+        "crimsonrevelations:earth_primal_arrow",
+        "crimsonrevelations:entropy_primal_arrow",
+        "crimsonrevelations:fire_primal_arrow",
+        "crimsonrevelations:order_primal_arrow",
+        "crimsonrevelations:water_primal_arrow"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "BONE_BOW"
+      ],
+      "siblings": [],
+      "meta": [],
+      "location": [
+        -5,
+        1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.primal_arrows.stage.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;2",
+            "OBSERVATION;AUROMANCY;2"
+          ],
+          "required_item": [
+            "minecraft:arrow;6",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'aer'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'ignis'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'ordo'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'perditio'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'terra'}]}"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.primal_arrows.stage.1",
+          "recipes": [
+            "crimsonrevelations:air_primal_arrow",
+            "crimsonrevelations:earth_primal_arrow",
+            "crimsonrevelations:entropy_primal_arrow",
+            "crimsonrevelations:fire_primal_arrow",
+            "crimsonrevelations:order_primal_arrow",
+            "crimsonrevelations:water_primal_arrow"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -453,48 +453,6 @@ public class ModelCultistArcherArmor extends ModelBiped {
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
         if (entity instanceof EntityLivingBase) {
-            EntityLivingBase living = (EntityLivingBase) entity;
-            swingProgress = living.getSwingProgress(Minecraft.getMinecraft().getRenderPartialTicks());
-            isSneak = living.isSneaking();
-            isRiding = living.isRiding();
-            isChild = living.isChild();
-            ItemStack mainHand = living.getHeldItemMainhand();
-            ItemStack offHand = living.getHeldItemOffhand();
-            ArmPose mainPose = ArmPose.EMPTY;
-            ArmPose offPose = ArmPose.EMPTY;
-
-            if (!mainHand.isEmpty()) {
-                mainPose = ModelBiped.ArmPose.ITEM;
-                if (living.getItemInUseCount() > 0) {
-                    EnumAction action = mainHand.getItemUseAction();
-                    if (action == EnumAction.BLOCK) {
-                        mainPose = ArmPose.BLOCK;
-                    } else if (action == EnumAction.BOW) {
-                        mainPose = ArmPose.BOW_AND_ARROW;
-                    }
-                }
-            }
-
-            if (!offHand.isEmpty()) {
-                offPose = ModelBiped.ArmPose.ITEM;
-                if (living.getItemInUseCount() > 0) {
-                    EnumAction action = offHand.getItemUseAction();
-                    if (action == EnumAction.BLOCK) {
-                        offPose = ArmPose.BLOCK;
-                    } else if (action == EnumAction.BOW) {
-                        offPose = ArmPose.BOW_AND_ARROW;
-                    }
-                }
-            }
-
-            if (living.getPrimaryHand() == EnumHandSide.RIGHT) {
-                rightArmPose = mainPose;
-                leftArmPose = offPose;
-            } else {
-                rightArmPose = offPose;
-                leftArmPose = mainPose;
-            }
-
             if (entity instanceof EntityArmorStand) {
                 EntityArmorStand stand = (EntityArmorStand) entity;
                 bipedHead.rotateAngleX = 0.017453292F * stand.getHeadRotation().getX();
