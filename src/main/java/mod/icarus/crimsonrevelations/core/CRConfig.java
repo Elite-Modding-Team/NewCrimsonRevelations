@@ -34,10 +34,10 @@ public class CRConfig {
         public boolean OVERGROWN_TAINTACLE_BOSS_BAR = true;
 
         @Config.Name("Overgrown Taintacle Spawn Weight")
-        @Config.Comment("Default spawn weight of Overgrown Taintacles [default: 2]")
+        @Config.Comment("Default spawn weight of Overgrown Taintacles [default: 1]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int OVERGROWN_TAINTACLE_WEIGHT = 2;
+        public int OVERGROWN_TAINTACLE_WEIGHT = 1;
 
         @Config.Name("Taint Seed Spawn Weight")
         @Config.Comment("Default spawn weight of Taint Seeds [default: 20]")
