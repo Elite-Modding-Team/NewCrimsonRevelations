@@ -64,7 +64,7 @@ public class RegistryHandler {
     @GameRegistry.ObjectHolder("crimson_archer_chestplate")
     public static Item crimsonArcherChestplate;
     @GameRegistry.ObjectHolder("crimson_archer_leggings")
-    public static Item crimsonArcherLeggings;
+    public static Item crimsonArcherGreaves;
     @GameRegistry.ObjectHolder("crimson_fabric")
     public static Item crimsonFabric;
     @GameRegistry.ObjectHolder("crimson_plate")

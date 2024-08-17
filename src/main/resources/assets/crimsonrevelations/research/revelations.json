@@ -110,10 +110,13 @@
             "crimsonrevelations:crimson_helm",
             "crimsonrevelations:crimson_chestplate",
             "crimsonrevelations:crimson_greaves",
-            "crimsonrevelations:crimson_boots",
             "crimsonrevelations:crimson_hood",
             "crimsonrevelations:crimson_robes",
-            "crimsonrevelations:crimson_leggings"
+            "crimsonrevelations:crimson_leggings",
+            "crimsonrevelations:crimson_archer_helm",
+            "crimsonrevelations:crimson_archer_chestplate",
+            "crimsonrevelations:crimson_archer_greaves",
+            "crimsonrevelations:crimson_boots"
           ]
         }
       ]

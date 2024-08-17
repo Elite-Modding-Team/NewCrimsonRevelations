@@ -58,7 +58,7 @@ public class EntityCultistArcher extends EntityCultist {
     protected void setLoot(DifficultyInstance diff) {
         this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(RegistryHandler.crimsonArcherHelmet));
         this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(RegistryHandler.crimsonArcherChestplate));
-        this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(RegistryHandler.crimsonArcherLeggings));
+        this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(RegistryHandler.crimsonArcherGreaves));
         this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemsTC.crimsonBoots));
         this.setHeldItem(this.getActiveHand(), new ItemStack(Items.BOW));
     }

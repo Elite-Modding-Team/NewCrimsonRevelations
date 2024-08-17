@@ -37,7 +37,7 @@ public class RecipeHandler {
                 "SBS",
                 'S', BlocksTC.stoneAncient, 'B', Items.BOOK));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_helm"), new ShapedArcaneRecipe(
-                defaultGroup, "CRIMSON_ARMOR", 50,
+                defaultGroup, "CRIMSON_ARMOR", 25,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonPlateHelm),
                 "PPP",
@@ -48,11 +48,11 @@ public class RecipeHandler {
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonPlateChest),
                 "P P",
-                "FBF",
-                "PFP",
-                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
+                "FEF",
+                "PPP",
+                'F', RegistryHandler.crimsonFabric, 'E', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_greaves"), new ShapedArcaneRecipe(
-                defaultGroup, "CRIMSON_ARMOR", 50,
+                defaultGroup, "CRIMSON_ARMOR", 40,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonPlateLegs),
                 "PBP",
@@ -60,7 +60,7 @@ public class RecipeHandler {
                 "P P",
                 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', RegistryHandler.crimsonPlate));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_hood"), new ShapedArcaneRecipe(
-                defaultGroup, "CRIMSON_ARMOR", 50,
+                defaultGroup, "CRIMSON_ARMOR", 25,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonRobeHelm),
                 "FFF",
@@ -70,20 +70,43 @@ public class RecipeHandler {
                 defaultGroup, "CRIMSON_ARMOR", 50,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonRobeChest),
-                "F F",
-                "PBP",
-                "FPF",
-                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
+                "P P",
+                "FEF",
+                "FFF",
+                'F', RegistryHandler.crimsonFabric, 'E', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_leggings"), new ShapedArcaneRecipe(
-                defaultGroup, "CRIMSON_ARMOR", 50,
+                defaultGroup, "CRIMSON_ARMOR", 40,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonRobeLegs),
                 "PBP",
                 "F F",
                 "F F",
                 'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', RegistryHandler.crimsonPlate));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_boots"), new ShapedArcaneRecipe(
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_archer_helm"), new ShapedArcaneRecipe(
+                defaultGroup, "CRIMSON_ARMOR", 25,
+                new AspectList(),
+                new ItemStack(RegistryHandler.crimsonArcherHelmet),
+                "PPP",
+                "F F",
+                'F', RegistryHandler.crimsonFabric, 'P', RegistryHandler.crimsonPlate));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_archer_chestplate"), new ShapedArcaneRecipe(
                 defaultGroup, "CRIMSON_ARMOR", 50,
+                new AspectList(),
+                new ItemStack(RegistryHandler.crimsonArcherChestplate),
+                "P P",
+                "FEF",
+                "FPF",
+                'F', RegistryHandler.crimsonFabric, 'E', new ItemStack(RegistryHandler.embellishedCrimsonFabric), 'P', RegistryHandler.crimsonPlate));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_archer_greaves"), new ShapedArcaneRecipe(
+                defaultGroup, "CRIMSON_ARMOR", 40,
+                new AspectList(),
+                new ItemStack(RegistryHandler.crimsonArcherGreaves),
+                "PBP",
+                "P P",
+                "F F",
+                'F', RegistryHandler.crimsonFabric, 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', RegistryHandler.crimsonPlate));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "crimson_boots"), new ShapedArcaneRecipe(
+                defaultGroup, "CRIMSON_ARMOR", 15,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonBoots),
                 "F F",
