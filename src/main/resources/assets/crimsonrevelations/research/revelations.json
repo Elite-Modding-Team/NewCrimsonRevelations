@@ -498,12 +498,12 @@
       "key": "PRIMAL_ARROWS",
       "name": "crimsonrevelations.research.primal_arrows.title",
       "icons": [
-        "crimsonrevelations:air_primal_arrow",
-        "crimsonrevelations:earth_primal_arrow",
-        "crimsonrevelations:entropy_primal_arrow",
-        "crimsonrevelations:fire_primal_arrow",
-        "crimsonrevelations:order_primal_arrow",
-        "crimsonrevelations:water_primal_arrow"
+        "crimsonrevelations:aer_arrow",
+        "crimsonrevelations:aqua_arrow",
+        "crimsonrevelations:ignis_arrow",
+        "crimsonrevelations:ordo_arrow",
+        "crimsonrevelations:perditio_arrow",
+        "crimsonrevelations:terra_arrow"
       ],
       "category": "REVELATIONS",
       "parents": [
@@ -537,12 +537,12 @@
         {
           "text": "crimsonrevelations.research.primal_arrows.stage.1",
           "recipes": [
-            "crimsonrevelations:air_primal_arrow",
-            "crimsonrevelations:earth_primal_arrow",
-            "crimsonrevelations:entropy_primal_arrow",
-            "crimsonrevelations:fire_primal_arrow",
-            "crimsonrevelations:order_primal_arrow",
-            "crimsonrevelations:water_primal_arrow"
+            "crimsonrevelations:aer_arrow",
+            "crimsonrevelations:aqua_arrow",
+            "crimsonrevelations:ignis_arrow",
+            "crimsonrevelations:ordo_arrow",
+            "crimsonrevelations:perditio_arrow",
+            "crimsonrevelations:terra_arrow"
           ]
         }
       ]

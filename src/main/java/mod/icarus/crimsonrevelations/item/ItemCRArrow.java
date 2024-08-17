@@ -29,37 +29,37 @@ public class ItemCRArrow extends ItemArrow {
 
     @Override
     public EntityArrow createArrow(World world, ItemStack stack, EntityLivingBase shooter) {
-        if (this == RegistryHandler.airPrimalArrow) {
-            EntityPrimalArrow airArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.airPrimalArrow);
-            airArrow.setArrowType(0);
-            airArrow.setKnockbackStrength(2);
-            airArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            return airArrow;
-        } else if (this == RegistryHandler.earthPrimalArrow) {
-            EntityPrimalArrow earthArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.earthPrimalArrow);
-            earthArrow.setArrowType(1);
-            earthArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            return earthArrow;
-        } else if (this == RegistryHandler.firePrimalArrow) {
-            EntityPrimalArrow fireArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.firePrimalArrow);
-            fireArrow.setArrowType(2);
-            fireArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            return fireArrow;
-        } else if (this == RegistryHandler.waterPrimalArrow) {
-            EntityPrimalArrow waterArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.waterPrimalArrow);
-            waterArrow.setArrowType(3);
-            waterArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            return waterArrow;
-        } else if (this == RegistryHandler.orderPrimalArrow) {
-            EntityPrimalArrow orderArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.orderPrimalArrow);
-            orderArrow.setArrowType(4);
-            orderArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            return orderArrow;
-        } else if (this == RegistryHandler.entropyPrimalArrow) {
-            EntityPrimalArrow entropyArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.entropyPrimalArrow);
-            entropyArrow.setArrowType(5);
-            entropyArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            return entropyArrow;
+        if (this == RegistryHandler.aerArrow) {
+            EntityPrimalArrow aerArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.aerArrow);
+            aerArrow.setArrowType(0);
+            aerArrow.setKnockbackStrength(2);
+            aerArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            return aerArrow;
+        } else if (this == RegistryHandler.aquaArrow) {
+            EntityPrimalArrow aquaArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.aquaArrow);
+            aquaArrow.setArrowType(1);
+            aquaArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            return aquaArrow;
+        } else if (this == RegistryHandler.ignisArrow) {
+            EntityPrimalArrow ignisArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.ignisArrow);
+            ignisArrow.setArrowType(2);
+            ignisArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            return ignisArrow;
+        } else if (this == RegistryHandler.ordoArrow) {
+            EntityPrimalArrow ordoArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.ordoArrow);
+            ordoArrow.setArrowType(3);
+            ordoArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            return ordoArrow;
+        } else if (this == RegistryHandler.perditioArrow) {
+            EntityPrimalArrow perditioArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.perditioArrow);
+            perditioArrow.setArrowType(4);
+            perditioArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            return perditioArrow;
+        } else if (this == RegistryHandler.terraArrow) {
+            EntityPrimalArrow terraArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.terraArrow);
+            terraArrow.setArrowType(5);
+            terraArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            return terraArrow;
         }
 
         return new EntitySpectralArrow(world, shooter);
@@ -69,12 +69,12 @@ public class ItemCRArrow extends ItemArrow {
     public boolean isInfinite(ItemStack stack, ItemStack item, EntityPlayer player) {
         int enchantLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, item);
 
-        if (this == RegistryHandler.airPrimalArrow ||
-                this == RegistryHandler.earthPrimalArrow ||
-                this == RegistryHandler.entropyPrimalArrow ||
-                this == RegistryHandler.firePrimalArrow ||
-                this == RegistryHandler.orderPrimalArrow ||
-                this == RegistryHandler.waterPrimalArrow) {
+        if (this == RegistryHandler.aerArrow ||
+                this == RegistryHandler.aquaArrow ||
+                this == RegistryHandler.ignisArrow ||
+                this == RegistryHandler.ordoArrow ||
+                this == RegistryHandler.perditioArrow ||
+                this == RegistryHandler.terraArrow) {
             if (enchantLevel <= 0) {
                 return false;
             } else {

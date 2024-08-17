@@ -97,54 +97,54 @@ public class RecipeHandler {
                 "EIE",
                 "EPE",
                 'P', RegistryHandler.crimsonPlate, 'I', new ItemStack(Items.IRON_SWORD, 1, OreDictionary.WILDCARD_VALUE), 'E', Items.SPIDER_EYE));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "air_primal_arrow"), new ShapedArcaneRecipe(
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "aer_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(RegistryHandler.airPrimalArrow, 4),
+                new ItemStack(RegistryHandler.aerArrow, 4),
                 " A ",
                 "ACA",
                 " A ",
                 'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.AIR))));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "earth_primal_arrow"), new ShapedArcaneRecipe(
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "aqua_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(RegistryHandler.earthPrimalArrow, 4),
-                " A ",
-                "ACA",
-                " A ",
-                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.EARTH))));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "entropy_primal_arrow"), new ShapedArcaneRecipe(
-                defaultGroup, "PRIMAL_ARROWS", 10,
-                new AspectList(),
-                new ItemStack(RegistryHandler.entropyPrimalArrow, 4),
-                " A ",
-                "ACA",
-                " A ",
-                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.ENTROPY))));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "fire_primal_arrow"), new ShapedArcaneRecipe(
-                defaultGroup, "PRIMAL_ARROWS", 10,
-                new AspectList(),
-                new ItemStack(RegistryHandler.firePrimalArrow, 4),
-                " A ",
-                "ACA",
-                " A ",
-                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.FIRE))));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "order_primal_arrow"), new ShapedArcaneRecipe(
-                defaultGroup, "PRIMAL_ARROWS", 10,
-                new AspectList(),
-                new ItemStack(RegistryHandler.orderPrimalArrow, 4),
-                " A ",
-                "ACA",
-                " A ",
-                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.ORDER))));
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "water_primal_arrow"), new ShapedArcaneRecipe(
-                defaultGroup, "PRIMAL_ARROWS", 10,
-                new AspectList(),
-                new ItemStack(RegistryHandler.waterPrimalArrow, 4),
+                new ItemStack(RegistryHandler.aquaArrow, 4),
                 " A ",
                 "ACA",
                 " A ",
                 'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.WATER))));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "ignis_arrow"), new ShapedArcaneRecipe(
+                defaultGroup, "PRIMAL_ARROWS", 10,
+                new AspectList(),
+                new ItemStack(RegistryHandler.ignisArrow, 4),
+                " A ",
+                "ACA",
+                " A ",
+                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.FIRE))));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "ordo_arrow"), new ShapedArcaneRecipe(
+                defaultGroup, "PRIMAL_ARROWS", 10,
+                new AspectList(),
+                new ItemStack(RegistryHandler.ordoArrow, 4),
+                " A ",
+                "ACA",
+                " A ",
+                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.ORDER))));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "perditio_arrow"), new ShapedArcaneRecipe(
+                defaultGroup, "PRIMAL_ARROWS", 10,
+                new AspectList(),
+                new ItemStack(RegistryHandler.perditioArrow, 4),
+                " A ",
+                "ACA",
+                " A ",
+                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.ENTROPY))));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(CrimsonRevelations.MODID, "terra_arrow"), new ShapedArcaneRecipe(
+                defaultGroup, "PRIMAL_ARROWS", 10,
+                new AspectList(),
+                new ItemStack(RegistryHandler.terraArrow, 4),
+                " A ",
+                "ACA",
+                " A ",
+                'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.EARTH))));
     }
 
     public static void initCrucible() {

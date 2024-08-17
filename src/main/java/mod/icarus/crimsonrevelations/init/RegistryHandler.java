@@ -53,8 +53,10 @@ import javax.annotation.Nonnull;
 @EventBusSubscriber(modid = CrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(CrimsonRevelations.MODID)
 public class RegistryHandler {
-    @GameRegistry.ObjectHolder("air_primal_arrow")
-    public static Item airPrimalArrow;
+    @GameRegistry.ObjectHolder("aer_arrow")
+    public static Item aerArrow;
+    @GameRegistry.ObjectHolder("aqua_arrow")
+    public static Item aquaArrow;
     @GameRegistry.ObjectHolder("bone_bow")
     public static Item boneBow;
     @GameRegistry.ObjectHolder("crimson_archer_helmet")
@@ -69,18 +71,16 @@ public class RegistryHandler {
     public static Item crimsonPlate;
     @GameRegistry.ObjectHolder("crimson_sword")
     public static Item crimsonSword;
-    @GameRegistry.ObjectHolder("earth_primal_arrow")
-    public static Item earthPrimalArrow;
     @GameRegistry.ObjectHolder("embellished_crimson_fabric")
     public static Item embellishedCrimsonFabric;
-    @GameRegistry.ObjectHolder("entropy_primal_arrow")
-    public static Item entropyPrimalArrow;
-    @GameRegistry.ObjectHolder("fire_primal_arrow")
-    public static Item firePrimalArrow;
-    @GameRegistry.ObjectHolder("order_primal_arrow")
-    public static Item orderPrimalArrow;
-    @GameRegistry.ObjectHolder("water_primal_arrow")
-    public static Item waterPrimalArrow;
+    @GameRegistry.ObjectHolder("ignis_arrow")
+    public static Item ignisArrow;
+    @GameRegistry.ObjectHolder("ordo_arrow")
+    public static Item ordoArrow;
+    @GameRegistry.ObjectHolder("perditio_arrow")
+    public static Item perditioArrow;
+    @GameRegistry.ObjectHolder("terra_arrow")
+    public static Item terraArrow;
 
     public static ArmorMaterial ARMOR_CULTIST_ARCHER = EnumHelper.addArmorMaterial("CULTIST_ARCHER", "CULTIST_ARCHER", 17, new int[]{2, 5, 5, 2}, 13, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F).setRepairItem(new ItemStack(crimsonPlate));
 
@@ -99,12 +99,12 @@ public class RegistryHandler {
                 setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
 
                 setup(new ItemBoneBow(), "bone_bow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "air_primal_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "fire_primal_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "water_primal_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "earth_primal_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "order_primal_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "entropy_primal_arrow")
+                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "aer_arrow"),
+                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "aqua_arrow"),
+                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "ignis_arrow"),
+                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "ordo_arrow"),
+                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
+                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "terra_arrow")
         );
     }
 
@@ -119,7 +119,7 @@ public class RegistryHandler {
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         int id = 0;
 
-        registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
+        //registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
         registerEntity("primal_arrow", EntityPrimalArrow.class, id++, 64, 1, true);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)

@@ -3,7 +3,8 @@ itemGroup.CrimsonRevelationsTab=New Crimson Revelations
 entity.crimsonrevelations.cultist_archer.name=Crimson Archer
 entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
 
-item.crimsonrevelations.air_primal_arrow.name=Air Primal Arrow
+item.crimsonrevelations.aer_arrow.name=Aer Arrow
+item.crimsonrevelations.aqua_arrow.name=Aqua Arrow
 item.crimsonrevelations.bone_bow.name=Bow of Bone
 item.crimsonrevelations.crimson_archer_helmet.name=Crimson Archer Helm
 item.crimsonrevelations.crimson_archer_chestplate.name=Crimson Archer Chestplate
@@ -11,12 +12,11 @@ item.crimsonrevelations.crimson_archer_leggings.name=Crimson Archer Greaves
 item.crimsonrevelations.crimson_fabric.name=Crimson Fabric
 item.crimsonrevelations.crimson_plate.name=Crimson Plate
 item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
-item.crimsonrevelations.earth_primal_arrow.name=Earth Primal Arrow
-item.crimsonrevelations.entropy_primal_arrow.name=Entropy Primal Arrow
 item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
-item.crimsonrevelations.fire_primal_arrow.name=Fire Primal Arrow
-item.crimsonrevelations.order_primal_arrow.name=Order Primal Arrow
-item.crimsonrevelations.water_primal_arrow.name=Water Primal Arrow
+item.crimsonrevelations.ignis_arrow.name=Ignis Arrow
+item.crimsonrevelations.ordo_arrow.name=Ordo Arrow
+item.crimsonrevelations.perditio_arrow.name=Perditio Arrow
+item.crimsonrevelations.terra_arrow.name=Terra Arrow
 
 tc.research_category.REVELATIONS=Revelations
 

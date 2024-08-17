@@ -191,7 +191,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
                 for (int i = 0; i < 4; ++i) {
                     this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * 0.25D, this.posY - this.motionY * 0.25D, this.posZ - this.motionZ * 0.25D, this.motionX, this.motionY, this.motionZ);
                 }
-                if (this.getArrowType() != 3 || this.getArrowType() != 0) {
+                if (this.getArrowType() != 0 || this.getArrowType() != 1) {
                     // Motion change does not affect Water/Air Arrows
                     motionMultiplier = 0.6F;
                 }
@@ -217,7 +217,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
     @Override
     public void onEntityUpdate() {
         // Water Arrows are never set on fire
-        if (this.getArrowType() == 3) {
+        if (this.getArrowType() == 1) {
             this.isImmuneToFire = true;
         }
 
@@ -237,8 +237,8 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
                 // More Damage - Fire
                 damage = damage * 1.25D;
                 break;
+            case 3:
             case 4:
-            case 5:
                 // Less Damage - Entropy/Order
                 damage = damage * 0.8D;
                 break;
@@ -250,13 +250,13 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
         Entity shooter = (this.shootingEntity == null) ? this : this.shootingEntity;
         DamageSource damageSource = new EntityDamageSourceIndirect("arrow", this, shooter);
         switch (this.getArrowType()) {
-            case 1:
-                // Armor Penetration - Earth
-                damageSource = damageSource.setProjectile().setDamageBypassesArmor();
-                break;
             case 2:
                 // Fire Damage - Fire
                 damageSource = damageSource.setProjectile().setFireDamage();
+                break;
+            case 5:
+                // Armor Penetration - Earth
+                damageSource = damageSource.setProjectile().setDamageBypassesArmor();
                 break;
             default:
                 // Default Damage - Air/Entropy/Earth
@@ -269,7 +269,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
     protected int getFireDuration() {
         int duration = 0;
         // Water Arrows will never light targets on fire
-        if (this.isBurning() && this.getArrowType() != 3) {
+        if (this.isBurning() && this.getArrowType() != 1) {
             duration += 5;
         }
         // Fire Arrows will always light targets on fire (fire enchantments will extend duration)
@@ -363,15 +363,15 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
     protected void arrowHit(EntityLivingBase living) {
         super.arrowHit(living);
         switch (this.getArrowType()) {
-            case 3:
+            case 1:
                 // Slowness V Effect - Water (10 seconds)
                 living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10 * 20, 4));
                 break;
-            case 4:
+            case 3:
                 // Weakness V Effect - Order (10 seconds)
                 living.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 10 * 20, 4));
                 break;
-            case 5:
+            case 4:
                 // Wither III Effect - Entropy (10 seconds)
                 living.addPotionEffect(new PotionEffect(MobEffects.WITHER, 10 * 20, 2));
                 break;
