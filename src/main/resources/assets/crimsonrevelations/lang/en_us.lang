@@ -76,6 +76,16 @@ crimsonrevelations.research.focus_taint_poison.stage.0=Taint Poison is much more
 crimsonrevelations.research.overgrown_taintacle.title=Overgrown Taintacle
 crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
+crimsonrevelations.research.cult_bestiary.title=The Cult Bestiary
+crimsonrevelations.research.cult_bestiary.stage.0=I am dedicating this side of the Revelations chapter for any of the different type of Crimson Cult members I encounter. The cultists seem to be human or at least related to humans. However, something is off about them. Their eyes are of a striking glowing red, and their bodies seem to have a higher constitution than a normal body would, surviving wounds that I would not be able to.<PAGE>Whatever process they use to "enhance" themselves is both curious, and at the same time strangely sinister. Interestingly, I can't help but notice the similarity of Angry Zombies to them. Perhaps the remains of failed expeditions?<BR>Of particularly interesting note, they seem to have some form of rank system, or at least that's what I was able to translate. I will note down more about each of the members upon scanning any of them with my Thaumometer.
+crimsonrevelations.research.cult_bestiary.addenda.0=Upon observing the Shambling Husks, they appear to wear similar armor to the cultists themselves. Were these husks also the remains of failed expeditions thanks to the very aggressive Eldritch Crabs deciding their own fates?<BR>Maybe I'm onto something here... 
+
+crimsonrevelations.research.crimson_cleric.title=Crimson Cleric
+crimsonrevelations.research.crimson_cleric.stage.0=[WIP]
+
+crimsonrevelations.research.crimson_knight.title=Crimson Knight
+crimsonrevelations.research.crimson_knight.stage.0=[WIP]
+
 crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
 
 focus.crimsonrevelations.blinding_flash.name=Blinding Flash

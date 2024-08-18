@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "key": "CR_CULT_BESTIARY",
+      "name": "crimsonrevelations.research.cult_bestiary.title",
+      "icons": [
+        "crimsonrevelations:textures/items/curio_ancient_thaunomicon.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "~CrimsonRites"
+      ],
+      "siblings": [
+        "~CrimsonRites",
+        "CR_CRIMSON_CLERIC",
+        "CR_CRIMSON_KNIGHT"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        -6,
+        4
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.cult_bestiary.stage.0"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "crimsonrevelations.research.cult_bestiary.addenda.0",
+          "required_research": [
+            "!EldritchCrab"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CR_CRIMSON_CLERIC",
+      "name": "crimsonrevelations.research.crimson_cleric.title",
+      "icons": [
+        "crimsonrevelations:textures/research/b_cleric.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "~CR_CULT_BESTIARY"
+      ],
+      "siblings": [],
+      "meta": [
+        "HEX"
+      ],
+      "location": [
+        -6,
+        6
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.crimson_cleric.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "CR_CRIMSON_KNIGHT",
+      "name": "crimsonrevelations.research.crimson_knight.title",
+      "icons": [
+        "crimsonrevelations:textures/research/b_knight.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "~CR_CULT_BESTIARY"
+      ],
+      "siblings": [],
+      "meta": [
+        "HEX"
+      ],
+      "location": [
+        -7,
+        5
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.crimson_knight.stage.0"
+        }
+      ]
+    }
+  ]
+}
