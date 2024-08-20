@@ -11,9 +11,7 @@
         "~CrimsonRites"
       ],
       "siblings": [
-        "~CrimsonRites",
-        "CR_CRIMSON_CLERIC",
-        "CR_CRIMSON_KNIGHT"
+        "~CrimsonRites"
       ],
       "meta": [
         "ROUND"
@@ -39,22 +37,21 @@
       ]
     },
     {
-      "key": "CR_CRIMSON_CLERIC",
+      "key": "!CR_CRIMSON_CLERIC",
       "name": "crimsonrevelations.research.crimson_cleric.title",
       "icons": [
         "crimsonrevelations:textures/research/b_cleric.png"
       ],
       "category": "REVELATIONS",
-      "parents": [
-        "~CR_CULT_BESTIARY"
-      ],
+      "parents": [],
       "siblings": [],
       "meta": [
-        "HEX"
+        "HEX",
+        "HIDDEN"
       ],
       "location": [
         -6,
-        6
+        5
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -65,18 +62,17 @@
       ]
     },
     {
-      "key": "CR_CRIMSON_KNIGHT",
+      "key": "!CR_CRIMSON_KNIGHT",
       "name": "crimsonrevelations.research.crimson_knight.title",
       "icons": [
         "crimsonrevelations:textures/research/b_knight.png"
       ],
       "category": "REVELATIONS",
-      "parents": [
-        "~CR_CULT_BESTIARY"
-      ],
+      "parents": [],
       "siblings": [],
       "meta": [
-        "HEX"
+        "HEX",
+        "HIDDEN"
       ],
       "location": [
         -7,
@@ -87,6 +83,14 @@
       "stages": [
         {
           "text": "crimsonrevelations.research.crimson_knight.stage.0"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "crimsonrevelations.research.crimson_knight.addenda.0",
+          "required_research": [
+            "CR_CULT_BESTIARY"
+          ]
         }
       ]
     }

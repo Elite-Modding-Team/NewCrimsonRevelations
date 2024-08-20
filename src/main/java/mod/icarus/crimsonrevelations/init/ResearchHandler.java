@@ -15,6 +15,8 @@ import thaumcraft.api.casters.FocusEngine;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanningManager;
+import thaumcraft.common.entities.monster.cult.EntityCultistCleric;
+import thaumcraft.common.entities.monster.cult.EntityCultistKnight;
 
 public class ResearchHandler {
     public static void init() {
@@ -25,9 +27,12 @@ public class ResearchHandler {
         // Research Categories
         ResearchCategories.registerCategory("REVELATIONS", "CrimsonRites", new AspectList(), new ResourceLocation(Thaumcraft.MODID, "textures/items/crimson_rites.png"), new ResourceLocation(CrimsonRevelations.MODID, "textures/gui/research_background.jpg"), new ResourceLocation(Thaumcraft.MODID, "textures/gui/gui_research_back_over.png"));
 
-        // Research
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(CrimsonRevelations.MODID, "research/bestiary"));
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(CrimsonRevelations.MODID, "research/revelations"));
+
+        // Research
+        ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));
+        ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_KNIGHT", EntityCultistKnight.class, true));
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION) {
             // Focus Effects
