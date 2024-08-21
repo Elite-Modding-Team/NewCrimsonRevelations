@@ -1,4 +1,4 @@
-package mod.icarus.crimsonrevelations.mixin;
+package mod.icarus.crimsonrevelations.mixin.event;
 
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import net.minecraft.entity.item.EntityItem;

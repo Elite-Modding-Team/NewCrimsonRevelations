@@ -1,0 +1,13 @@
+{
+  "package": "mod.icarus.crimsonrevelations.mixin.entity",
+  "refmap": "crimsonrevelations.refmap.json",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EntityCultistClericMixin",
+    "EntityCultistKnightMixin",
+    "EntityCultistPortalLesserMixin"
+  ],
+  "client": [],
+  "server": []
+}

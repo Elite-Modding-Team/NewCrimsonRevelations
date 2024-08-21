@@ -1,4 +1,4 @@
-package mod.icarus.crimsonrevelations.mixin;
+package mod.icarus.crimsonrevelations.mixin.entity;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;

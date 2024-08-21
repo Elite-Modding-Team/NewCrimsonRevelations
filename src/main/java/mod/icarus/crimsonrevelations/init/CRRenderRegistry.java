@@ -2,7 +2,7 @@ package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.client.renderer.RenderOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.client.renderer.RenderPrimalArrow;
-import mod.icarus.crimsonrevelations.core.CRConfig;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.client.renderers.entity.mob.RenderCultist;
 
 @SideOnly(Side.CLIENT)
-public class RenderingHandler {
+public class CRRenderRegistry {
     public static void preInit() {
         //RenderingRegistry.registerEntityRenderingHandler(EntityCultistArcher.class, RenderCultist::new);
         

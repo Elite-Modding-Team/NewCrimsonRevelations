@@ -1,4 +1,4 @@
-package mod.icarus.crimsonrevelations.core;
+package mod.icarus.crimsonrevelations.mixin;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraftforge.fml.common.Loader;
@@ -20,7 +20,8 @@ public class CRMixinLoader implements ILateMixinLoader {
 
     private static final Map<String, Supplier<Boolean>> commonMixinConfigs = ImmutableMap.copyOf(new HashMap<String, Supplier<Boolean>>() {
         {
-            put("mixins.crimsonrevelations.json", () -> true);
+            put("mixins.crimsonrevelations.entities.json", () -> true);
+            put("mixins.crimsonrevelations.events.json", () -> true);
         }
     });
 

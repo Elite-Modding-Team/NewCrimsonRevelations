@@ -1,7 +1,7 @@
 package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
-import mod.icarus.crimsonrevelations.init.RegistryHandler;
+import mod.icarus.crimsonrevelations.init.CRRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,10 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import thaumcraft.common.lib.SoundsTC;
 
-public class ItemCRArrow extends ItemArrow {
+public class CRItemArrow extends ItemArrow {
     EnumRarity rarity;
 
-    public ItemCRArrow(EnumRarity rarity) {
+    public CRItemArrow(EnumRarity rarity) {
         super();
         this.rarity = rarity;
     }
@@ -29,34 +29,34 @@ public class ItemCRArrow extends ItemArrow {
 
     @Override
     public EntityArrow createArrow(World world, ItemStack stack, EntityLivingBase shooter) {
-        if (this == RegistryHandler.aerArrow) {
-            EntityPrimalArrow aerArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.aerArrow);
+        if (this == CRRegistry.aerArrow) {
+            EntityPrimalArrow aerArrow = new EntityPrimalArrow(world, shooter, CRRegistry.aerArrow);
             aerArrow.setArrowType(0);
             aerArrow.setKnockbackStrength(2);
             aerArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return aerArrow;
-        } else if (this == RegistryHandler.aquaArrow) {
-            EntityPrimalArrow aquaArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.aquaArrow);
+        } else if (this == CRRegistry.aquaArrow) {
+            EntityPrimalArrow aquaArrow = new EntityPrimalArrow(world, shooter, CRRegistry.aquaArrow);
             aquaArrow.setArrowType(1);
             aquaArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return aquaArrow;
-        } else if (this == RegistryHandler.ignisArrow) {
-            EntityPrimalArrow ignisArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.ignisArrow);
+        } else if (this == CRRegistry.ignisArrow) {
+            EntityPrimalArrow ignisArrow = new EntityPrimalArrow(world, shooter, CRRegistry.ignisArrow);
             ignisArrow.setArrowType(2);
             ignisArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return ignisArrow;
-        } else if (this == RegistryHandler.ordoArrow) {
-            EntityPrimalArrow ordoArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.ordoArrow);
+        } else if (this == CRRegistry.ordoArrow) {
+            EntityPrimalArrow ordoArrow = new EntityPrimalArrow(world, shooter, CRRegistry.ordoArrow);
             ordoArrow.setArrowType(3);
             ordoArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return ordoArrow;
-        } else if (this == RegistryHandler.perditioArrow) {
-            EntityPrimalArrow perditioArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.perditioArrow);
+        } else if (this == CRRegistry.perditioArrow) {
+            EntityPrimalArrow perditioArrow = new EntityPrimalArrow(world, shooter, CRRegistry.perditioArrow);
             perditioArrow.setArrowType(4);
             perditioArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return perditioArrow;
-        } else if (this == RegistryHandler.terraArrow) {
-            EntityPrimalArrow terraArrow = new EntityPrimalArrow(world, shooter, RegistryHandler.terraArrow);
+        } else if (this == CRRegistry.terraArrow) {
+            EntityPrimalArrow terraArrow = new EntityPrimalArrow(world, shooter, CRRegistry.terraArrow);
             terraArrow.setArrowType(5);
             terraArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return terraArrow;
@@ -69,12 +69,12 @@ public class ItemCRArrow extends ItemArrow {
     public boolean isInfinite(ItemStack stack, ItemStack item, EntityPlayer player) {
         int enchantLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, item);
 
-        if (this == RegistryHandler.aerArrow ||
-                this == RegistryHandler.aquaArrow ||
-                this == RegistryHandler.ignisArrow ||
-                this == RegistryHandler.ordoArrow ||
-                this == RegistryHandler.perditioArrow ||
-                this == RegistryHandler.terraArrow) {
+        if (this == CRRegistry.aerArrow ||
+                this == CRRegistry.aquaArrow ||
+                this == CRRegistry.ignisArrow ||
+                this == CRRegistry.ordoArrow ||
+                this == CRRegistry.perditioArrow ||
+                this == CRRegistry.terraArrow) {
             if (enchantLevel <= 0) {
                 return false;
             } else {

@@ -1,13 +1,13 @@
 package mod.icarus.crimsonrevelations.item.weapons;
 
-import mod.icarus.crimsonrevelations.item.ItemCRBow;
+import mod.icarus.crimsonrevelations.item.CRItemBow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
-public class ItemBoneBow extends ItemCRBow {
+public class ItemBoneBow extends CRItemBow {
     public ItemBoneBow() {
         // Durability, Damage Multiplier, Velocity Multiplier, Draw Time Multipler, Inaccuracy, Rarity, Repair Material
         super(512, 1.15F, 1.5F, 0.8F, 0.8F, EnumRarity.RARE, Ingredient.fromStacks(new ItemStack(Items.BONE)));

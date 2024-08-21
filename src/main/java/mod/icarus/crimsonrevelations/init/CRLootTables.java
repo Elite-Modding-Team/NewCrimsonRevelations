@@ -1,6 +1,6 @@
 package mod.icarus.crimsonrevelations.init;
 
-import mod.icarus.crimsonrevelations.CrimsonRevelations;
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
@@ -17,12 +17,12 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.Thaumcraft;
 
-@EventBusSubscriber(modid = CrimsonRevelations.MODID)
-public class LootTableHandler {
-    public static final ResourceLocation LESSER_CULTIST_PORTAL = new ResourceLocation(CrimsonRevelations.MODID, ("entities/lesser_cultist_portal"));
+@EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
+public class CRLootTables {
+    public static final ResourceLocation LESSER_CULTIST_PORTAL = new ResourceLocation(NewCrimsonRevelations.MODID, ("entities/lesser_cultist_portal"));
 
     // Bosses
-    public static final ResourceLocation OVERGROWN_TAINTACLE = new ResourceLocation(CrimsonRevelations.MODID, ("entities/boss/overgrown_taintacle"));
+    public static final ResourceLocation OVERGROWN_TAINTACLE = new ResourceLocation(NewCrimsonRevelations.MODID, ("entities/boss/overgrown_taintacle"));
 
     @SubscribeEvent
     public static void onLootTableLoad(LootTableLoadEvent event) {
@@ -35,11 +35,11 @@ public class LootTableHandler {
             }
 
             if (crimson_material_pool != null) {
-                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(RegistryHandler.crimsonFabric).getItem(), 1, 0,
+                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRRegistry.crimsonFabric).getItem(), 1, 0,
                         new LootFunction[]{new SetCount(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0, 1)),
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_fabric"));
-                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(RegistryHandler.crimsonPlate).getItem(), 1, 0,
+                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRRegistry.crimsonPlate).getItem(), 1, 0,
                         new LootFunction[]{new SetCount(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0, 1)),
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_plate"));

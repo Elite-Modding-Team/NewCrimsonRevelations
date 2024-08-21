@@ -18,7 +18,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
-public class ItemCRBow extends ItemBow {
+public class CRItemBow extends ItemBow {
     public float damageMult;
     public float velocityMult;
     public float inaccuracy;
@@ -26,7 +26,7 @@ public class ItemCRBow extends ItemBow {
     public EnumRarity rarity;
     public Ingredient repairMaterial;
 
-    public ItemCRBow(int durability, float damageMult, float velocityMult, float drawTimeMult, float inaccuracy, EnumRarity rarity, Ingredient repairMaterial) {
+    public CRItemBow(int durability, float damageMult, float velocityMult, float drawTimeMult, float inaccuracy, EnumRarity rarity, Ingredient repairMaterial) {
         this.maxStackSize = 1;
         this.setMaxDamage(durability);
         this.damageMult = damageMult;

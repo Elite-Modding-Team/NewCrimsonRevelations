@@ -1,6 +1,6 @@
-package mod.icarus.crimsonrevelations.mixin;
+package mod.icarus.crimsonrevelations.mixin.entity;
 
-import mod.icarus.crimsonrevelations.init.LootTableHandler;
+import mod.icarus.crimsonrevelations.init.CRLootTables;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -24,6 +24,6 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
     @Override
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTableHandler.LESSER_CULTIST_PORTAL;
+        return CRLootTables.LESSER_CULTIST_PORTAL;
     }
 }

@@ -1,6 +1,6 @@
 package mod.icarus.crimsonrevelations.compat.thaumicaugmentation;
 
-import mod.icarus.crimsonrevelations.core.CRConfig;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraftforge.fml.common.registry.EntityRegistry;

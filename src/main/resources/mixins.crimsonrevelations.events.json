@@ -1,12 +1,9 @@
 {
-  "package": "mod.icarus.crimsonrevelations.mixin",
+  "package": "mod.icarus.crimsonrevelations.mixin.event",
   "refmap": "crimsonrevelations.refmap.json",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EntityCultistClericMixin",
-    "EntityCultistKnightMixin",
-    "EntityCultistPortalLesserMixin",
     "TCEntityEventsMixin"
   ],
   "client": [],

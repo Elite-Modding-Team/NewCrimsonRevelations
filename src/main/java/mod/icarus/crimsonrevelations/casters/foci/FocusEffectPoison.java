@@ -1,6 +1,6 @@
-package mod.icarus.crimsonrevelations.item.foci;
+package mod.icarus.crimsonrevelations.casters.foci;
 
-import mod.icarus.crimsonrevelations.CrimsonRevelations;
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -30,7 +30,7 @@ public class FocusEffectPoison extends FocusEffect {
 
     @Override
     public String getKey() {
-        return "focus." + CrimsonRevelations.MODID + ".poison";
+        return "focus." + NewCrimsonRevelations.MODID + ".poison";
     }
 
     @Override

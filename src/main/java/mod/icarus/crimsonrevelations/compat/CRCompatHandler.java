@@ -1,17 +1,17 @@
 package mod.icarus.crimsonrevelations.compat;
 
-import mod.icarus.crimsonrevelations.CrimsonRevelations;
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.compat.jer.JERIntegration;
 import mod.icarus.crimsonrevelations.compat.thaumicaugmentation.TAIntegration;
-import mod.icarus.crimsonrevelations.core.CRConfig;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 
-@Mod.EventBusSubscriber(modid = CrimsonRevelations.MODID)
-public class CompatHandler {
+@Mod.EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
+public class CRCompatHandler {
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
     }

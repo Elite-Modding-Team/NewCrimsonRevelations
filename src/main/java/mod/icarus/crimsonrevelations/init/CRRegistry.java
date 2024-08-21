@@ -1,14 +1,14 @@
 package mod.icarus.crimsonrevelations.init;
 
 import com.google.common.base.Preconditions;
-import mod.icarus.crimsonrevelations.CrimsonRevelations;
-import mod.icarus.crimsonrevelations.core.CRConfig;
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
-import mod.icarus.crimsonrevelations.item.ItemCR;
-import mod.icarus.crimsonrevelations.item.ItemCRArrow;
-import mod.icarus.crimsonrevelations.item.ItemCRSword;
+import mod.icarus.crimsonrevelations.item.CRItem;
+import mod.icarus.crimsonrevelations.item.CRItemArrow;
+import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.Block;
@@ -50,9 +50,9 @@ import javax.annotation.Nonnull;
 
 // TODO: Organize and split this class
 @SuppressWarnings("deprecation")
-@EventBusSubscriber(modid = CrimsonRevelations.MODID)
-@GameRegistry.ObjectHolder(CrimsonRevelations.MODID)
-public class RegistryHandler {
+@EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
+@GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
+public class CRRegistry {
     @GameRegistry.ObjectHolder("aer_arrow")
     public static Item aerArrow;
     @GameRegistry.ObjectHolder("aqua_arrow")
@@ -89,30 +89,30 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_fabric"),
-                setup(new ItemCR(EnumRarity.UNCOMMON), "embellished_crimson_fabric"),
-                setup(new ItemCR(EnumRarity.UNCOMMON), "crimson_plate"),
-                setup(new ItemCRSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
+                setup(new CRItem(EnumRarity.UNCOMMON), "crimson_fabric"),
+                setup(new CRItem(EnumRarity.UNCOMMON), "embellished_crimson_fabric"),
+                setup(new CRItem(EnumRarity.UNCOMMON), "crimson_plate"),
+                setup(new CRItemSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
 
                 setup(new ItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 setup(new ItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
                 setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
 
                 setup(new ItemBoneBow(), "bone_bow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "aer_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "aqua_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "ignis_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "ordo_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
-                setup(new ItemCRArrow(EnumRarity.UNCOMMON), "terra_arrow")
+                setup(new CRItemArrow(EnumRarity.UNCOMMON), "aer_arrow"),
+                setup(new CRItemArrow(EnumRarity.UNCOMMON), "aqua_arrow"),
+                setup(new CRItemArrow(EnumRarity.UNCOMMON), "ignis_arrow"),
+                setup(new CRItemArrow(EnumRarity.UNCOMMON), "ordo_arrow"),
+                setup(new CRItemArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
+                setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow")
         );
     }
 
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-        RecipeHandler.initArcaneCrafting();
-        RecipeHandler.initCrucible();
-        RecipeHandler.initInfusion();
+        CRRecipes.initArcaneCrafting();
+        CRRecipes.initCrucible();
+        CRRecipes.initInfusion();
     }
 
     @SubscribeEvent
@@ -129,16 +129,16 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void registerAspects(AspectRegistryEvent event) {
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
-            ThaumcraftApi.registerEntityTag(CrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
+            ThaumcraftApi.registerEntityTag(NewCrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
     }
 
     public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2) {
-        EntityRegistry.registerModEntity(new ResourceLocation(CrimsonRevelations.MODID, name), clazz, CrimsonRevelations.MODID + "." + name, id, CrimsonRevelations.instance, trackingRange,
+        EntityRegistry.registerModEntity(new ResourceLocation(NewCrimsonRevelations.MODID, name), clazz, NewCrimsonRevelations.MODID + "." + name, id, NewCrimsonRevelations.instance, trackingRange,
                 updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
     }
 
     public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates) {
-        EntityRegistry.registerModEntity(new ResourceLocation(CrimsonRevelations.MODID, name), clazz, CrimsonRevelations.MODID + "." + name, id, CrimsonRevelations.instance, trackingRange,
+        EntityRegistry.registerModEntity(new ResourceLocation(NewCrimsonRevelations.MODID, name), clazz, NewCrimsonRevelations.MODID + "." + name, id, NewCrimsonRevelations.instance, trackingRange,
                 updateFrequency, sendVelocityUpdates);
     }
 
@@ -146,7 +146,7 @@ public class RegistryHandler {
     public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
         ForgeRegistries.BLOCKS.getValues().stream()
-                .filter(block -> block.getRegistryName().getNamespace().equals(CrimsonRevelations.MODID))
+                .filter(block -> block.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID))
                 .filter(block -> !(block instanceof BlockDoor)) // Doors should not have an item block registered
                 .filter(block -> !(block instanceof BlockSlab)) // Slabs should not have an item block registered
                 .forEach(block -> registry.register(setup(new ItemBlock(block), block.getRegistryName())));
@@ -156,7 +156,7 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
-            if (item.getRegistryName().getNamespace().equals(CrimsonRevelations.MODID)) {
+            if (item.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID)) {
                 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
             }
         }
@@ -164,7 +164,7 @@ public class RegistryHandler {
 
     @Nonnull
     public static <T extends IForgeRegistryEntry<T>> T setup(T entry, String name) {
-        return setup(entry, new ResourceLocation(CrimsonRevelations.MODID, name));
+        return setup(entry, new ResourceLocation(NewCrimsonRevelations.MODID, name));
     }
 
     @Nonnull
@@ -173,10 +173,10 @@ public class RegistryHandler {
         Preconditions.checkNotNull(registryName, "Registry name to assign must not be null!");
         entry.setRegistryName(registryName);
         if (entry instanceof Block) {
-            ((Block) entry).setTranslationKey(registryName.getNamespace() + "." + registryName.getPath()).setCreativeTab(CrimsonRevelations.tabCR);
+            ((Block) entry).setTranslationKey(registryName.getNamespace() + "." + registryName.getPath()).setCreativeTab(NewCrimsonRevelations.tabCR);
         }
         if (entry instanceof Item) {
-            ((Item) entry).setTranslationKey(registryName.getNamespace() + "." + registryName.getPath()).setCreativeTab(CrimsonRevelations.tabCR);
+            ((Item) entry).setTranslationKey(registryName.getNamespace() + "." + registryName.getPath()).setCreativeTab(NewCrimsonRevelations.tabCR);
         }
         return entry;
     }

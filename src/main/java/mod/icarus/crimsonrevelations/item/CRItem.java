@@ -4,10 +4,10 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemCR extends Item {
+public class CRItem extends Item {
     EnumRarity rarity;
 
-    public ItemCR(EnumRarity rarity) {
+    public CRItem(EnumRarity rarity) {
         super();
         this.rarity = rarity;
     }

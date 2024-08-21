@@ -1,13 +1,13 @@
-package mod.icarus.crimsonrevelations.core;
+package mod.icarus.crimsonrevelations.config;
 
-import mod.icarus.crimsonrevelations.CrimsonRevelations;
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Config(modid = CrimsonRevelations.MODID, name = CrimsonRevelations.NAME)
+@Config(modid = NewCrimsonRevelations.MODID, name = NewCrimsonRevelations.NAME)
 public class CRConfig {
     @Config.Comment("General")
     public static GeneralSettings general_settings = new GeneralSettings();
@@ -52,12 +52,12 @@ public class CRConfig {
         public int TAINT_SWARM_WEIGHT = 20;
     }
 
-    @Mod.EventBusSubscriber(modid = CrimsonRevelations.MODID)
+    @Mod.EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
     public static class EventHandler {
         @SubscribeEvent
         public static void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
-            if (event.getModID().equals(CrimsonRevelations.MODID)) {
-                ConfigManager.sync(CrimsonRevelations.MODID, Config.Type.INSTANCE);
+            if (event.getModID().equals(NewCrimsonRevelations.MODID)) {
+                ConfigManager.sync(NewCrimsonRevelations.MODID, Config.Type.INSTANCE);
             }
         }
     }

@@ -1,7 +1,7 @@
 package mod.icarus.crimsonrevelations.entity.boss;
 
-import mod.icarus.crimsonrevelations.core.CRConfig;
-import mod.icarus.crimsonrevelations.init.LootTableHandler;
+import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.init.CRLootTables;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -177,7 +177,7 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
     @Override
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTableHandler.OVERGROWN_TAINTACLE;
+        return CRLootTables.OVERGROWN_TAINTACLE;
     }
 
     @Override

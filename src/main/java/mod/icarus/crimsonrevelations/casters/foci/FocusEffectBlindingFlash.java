@@ -1,7 +1,7 @@
-package mod.icarus.crimsonrevelations.item.foci;
+package mod.icarus.crimsonrevelations.casters.foci;
 
-import mod.icarus.crimsonrevelations.CrimsonRevelations;
-import mod.icarus.crimsonrevelations.init.SoundHandler;
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,7 +32,7 @@ public class FocusEffectBlindingFlash extends FocusEffect {
 
     @Override
     public String getKey() {
-        return "focus." + CrimsonRevelations.MODID + ".blinding_flash";
+        return "focus." + NewCrimsonRevelations.MODID + ".blinding_flash";
     }
 
     @Override
@@ -58,7 +58,7 @@ public class FocusEffectBlindingFlash extends FocusEffect {
     @Override
     public boolean execute(final RayTraceResult target, final Trajectory trajectory, final float finalPower, final int num) {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
-        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundHandler.FOCUS_BLINDING_LIGHT_HIT, SoundCategory.PLAYERS, 0.8F, 1.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
+        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, CRSoundEvents.FOCUS_BLINDING_LIGHT_HIT, SoundCategory.PLAYERS, 0.8F, 1.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
 
         if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit != null) {
             final int duration = 20 * this.getSettingValue("duration");
@@ -85,7 +85,7 @@ public class FocusEffectBlindingFlash extends FocusEffect {
 
     @Override
     public void onCast(Entity caster) {
-        caster.world.playSound(null, caster.getPosition().up(), SoundHandler.FOCUS_BLINDING_LIGHT_SHOOT, SoundCategory.PLAYERS, 1.2F, 1.0F + caster.world.rand.nextFloat() * 0.1F);
+        caster.world.playSound(null, caster.getPosition().up(), CRSoundEvents.FOCUS_BLINDING_LIGHT_SHOOT, SoundCategory.PLAYERS, 1.2F, 1.0F + caster.world.rand.nextFloat() * 0.1F);
     }
 
     @Override
