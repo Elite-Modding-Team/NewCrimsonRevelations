@@ -397,14 +397,14 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS_BASE",
+        "CR_DARK_AUROMANCY",
         "~FOCUSHEAL"
       ],
       "siblings": [],
       "meta": [],
       "location": [
         1,
-        -3
+        -5
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -430,14 +430,13 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS_BASE",
-        "~FOCUSELEMENTAL"
+        "CR_DARK_AUROMANCY"
       ],
       "siblings": [],
       "meta": [],
       "location": [
         0,
-        -2
+        -7
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -574,6 +573,33 @@
       "stages": [
         {
           "text": "crimsonrevelations.research.dark_golemancy.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "CR_DARK_AUROMANCY",
+      "name": "crimsonrevelations.research.dark_auromancy.title",
+      "icons": [
+        "crimsonrevelations:textures/research/r_dark_auromancy.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE",
+        "~FOCUSELEMENTAL"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        0,
+        -3
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.dark_auromancy.stage.0"
         }
       ]
     }

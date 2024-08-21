@@ -31,7 +31,7 @@ crimsonrevelations.research.basic_crimson_armory.title=Basic Crimson Cult Appare
 crimsonrevelations.research.basic_crimson_armory.stage.0=Whatever else can be said about the Crimson Cult, they sure know how to dress. Now that I can craft their banner, why not try duplicating a set of armor or robes?<BR>I'm not quite sure how the process goes, but making a set in a similar way as I did for my Thaumaturge's Robes would be a good idea to start with.
 crimsonrevelations.research.basic_crimson_armory.stage.1=Success! Crimson Cult armor is similar to iron in terms of protection, but with slightly more durability and vastly more style. The robes are significantly more protective than my Thaumaturge's Robes, but barely better than mundane armor when it comes to channeling Vis.<BR>They also seem to be made with some sort of magic much darker than thaumaturgy and do not require as much Vis to craft for this reason.<PAGE>Wearing them for a long period of time feels unsettling...
 
-crimsonrevelations.research.basic_crimson_weaponry.title=Basic Crimson Cult Weaponry
+crimsonrevelations.research.basic_crimson_weaponry.title=Basic Crimson Cult Arsenal
 crimsonrevelations.research.basic_crimson_weaponry.stage.0=Creating a replica of the Crimson Knight's sword wasn't that hard of a task, all I had to do was cover a basic iron sword with their specialized plates. For the poison, a couple of spider eyes was enough to suffice for that. The sword also reacts quite well to enchanting due to its rather high enchantability.
 
 crimsonrevelations.research.crimson_blade.title=Crimson Blade
@@ -66,6 +66,9 @@ crimsonrevelations.research.primal_arrows.stage.1=I have succeeded on utilizing 
 
 crimsonrevelations.research.dark_golemancy.title=Dark Golemancy Studies
 crimsonrevelations.research.dark_golemancy.stage.0=I've had more success on translating this section of the Crimson Rites. Surprisingly, the Crimson Cult has already done a lot of research to construct and perform their own golems, this is when it all took a more darker turn however, their more inhumane choices on building these golems.<BR>Whether I would want to learn some of these methods for my own uses or not is up to my own risk...
+
+crimsonrevelations.research.dark_auromancy.title=Dark Auromancy Studies
+crimsonrevelations.research.dark_auromancy.stage.0=I have discovered drafts within the Rites itself, the Crimson Cult are much more knowledgeable about thaumaturgy than I had previously thought.<BR>The knowledge that I have uncovered is more stranger than my usual discoveries, upon fully translating their own work done on Auromancy, I expect these new additions to be much more §osituational§r than I'm used to.
 
 crimsonrevelations.research.focus_blinding_flash.title=Focus Effect: Blinding Flash
 crimsonrevelations.research.focus_blinding_flash.stage.0=Blinding Flash has the ability to blind and blur targets, as well as weaken non-player targets. The damage is doubled against undead but is halved against non-undead, it is best to utilize this effect only during certain situations.

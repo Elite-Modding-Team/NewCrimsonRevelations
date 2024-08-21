@@ -33,15 +33,16 @@
       ],
       "category": "REVELATIONS",
       "parents": [
+        "CR_DARK_AUROMANCY",
         "CR_FOCUS_POISON",
-        "!CR_OVERGROWN_TAINTACLE",
+        "~!CR_OVERGROWN_TAINTACLE",
         "~FOCUSCURSE"
       ],
       "siblings": [],
       "meta": [],
       "location": [
         -1,
-        -4
+        -5
       ],
       "reward_item": [],
       "reward_knowledge": [],
