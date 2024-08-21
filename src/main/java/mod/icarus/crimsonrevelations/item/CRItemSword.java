@@ -1,6 +1,6 @@
 package mod.icarus.crimsonrevelations.item;
 
-import mod.icarus.crimsonrevelations.init.CRRegistry;
+import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -18,7 +18,7 @@ public class CRItemSword extends ItemSword {
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        if (this == CRRegistry.crimsonSword)
+        if (this == CRItems.crimsonSword)
             target.addPotionEffect(new PotionEffect(MobEffects.POISON, 6 * 20, 1));
 
         stack.damageItem(1, attacker);

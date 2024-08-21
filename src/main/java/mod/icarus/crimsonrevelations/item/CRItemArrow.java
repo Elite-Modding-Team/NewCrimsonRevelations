@@ -1,7 +1,7 @@
 package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
-import mod.icarus.crimsonrevelations.init.CRRegistry;
+import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,34 +29,34 @@ public class CRItemArrow extends ItemArrow {
 
     @Override
     public EntityArrow createArrow(World world, ItemStack stack, EntityLivingBase shooter) {
-        if (this == CRRegistry.aerArrow) {
-            EntityPrimalArrow aerArrow = new EntityPrimalArrow(world, shooter, CRRegistry.aerArrow);
+        if (this == CRItems.aerArrow) {
+            EntityPrimalArrow aerArrow = new EntityPrimalArrow(world, shooter, CRItems.aerArrow);
             aerArrow.setArrowType(0);
             aerArrow.setKnockbackStrength(2);
             aerArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return aerArrow;
-        } else if (this == CRRegistry.aquaArrow) {
-            EntityPrimalArrow aquaArrow = new EntityPrimalArrow(world, shooter, CRRegistry.aquaArrow);
+        } else if (this == CRItems.aquaArrow) {
+            EntityPrimalArrow aquaArrow = new EntityPrimalArrow(world, shooter, CRItems.aquaArrow);
             aquaArrow.setArrowType(1);
             aquaArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return aquaArrow;
-        } else if (this == CRRegistry.ignisArrow) {
-            EntityPrimalArrow ignisArrow = new EntityPrimalArrow(world, shooter, CRRegistry.ignisArrow);
+        } else if (this == CRItems.ignisArrow) {
+            EntityPrimalArrow ignisArrow = new EntityPrimalArrow(world, shooter, CRItems.ignisArrow);
             ignisArrow.setArrowType(2);
             ignisArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return ignisArrow;
-        } else if (this == CRRegistry.ordoArrow) {
-            EntityPrimalArrow ordoArrow = new EntityPrimalArrow(world, shooter, CRRegistry.ordoArrow);
+        } else if (this == CRItems.ordoArrow) {
+            EntityPrimalArrow ordoArrow = new EntityPrimalArrow(world, shooter, CRItems.ordoArrow);
             ordoArrow.setArrowType(3);
             ordoArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return ordoArrow;
-        } else if (this == CRRegistry.perditioArrow) {
-            EntityPrimalArrow perditioArrow = new EntityPrimalArrow(world, shooter, CRRegistry.perditioArrow);
+        } else if (this == CRItems.perditioArrow) {
+            EntityPrimalArrow perditioArrow = new EntityPrimalArrow(world, shooter, CRItems.perditioArrow);
             perditioArrow.setArrowType(4);
             perditioArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return perditioArrow;
-        } else if (this == CRRegistry.terraArrow) {
-            EntityPrimalArrow terraArrow = new EntityPrimalArrow(world, shooter, CRRegistry.terraArrow);
+        } else if (this == CRItems.terraArrow) {
+            EntityPrimalArrow terraArrow = new EntityPrimalArrow(world, shooter, CRItems.terraArrow);
             terraArrow.setArrowType(5);
             terraArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return terraArrow;
@@ -69,12 +69,12 @@ public class CRItemArrow extends ItemArrow {
     public boolean isInfinite(ItemStack stack, ItemStack item, EntityPlayer player) {
         int enchantLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, item);
 
-        if (this == CRRegistry.aerArrow ||
-                this == CRRegistry.aquaArrow ||
-                this == CRRegistry.ignisArrow ||
-                this == CRRegistry.ordoArrow ||
-                this == CRRegistry.perditioArrow ||
-                this == CRRegistry.terraArrow) {
+        if (this == CRItems.aerArrow ||
+                this == CRItems.aquaArrow ||
+                this == CRItems.ignisArrow ||
+                this == CRItems.ordoArrow ||
+                this == CRItems.perditioArrow ||
+                this == CRItems.terraArrow) {
             if (enchantLevel <= 0) {
                 return false;
             } else {

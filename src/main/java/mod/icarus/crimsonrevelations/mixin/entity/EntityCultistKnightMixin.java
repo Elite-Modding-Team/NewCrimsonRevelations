@@ -1,6 +1,6 @@
 package mod.icarus.crimsonrevelations.mixin.entity;
 
-import mod.icarus.crimsonrevelations.init.CRRegistry;
+import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -43,7 +43,7 @@ public class EntityCultistKnightMixin extends EntityCultist {
                 this.setItemStackToSlot(EntityEquipmentSlot.HEAD, ItemStack.EMPTY);
             }
         } else {
-            this.setHeldItem(this.getActiveHand(), new ItemStack(CRRegistry.crimsonSword));
+            this.setHeldItem(this.getActiveHand(), new ItemStack(CRItems.crimsonSword));
         }
     }
 
@@ -52,7 +52,7 @@ public class EntityCultistKnightMixin extends EntityCultist {
         boolean flag = super.attackEntityAsMob(entityIn);
 
         // Poison while cultist sword is equipped
-        if (flag && this.getHeldItemMainhand().getItem() == CRRegistry.crimsonSword && entityIn instanceof EntityLivingBase) {
+        if (flag && this.getHeldItemMainhand().getItem() == CRItems.crimsonSword && entityIn instanceof EntityLivingBase) {
             ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.POISON, 6 * 20, 1));
         }
 

@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations;
 
 import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
 import mod.icarus.crimsonrevelations.init.CRCreativeTabs;
+import mod.icarus.crimsonrevelations.init.CRRecipes;
 import mod.icarus.crimsonrevelations.init.CRRenderRegistry;
 import mod.icarus.crimsonrevelations.init.CRResearchRegistry;
 import net.minecraft.creativetab.CreativeTabs;
@@ -34,6 +35,10 @@ public class NewCrimsonRevelations {
     public void init(FMLInitializationEvent event) {
         CRCompatHandler.init();
         CRResearchRegistry.init();
+        
+        CRRecipes.initArcaneCrafting();
+        CRRecipes.initCrucible();
+        CRRecipes.initInfusion();
     }
 
     @EventHandler

@@ -35,11 +35,11 @@ public class CRLootTables {
             }
 
             if (crimson_material_pool != null) {
-                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRRegistry.crimsonFabric).getItem(), 1, 0,
+                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRItems.crimsonFabric).getItem(), 1, 0,
                         new LootFunction[]{new SetCount(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0, 1)),
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_fabric"));
-                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRRegistry.crimsonPlate).getItem(), 1, 0,
+                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRItems.crimsonPlate).getItem(), 1, 0,
                         new LootFunction[]{new SetCount(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0, 1)),
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_plate"));

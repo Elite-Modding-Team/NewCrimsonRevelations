@@ -2,10 +2,6 @@ package mod.icarus.crimsonrevelations.init;
 
 import com.google.common.base.Preconditions;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
-import mod.icarus.crimsonrevelations.config.CRConfig;
-import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
-import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
-import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
@@ -15,7 +11,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.Entity;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -24,35 +19,26 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityEntry;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
-import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.aspects.AspectRegistryEvent;
 
 import javax.annotation.Nonnull;
 
-// TODO: Organize and split this class
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
-public class CRRegistry {
+public class CRItems {
     @GameRegistry.ObjectHolder("aer_arrow")
     public static Item aerArrow;
     @GameRegistry.ObjectHolder("aqua_arrow")
@@ -106,40 +92,6 @@ public class CRRegistry {
                 setup(new CRItemArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
                 setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow")
         );
-    }
-
-    @SubscribeEvent
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-        CRRecipes.initArcaneCrafting();
-        CRRecipes.initCrucible();
-        CRRecipes.initInfusion();
-    }
-
-    @SubscribeEvent
-    public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
-        int id = 0;
-
-        //registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
-        registerEntity("primal_arrow", EntityPrimalArrow.class, id++, 64, 1, true);
-
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
-            registerEntity("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
-    }
-
-    @SubscribeEvent
-    public static void registerAspects(AspectRegistryEvent event) {
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
-            ThaumcraftApi.registerEntityTag(NewCrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
-    }
-
-    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2) {
-        EntityRegistry.registerModEntity(new ResourceLocation(NewCrimsonRevelations.MODID, name), clazz, NewCrimsonRevelations.MODID + "." + name, id, NewCrimsonRevelations.instance, trackingRange,
-                updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
-    }
-
-    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates) {
-        EntityRegistry.registerModEntity(new ResourceLocation(NewCrimsonRevelations.MODID, name), clazz, NewCrimsonRevelations.MODID + "." + name, id, NewCrimsonRevelations.instance, trackingRange,
-                updateFrequency, sendVelocityUpdates);
     }
 
     @SubscribeEvent
