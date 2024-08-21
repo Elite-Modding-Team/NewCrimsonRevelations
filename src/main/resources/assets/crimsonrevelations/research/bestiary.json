@@ -4,7 +4,7 @@
       "key": "CR_CULT_BESTIARY",
       "name": "crimsonrevelations.research.cult_bestiary.title",
       "icons": [
-        "crimsonrevelations:textures/items/curio_ancient_thaunomicon.png"
+        "crimsonrevelations:textures/items/curio_ancient_thaumonomicon.png"
       ],
       "category": "REVELATIONS",
       "parents": [
