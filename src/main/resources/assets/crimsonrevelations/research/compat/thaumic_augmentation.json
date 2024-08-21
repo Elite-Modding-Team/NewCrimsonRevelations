@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "key": "!OVERGROWN_TAINTACLE",
+      "key": "!CR_OVERGROWN_TAINTACLE",
       "name": "crimsonrevelations.research.overgrown_taintacle.title",
       "icons": [
         "crimsonrevelations:textures/research/r_overgrown_taintacle.png"
@@ -26,15 +26,15 @@
       ]
     },
     {
-      "key": "FOCUS_TAINT_POISON",
+      "key": "CR_FOCUS_TAINT_POISON",
       "name": "crimsonrevelations.research.focus_taint_poison.title",
       "icons": [
         "focus:focus.crimsonrevelations.taint_poison"
       ],
       "category": "REVELATIONS",
       "parents": [
-        "FOCUS_POISON",
-        "!OVERGROWN_TAINTACLE",
+        "CR_FOCUS_POISON",
+        "!CR_OVERGROWN_TAINTACLE",
         "~FOCUSCURSE"
       ],
       "siblings": [],

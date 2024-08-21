@@ -42,7 +42,7 @@ public class CRResearchRegistry {
             ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumic_augmentation"));
 
             // Research
-            ScanningManager.addScannableThing(new ScanEntity("!OVERGROWN_TAINTACLE", EntityOvergrownTaintacle.class, true));
+            ScanningManager.addScannableThing(new ScanEntity("!CR_OVERGROWN_TAINTACLE", EntityOvergrownTaintacle.class, true));
         }
     }
 }

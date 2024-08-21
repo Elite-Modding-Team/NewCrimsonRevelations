@@ -52,7 +52,7 @@ public class FocusEffectBlindingFlash extends FocusEffect {
 
     @Override
     public String getResearch() {
-        return "FOCUS_BLINDING_FLASH";
+        return "CR_FOCUS_BLINDING_FLASH";
     }
 
     @Override
