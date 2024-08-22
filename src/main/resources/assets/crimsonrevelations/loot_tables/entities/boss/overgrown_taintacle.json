@@ -3,6 +3,11 @@
     {
       "name": "loot_bag",
       "rolls": 1,
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
       "entries": [
         {
           "type": "item",
@@ -20,6 +25,16 @@
     {
       "name": "primordial_pearl",
       "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.2,
+          "looting_multiplier": 0.05
+        },
+        {
+          "condition": "killed_by_player"
+        }
+      ],
       "entries": [
         {
           "type": "item",
@@ -43,11 +58,6 @@
           "type": "item",
           "name": "thaumcraft:void_seed",
           "weight": 1,
-          "conditions": [
-            {
-              "condition": "killed_by_player"
-            }
-          ],
           "functions": [
             {
               "function": "set_count",
@@ -68,13 +78,137 @@
       ]
     },
     {
+      "name": "phial",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "thaumcraft:phial",
+          "entryName": "alienis_phial",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 1
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Aspects:[{amount:10,key:\"alienis\"}]}"
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "thaumcraft:phial",
+          "entryName": "aversio_phial",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 1
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Aspects:[{amount:10,key:\"aversio\"}]}"
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "thaumcraft:phial",
+          "entryName": "herba_phial",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 1
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Aspects:[{amount:10,key:\"herba\"}]}"
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "thaumcraft:phial",
+          "entryName": "vitium_phial",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 1
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Aspects:[{amount:10,key:\"vitium\"}]}"
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "curio",
       "rolls": 1,
       "conditions": [
         {
-          "condition": "minecraft:random_chance_with_looting",
-          "chance": 0.7,
-          "looting_multiplier": 0.1
+          "condition": "killed_by_player"
         }
       ],
       "entries": [
@@ -87,6 +221,20 @@
             {
               "function": "set_data",
               "data": 0
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         },
@@ -99,6 +247,20 @@
             {
               "function": "set_data",
               "data": 3
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         },
@@ -111,6 +273,20 @@
             {
               "function": "set_data",
               "data": 5
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         }
