@@ -4,6 +4,7 @@
     "name": "New Crimson Revelations",
     "description": "A Thaumcraft addon that allows you to research more about the Crimson Cult.",
     "version": "${version}",
+    "logoFile": "assets/crimsonrevelations/textures/logo.png",
     "mcversion": "${mcversion}",
     "url": "https://github.com/Elite-Modding-Team/NewCrimsonRevelations",
     "authorList": [
@@ -12,7 +13,7 @@
       "ACGaming",
       "xJon"
     ],
-    "credits": "Azanor for making Thaumcraft, MobiusFlip for making the original Crimson Revelations mod, and Carver for a lot of ideas and amazing models/textures.",
+    "credits": "\n \u00A7eMain Developers:\n [*] IcarussOne - Lead Developer & Writer\n [*] J. Carver - Artist & Lore Enthusiast\n \u00A76Special Thanks:\n [*] MobiusFlip - Originally creating Crimson Revelations and setting up interesting lore for it, which this addon continues from\n [*] Damien Hazard - Crimson Archer Armor, this model also appeared in Thaumic Dyes\n [*] ACGaming - Being a huge help with the mod and answering questions\n [*] xJon - Giving general feedback on improving the mod, as well as creating and maintaining Tekkit SMP",
     "dependencies": [
       "thaumcraft"
     ]
