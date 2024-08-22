@@ -6,12 +6,17 @@ import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectBlindingFlash;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectPoison;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectTaintPoison;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import thaumcraft.Thaumcraft;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.casters.FocusEngine;
+import thaumcraft.api.golems.EnumGolemTrait;
+import thaumcraft.api.golems.parts.GolemMaterial;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanningManager;
@@ -20,6 +25,28 @@ import thaumcraft.common.entities.monster.cult.EntityCultistKnight;
 
 public class CRResearchRegistry {
     public static void init() {
+        // Golems
+        GolemMaterial.register(
+                new GolemMaterial("CR_CULT_PLATE", new String[]{"CR_GOLEM_MAT_CULT_PLATE"}, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/entity/golem/mat_cult_plate.png"),
+                        4342338, 22, 9, 3, // [Color, Health, Armor , Damage] - [1 = 0.5]
+                        new ItemStack(CRItems.crimsonPlate), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
+                        new EnumGolemTrait[]{EnumGolemTrait.LIGHT, EnumGolemTrait.FIREPROOF} // Starting Traits
+                )
+        );
+        GolemMaterial.register(
+                new GolemMaterial("CR_FLESH", new String[]{"CR_GOLEM_MAT_FLESH"}, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/entity/golem/mat_flesh.png"),
+                        13474967, 2, 0, 1, // [Color, Health, Armor , Damage] - [1 = 0.5]
+                        new ItemStack(BlocksTC.fleshBlock), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
+                        new EnumGolemTrait[]{EnumGolemTrait.REPAIR} // Starting Traits
+                )
+        );
+        GolemMaterial.register(
+                new GolemMaterial("CR_TALLOW", new String[]{"CR_GOLEM_MAT_TALLOW"}, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/entity/golem/mat_tallow.png"),
+                        12823156, 14, 4, 3, // [Color, Health, Armor , Damage] - [1 = 0.5]
+                        new ItemStack(CRBlocks.magicTallowBlock), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
+                        new EnumGolemTrait[]{} // Starting Traits
+                )
+        );
         // Focus Effects
         FocusEngine.registerElement(FocusEffectBlindingFlash.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/blinding_flash.png"), 16776421);
         FocusEngine.registerElement(FocusEffectPoison.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/poison.png"), 9039872);

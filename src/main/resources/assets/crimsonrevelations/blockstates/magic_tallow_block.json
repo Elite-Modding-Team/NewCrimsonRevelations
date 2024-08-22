@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_column",
+    "textures": {
+      "end": "crimsonrevelations:blocks/magic_tallow_block_top",
+      "side": "crimsonrevelations:blocks/magic_tallow_block"
+    }
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

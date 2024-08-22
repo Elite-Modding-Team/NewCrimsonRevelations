@@ -1,8 +1,13 @@
 itemGroup.CrimsonRevelationsTab=New Crimson Revelations
 
+# Entities
 entity.crimsonrevelations.cultist_archer.name=Crimson Archer
 entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
 
+# Blocks
+tile.crimsonrevelations.magic_tallow_block.name=Magic Tallow Block
+
+# Items
 item.crimsonrevelations.aer_arrow.name=Aer Arrow
 item.crimsonrevelations.aqua_arrow.name=Aqua Arrow
 item.crimsonrevelations.bone_bow.name=Bow of Bone
@@ -18,6 +23,7 @@ item.crimsonrevelations.ordo_arrow.name=Ordo Arrow
 item.crimsonrevelations.perditio_arrow.name=Perditio Arrow
 item.crimsonrevelations.terra_arrow.name=Terra Arrow
 
+# Research
 tc.research_category.REVELATIONS=Revelations
 
 crimsonrevelations.research.crimson_revelations.title=Crimson Revelations
@@ -64,9 +70,20 @@ crimsonrevelations.research.primal_arrows.title=Primal Arrows
 crimsonrevelations.research.primal_arrows.stage.0=The Bow of Bone was not the only ancient item that I have discovered in the Crimson Rites. There is mention of powerful arrows utilized by the Crimson Cult that are infused with various different aspects from Vis Crystals, I was only able to properly translate the most basic kind utilizing primal aspects.<BR>Now I just need to perform some experiments and hope it all turns out well...
 crimsonrevelations.research.primal_arrows.stage.1=I have succeeded on utilizing the power of Vis Crystals to imbue normal arrows with primal elements like the Crimson Cult did. Unlike other special arrows, primal arrows have a 1-in-3 chance to be preserved by the Infinity enchantment due to their magical nature.<BR>Each primal element is powerful in their own way and I have detailed the information about each type on the next few pages.<PAGE>§lAer§r<DIV>Crackling with energy, these arrows deal the same damage as normal arrows, they will also pack quite a knockback from their windy nature and are not hindered when fired underwater.<PAGE>§lAqua§r<DIV>These arrows deal the same damage as normal arrows, they also greatly slow the target's movement speed down by chilling them to the bone, which is perfect for certain situations.<BR>In addition, they are not hindered when fired underwater and they are completely resistant to fire including the Flame enchantment, for better or worse.<PAGE>§lIgnis§r<DIV>These arrows deal extra damage compared to normal arrows, they also inflict fire damage rather than normal damage.<BR>Targets will additionally be set ablaze for a few seconds (or longer when the arrows are shot from a bow with the Flame enchantment), it's best not to utilize this element against enemies that are resistant to fire.<PAGE>§lOrdo§r<DIV>These arrows deal less damage compared to normal arrows, but the target also becomes greatly weakened for a few seconds. This element would be best against strong opponents.<PAGE>§lPerditio§r<DIV>These arrows deal less damage compared to normal arrows, but their chaotic nature will also inflict the target with a strong withering effect for a few seconds.<PAGE>§lTerra§r<DIV>These arrows, weighted with the essence of earth, will pierce through the target's armor while dealing the same damage as normal arrows. This element is best utilized against heavily armored foes.
 
+# Research: Golemancy
 crimsonrevelations.research.dark_golemancy.title=Dark Golemancy Studies
 crimsonrevelations.research.dark_golemancy.stage.0=I've had more success on translating this section of the Crimson Rites. Surprisingly, the Crimson Cult has already done a lot of research to construct and perform their own golems, this is when it all took a more darker turn however, their more inhumane choices on building these golems.<BR>Whether I would want to learn some of these methods for my own uses or not is up to my own risk...
 
+crimsonrevelations.research.golem_mat_cult_plate.title=Material Studies: Crimson Plate
+crimsonrevelations.research.golem_mat_cult_plate.stage.0=Crimson Plates are rather interesting, it originated from the Crimson Cult, but what they did to make whatever alloy these plates are composed of will remain a mystery.<BR>It has the best of both brass and iron, it is quite lightweight as brass and has many of the same properties as iron. It however cannot withstand explosions as well, which is the main drawback of using this as a golem material.
+
+crimsonrevelations.research.golem_mat_flesh.title=Material Studies: Flesh
+crimsonrevelations.research.golem_mat_flesh.stage.0=I dread to know what was in the mind of the Crimson Cult for wanting to utilize flesh as a golem material, should I decide to utilize this myself if I am just as sick and twisted as they are, it does have some benefits.<BR>Golems made out of flesh have the ability to self-repair, this is especially useful with flesh being easily obtainable from any type of zombie. Flesh is also very fragile and even more so than Greatwood, I should thus be careful with any golems made out of it.
+
+crimsonrevelations.research.golem_mat_tallow.title=Material Studies: Tallow
+crimsonrevelations.research.golem_mat_tallow.stage.0=While tallow is strange for a golem material, it surprisingly is fairly durable but also lacks any notable traits. If I were to need a golem without positive or negative traits, this is the perfect material to utilize.
+
+# Research: Auromancy
 crimsonrevelations.research.dark_auromancy.title=Dark Auromancy Studies
 crimsonrevelations.research.dark_auromancy.stage.0=I have discovered drafts within the Rites itself, the Crimson Cult are much more knowledgeable about thaumaturgy than I had previously thought.<BR>The knowledge that I have uncovered is more stranger than my usual discoveries, upon fully translating their own work done on Auromancy, I expect these new additions to be much more §osituational§r than I'm used to.
 
@@ -82,6 +99,7 @@ crimsonrevelations.research.focus_taint_poison.stage.0=Taint Poison is much more
 crimsonrevelations.research.overgrown_taintacle.title=Overgrown Taintacle
 crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
+# Research: Bestiary
 crimsonrevelations.research.cult_bestiary.title=The Cult Bestiary
 crimsonrevelations.research.cult_bestiary.stage.0=I am dedicating this side of the Revelations chapter for any of the different type of Crimson Cult members I encounter. The cultists seem to be human or at least related to humans. However, something is off about them. Their eyes are of a striking glowing red, and their bodies seem to have a higher constitution than a normal body would, surviving wounds that I would not be able to.<PAGE>Whatever process they use to "enhance" themselves is both curious, and at the same time strangely sinister. Interestingly, I can't help but notice the similarity of Angry Zombies to them. Perhaps the remains of failed expeditions?<BR>Of particularly interesting note, they seem to have some form of rank system, or at least that's what I was able to translate. I will note down more about each of the members upon scanning any of them with my Thaumometer.
 crimsonrevelations.research.cult_bestiary.addenda.0=Upon observing the Shambling Husks, they appear to wear similar armor to the cultists themselves. Were these husks also the remains of failed expeditions thanks to the very aggressive Eldritch Crabs deciding their own fates?<BR>Maybe I'm onto something here... 
@@ -95,6 +113,7 @@ crimsonrevelations.research.crimson_knight.addenda.0=It looks like the knights a
 
 crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
 
+# Misc
 focus.crimsonrevelations.blinding_flash.name=Blinding Flash
 focus.crimsonrevelations.blinding_flash.text=Forms an orb of bright light that blinds and blurs targets while also causing weakness to non-players. Damage is doubled against undead targets but halved against non-undead targets.
 
@@ -107,3 +126,12 @@ focus.crimsonrevelations.taint_poison.text=Unleashes a glob of infectious taint 
 focus.common.double_duration=Duration (two seconds)
 
 research.m_OVERGROWN_TAINTACLE.text=Eliminate an Overgrown Taintacle.
+
+golem.material.cr_cult_plate=Crimson Plate
+golem.material.text.cr_cult_plate=This golem is crafted from an unknown lightweight metal that originated from the Crimson Cult. While not resistant to explosions unlike iron and thaumium, it is quite light and still fireproof.
+
+golem.material.cr_flesh=Flesh
+golem.material.text.cr_flesh=This golem is crafted from flesh. It is extremely fragile but can repair itself with ease, thanks to its fleshy nature.
+
+golem.material.cr_tallow=Tallow
+golem.material.text.cr_tallow=This golem is crafted from magical tallow. It is fairly durable, but doesn't start off with any notable positive or negative traits.

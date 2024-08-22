@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "thaumcraft:tallow"
+    }
+  },
+  "result": {
+    "item": "crimsonrevelations:magic_tallow_block"
+  }
+}

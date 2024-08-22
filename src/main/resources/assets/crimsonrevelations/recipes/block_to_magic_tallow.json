@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "crimsonrevelations:magic_tallow_block"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tallow",
+    "count": 9
+  }
+}

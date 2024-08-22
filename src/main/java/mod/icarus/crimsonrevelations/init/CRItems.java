@@ -1,13 +1,11 @@
 package mod.icarus.crimsonrevelations.init;
 
-import com.google.common.base.Preconditions;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -19,7 +17,6 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -31,7 +28,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import javax.annotation.Nonnull;
 
@@ -73,63 +69,44 @@ public class CRItems {
     public static ToolMaterial TOOL_CULTIST = EnumHelper.addToolMaterial("CULTIST", 3, 321, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(crimsonPlate));
 
     @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(
-                setup(new CRItem(EnumRarity.UNCOMMON), "crimson_fabric"),
-                setup(new CRItem(EnumRarity.UNCOMMON), "embellished_crimson_fabric"),
-                setup(new CRItem(EnumRarity.UNCOMMON), "crimson_plate"),
-                setup(new CRItemSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
-
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
-                setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
-
-                setup(new ItemBoneBow(), "bone_bow"),
-                setup(new CRItemArrow(EnumRarity.UNCOMMON), "aer_arrow"),
-                setup(new CRItemArrow(EnumRarity.UNCOMMON), "aqua_arrow"),
-                setup(new CRItemArrow(EnumRarity.UNCOMMON), "ignis_arrow"),
-                setup(new CRItemArrow(EnumRarity.UNCOMMON), "ordo_arrow"),
-                setup(new CRItemArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
-                setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow")
-        );
-    }
-
-    @SubscribeEvent
-    public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
+    public static void registerItems(@Nonnull final RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
+
+        registry.registerAll(
+                CRRegistry.setup(new CRItem(EnumRarity.UNCOMMON), "crimson_fabric"),
+                CRRegistry.setup(new CRItem(EnumRarity.UNCOMMON), "embellished_crimson_fabric"),
+                CRRegistry.setup(new CRItem(EnumRarity.UNCOMMON), "crimson_plate"),
+                CRRegistry.setup(new CRItemSword(TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
+
+                CRRegistry.setup(new ItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
+                CRRegistry.setup(new ItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
+                CRRegistry.setup(new ItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
+
+                CRRegistry.setup(new ItemBoneBow(), "bone_bow"),
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "aer_arrow"),
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "aqua_arrow"),
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "ignis_arrow"),
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "ordo_arrow"),
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow")
+        );
+
+        // Item Blocks
         ForgeRegistries.BLOCKS.getValues().stream()
                 .filter(block -> block.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID))
                 .filter(block -> !(block instanceof BlockDoor)) // Doors should not have an item block registered
                 .filter(block -> !(block instanceof BlockSlab)) // Slabs should not have an item block registered
-                .forEach(block -> registry.register(setup(new ItemBlock(block), block.getRegistryName())));
+                .forEach(block -> registry.register(CRRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event) {
-        for (Item item : ForgeRegistries.ITEMS.getValues()) {
+    public static void onRegisterModelsEvent(@Nonnull final ModelRegistryEvent event) {
+        // Item Models
+        for (final Item item : ForgeRegistries.ITEMS.getValues()) {
             if (item.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID)) {
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
             }
         }
-    }
-
-    @Nonnull
-    public static <T extends IForgeRegistryEntry<T>> T setup(T entry, String name) {
-        return setup(entry, new ResourceLocation(NewCrimsonRevelations.MODID, name));
-    }
-
-    @Nonnull
-    public static <T extends IForgeRegistryEntry<T>> T setup(T entry, ResourceLocation registryName) {
-        Preconditions.checkNotNull(entry, "Entry to setup must not be null!");
-        Preconditions.checkNotNull(registryName, "Registry name to assign must not be null!");
-        entry.setRegistryName(registryName);
-        if (entry instanceof Block) {
-            ((Block) entry).setTranslationKey(registryName.getNamespace() + "." + registryName.getPath()).setCreativeTab(NewCrimsonRevelations.tabCR);
-        }
-        if (entry instanceof Item) {
-            ((Item) entry).setTranslationKey(registryName.getNamespace() + "." + registryName.getPath()).setCreativeTab(NewCrimsonRevelations.tabCR);
-        }
-        return entry;
     }
 }
