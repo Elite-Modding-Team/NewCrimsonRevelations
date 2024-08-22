@@ -10,6 +10,8 @@ import mod.icarus.crimsonrevelations.init.CRLootTables;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
 import thaumcraft.common.entities.monster.cult.EntityCultist;
+import thaumcraft.common.entities.monster.cult.EntityCultistCleric;
+import thaumcraft.common.entities.monster.cult.EntityCultistKnight;
 import thaumcraft.common.entities.monster.cult.EntityCultistPortalLesser;
 
 public class JERIntegration {
@@ -22,7 +24,8 @@ public class JERIntegration {
 
         // These are already added by Just Enough Magiculture, so they'll immediately be turned off when detected
         if (!Loader.isModLoaded("justenoughmagiculture")) {
-            jerMobRegistry.register(new EntityCultist(jerWorld), LightLevel.any, EntityCultist.LOOT);
+            jerMobRegistry.register(new EntityCultistCleric(jerWorld), LightLevel.any, EntityCultist.LOOT);
+            jerMobRegistry.register(new EntityCultistKnight(jerWorld), LightLevel.any, EntityCultist.LOOT);
         }
 
         // Thaumic Augmentation Integration
