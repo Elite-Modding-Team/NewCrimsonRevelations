@@ -39,7 +39,9 @@
         "~FOCUSCURSE"
       ],
       "siblings": [],
-      "meta": [],
+      "meta": [
+        "HIDDEN"
+      ],
       "location": [
         -1,
         -5
