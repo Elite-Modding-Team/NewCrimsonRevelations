@@ -9,6 +9,7 @@ import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.init.CRLootTables;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
+import thaumcraft.common.entities.monster.cult.EntityCultist;
 import thaumcraft.common.entities.monster.cult.EntityCultistPortalLesser;
 
 public class JERIntegration {
@@ -18,7 +19,14 @@ public class JERIntegration {
         World jerWorld = jerApi.getWorld();
 
         jerMobRegistry.register(new EntityCultistPortalLesser(jerWorld), LightLevel.any, 40, CRLootTables.LESSER_CULTIST_PORTAL);
+
+        // These are already added by Just Enough Magiculture, so they'll immediately be turned off when detected
+        if (!Loader.isModLoaded("justenoughmagiculture")) {
+            jerMobRegistry.register(new EntityCultist(jerWorld), LightLevel.any, EntityCultist.LOOT);
+        }
+
+        // Thaumic Augmentation Integration
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
-            jerMobRegistry.register(new EntityOvergrownTaintacle(jerWorld), LightLevel.any, new String[] {"Tainted Lands"}, CRLootTables.OVERGROWN_TAINTACLE);
+            jerMobRegistry.register(new EntityOvergrownTaintacle(jerWorld), LightLevel.any, new String[]{"Tainted Lands"}, CRLootTables.OVERGROWN_TAINTACLE);
     }
 }
