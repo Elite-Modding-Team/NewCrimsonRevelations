@@ -5,6 +5,7 @@ import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
+import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -30,6 +31,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.Nonnull;
+
+import baubles.api.BaubleType;
 
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
@@ -63,6 +66,12 @@ public class CRItems {
     public static Item perditioArrow;
     @GameRegistry.ObjectHolder("terra_arrow")
     public static Item terraArrow;
+    @GameRegistry.ObjectHolder("runic_amulet")
+    public static Item runicAmulet;
+    @GameRegistry.ObjectHolder("runic_girdle")
+    public static Item runicGirdle;
+    @GameRegistry.ObjectHolder("runic_ring")
+    public static Item runicRing;
 
     public static ArmorMaterial ARMOR_CULTIST_ARCHER = EnumHelper.addArmorMaterial("CULTIST_ARCHER", "CULTIST_ARCHER", 17, new int[]{2, 5, 5, 2}, 13, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F).setRepairItem(new ItemStack(crimsonPlate));
 
@@ -88,7 +97,11 @@ public class CRItems {
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "ignis_arrow"),
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "ordo_arrow"),
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
-                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow")
+                CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow"),
+
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.UNCOMMON, 5), "runic_ring"),
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.UNCOMMON, 8), "runic_amulet"),
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.UNCOMMON, 10), "runic_girdle")
         );
 
         // Item Blocks
