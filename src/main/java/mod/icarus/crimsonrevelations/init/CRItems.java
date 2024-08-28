@@ -64,6 +64,8 @@ public class CRItems {
     public static Item ordoArrow;
     @GameRegistry.ObjectHolder("perditio_arrow")
     public static Item perditioArrow;
+    @GameRegistry.ObjectHolder("protection_ring")
+    public static Item protectionRing;
     @GameRegistry.ObjectHolder("terra_arrow")
     public static Item terraArrow;
     @GameRegistry.ObjectHolder("runic_amulet")
@@ -101,6 +103,7 @@ public class CRItems {
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "perditio_arrow"),
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "terra_arrow"),
 
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.COMMON, 1), "protection_ring"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.UNCOMMON, 5), "runic_ring"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.UNCOMMON, 8), "runic_amulet"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.UNCOMMON, 10), "runic_girdle"),
