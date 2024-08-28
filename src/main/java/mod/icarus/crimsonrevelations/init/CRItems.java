@@ -70,6 +70,8 @@ public class CRItems {
     public static Item runicAmulet;
     @GameRegistry.ObjectHolder("runic_girdle")
     public static Item runicGirdle;
+    @GameRegistry.ObjectHolder("runic_girdle_kinetic")
+    public static Item runicGirdleKinetic;
     @GameRegistry.ObjectHolder("runic_ring")
     public static Item runicRing;
 
@@ -101,7 +103,8 @@ public class CRItems {
 
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.UNCOMMON, 5), "runic_ring"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.UNCOMMON, 8), "runic_amulet"),
-                CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.UNCOMMON, 10), "runic_girdle")
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.UNCOMMON, 10), "runic_girdle"),
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic")
         );
 
         // Item Blocks
