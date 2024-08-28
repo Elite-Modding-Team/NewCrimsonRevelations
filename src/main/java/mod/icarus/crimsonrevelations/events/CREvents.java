@@ -35,7 +35,7 @@ public class CREvents {
             int charge = (int) player.getAbsorptionAmount();
 
             if (charge > 0) {
-                if (BaublesApi.isBaubleEquipped(player, CRItems.runicGirdleKinetic) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicGirdleKinetic))) {
+                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicGirdleKinetic) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicGirdleKinetic))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, SoundsTC.poof, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                     player.world.createExplosion(player, player.posX, player.posY + player.height / 2.0F, player.posZ, 2.0F, false);
 
