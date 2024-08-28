@@ -9,8 +9,10 @@ import mod.icarus.crimsonrevelations.item.CRItemBow;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
@@ -50,6 +52,12 @@ public class CREvents {
 
                     ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicGirdleKinetic));
                     ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicGirdleKinetic, 20 * 20);
+                } else if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicRingRegen) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicRingRegen))) {
+                    player.world.playSound(null, player.posX, player.posY, player.posZ, SoundsTC.runicShieldEffect, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 1, true, true));
+
+                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicRingRegen));
+                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicRingRegen, 20 * 20);
                 }
             }
         }
