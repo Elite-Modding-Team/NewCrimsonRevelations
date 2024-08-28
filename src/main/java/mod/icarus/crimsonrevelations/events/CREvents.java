@@ -49,7 +49,7 @@ public class CREvents {
                     }
 
                     ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicGirdleKinetic));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicGirdleKinetic, 15 * 20);
+                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicGirdleKinetic, 20 * 20);
                 }
             }
         }
