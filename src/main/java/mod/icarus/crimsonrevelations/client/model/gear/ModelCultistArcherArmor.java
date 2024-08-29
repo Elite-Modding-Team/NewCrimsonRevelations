@@ -1,15 +1,11 @@
 package mod.icarus.crimsonrevelations.client.model.gear;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelCultistArcherArmor extends ModelBiped {

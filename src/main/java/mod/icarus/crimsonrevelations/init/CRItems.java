@@ -70,6 +70,8 @@ public class CRItems {
     public static Item terraArrow;
     @GameRegistry.ObjectHolder("runic_amulet")
     public static Item runicAmulet;
+    @GameRegistry.ObjectHolder("runic_amulet_emergency")
+    public static Item runicAmuletEmergency;
     @GameRegistry.ObjectHolder("runic_girdle")
     public static Item runicGirdle;
     @GameRegistry.ObjectHolder("runic_girdle_kinetic")
@@ -110,6 +112,7 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.UNCOMMON, 8), "runic_amulet"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.UNCOMMON, 10), "runic_girdle"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.RARE, 4), "runic_ring_regen"),
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic")
         );
 
