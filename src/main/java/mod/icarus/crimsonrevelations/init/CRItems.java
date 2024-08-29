@@ -6,6 +6,7 @@ import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
+import mod.icarus.crimsonrevelations.item.tools.ItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -16,6 +17,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -28,7 +31,12 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
+import thaumcraft.Thaumcraft;
+import thaumcraft.api.ThaumcraftApiHelper;
+import thaumcraft.api.aspects.Aspect;
 
 import javax.annotation.Nonnull;
 
@@ -60,6 +68,8 @@ public class CRItems {
     public static Item embellishedCrimsonFabric;
     @GameRegistry.ObjectHolder("ignis_arrow")
     public static Item ignisArrow;
+    @GameRegistry.ObjectHolder("knowledge_scribing_tools")
+    public static Item knowledgeScribingTools;
     @GameRegistry.ObjectHolder("ordo_arrow")
     public static Item ordoArrow;
     @GameRegistry.ObjectHolder("perditio_arrow")
@@ -113,7 +123,9 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.UNCOMMON, 10), "runic_girdle"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.RARE, 4), "runic_ring_regen"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
-                CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic")
+                CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
+
+                CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools")
         );
 
         // Item Blocks
@@ -122,6 +134,15 @@ public class CRItems {
                 .filter(block -> !(block instanceof BlockDoor)) // Doors should not have an item block registered
                 .filter(block -> !(block instanceof BlockSlab)) // Slabs should not have an item block registered
                 .forEach(block -> registry.register(CRRegistry.setup(new ItemBlock(block), block.getRegistryName())));
+    }
+
+    @SubscribeEvent
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        final IForgeRegistry<IRecipe> registry = event.getRegistry();
+
+        // Special recipes go here
+        registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
     }
 
     @SideOnly(Side.CLIENT)
