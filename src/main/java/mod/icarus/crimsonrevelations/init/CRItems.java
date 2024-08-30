@@ -26,6 +26,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -131,9 +132,13 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
 
-                CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
                 CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools")
         );
+
+        // Do not register Scribing Tools of Knowledge if TC4 Research Port is detected. It doesn't use observations and theories for its overhauled research.
+        if (!Loader.isModLoaded("oldresearch")) {
+            registry.register(CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools"));
+        }
 
         // Item Blocks
         ForgeRegistries.BLOCKS.getValues().stream()
