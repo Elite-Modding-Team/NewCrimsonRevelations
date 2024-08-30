@@ -153,8 +153,10 @@ public class CRItems {
         final IForgeRegistry<IRecipe> registry = event.getRegistry();
 
         // Special recipes go here
-        registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
-                ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
+        if (!Loader.isModLoaded("oldresearch")) {
+            registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                    ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
+        }
     }
 
     @SideOnly(Side.CLIENT)
