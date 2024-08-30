@@ -7,6 +7,7 @@ import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.tools.ItemKnowledgeScribingTools;
+import mod.icarus.crimsonrevelations.item.tools.ItemPrimordialScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -74,6 +75,8 @@ public class CRItems {
     public static Item ordoArrow;
     @GameRegistry.ObjectHolder("perditio_arrow")
     public static Item perditioArrow;
+    @GameRegistry.ObjectHolder("primordial_scribing_tools")
+    public static Item primordialScribingTools;
     @GameRegistry.ObjectHolder("protection_ring")
     public static Item protectionRing;
     @GameRegistry.ObjectHolder("terra_arrow")
@@ -125,7 +128,8 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
 
-                CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools")
+                CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
+                CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools")
         );
 
         // Item Blocks
