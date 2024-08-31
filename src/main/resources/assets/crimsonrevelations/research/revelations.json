@@ -135,7 +135,7 @@
       "siblings": [],
       "meta": [],
       "location": [
-        3,
+        2,
         -2
       ],
       "reward_item": [],
@@ -157,8 +157,8 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS_BASE",
-        "~CR_BASIC_CRIMSON_WEAPONRY",
+        "~CRIMSON_REVELATIONS_BASE",
+        "CR_BASIC_CRIMSON_WEAPONRY",
         "~BASEELDRITCH"
       ],
       "siblings": [],
@@ -166,8 +166,8 @@
         "HIDDEN"
       ],
       "location": [
-        -1,
-        2
+        4,
+        -3
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -213,8 +213,8 @@
         "HIDDEN"
       ],
       "location": [
-        3,
-        0
+        4,
+        -1
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -262,7 +262,7 @@
       ],
       "location": [
         1,
-        3
+        5
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -301,7 +301,7 @@
       "meta": [],
       "location": [
         0,
-        4
+        6
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -334,7 +334,7 @@
       "meta": [],
       "location": [
         2,
-        4
+        6
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -371,7 +371,7 @@
       ],
       "location": [
         3,
-        2
+        4
       ],
       "reward_item": [],
       "reward_knowledge": [],
