@@ -34,7 +34,7 @@ public class CREvents {
 
             // Kinetic Girdle of Shielding - Explodes when the Runic Shielding is pierced (20 second cooldown).
             if (charge > 0) {
-                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicGirdleKinetic) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicGirdleKinetic))) {
+                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicGirdleKinetic) > 2 && !(player.getCooldownTracker().hasCooldown(CRItems.runicGirdleKinetic))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, SoundsTC.runicShieldEffect, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                     player.world.createExplosion(player, player.posX, player.posY + player.height / 2.0F, player.posZ, 2.0F, false);
 
@@ -60,8 +60,8 @@ public class CREvents {
                     ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicRingRegen, 20 * 20);
                 }
 
-                // Amulet of Emergency Shielding - Gives 8 points of Runic Shielding when the Runic Shielding is pierced (1 minute cooldown). [WIP]
-                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicAmuletEmergency) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicAmuletEmergency))) {
+                // Amulet of Emergency Shielding - Gives 8 points of Runic Shielding when the Runic Shielding is pierced (1 minute cooldown).
+                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicAmuletEmergency) > -1 && !(player.getCooldownTracker().hasCooldown(CRItems.runicAmuletEmergency))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, SoundsTC.runicShieldEffect, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                     player.setAbsorptionAmount(charge + 8);
 
