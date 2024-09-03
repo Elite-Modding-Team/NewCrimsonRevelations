@@ -8,5 +8,25 @@
     "sounds": [
       "crimsonrevelations:foci/blinding_light/shoot"
     ]
+  },
+  "bauble.runic.charge": {
+    "sounds": [
+      "crimsonrevelations:bauble/runic/charge"
+    ]
+  },
+  "bauble.runic.emergency": {
+    "sounds": [
+      "crimsonrevelations:bauble/runic/emergency"
+    ]
+  },
+  "bauble.runic.kinetic": {
+    "sounds": [
+      "crimsonrevelations:bauble/runic/kinetic"
+    ]
+  },
+  "bauble.runic.regen": {
+    "sounds": [
+      "crimsonrevelations:bauble/runic/regen"
+    ]
   }
 }
