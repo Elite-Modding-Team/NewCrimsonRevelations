@@ -33,7 +33,6 @@ public class NewCrimsonRevelations {
     }
 
     @EventHandler
-    @SideOnly(Side.CLIENT)
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new CREvents());
 
