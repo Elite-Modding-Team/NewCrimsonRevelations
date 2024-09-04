@@ -1,0 +1,12 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"ctm",
+        "textures":[
+            "crimsonrevelations:blocks/magic_tallow_block_top_ctm"
+        ],
+        "extra":{
+            "ignore_states": "false"
+        }
+    }
+}
