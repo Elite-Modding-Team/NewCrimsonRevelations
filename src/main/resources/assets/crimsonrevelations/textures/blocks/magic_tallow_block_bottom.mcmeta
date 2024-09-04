@@ -1,7 +1,7 @@
 {
     "ctm":{
         "ctm_version": 1,
-        "type":"ctm",
+        "type": "ctm",
         "textures":[
             "crimsonrevelations:blocks/magic_tallow_block_bottom_ctm"
         ],
