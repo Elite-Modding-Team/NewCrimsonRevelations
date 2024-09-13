@@ -82,7 +82,7 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 2, tProg));
 
-                if (world.rand.nextDouble() <= CRConfig.general_settings.KST_CURIOSITY_CHANCE) world.spawnEntity(item);
+                if (world.rand.nextDouble() <= CRConfig.general_settings.KNOWLEDGE_TOOLS_CURIOSITY_CHANCE) world.spawnEntity(item);
             }
 
             player.swingArm(EnumHand.MAIN_HAND);

@@ -12,10 +12,21 @@ public class CRConfig {
     @Config.Comment("General")
     public static GeneralSettings general_settings = new GeneralSettings();
 
-    @Config.Comment("Thaumic Augmentation Integration")
-    public static TAIntegrationSettings TA_integration_settings = new TAIntegrationSettings();
+    @Config.Comment("Mod Integration")
+    public static ModIntegrationSettings mod_integration_settings = new ModIntegrationSettings();
+
+    @Config.Comment("Thaumic Augmentation")
+    public static TAIntegrationSettings thaumic_augmentation_settings = new TAIntegrationSettings();
 
     public static class GeneralSettings {
+        @Config.Name("Scribing Tools of Knowledge: Curiosity Chance")
+        @Config.Comment("The chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
+        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.RequiresMcRestart
+        public double KNOWLEDGE_TOOLS_CURIOSITY_CHANCE = 0.2D;
+    }
+
+    public static class ModIntegrationSettings {
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration. [default: true]")
         @Config.RequiresMcRestart
