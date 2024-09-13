@@ -29,7 +29,7 @@ public class JERIntegration {
         }
 
         // Thaumic Augmentation Integration
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION)
             jerMobRegistry.register(new EntityOvergrownTaintacle(jerWorld), LightLevel.any, new String[]{"Tainted Lands"}, CRLootTables.OVERGROWN_TAINTACLE);
     }
 }

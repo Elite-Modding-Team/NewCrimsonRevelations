@@ -261,7 +261,7 @@
         "HIDDEN"
       ],
       "location": [
-        1,
+        0,
         5
       ],
       "reward_item": [],
@@ -300,7 +300,7 @@
       "siblings": [],
       "meta": [],
       "location": [
-        0,
+        -1,
         6
       ],
       "reward_item": [],
@@ -333,7 +333,7 @@
       "siblings": [],
       "meta": [],
       "location": [
-        2,
+        1,
         6
       ],
       "reward_item": [],
@@ -370,7 +370,7 @@
         "HIDDEN"
       ],
       "location": [
-        3,
+        2,
         4
       ],
       "reward_item": [],

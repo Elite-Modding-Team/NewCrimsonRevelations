@@ -1,23 +1,36 @@
 package mod.icarus.crimsonrevelations.item.tools;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.init.CRRarities;
 import mod.icarus.crimsonrevelations.item.CRItem;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.items.IScribeTools;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.common.lib.SoundsTC;
@@ -26,8 +39,20 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
     public ItemKnowledgeScribingTools() {
         super(EnumRarity.RARE);
         this.maxStackSize = 1;
-        this.setMaxDamage(50);
+        this.setMaxDamage(40);
         this.setHasSubtypes(false);
+        this.addPropertyOverride(new ResourceLocation("depleted"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
+                    return 1.0F;
+                } else if (stack.getItemDamage() >= stack.getMaxDamage() && getDepletedState(stack)) {
+                    return 2.0F;
+                }
+
+                return 0.0F;
+            }
+        });
     }
 
     public static boolean getDepletedState(ItemStack stack) {
@@ -49,15 +74,21 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
         int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
         int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
 
+        // Arcane or Illuminating Curiosity
+        EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 0) : new ItemStack(ItemsTC.curio, 1, 4));
+
         if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
             if (!world.isRemote) {
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
-                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 3, tProg / 2));
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 2, tProg));
+
+                if (world.rand.nextDouble() <= CRConfig.general_settings.KST_CURIOSITY_CHANCE) world.spawnEntity(item);
             }
 
             player.swingArm(EnumHand.MAIN_HAND);
             player.playSound(SoundsTC.scan, 0.8F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
-            player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.knowledge_scribing_tools.deplete").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
+            //player.playSound(SoundsTC.hhon, 0.8F, 0.6F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
+            player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.knowledge").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             setDepletedState(stack, true);
             return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
         } else {
@@ -74,5 +105,20 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack) {
         return stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack);
+    }
+
+    @Override
+    public IRarity getForgeRarity(ItemStack stack) {
+        return CRRarities.RARITY_KNOWLEDGE;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
+        if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
+            tooltip.add(new TextComponentTranslation("tooltip.crimsonrevelations.scribing_tools.active").getFormattedText());
+        } else if (stack.getItemDamage() >= stack.getMaxDamage() && getDepletedState(stack)) {
+            tooltip.add(TextFormatting.ITALIC + new TextComponentTranslation("tooltip.crimsonrevelations.scribing_tools.inactive").getFormattedText());
+        }
     }
 }

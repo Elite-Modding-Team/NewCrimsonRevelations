@@ -5,6 +5,7 @@ import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
+import mod.icarus.crimsonrevelations.item.armor.ItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.tools.ItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.ItemPrimordialScribingTools;
@@ -12,6 +13,7 @@ import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -60,6 +62,8 @@ public class CRItems {
     public static Item crimsonArcherChestplate;
     @GameRegistry.ObjectHolder("crimson_archer_leggings")
     public static Item crimsonArcherGreaves;
+    @GameRegistry.ObjectHolder("meteor_boots")
+    public static Item meteorBoots;
     @GameRegistry.ObjectHolder("crimson_fabric")
     public static Item crimsonFabric;
     @GameRegistry.ObjectHolder("crimson_plate")
@@ -98,7 +102,8 @@ public class CRItems {
     public static Item runicRingRegen;
 
     public static ArmorMaterial ARMOR_CULTIST_ARCHER = EnumHelper.addArmorMaterial("CULTIST_ARCHER", "CULTIST_ARCHER", 17, new int[]{2, 5, 5, 2}, 13, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F).setRepairItem(new ItemStack(crimsonPlate));
-
+    public static ArmorMaterial BOOTS_METEOR = EnumHelper.addArmorMaterial("METEOR_BOOTS", "METEOR_BOOTS", 30, new int[]{2, 0, 0, 0}, 25, SoundEvents.ITEM_FIRECHARGE_USE, 2.0F).setRepairItem(new ItemStack(Items.BLAZE_POWDER));
+    
     public static ToolMaterial TOOL_CULTIST = EnumHelper.addToolMaterial("CULTIST", 3, 321, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(crimsonPlate));
 
     @SubscribeEvent
@@ -134,6 +139,10 @@ public class CRItems {
 
                 CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools")
         );
+        
+        if (Loader.isModLoaded("thaumicaugmentation")) {
+            registry.register(CRRegistry.setup(new ItemMeteorBoots(EntityEquipmentSlot.FEET), "meteor_boots"));
+        }
 
         // Do not register Scribing Tools of Knowledge if TC4 Research Port is detected. It doesn't use observations and theories for its overhauled research.
         if (!Loader.isModLoaded("oldresearch")) {
@@ -155,7 +164,7 @@ public class CRItems {
         // Special recipes go here
         if (!Loader.isModLoaded("oldresearch")) {
             registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
-                    ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
+                    ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
         }
     }
 

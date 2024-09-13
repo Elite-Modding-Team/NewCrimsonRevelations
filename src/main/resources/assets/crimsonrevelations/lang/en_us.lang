@@ -20,6 +20,7 @@ item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
 item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
 item.crimsonrevelations.ignis_arrow.name=Ignis Arrow
 item.crimsonrevelations.knowledge_scribing_tools.name=Scribing Tools of Knowledge
+item.crimsonrevelations.meteor_boots.name=Boots of the Meteor
 item.crimsonrevelations.ordo_arrow.name=Ordo Arrow
 item.crimsonrevelations.perditio_arrow.name=Perditio Arrow
 item.crimsonrevelations.primordial_scribing_tools.name=Primordial Scribing Tools
@@ -80,19 +81,6 @@ crimsonrevelations.research.primal_arrows.title=Primal Arrows
 crimsonrevelations.research.primal_arrows.stage.0=The Bow of Bone was not the only ancient item that I have discovered in the Crimson Rites. There is mention of powerful arrows utilized by the Crimson Cult that are infused with various different aspects from Vis Crystals, I was only able to properly translate the most basic kind utilizing primal aspects.<BR>Now I just need to perform some experiments and hope it all turns out well...
 crimsonrevelations.research.primal_arrows.stage.1=I have succeeded on utilizing the power of Vis Crystals to imbue normal arrows with primal elements like the Crimson Cult did. Unlike other special arrows, primal arrows have a 1-in-3 chance to be preserved by the Infinity enchantment due to their magical nature.<BR>Each primal element is powerful in their own way and I have detailed the information about each type on the next few pages.<PAGE>§lAer§r<DIV>Crackling with energy, these arrows deal the same damage as normal arrows, they will also pack quite a knockback from their windy nature and are not hindered when fired underwater.<PAGE>§lAqua§r<DIV>These arrows deal the same damage as normal arrows, they also greatly slow the target's movement speed down by chilling them to the bone, which is perfect for certain situations.<BR>In addition, they are not hindered when fired underwater and they are completely resistant to fire including the Flame enchantment, for better or worse.<PAGE>§lIgnis§r<DIV>These arrows deal extra damage compared to normal arrows, they also inflict fire damage rather than normal damage.<BR>Targets will additionally be set ablaze for a few seconds (or longer when the arrows are shot from a bow with the Flame enchantment), it's best not to utilize this element against enemies that are resistant to fire.<PAGE>§lOrdo§r<DIV>These arrows deal less damage compared to normal arrows, but the target also becomes greatly weakened for a few seconds. This element would be best against strong opponents.<PAGE>§lPerditio§r<DIV>These arrows deal less damage compared to normal arrows, but their chaotic nature will also inflict the target with a strong withering effect for a few seconds.<PAGE>§lTerra§r<DIV>These arrows, weighted with the essence of earth, will pierce through the target's armor while dealing the same damage as normal arrows. This element is best utilized against heavily armored foes.
 
-# Research: Golemancy
-crimsonrevelations.research.dark_golemancy.title=Dark Golemancy Studies
-crimsonrevelations.research.dark_golemancy.stage.0=I've had more success on translating this section of the Crimson Rites. Surprisingly, the Crimson Cult has already done a lot of research to construct and perform their own golems, this is when it all took a more darker turn however, their more inhumane choices on building these golems.<BR>Whether I would want to learn some of these methods for my own uses or not is up to my own risk...
-
-crimsonrevelations.research.golem_mat_cult_plate.title=Material Studies: Crimson Plate
-crimsonrevelations.research.golem_mat_cult_plate.stage.0=Crimson Plates are rather interesting, it originated from the Crimson Cult, but what they did to make whatever alloy these plates are composed of will remain a mystery.<BR>It has the best of both brass and iron, it is quite lightweight as brass and has many of the same properties as iron. It however cannot withstand explosions as well, which is the main drawback of using this as a golem material.
-
-crimsonrevelations.research.golem_mat_flesh.title=Material Studies: Flesh
-crimsonrevelations.research.golem_mat_flesh.stage.0=I dread to know what was in the mind of the Crimson Cult for wanting to utilize flesh as a golem material, should I decide to utilize this myself if I am just as sick and twisted as they are, it does have some benefits.<BR>Golems made out of flesh have the ability to self-repair, this is especially useful with flesh being easily obtainable from any type of zombie. Flesh is also very fragile and even more so than Greatwood, I should thus be careful with any golems made out of it.
-
-crimsonrevelations.research.golem_mat_tallow.title=Material Studies: Tallow
-crimsonrevelations.research.golem_mat_tallow.stage.0=While tallow is strange for a golem material, it surprisingly is fairly durable but also lacks any notable traits. If I were to need a golem without positive or negative traits, this is the perfect material to utilize.
-
 # Research: Auromancy
 crimsonrevelations.research.dark_auromancy.title=Dark Auromancy Studies
 crimsonrevelations.research.dark_auromancy.stage.0=I have discovered drafts within the Rites itself, the Crimson Cult are much more knowledgeable about thaumaturgy than I had previously thought.<BR>The knowledge that I have uncovered is more stranger than my usual discoveries, upon fully translating their own work done on Auromancy, I expect these new additions to be much more §osituational§r than I'm used to.
@@ -123,8 +111,36 @@ crimsonrevelations.research.crimson_knight.addenda.0=It looks like the knights a
 
 crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
 
+# Research: Golemancy
+crimsonrevelations.research.dark_golemancy.title=Dark Golemancy Studies
+crimsonrevelations.research.dark_golemancy.stage.0=I've had more success on translating this section of the Crimson Rites. Surprisingly, the Crimson Cult has already done a lot of research to construct and perform their own golems, this is when it all took a more darker turn however, their more inhumane choices on building these golems.<BR>Whether I would want to learn some of these methods for my own uses or not is up to my own risk...
+
+crimsonrevelations.research.golem_mat_cult_plate.title=Material Studies: Crimson Plate
+crimsonrevelations.research.golem_mat_cult_plate.stage.0=Crimson Plates are rather interesting, it originated from the Crimson Cult, but what they did to make whatever alloy these plates are composed of will remain a mystery.<BR>It has the best of both brass and iron, it is quite lightweight as brass and has many of the same properties as iron. It however cannot withstand explosions as well, which is the main drawback of using this as a golem material.
+
+crimsonrevelations.research.golem_mat_flesh.title=Material Studies: Flesh
+crimsonrevelations.research.golem_mat_flesh.stage.0=I dread to know what was in the mind of the Crimson Cult for wanting to utilize flesh as a golem material, should I decide to utilize this myself if I am just as sick and twisted as they are, it does have some benefits.<BR>Golems made out of flesh have the ability to self-repair, this is especially useful with flesh being easily obtainable from any type of zombie. Flesh is also very fragile and even more so than Greatwood, I should thus be careful with any golems made out of it.
+
+crimsonrevelations.research.golem_mat_tallow.title=Material Studies: Tallow
+crimsonrevelations.research.golem_mat_tallow.stage.0=While tallow is strange for a golem material, it surprisingly is fairly durable but also lacks any notable traits. If I were to need a golem without positive or negative traits, this is the perfect material to utilize.
+
+# Research
+crimsonrevelations.research.more_research.title=Taking Steps Further
+crimsonrevelations.research.more_research.stage.0=I realized that with all the research that I have to do to discover more about the Crimson Cult and other mysteries of the world, it ends up feeling like I'm going too slow, not to mention that I often have trouble running out of necessary supplies that prevent me from progressing further and thus wasting more of my precious time.<BR>I must see what I can do to at least improve this a bit...
+
+crimsonrevelations.research.knowledge_scribing_tools.title=Scribing Tools of Knowledge
+crimsonrevelations.research.knowledge_scribing_tools.stage.0=Upon infusing mundane scribing tools with the power of all primal vis crystals, Sensus vis crystals, and Salis Mundus, it'll become the Scribing Tools of Knowledge. It will allow me to absorb it for extra theories and observations once depleted by right-clicking it at that state, I can then recharge it with some Sensus vis crystals. There is also a small chance that some of the absorbed knowledge may even turn into a useful curiosity!<BR>Just as a reminder to myself, this only has a little less than half of the capacity as mundane scribing tools and it no longer can be replenished with ink. If I were to no longer need that extra boost of theories and observations, it would be best to use the original.
+
+crimsonrevelations.research.primordial_scribing_tools.title=Primordial Scribing Tools
+crimsonrevelations.research.primordial_scribing_tools.stage.0=With these Primordial Pearls alongside a void seed and all primal vis crystals, I can upgrade mundane scribing tools into the Primordial Scribing Tools, making it never run out of ink again. If I somehow "damage" these scribing tools, they will regenerate as if nothing happened.
+
 # Messages
-message.crimsonrevelations.knowledge_scribing_tools.deplete=You absorb the stored knowledge from your scribing tools.
+message.crimsonrevelations.scribing_tools.curio=A curiosity was formed by your scribing tools!
+message.crimsonrevelations.scribing_tools.knowledge=You absorb the stored knowledge from your scribing tools.
+
+# Tooltips
+tooltip.crimsonrevelations.scribing_tools.active=Right-click to absorb its power.
+tooltip.crimsonrevelations.scribing_tools.inactive=Depleted
 
 # Misc
 focus.crimsonrevelations.blinding_flash.name=Blinding Flash

@@ -17,7 +17,7 @@ import thaumcraft.api.aspects.AspectRegistryEvent;
 public class CRAspects {
     @SubscribeEvent
     public static void registerAspects(AspectRegistryEvent event) {
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION)
             ThaumcraftApi.registerEntityTag(NewCrimsonRevelations.MODID + ".overgrown_taintacle", new AspectList().add(Aspect.FLUX, 30).add(Aspect.ELDRITCH, 30).add(Aspect.AVERSION, 30).add(Aspect.PLANT, 30));
     }
 }

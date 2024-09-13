@@ -20,12 +20,12 @@ public class CRCompatHandler {
     }
 
     public static void init() {
-        if (Loader.isModLoaded("jeresources") && CRConfig.general_settings.JER_INTEGRATION)
+        if (Loader.isModLoaded("jeresources") && CRConfig.mod_integration_settings.JER_INTEGRATION)
             JERIntegration.init();
     }
 
     public static void postInit() {
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.general_settings.TA_INTEGRATION)
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION)
             TAIntegration.postInit();
     }
 }

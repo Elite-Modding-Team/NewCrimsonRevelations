@@ -2,5 +2,19 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "crimsonrevelations:items/knowledge_scribing_tools"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "depleted": 1
+      },
+      "model": "crimsonrevelations:item/knowledge_scribing_tools_active"
+    },
+    {
+      "predicate": {
+        "depleted": 2
+      },
+      "model": "crimsonrevelations:item/knowledge_scribing_tools_inactive"
+    }
+  ]
 }

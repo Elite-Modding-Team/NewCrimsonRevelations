@@ -10,10 +10,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -23,7 +27,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CREvents {
     @SubscribeEvent
-    public static void onHurtEvent(LivingHurtEvent event) {
+    public static void runicShieldHurtEvent(LivingHurtEvent event) {
         World world = event.getEntity().world;
         Entity source = event.getSource().getTrueSource();
 
@@ -74,6 +78,33 @@ public class CREvents {
                     player.setAbsorptionAmount(charge + 1);
 
                     ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicRingCharged));
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onAttackEvent(LivingAttackEvent event) {
+        for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
+
+            // Prevents screen shaking and damage sound.
+            if (stack.getItem() == CRItems.meteorBoots) {
+                if (event.getSource() == DamageSource.HOT_FLOOR) {
+                    event.setCanceled(true);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onDamageEvent(LivingDamageEvent event) {
+        for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
+
+            // Immune to these damage types.
+            if (stack.getItem() == CRItems.meteorBoots) {
+                if (event.getSource() == DamageSource.HOT_FLOOR) {
+                    event.setAmount(0.0F);
+                    event.setCanceled(true);
                 }
             }
         }
