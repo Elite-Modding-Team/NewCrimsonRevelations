@@ -9,6 +9,7 @@ import mod.icarus.crimsonrevelations.item.armor.ItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.tools.ItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.ItemPrimordialScribingTools;
+import mod.icarus.crimsonrevelations.item.tools.ItemSanitationScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -100,10 +101,12 @@ public class CRItems {
     public static Item runicRingCharged;
     @GameRegistry.ObjectHolder("runic_ring_regen")
     public static Item runicRingRegen;
+    @GameRegistry.ObjectHolder("sanitation_scribing_tools")
+    public static Item sanitationScribingTools;
 
     public static ArmorMaterial ARMOR_CULTIST_ARCHER = EnumHelper.addArmorMaterial("CULTIST_ARCHER", "CULTIST_ARCHER", 17, new int[]{2, 5, 5, 2}, 13, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F).setRepairItem(new ItemStack(crimsonPlate));
     public static ArmorMaterial BOOTS_METEOR = EnumHelper.addArmorMaterial("METEOR_BOOTS", "METEOR_BOOTS", 30, new int[]{2, 0, 0, 0}, 25, SoundEvents.ITEM_FIRECHARGE_USE, 2.0F).setRepairItem(new ItemStack(Items.BLAZE_POWDER));
-    
+
     public static ToolMaterial TOOL_CULTIST = EnumHelper.addToolMaterial("CULTIST", 3, 321, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(crimsonPlate));
 
     @SubscribeEvent
@@ -137,9 +140,10 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
 
+                CRRegistry.setup(new ItemSanitationScribingTools(), "sanitation_scribing_tools"),
                 CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools")
         );
-        
+
         if (Loader.isModLoaded("thaumicaugmentation")) {
             registry.register(CRRegistry.setup(new ItemMeteorBoots(EntityEquipmentSlot.FEET), "meteor_boots"));
         }
@@ -166,6 +170,9 @@ public class CRItems {
             registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
                     ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
         }
+
+        registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), sanitationScribingTools, new ItemStack(sanitationScribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "sanitation_scribing_tools_refill"));
     }
 
     @SideOnly(Side.CLIENT)

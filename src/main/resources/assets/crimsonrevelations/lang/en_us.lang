@@ -32,6 +32,7 @@ item.crimsonrevelations.runic_girdle_kinetic.name=Kinetic Girdle of Shielding
 item.crimsonrevelations.runic_ring.name=Ring of Runic Shielding
 item.crimsonrevelations.runic_ring_charged.name=Charged Ring of Shielding
 item.crimsonrevelations.runic_ring_regen.name=Revitalizing Ring of Shielding
+item.crimsonrevelations.sanitation_scribing_tools.name=Scribing Tools of Sanitation
 item.crimsonrevelations.terra_arrow.name=Terra Arrow
 
 # Research
@@ -99,7 +100,7 @@ crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks i
 
 # Research: Bestiary
 crimsonrevelations.research.cult_bestiary.title=The Cult Bestiary
-crimsonrevelations.research.cult_bestiary.stage.0=I am dedicating this side of the Revelations chapter for any of the different type of Crimson Cult members I encounter. The cultists seem to be human or at least related to humans. However, something is off about them. Their eyes are of a striking glowing red, and their bodies seem to have a higher constitution than a normal body would, surviving wounds that I would not be able to.<PAGE>Whatever process they use to "enhance" themselves is both curious, and at the same time strangely sinister. Interestingly, I can't help but notice the similarity of Angry Zombies to them. Perhaps the remains of failed expeditions?<BR>Of particularly interesting note, they seem to have some form of rank system, or at least that's what I was able to translate. I will note down more about each of the members upon scanning any of them with my Thaumometer.
+crimsonrevelations.research.cult_bestiary.stage.0=I am dedicating this side of the Revelations chapter for any of the different types of Crimson Cult members I encounter. The cultists seem to be human or at least related to humans. However, something is off about them. Their eyes are of a striking glowing red, and their bodies seem to have a higher constitution than a normal body would, surviving wounds that I would not be able to.<PAGE>Whatever process they use to "enhance" themselves is both curious, and at the same time strangely sinister. Interestingly, I can't help but notice the similarity of Angry Zombies to them. Perhaps the remains of failed expeditions?<BR>Of particularly interesting note, they seem to have some form of rank system, or at least that's what I was able to translate. I will note down more about each of the members upon scanning any of them with my Thaumometer.
 crimsonrevelations.research.cult_bestiary.addenda.0=Upon observing the Shambling Husks, they appear to wear similar armor to the cultists themselves. Were these husks also the remains of failed expeditions thanks to the very aggressive Eldritch Crabs deciding their own fates?<BR>Maybe I'm onto something here... 
 
 crimsonrevelations.research.crimson_cleric.title=Crimson Cleric
@@ -107,7 +108,7 @@ crimsonrevelations.research.crimson_cleric.stage.0=The most honored of the low r
 
 crimsonrevelations.research.crimson_knight.title=Crimson Knight
 crimsonrevelations.research.crimson_knight.stage.0=These are the main foot soldiers of the Crimson Cult as said by the Crimson Rites, the knights mostly do basic mundane tasks such as protecting Crimson Clerics from harm during their rituals and scouting various areas within the Overworld.<BR>Despite not knowing dangerous spells like the clerics, the knights are actually a very §osneaky§r type, the swords that they carry are tipped with a potent poison. I should thus be careful when dealing with them especially in larger numbers, as even the toughest diamond armor won't protect me from being poisoned.<BR>These tipped swords were recently provided to the knights after a recent arsenal change, the iron swords they had previously were not working too well for them apparently...
-crimsonrevelations.research.crimson_knight.addenda.0=It looks like the knights also have their own subrank system based on skill and loyalty. They are promoted to a sergeant after some time and don a stronger sword imbued with magic, they also don't cover their head for clearer vision. Finally, they become commanders which is just one small step before becoming a cleric, I can easily recognize them by their own hoods that they wear and voidified swords that they carry.<PAGE>Encountering these type of knights are more of a rare anomaly, but it is interesting to see how the Crimson Cult has this system in place.
+crimsonrevelations.research.crimson_knight.addenda.0=It looks like the knights also have their own subrank system based on skill and loyalty. They are promoted to a sergeant after some time and don a stronger sword imbued with magic, they also don't cover their head for clearer vision. Finally, they become commanders which is just one small step before becoming a cleric, I can easily recognize them by their own hoods that they wear and voidified swords that they carry.<PAGE>Encountering these types of knights are more of a rare anomaly, but it is interesting to see how the Crimson Cult has this system in place.
 
 crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
 
@@ -137,6 +138,7 @@ crimsonrevelations.research.primordial_scribing_tools.stage.0=With these Primord
 # Messages
 message.crimsonrevelations.scribing_tools.curio=A curiosity was formed by your scribing tools!
 message.crimsonrevelations.scribing_tools.knowledge=You absorb the stored knowledge from your scribing tools.
+message.crimsonrevelations.scribing_tools.sanitation=Your scribing tools help clear up a portion of your stressed mind.
 
 # Tooltips
 tooltip.crimsonrevelations.scribing_tools.active=Right-click to absorb its power.
