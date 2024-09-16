@@ -92,7 +92,10 @@ public class ItemSanitationScribingTools extends CRItem implements IScribeTools 
 
             player.swingArm(EnumHand.MAIN_HAND);
             player.playSound(SoundsTC.hhon, 0.8F, 0.6F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
+
+            // 1 hour of Warp Ward.
             player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, 60 * 1200, 0, false, false));
+
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.sanitation").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             setDepletedState(stack, true);
             return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);

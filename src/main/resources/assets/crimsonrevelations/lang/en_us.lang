@@ -138,6 +138,7 @@ crimsonrevelations.research.primordial_scribing_tools.stage.0=With these Primord
 # Messages
 message.crimsonrevelations.scribing_tools.curio=A curiosity was formed by your scribing tools!
 message.crimsonrevelations.scribing_tools.knowledge=You absorb the stored knowledge from your scribing tools.
+message.crimsonrevelations.scribing_tools.primordial=Your scribing tools bestow you with power before they recharge once more...
 message.crimsonrevelations.scribing_tools.sanitation=Your scribing tools help clear up a portion of your stressed mind.
 
 # Tooltips

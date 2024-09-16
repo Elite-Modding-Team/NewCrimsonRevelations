@@ -19,6 +19,12 @@ public class CRConfig {
     public static TAIntegrationSettings thaumic_augmentation_settings = new TAIntegrationSettings();
 
     public static class GeneralSettings {
+        @Config.Name("Primordial Scribing Tools: Curiosity Chance")
+        @Config.Comment("The chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
+        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.RequiresMcRestart
+        public double PRIMORDIAL_TOOLS_CURIOSITY_CHANCE = 0.3D;
+
         @Config.Name("Scribing Tools of Knowledge: Curiosity Chance")
         @Config.Comment("The chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
