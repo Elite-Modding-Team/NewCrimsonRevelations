@@ -533,7 +533,7 @@
           ]
         },
         {
-          "text": "crimsonrevelations.research.metoer_boots.stage.1",
+          "text": "crimsonrevelations.research.meteor_boots.stage.1",
           "recipes": [
             "crimsonrevelations:bone_bow"
           ]
@@ -593,7 +593,12 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.runic_baubles.stage.0"
+          "text": "crimsonrevelations.research.runic_baubles.stage.0",
+          "recipes": [
+            "crimsonrevelations:runic_ring",
+            "crimsonrevelations:runic_amulet",
+            "crimsonrevelations:runic_girdle"
+          ]
         }
       ]
     },
@@ -635,7 +640,10 @@
         {
           "text": "crimsonrevelations.research.special_runic_baubles.stage.1",
           "recipes": [
-            "crimsonrevelations:bone_bow"
+            "crimsonrevelations:runic_ring_charged",
+            "crimsonrevelations:runic_ring_regen",
+            "crimsonrevelations:runic_amulet_emergency",
+            "crimsonrevelations:runic_girdle_kinetic"
           ]
         }
       ]
