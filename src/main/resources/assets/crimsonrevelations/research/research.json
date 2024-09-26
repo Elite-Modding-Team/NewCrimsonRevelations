@@ -49,7 +49,10 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.sanitation_scribing_tools.stage.0"
+          "text": "crimsonrevelations.research.sanitation_scribing_tools.stage.0",
+          "recipes": [
+            "crimsonrevelations:sanitation_scribing_tools"
+          ]
         }
       ]
     },
@@ -75,7 +78,10 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.knowledge_scribing_tools.stage.0"
+          "text": "crimsonrevelations.research.knowledge_scribing_tools.stage.0",
+          "recipes": [
+            "crimsonrevelations:knowledge_scribing_tools"
+          ]
         }
       ]
     },
@@ -104,7 +110,10 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.primordial_scribing_tools.stage.0"
+          "text": "crimsonrevelations.research.primordial_scribing_tools.stage.0",
+          "recipes": [
+            "crimsonrevelations:primordial_scribing_tools"
+          ]
         }
       ]
     }

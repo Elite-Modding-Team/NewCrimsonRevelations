@@ -121,6 +121,12 @@ public class CRRecipes {
                 "EIE",
                 "EPE",
                 'P', CRItems.crimsonPlate, 'I', new ItemStack(Items.IRON_SWORD, 1, OreDictionary.WILDCARD_VALUE), 'E', Items.SPIDER_EYE));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "knowledge_scribing_tools"), new ShapelessArcaneRecipe(
+                defaultGroup, "CR_KNOWLEDGE_SCRIBING_TOOLS", 50,
+                new AspectList().add(Aspect.AIR, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1).add(Aspect.FIRE, 1).add(Aspect.ORDER, 1).add(Aspect.WATER, 1),
+                new ItemStack(CRItems.knowledgeScribingTools),
+                new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                        ItemsTC.salisMundus, ThaumcraftApiHelper.makeCrystal(Aspect.SENSES), ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)}));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "aer_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
@@ -169,6 +175,12 @@ public class CRRecipes {
                 "ACA",
                 " A ",
                 'A', Items.ARROW, 'C', new IngredientNBTTC(ThaumcraftApiHelper.makeCrystal(Aspect.EARTH))));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "sanitation_scribing_tools"), new ShapelessArcaneRecipe(
+                defaultGroup, "CR_SANITATION_SCRIBING_TOOLS", 50,
+                new AspectList().add(Aspect.AIR, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1).add(Aspect.FIRE, 1).add(Aspect.ORDER, 1).add(Aspect.WATER, 1),
+                new ItemStack(CRItems.sanitationScribingTools),
+                new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                        ItemsTC.salisMundus, ThaumcraftApiHelper.makeCrystal(Aspect.MIND), ThaumcraftApiHelper.makeCrystal(Aspect.MIND)}));
     }
 
     public static void initCrucible() {
@@ -240,6 +252,17 @@ public class CRRecipes {
                         "plateVoid",
                         CRItems.crimsonFabric,
                         CRItems.crimsonFabric));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "meteor_boots"),
+                new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.meteorBoots), 4,
+                        new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
+                        new ItemStack(ItemsTC.travellerBoots),
+                        BlocksTC.crystalFire,
+                        Blocks.OBSIDIAN,
+                        Blocks.OBSIDIAN,
+                        Blocks.OBSIDIAN,
+                        Items.MAGMA_CREAM,
+                        Items.FIRE_CHARGE,
+                        BlocksTC.crystalEntropy));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
                         new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 20),
@@ -268,6 +291,16 @@ public class CRRecipes {
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
                         CRItems.embellishedCrimsonFabric));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "primordial_scribing_tools"),
+                new InfusionRecipe("CR_PRIMORDIAL_SCRIBING_TOOLS", new ItemStack(CRItems.primordialScribingTools), 0,
+                        new AspectList().add(Aspect.AIR, 50).add(Aspect.EARTH, 50).add(Aspect.ENTROPY, 50).add(Aspect.FIRE, 50).add(Aspect.ORDER, 50).add(Aspect.WATER, 50),
+                        new ItemStack(ItemsTC.scribingTools),
+                        ItemsTC.primordialPearl,
+                        ItemsTC.voidSeed,
+                        ItemsTC.voidSeed,
+                        CRItems.knowledgeScribingTools,
+                        CRItems.sanitationScribingTools,
+                        ItemsTC.voidSeed));
         ItemStack runicAmuletStack = new ItemStack(CRItems.runicAmulet);
         runicAmuletStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 8));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_amulet"),
@@ -352,16 +385,5 @@ public class CRRecipes {
                         Items.GHAST_TEAR,
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1)));
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "meteor_boots"),
-                new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.meteorBoots), 4,
-                        new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
-                        new ItemStack(ItemsTC.travellerBoots),
-                        BlocksTC.crystalFire,
-                        Blocks.OBSIDIAN,
-                        Blocks.OBSIDIAN,
-                        Blocks.OBSIDIAN,
-                        Items.MAGMA_CREAM,
-                        Items.FIRE_CHARGE,
-                        BlocksTC.crystalEntropy));
     }
 }
