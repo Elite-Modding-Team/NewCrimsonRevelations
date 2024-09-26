@@ -4,6 +4,7 @@ import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
@@ -267,8 +268,10 @@ public class CRRecipes {
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
                         CRItems.embellishedCrimsonFabric));
+        ItemStack runicAmuletStack = new ItemStack(CRItems.runicAmulet);
+        runicAmuletStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 8));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_amulet"),
-                new InfusionRecipe("CR_RUNIC_BAUBLES", new ItemStack(CRItems.runicAmulet), 2,
+                new InfusionRecipe("CR_RUNIC_BAUBLES", runicAmuletStack, 2,
                         new AspectList().add(Aspect.ENERGY, 50).add(Aspect.MAGIC, 45).add(Aspect.PROTECT, 25),
                         new ItemStack(ItemsTC.baubles, 1, 4),
                         ItemsTC.salisMundus,
@@ -277,8 +280,10 @@ public class CRRecipes {
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
+        ItemStack runicGirdleStack = new ItemStack(CRItems.runicGirdle);
+        runicGirdleStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 10));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_girdle"),
-                new InfusionRecipe("CR_RUNIC_BAUBLES", new ItemStack(CRItems.runicGirdle), 2,
+                new InfusionRecipe("CR_RUNIC_BAUBLES", runicGirdleStack, 2,
                         new AspectList().add(Aspect.ENERGY, 60).add(Aspect.MAGIC, 50).add(Aspect.PROTECT, 30),
                         new ItemStack(ItemsTC.baubles, 1, 6),
                         ItemsTC.salisMundus,
@@ -288,8 +293,10 @@ public class CRRecipes {
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
+        ItemStack runicRingStack = new ItemStack(CRItems.runicRing);
+        runicRingStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 5));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring"),
-                new InfusionRecipe("CR_RUNIC_BAUBLES", new ItemStack(CRItems.runicRing), 2,
+                new InfusionRecipe("CR_RUNIC_BAUBLES", runicRingStack, 2,
                         new AspectList().add(Aspect.ENERGY, 40).add(Aspect.MAGIC, 40).add(Aspect.PROTECT, 20),
                         new ItemStack(ItemsTC.baubles, 1, 5),
                         ItemsTC.salisMundus,
@@ -297,8 +304,10 @@ public class CRRecipes {
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
+        ItemStack runicAmuletEmergencyStack = new ItemStack(CRItems.runicAmuletEmergency);
+        runicAmuletEmergencyStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 7));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_amulet_emergency"),
-                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", new ItemStack(CRItems.runicAmuletEmergency), 4,
+                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicAmuletEmergencyStack, 4,
                         new AspectList().add(Aspect.EARTH, 75).add(Aspect.MAGIC, 50).add(Aspect.PROTECT, 75).add(Aspect.ENERGY, 50),
                         new ItemStack(CRItems.runicAmulet),
                         ItemsTC.salisMundus,
@@ -307,8 +316,10 @@ public class CRRecipes {
                         ThaumcraftApiHelper.makeCrystal(Aspect.PROTECT, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1)));
+        ItemStack runicGirdleKineticStack = new ItemStack(CRItems.runicGirdleKinetic);
+        runicGirdleKineticStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 9));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_girdle_kinetic"),
-                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", new ItemStack(CRItems.runicGirdleKinetic), 4,
+                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicGirdleKineticStack, 4,
                         new AspectList().add(Aspect.AIR, 100).add(Aspect.MAGIC, 50).add(Aspect.PROTECT, 50).add(Aspect.MOTION, 100),
                         new ItemStack(CRItems.runicGirdle),
                         ItemsTC.salisMundus,
@@ -317,8 +328,10 @@ public class CRRecipes {
                         Items.GUNPOWDER,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1)));
+        ItemStack runicRingChargedStack = new ItemStack(CRItems.runicRingCharged);
+        runicRingChargedStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 4));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring_charged"),
-                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", new ItemStack(CRItems.runicRingCharged), 4,
+                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicRingChargedStack, 4,
                         new AspectList().add(Aspect.FIRE, 75).add(Aspect.MAGIC, 45).add(Aspect.ENERGY, 70).add(Aspect.PROTECT, 30),
                         new ItemStack(CRItems.runicRing),
                         ItemsTC.salisMundus,
@@ -327,8 +340,10 @@ public class CRRecipes {
                         ItemsTC.amber,
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1)));
+        ItemStack runicRingRegenStack = new ItemStack(CRItems.runicRingRegen);
+        runicRingRegenStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 4));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring_regen"),
-                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", new ItemStack(CRItems.runicRingRegen), 4,
+                new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicRingRegenStack, 4,
                         new AspectList().add(Aspect.WATER, 75).add(Aspect.MAGIC, 45).add(Aspect.LIFE, 70).add(Aspect.PROTECT, 30),
                         new ItemStack(CRItems.runicRing),
                         ItemsTC.salisMundus,
