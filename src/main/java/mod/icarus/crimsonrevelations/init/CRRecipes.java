@@ -6,6 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
@@ -252,17 +253,6 @@ public class CRRecipes {
                         "plateVoid",
                         CRItems.crimsonFabric,
                         CRItems.crimsonFabric));
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "meteor_boots"),
-                new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.meteorBoots), 4,
-                        new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
-                        new ItemStack(ItemsTC.travellerBoots),
-                        BlocksTC.crystalFire,
-                        Blocks.OBSIDIAN,
-                        Blocks.OBSIDIAN,
-                        Blocks.OBSIDIAN,
-                        Items.MAGMA_CREAM,
-                        Items.FIRE_CHARGE,
-                        BlocksTC.crystalEntropy));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
                         new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 20),
@@ -385,5 +375,20 @@ public class CRRecipes {
                         Items.GHAST_TEAR,
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1)));
+
+        // Thaumic Augmentation Integration
+        if (Loader.isModLoaded("thaumicaugmentation")) {
+            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "meteor_boots"),
+                    new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.meteorBoots), 4,
+                            new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
+                            new ItemStack(ItemsTC.travellerBoots),
+                            BlocksTC.crystalFire,
+                            Blocks.OBSIDIAN,
+                            Blocks.OBSIDIAN,
+                            Blocks.OBSIDIAN,
+                            Items.MAGMA_CREAM,
+                            Items.FIRE_CHARGE,
+                            BlocksTC.crystalEntropy));
+        }
     }
 }

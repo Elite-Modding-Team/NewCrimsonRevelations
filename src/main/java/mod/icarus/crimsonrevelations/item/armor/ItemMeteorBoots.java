@@ -20,6 +20,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -185,10 +186,10 @@ public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechar
             // Explode on ground impact and reset smash state.
             if (player.fallDistance <= 0.0F && player.onGround) {
                 int radius = 4;
+                AxisAlignedBB area = new AxisAlignedBB(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius);
                 setSmashingState(stack, false);
 
-                for (EntityLivingBase nearbyLivingEntity : world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(player.posX - radius, player.posY - radius, player.posZ - radius,
-                        player.posX + radius, player.posY + radius, player.posZ + radius))) {
+                for (EntityLivingBase nearbyLivingEntity : world.getEntitiesWithinAABB(EntityLivingBase.class, area, EntitySelectors.IS_ALIVE)) {
                     if (nearbyLivingEntity != player && !nearbyLivingEntity.isOnSameTeam(player)) {
                         nearbyLivingEntity.setFire(5 + (world.rand.nextInt(5)));
                         nearbyLivingEntity.knockBack(player, 1.0F, player.posX - nearbyLivingEntity.posX, player.posZ - nearbyLivingEntity.posZ);
