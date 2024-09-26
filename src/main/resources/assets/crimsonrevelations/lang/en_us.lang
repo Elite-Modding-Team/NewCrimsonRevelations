@@ -82,6 +82,20 @@ crimsonrevelations.research.primal_arrows.title=Primal Arrows
 crimsonrevelations.research.primal_arrows.stage.0=The Bow of Bone was not the only ancient item that I have discovered in the Crimson Rites. There is mention of powerful arrows utilized by the Crimson Cult that are infused with various different aspects from Vis Crystals, I was only able to properly translate the most basic kind utilizing primal aspects.<BR>Now I just need to perform some experiments and hope it all turns out well...
 crimsonrevelations.research.primal_arrows.stage.1=I have succeeded on utilizing the power of Vis Crystals to imbue normal arrows with primal elements like the Crimson Cult did. Unlike other special arrows, primal arrows have a 1-in-3 chance to be preserved by the Infinity enchantment due to their magical nature.<BR>Each primal element is powerful in their own way and I have detailed the information about each type on the next few pages.<PAGE>§lAer§r<DIV>Crackling with energy, these arrows deal the same damage as normal arrows, they will also pack quite a knockback from their windy nature and are not hindered when fired underwater.<PAGE>§lAqua§r<DIV>These arrows deal the same damage as normal arrows, they also greatly slow the target's movement speed down by chilling them to the bone, which is perfect for certain situations.<BR>In addition, they are not hindered when fired underwater and they are completely resistant to fire including the Flame enchantment, for better or worse.<PAGE>§lIgnis§r<DIV>These arrows deal extra damage compared to normal arrows, they also inflict fire damage rather than normal damage.<BR>Targets will additionally be set ablaze for a few seconds (or longer when the arrows are shot from a bow with the Flame enchantment), it's best not to utilize this element against enemies that are resistant to fire.<PAGE>§lOrdo§r<DIV>These arrows deal less damage compared to normal arrows, but the target also becomes greatly weakened for a few seconds. This element would be best against strong opponents.<PAGE>§lPerditio§r<DIV>These arrows deal less damage compared to normal arrows, but their chaotic nature will also inflict the target with a strong withering effect for a few seconds.<PAGE>§lTerra§r<DIV>These arrows, weighted with the essence of earth, will pierce through the target's armor while dealing the same damage as normal arrows. This element is best utilized against heavily armored foes.
 
+crimsonrevelations.research.meteor_boots.title=Boots of the Meteor
+crimsonrevelations.research.meteor_boots.stage.0=[Placeholder]
+crimsonrevelations.research.meteor_boots.stage.1=[Placeholder]
+
+crimsonrevelations.research.ancient_baubles.title=Ancient Baubles
+crimsonrevelations.research.ancient_baubles.stage.0=[Placeholder]
+
+crimsonrevelations.research.runic_baubles.title=Runic Baubles
+crimsonrevelations.research.runic_baubles.stage.0=[Placeholder]
+
+crimsonrevelations.research.special_runic_baubles.title=Specialized Runic Baubles
+crimsonrevelations.research.special_runic_baubles.stage.0=[Placeholder]
+crimsonrevelations.research.special_runic_baubles.stage.1=[Placeholder]
+
 # Research: Auromancy
 crimsonrevelations.research.dark_auromancy.title=Dark Auromancy Studies
 crimsonrevelations.research.dark_auromancy.stage.0=I have discovered drafts within the Rites itself, the Crimson Cult are much more knowledgeable about thaumaturgy than I had previously thought.<BR>The knowledge that I have uncovered is more stranger than my usual discoveries, upon fully translating their own work done on Auromancy, I expect these new additions to be much more §osituational§r than I'm used to.
@@ -127,13 +141,16 @@ crimsonrevelations.research.golem_mat_tallow.stage.0=While tallow is strange for
 
 # Research
 crimsonrevelations.research.more_research.title=Taking Steps Further
-crimsonrevelations.research.more_research.stage.0=I realized that with all the research that I have to do to discover more about the Crimson Cult and other mysteries of the world, it ends up feeling like I'm going too slow, not to mention that I often have trouble running out of necessary supplies that prevent me from progressing further and thus wasting more of my precious time.<BR>I must see what I can do to at least improve this a bit...
+crimsonrevelations.research.more_research.stage.0=I realized that with all the research that I have to do to discover more about the Crimson Cult and all the other mysteries of the world, it will unfortunately end up taking forever to learn everything, not to mention that I often have trouble running out of necessary supplies that prevent me from progressing further and thus wasting more of my precious time.<BR>I must see what I can do to at least improve this a bit...
 
 crimsonrevelations.research.knowledge_scribing_tools.title=Scribing Tools of Knowledge
-crimsonrevelations.research.knowledge_scribing_tools.stage.0=Upon infusing mundane scribing tools with the power of all primal vis crystals, Sensus vis crystals, and Salis Mundus, it'll become the Scribing Tools of Knowledge. It will allow me to absorb it for extra theories and observations once depleted by right-clicking it at that state, I can then recharge it with some Sensus vis crystals. There is also a small chance that some of the absorbed knowledge may even turn into a useful curiosity!<BR>Just as a reminder to myself, this only has a little less than half of the capacity as mundane scribing tools and it no longer can be replenished with ink. If I were to no longer need that extra boost of theories and observations, it would be best to use the original.
+crimsonrevelations.research.knowledge_scribing_tools.stage.0=Upon infusing mundane scribing tools with the power of all primal vis crystals, Sensus vis crystals, and Salis Mundus, they'll become the Scribing Tools of Knowledge.<BR>They will allow me to absorb them for extra theories and observations once depleted by right-clicking them at that state, I can then recharge them with some Sensus vis crystals. There is also a small chance that some of the absorbed knowledge will turn into a useful curiosity for my own research!<BR>Just to leave a reminder to myself, they only have a little less than half of the capacity as mundane scribing tools and they no longer can be replenished with ink.<BR>If I were to no longer need that extra boost of theories and observations, it would be best to use the original.
 
 crimsonrevelations.research.primordial_scribing_tools.title=Primordial Scribing Tools
-crimsonrevelations.research.primordial_scribing_tools.stage.0=With these Primordial Pearls alongside a void seed and all primal vis crystals, I can upgrade mundane scribing tools into the Primordial Scribing Tools, making it never run out of ink again. If I somehow "damage" these scribing tools, they will regenerate as if nothing happened.
+crimsonrevelations.research.primordial_scribing_tools.stage.0=With a Primordial Pearl alongside a void seed, the other useful scribing tools I learned to create, and essentia of all primal aspects, I can upgrade mundane scribing tools into the Primordial Scribing Tools. These scribing tools have the same properties as the other scribing tools that were infused into them.<PAGE>Once they are depleted, I can simply right-click the scribing tools to absorb them for knowledge and a sanity cleansing, they will also regenerate themselves as if they were never used up.<BR>These are the ultimate scribing tools for any thaumaturge!
+
+crimsonrevelations.research.sanitation_scribing_tools.title=Scribing Tools of Sanitation
+crimsonrevelations.research.sanitation_scribing_tools.stage.0=[Placeholder]
 
 # Messages
 message.crimsonrevelations.scribing_tools.curio=A curiosity was formed by your scribing tools!

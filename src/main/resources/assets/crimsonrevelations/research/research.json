@@ -25,6 +25,88 @@
           "text": "crimsonrevelations.research.more_research.stage.0"
         }
       ]
+    },
+    {
+      "key": "CR_SANITATION_SCRIBING_TOOLS",
+      "name": "crimsonrevelations.research.sanitation_scribing_tools.title",
+      "icons": [
+        "crimsonrevelations:sanitation_scribing_tools"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_MORE_RESEARCH",
+        "~WARP"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        4,
+        1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.sanitation_scribing_tools.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "CR_KNOWLEDGE_SCRIBING_TOOLS",
+      "name": "crimsonrevelations.research.knowledge_scribing_tools.title",
+      "icons": [
+        "crimsonrevelations:knowledge_scribing_tools"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_MORE_RESEARCH"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        4,
+        3
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.knowledge_scribing_tools.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "CR_PRIMORDIAL_SCRIBING_TOOLS",
+      "name": "crimsonrevelations.research.primordial_scribing_tools.title",
+      "icons": [
+        "crimsonrevelations:primordial_scribing_tools"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_KNOWLEDGE_SCRIBING_TOOLS",
+        "CR_SANITATION_SCRIBING_TOOLS",
+        "~PRIMPEARL"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        5,
+        2
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.primordial_scribing_tools.stage.0"
+        }
+      ]
     }
   ]
 }
