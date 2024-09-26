@@ -242,7 +242,7 @@ public class CRRecipes {
                         CRItems.crimsonFabric));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
-                        new AspectList().add(Aspect.METAL, 50).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 20),
+                        new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 20),
                         ItemsTC.crimsonPlateHelm,
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
@@ -251,7 +251,7 @@ public class CRRecipes {
                         CRItems.crimsonPlate));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_chestplate"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorChest), 2,
-                        new AspectList().add(Aspect.METAL, 50).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 30),
+                        new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 30),
                         ItemsTC.crimsonPlateChest,
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
@@ -261,7 +261,7 @@ public class CRRecipes {
                         CRItems.embellishedCrimsonFabric));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_greaves"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorLegs), 2,
-                        new AspectList().add(Aspect.METAL, 50).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 25),
+                        new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 25),
                         ItemsTC.crimsonPlateLegs,
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
@@ -308,7 +308,7 @@ public class CRRecipes {
         runicAmuletEmergencyStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 7));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_amulet_emergency"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicAmuletEmergencyStack, 4,
-                        new AspectList().add(Aspect.EARTH, 75).add(Aspect.MAGIC, 50).add(Aspect.PROTECT, 75).add(Aspect.ENERGY, 50),
+                        new AspectList().add(Aspect.EARTH, 50).add(Aspect.MAGIC, 25).add(Aspect.PROTECT, 50).add(Aspect.ENERGY, 25),
                         new ItemStack(CRItems.runicAmulet),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1),
@@ -320,7 +320,7 @@ public class CRRecipes {
         runicGirdleKineticStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 9));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_girdle_kinetic"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicGirdleKineticStack, 4,
-                        new AspectList().add(Aspect.AIR, 100).add(Aspect.MAGIC, 50).add(Aspect.PROTECT, 50).add(Aspect.MOTION, 100),
+                        new AspectList().add(Aspect.AIR, 50).add(Aspect.MAGIC, 25).add(Aspect.PROTECT, 25).add(Aspect.MOTION, 50),
                         new ItemStack(CRItems.runicGirdle),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
@@ -332,7 +332,7 @@ public class CRRecipes {
         runicRingChargedStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 4));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring_charged"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicRingChargedStack, 4,
-                        new AspectList().add(Aspect.FIRE, 75).add(Aspect.MAGIC, 45).add(Aspect.ENERGY, 70).add(Aspect.PROTECT, 30),
+                        new AspectList().add(Aspect.FIRE, 50).add(Aspect.MAGIC, 25).add(Aspect.ENERGY, 50).add(Aspect.PROTECT, 25),
                         new ItemStack(CRItems.runicRing),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
@@ -344,7 +344,7 @@ public class CRRecipes {
         runicRingRegenStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 4));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring_regen"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicRingRegenStack, 4,
-                        new AspectList().add(Aspect.WATER, 75).add(Aspect.MAGIC, 45).add(Aspect.LIFE, 70).add(Aspect.PROTECT, 30),
+                        new AspectList().add(Aspect.WATER, 50).add(Aspect.MAGIC, 25).add(Aspect.LIFE, 50).add(Aspect.PROTECT, 25),
                         new ItemStack(CRItems.runicRing),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1),
