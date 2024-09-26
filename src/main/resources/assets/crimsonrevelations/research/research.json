@@ -35,7 +35,8 @@
       "category": "REVELATIONS",
       "parents": [
         "CR_MORE_RESEARCH",
-        "~WARP"
+        "~ARCANESPA",
+        "~SANESOAP"
       ],
       "siblings": [],
       "meta": [
