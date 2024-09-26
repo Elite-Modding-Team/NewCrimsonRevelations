@@ -140,17 +140,13 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
 
+                CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
                 CRRegistry.setup(new ItemSanitationScribingTools(), "sanitation_scribing_tools"),
                 CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools")
         );
 
         if (Loader.isModLoaded("thaumicaugmentation")) {
             registry.register(CRRegistry.setup(new ItemMeteorBoots(EntityEquipmentSlot.FEET), "meteor_boots"));
-        }
-
-        // Do not register Scribing Tools of Knowledge if TC4 Research Port is detected. It doesn't use observations and theories for its overhauled research.
-        if (!Loader.isModLoaded("oldresearch")) {
-            registry.register(CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools"));
         }
 
         // Item Blocks
@@ -166,11 +162,8 @@ public class CRItems {
         final IForgeRegistry<IRecipe> registry = event.getRegistry();
 
         // Special recipes go here
-        if (!Loader.isModLoaded("oldresearch")) {
-            registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
-                    ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
-        }
-
+        registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), knowledgeScribingTools, new ItemStack(knowledgeScribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
         registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), sanitationScribingTools, new ItemStack(sanitationScribingTools, 1, OreDictionary.WILDCARD_VALUE),
                 ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "sanitation_scribing_tools_refill"));
     }

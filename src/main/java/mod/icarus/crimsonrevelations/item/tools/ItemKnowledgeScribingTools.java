@@ -68,6 +68,7 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
         stack.getTagCompound().setBoolean("depleted", flag);
     }
 
+    // TODO: TC4 Research Port compat
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
