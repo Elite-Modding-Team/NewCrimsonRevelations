@@ -526,16 +526,18 @@
           "required_item": [
             "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'ignis'}]}",
             "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'perditio'}]}",
-            "minecraft:fire_charge;3"
+            "minecraft:fire_charge",
+            "minecraft:magma_cream"
           ],
           "required_craft": [
-            "minecraft:fire_charge"
+            "minecraft:fire_charge",
+            "minecraft:magma_cream"
           ]
         },
         {
           "text": "crimsonrevelations.research.meteor_boots.stage.1",
           "recipes": [
-            "crimsonrevelations:bone_bow"
+            "crimsonrevelations:meteor_boots"
           ]
         }
       ]
