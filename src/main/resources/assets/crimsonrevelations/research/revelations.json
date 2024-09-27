@@ -578,7 +578,9 @@
         "CR_RUNIC_BAUBLES"
       ],
       "siblings": [],
-      "meta": [],
+      "meta": [
+        "HIDDEN"
+      ],
       "location": [
         -10,
         -2
@@ -593,6 +595,7 @@
             "OBSERVATION;AUROMANCY;2"
           ],
           "required_item": [
+            "crimsonrevelations:protection_ring",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'ignis'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aqua'}]}",
             "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aer'}]}",

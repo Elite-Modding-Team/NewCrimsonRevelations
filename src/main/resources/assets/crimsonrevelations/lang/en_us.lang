@@ -27,11 +27,11 @@ item.crimsonrevelations.primordial_scribing_tools.name=Primordial Scribing Tools
 item.crimsonrevelations.protection_ring.name=Ring of Protection
 item.crimsonrevelations.runic_amulet.name=Amulet of Runic Shielding
 item.crimsonrevelations.runic_amulet_emergency.name=Amulet of Emergency Shielding
-item.crimsonrevelations.runic_girdle.name=Belt of Runic Shielding
-item.crimsonrevelations.runic_girdle_kinetic.name=Kinetic Girdle of Shielding
+item.crimsonrevelations.runic_girdle.name=Girdle of Runic Shielding
+item.crimsonrevelations.runic_girdle_kinetic.name=Kinetic Girdle of Runic Shielding
 item.crimsonrevelations.runic_ring.name=Ring of Runic Shielding
-item.crimsonrevelations.runic_ring_charged.name=Charged Ring of Shielding
-item.crimsonrevelations.runic_ring_regen.name=Revitalizing Ring of Shielding
+item.crimsonrevelations.runic_ring_charged.name=Charged Ring of Runic Shielding
+item.crimsonrevelations.runic_ring_regen.name=Revitalizing Ring of Runic Shielding
 item.crimsonrevelations.sanitation_scribing_tools.name=Scribing Tools of Sanitation
 item.crimsonrevelations.terra_arrow.name=Terra Arrow
 
@@ -88,14 +88,14 @@ crimsonrevelations.research.meteor_boots.stage.1=[Placeholder]
 
 crimsonrevelations.research.ancient_baubles.title=Ancient Baubles
 crimsonrevelations.research.ancient_baubles.stage.0=During my travels, I may come across these type of baubles, they might have belonged to former thaumaturges or even some sort of ancient civilization. Whatever the origin of these baubles could actually be, they seem to be long gone by now with very little traces left behind.<BR>I've noted down all the baubles on the next few pages.<PAGE>§lApprentice's Ring§r<DIV><IMG>thaumcraft:textures/items/ring_apprentice.png:0:0:255:255:0.125</IMG>This ring gives a hefty Vis discount of 5%, it is especially very useful when more than one of them are worn at once because of the stacking bonuses.<BR>It is also more uncommon than the other baubles listed here.<PAGE>§lRing of Protection§r<DIV><IMG>crimsonrevelations:textures/items/protection_ring.png:0:0:255:255:0.125</IMG>This ring has a distinct humming sound, it is similar in appearance to the Apprentice's Ring except it is significantly more ancient. When worn, it grants some sort of temporary magical barrier and it will even recharge when damaged.<BR>I am not sure how it works exactly but I will continue to note down any further discoveries regarding this.
-crimsonrevelations.research.ancient_baubles.addenda.0=Now it all makes sense, the Ring of Protection is related to Runic Shielding! The amount of shielding it grants is very minor, only giving me a single point of it.<BR>This however doesn't mean that I can't upgrade it to have more shielding if I so choose to do...
+crimsonrevelations.research.ancient_baubles.addenda.0=Now it all makes sense, the Ring of Protection is related to Runic Shielding! The amount of shielding charges it grants is very minor, only giving me a single point of it.<BR>This however doesn't mean that I can't upgrade it to have more charges if I so choose to do...
 
 crimsonrevelations.research.runic_baubles.title=Runic Baubles
-crimsonrevelations.research.runic_baubles.stage.0=Now that I have discovered Runic Shielding, I have also figured out how to create baubles that already give a decent amount of shielding without having to constantly enchant other equipment for it. Another good thing about this is that I can still add more shielding to these baubles when necessary.<BR>I must still keep in mind that the costs for adding more will constantly increase the more shielding these baubles have.
+crimsonrevelations.research.runic_baubles.stage.0=Now that I have discovered Runic Shielding, I have also figured out how to create baubles that already give a decent amount of shielding charges without having to constantly add more charges to other equipment for the same benefits.<BR>Another good thing about this is that I can still add more charges to these baubles when necessary, but I must still keep in mind that the costs for adding more will constantly increase the more charges these baubles have.
 
 crimsonrevelations.research.special_runic_baubles.title=Specialized Runic Baubles
-crimsonrevelations.research.special_runic_baubles.stage.0=[Placeholder]
-crimsonrevelations.research.special_runic_baubles.stage.1=[Placeholder]
+crimsonrevelations.research.special_runic_baubles.stage.0=It turns out the runic baubles are actually quite flexible and there is a possibility that I might be able to do much more with them.<BR>I should start by dismantling one of those protection rings and then test the components on primal essentia.
+crimsonrevelations.research.special_runic_baubles.stage.1=I am now able to imbue runic baubles with primal aspects to give them special abilities!<BR>Unfortunately I can't stack the same effect when I wear the same bauble multiple times, but they will work at the same time when worn alongside each other.<BR>Information about each one has been noted down on the next few pages.<PAGE>§lCharged Ring of Runic Shielding§r<DIV>This is one of the upgrades to the Ring of Runic Shielding and it is overcharged with energy.<BR>It has slightly less charge than the ring it is based on, but it has a 25% chance to immediately add a single charge to your shielding amount when you are hit.<BR>Unlike the other specialized runic baubles, there is no cooldown for this effect and it is active at all times.<PAGE>§lRevitalizing Ring of Runic Shielding§r<DIV>This is one of the upgrades to the Ring of Runic Shielding and it is soothing when worn.<BR>It has slightly less charge than the ring it is based on, but when your shielding is damaged enough it will release a pulse of regenerative energy that will last for a few seconds.<BR>This effect has a cooldown of 20 seconds.<PAGE>§lAmulet of Emergency Shielding§r<DIV>This is the upgrade to the Amulet of Runic Shielding and it makes you feel safer when worn.<BR>It has slightly less charge than the amulet it is based on, but when your shielding is damaged enough it will add 8 charges to your shielding amount.<BR>This effect has a cooldown of 40 seconds.<PAGE>§lKinetic Girdle of Runic Shielding§r<DIV>This is the upgrade to the Girdle of Runic Shielding and it hums rather loudly.<BR>It has slightly less charge than the girdle it is based on, but when your shielding is damaged enough a detonation of kinetic energy will be released damaging and shoving back anything nearby.<BR>This effect has a cooldown of 20 seconds.
 
 # Research: Auromancy
 crimsonrevelations.research.dark_auromancy.title=Dark Auromancy Studies
