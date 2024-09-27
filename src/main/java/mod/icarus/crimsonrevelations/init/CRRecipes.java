@@ -255,7 +255,7 @@ public class CRRecipes {
                         CRItems.crimsonFabric));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
-                        new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 20),
+                        new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 20),
                         ItemsTC.crimsonPlateHelm,
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
@@ -264,7 +264,7 @@ public class CRRecipes {
                         CRItems.crimsonPlate));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_chestplate"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorChest), 2,
-                        new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 30),
+                        new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 30),
                         ItemsTC.crimsonPlateChest,
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
@@ -274,7 +274,7 @@ public class CRRecipes {
                         CRItems.embellishedCrimsonFabric));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_greaves"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorLegs), 2,
-                        new AspectList().add(Aspect.METAL, 40).add(Aspect.ELDRITCH, 25).add(Aspect.PROTECT, 25),
+                        new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 25),
                         ItemsTC.crimsonPlateLegs,
                         CRItems.crimsonPlate,
                         CRItems.crimsonPlate,
