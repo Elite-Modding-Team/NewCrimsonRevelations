@@ -87,7 +87,8 @@ crimsonrevelations.research.meteor_boots.stage.0=[Placeholder]
 crimsonrevelations.research.meteor_boots.stage.1=[Placeholder]
 
 crimsonrevelations.research.ancient_baubles.title=Ancient Baubles
-crimsonrevelations.research.ancient_baubles.stage.0=[Placeholder]
+crimsonrevelations.research.ancient_baubles.stage.0=During my travels, I may come across these type of baubles, they might have belonged to former thaumaturges or even some sort of ancient civilization. Whatever the origin of these baubles could actually be, they seem to be long gone by now with very little traces left behind.<BR>I've noted down all the baubles on the next few pages.<PAGE>§lApprentice's Ring§r<DIV><IMG>thaumcraft:textures/items/ring_apprentice.png:0:0:255:255:0.125</IMG>This ring gives a hefty Vis discount of 5%, it is especially very useful when more than one of them are worn at once because of the stacking bonuses.<BR>It is also more uncommon than the other baubles listed here.<PAGE>§lRing of Protection§r<DIV><IMG>crimsonrevelations:textures/items/protection_ring.png:0:0:255:255:0.125</IMG>This ring has a distinct humming sound, it is similar in appearance to the Apprentice's Ring except it is significantly more ancient. When worn, it grants some sort of temporary magical barrier and it will even recharge when damaged.<BR>I am not sure how it works exactly but I will continue to note down any further discoveries regarding this.
+crimsonrevelations.research.ancient_baubles.addenda.0=Now it all makes sense, the Ring of Protection is related to Runic Shielding! The amount of shielding it grants is very minor, only giving me a single point of it.<BR>This however doesn't mean that I can't upgrade it to have more shielding if I so choose to do...
 
 crimsonrevelations.research.runic_baubles.title=Runic Baubles
 crimsonrevelations.research.runic_baubles.stage.0=[Placeholder]

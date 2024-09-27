@@ -498,8 +498,8 @@
       "key": "CR_ANCIENT_BAUBLES",
       "name": "crimsonrevelations.research.ancient_baubles.title",
       "icons": [
-        "crimsonrevelations:protection_ring",
-        "thaumcraft:baubles;1;3"
+        "thaumcraft:baubles;1;3",
+        "crimsonrevelations:protection_ring"
       ],
       "category": "REVELATIONS",
       "parents": [
@@ -518,6 +518,14 @@
       "stages": [
         {
           "text": "crimsonrevelations.research.ancient_baubles.stage.0"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "crimsonrevelations.research.ancient_baubles.addenda.0",
+          "required_research": [
+            "RUNICSHIELDING"
+          ]
         }
       ]
     },
