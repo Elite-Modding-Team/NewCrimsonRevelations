@@ -6,6 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
 import net.minecraft.world.storage.loot.LootEntryItem;
 import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraft.world.storage.loot.conditions.KilledByPlayer;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
@@ -44,6 +45,17 @@ public class CRLootTables {
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_plate"));
             }
+        }
+
+        if (event.getName().equals(LootTableList.CHESTS_DESERT_PYRAMID) || event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON)) {
+            LootPool main = event.getTable().getPool("main");
+            main.addEntry(new LootEntryItem(CRItems.protectionRing, 5, 0, new LootFunction[0], new LootCondition[0], "loottable:protection_ring"));
+        }
+
+        if (event.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE) || event.getName().equals(LootTableList.CHESTS_STRONGHOLD_CROSSING) ||
+                event.getName().equals(LootTableList.CHESTS_STRONGHOLD_CORRIDOR)) {
+            LootPool main = event.getTable().getPool("main");
+            main.addEntry(new LootEntryItem(CRItems.protectionRing, 3, 0, new LootFunction[0], new LootCondition[0], "loottable:protection_ring"));
         }
     }
 }
