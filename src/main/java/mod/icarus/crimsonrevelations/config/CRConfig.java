@@ -19,6 +19,22 @@ public class CRConfig {
     public static TAIntegrationSettings thaumic_augmentation_settings = new TAIntegrationSettings();
 
     public static class GeneralSettings {
+        @Config.Name("Furious Zombie: Spawning")
+        @Config.Comment("Enables Furious Zombies to spawn naturally. [default: true]")
+        @Config.RequiresMcRestart
+        public boolean FURIOUS_ZOMBIE_SPAWNING = true;
+
+        @Config.Name("Furious Zombie: Underground Spawning")
+        @Config.Comment("Enables Furious Zombies to spawn naturally underground. [default: false]")
+        @Config.RequiresMcRestart
+        public boolean FURIOUS_ZOMBIE_UNDERGROUND_SPAWNING = false;
+
+        @Config.Name("Furious Zombie: Spawn Weight")
+        @Config.Comment("Default spawn weight of Furious Zombies. [default: 5]")
+        @Config.RangeInt(min = 0, max = 99999)
+        @Config.RequiresMcRestart
+        public int FURIOUS_ZOMBIE_WEIGHT = 5;
+
         @Config.Name("Primordial Scribing Tools: Curiosity Chance")
         @Config.Comment("The chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)

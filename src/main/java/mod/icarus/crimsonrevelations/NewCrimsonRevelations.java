@@ -4,6 +4,7 @@ import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
 import mod.icarus.crimsonrevelations.events.CRClientEvents;
 import mod.icarus.crimsonrevelations.events.CREvents;
 import mod.icarus.crimsonrevelations.init.CRCreativeTabs;
+import mod.icarus.crimsonrevelations.init.CREntities;
 import mod.icarus.crimsonrevelations.init.CRRecipes;
 import mod.icarus.crimsonrevelations.init.CRRenderRegistry;
 import mod.icarus.crimsonrevelations.init.CRResearchRegistry;
@@ -54,6 +55,7 @@ public class NewCrimsonRevelations {
 
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
+        CREntities.registerEntitySpawns();
         CRCompatHandler.postInit();
     }
 }
