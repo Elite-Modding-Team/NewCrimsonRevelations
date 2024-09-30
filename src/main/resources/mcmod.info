@@ -13,7 +13,7 @@
       "ACGaming",
       "xJon"
     ],
-    "credits": "\n \u00A7eMain Developers:\n [*] IcarussOne - Lead Developer & Writer\n [*] J. Carver - Artist & Lore Enthusiast\n \u00A76Special Thanks:\n [*] MobiusFlip - Originally creating Crimson Revelations and setting up interesting lore for it, which this addon continues from\n [*] Damien Hazard - Crimson Archer Armor, this model also appeared in Thaumic Dyes\n [*] PessiMysterio - CTM textures for the Magic Tallow Block and some bits of feedback\n [*] fakeginkgo - A few improved textures\n [*] ACGaming - Being a huge help with the mod and answering questions\n [*] xJon - Giving general feedback on improving the mod, as well as creating and maintaining Tekkit SMP",
+    "credits": "\n \u00A7eMain Developers:\n [*] IcarussOne - Lead Developer & Writer\n [*] J. Carver - Artist & Lore Enthusiast\n \u00A76Special Thanks:\n [*] MobiusFlip - Originally creating Crimson Revelations and setting up interesting lore for it, which this addon continues from\n [*] Damien Hazard - Crimson Archer Armor, this model also appeared in Thaumic Dyes\n [*] PessiMysterio - CTM textures for the Magic Tallow Block and some bits of feedback\n [*] fakeginkgo - A few improved textures\n [*] ACGaming - Being a huge help with the mod and answering questions\n [*] xJon - Giving general feedback on improving the mod, as well as creating and maintaining Tekkit SMP\n \u00A7dTranslators:\n [*] fakeginkgo - Simplified Chinese",
     "dependencies": [
       "thaumcraft"
     ]
