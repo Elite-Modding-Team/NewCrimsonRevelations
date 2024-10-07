@@ -4,7 +4,7 @@
       "key": "CR_MORE_RESEARCH",
       "name": "crimsonrevelations.research.more_research.title",
       "icons": [
-        "crimsonrevelations:textures/items/curio_ancient_research.png"
+        "crimsonrevelations:textures/research/r_research_scroll.png"
       ],
       "category": "REVELATIONS",
       "parents": [

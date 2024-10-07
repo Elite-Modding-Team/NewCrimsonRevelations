@@ -291,7 +291,7 @@
       "key": "CR_ENTROPIC_PROCESSING",
       "name": "crimsonrevelations.research.entropic_processing.title",
       "icons": [
-        "crimsonrevelations:textures/research/perditio.png"
+        "crimsonrevelations:textures/research/r_entropic_processing.png"
       ],
       "category": "REVELATIONS",
       "parents": [
@@ -324,7 +324,7 @@
       "key": "CR_ORDERED_DECONSTRUCTION",
       "name": "crimsonrevelations.research.ordered_deconstruction.title",
       "icons": [
-        "crimsonrevelations:textures/research/ordo.png"
+        "crimsonrevelations:textures/research/r_ordered_deconstruction.png"
       ],
       "category": "REVELATIONS",
       "parents": [
