@@ -21,6 +21,7 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.ThaumcraftApi;
@@ -84,9 +85,11 @@ public class ItemSanitationScribingTools extends CRItem implements IScribeTools 
                     ThaumcraftApi.internalMethods.addWarpToPlayer(player, -warp.get(EnumWarpType.TEMPORARY), EnumWarpType.TEMPORARY);
                 }
 
-                for (int a = 0; a < 40; ++a) {
-                    FXDispatcher.INSTANCE.crucibleBubble((float) player.posX - 0.5F + player.world.rand.nextFloat() * 1.5F, (float) player.getEntityBoundingBox().minY + player.world.rand.nextFloat() * player.height,
-                            (float) player.posZ - 0.5F + world.rand.nextFloat() * 1.5F, 1.0F, 0.7F, 0.9F);
+                if (FMLLaunchHandler.side().isClient()) {
+                    for (int a = 0; a < 40; ++a) {
+                        FXDispatcher.INSTANCE.crucibleBubble((float) player.posX - 0.5F + player.world.rand.nextFloat() * 1.5F, (float) player.getEntityBoundingBox().minY + player.world.rand.nextFloat() * player.height,
+                                (float) player.posZ - 0.5F + world.rand.nextFloat() * 1.5F, 1.0F, 0.7F, 0.9F);
+                    }
                 }
             }
 

@@ -25,6 +25,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.ThaumcraftApi;
@@ -87,9 +88,11 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
                 if (world.rand.nextDouble() <= CRConfig.general_settings.KNOWLEDGE_TOOLS_CURIOSITY_CHANCE)
                     world.spawnEntity(item);
 
-                for (int a = 0; a < 40; ++a) {
-                    FXDispatcher.INSTANCE.drawNitorFlames((float) player.posX - 1.0F + player.world.rand.nextFloat() * 1.5F, (float) player.getEntityBoundingBox().minY + player.world.rand.nextFloat() * player.height,
-                            (float) player.posZ - 1.0F + world.rand.nextFloat() * 1.5F, world.rand.nextGaussian() * 0.0025, world.rand.nextFloat() * 0.06, world.rand.nextGaussian() * 0.0025, 12909506, 0);
+                if (FMLLaunchHandler.side().isClient()) {
+                    for (int a = 0; a < 40; ++a) {
+                        FXDispatcher.INSTANCE.drawNitorFlames((float) player.posX - 1.0F + player.world.rand.nextFloat() * 1.5F, (float) player.getEntityBoundingBox().minY + player.world.rand.nextFloat() * player.height,
+                                (float) player.posZ - 1.0F + world.rand.nextFloat() * 1.5F, world.rand.nextGaussian() * 0.0025, world.rand.nextFloat() * 0.06, world.rand.nextGaussian() * 0.0025, 12909506, 0);
+                    }
                 }
             }
 
