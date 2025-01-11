@@ -4,17 +4,14 @@ import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -44,16 +41,6 @@ public class ItemPrimordialScribingTools extends CRItem implements IScribeTools 
         this.maxStackSize = 1;
         this.setMaxDamage(60);
         this.setHasSubtypes(false);
-        this.addPropertyOverride(new ResourceLocation("depleted"), new IItemPropertyGetter() {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-                if (stack.getItemDamage() >= stack.getMaxDamage()) {
-                    return 1.0F;
-                }
-
-                return 0.0F;
-            }
-        });
     }
 
     // TODO: TC4 Research Port compat
