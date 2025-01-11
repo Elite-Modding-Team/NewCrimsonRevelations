@@ -1,9 +1,5 @@
 package mod.icarus.crimsonrevelations.item.tools;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import mod.icarus.crimsonrevelations.item.CRItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,6 +28,9 @@ import thaumcraft.api.items.IScribeTools;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.potions.PotionWarpWard;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemSanitationScribingTools extends CRItem implements IScribeTools {
     public ItemSanitationScribingTools() {
@@ -69,12 +68,12 @@ public class ItemSanitationScribingTools extends CRItem implements IScribeTools 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
         IPlayerWarp warp = ThaumcraftCapabilities.getWarp(player);
-        int amount = 5 + world.rand.nextInt(5);
 
         if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
             if (!world.isRemote) {
                 // Removes some normal warp.
                 if (warp.get(EnumWarpType.NORMAL) > 10) {
+                    int amount = 5 + world.rand.nextInt(5);
                     ThaumcraftApi.internalMethods.addWarpToPlayer(player, -amount, EnumWarpType.NORMAL);
                 } else if (warp.get(EnumWarpType.NORMAL) > 0) {
                     ThaumcraftApi.internalMethods.addWarpToPlayer(player, -1, EnumWarpType.NORMAL);
@@ -101,9 +100,9 @@ public class ItemSanitationScribingTools extends CRItem implements IScribeTools 
 
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.sanitation").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             setDepletedState(stack, true);
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         } else {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
     }
 

@@ -1,9 +1,5 @@
 package mod.icarus.crimsonrevelations.item.tools;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRRarities;
 import mod.icarus.crimsonrevelations.item.CRItem;
@@ -36,6 +32,9 @@ import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
     public ItemKnowledgeScribingTools() {
@@ -77,16 +76,16 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
         int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
         int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
 
-        // Arcane or Illuminating Curiosity
-        EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 0) : new ItemStack(ItemsTC.curio, 1, 4));
-
         if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
             if (!world.isRemote) {
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 2, tProg));
 
-                if (world.rand.nextDouble() <= CRConfig.general_settings.KNOWLEDGE_TOOLS_CURIOSITY_CHANCE)
+                if (world.rand.nextDouble() <= CRConfig.general_settings.KNOWLEDGE_TOOLS_CURIOSITY_CHANCE) {
+                    // Arcane or Illuminating Curiosity
+                    EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 0) : new ItemStack(ItemsTC.curio, 1, 4));
                     world.spawnEntity(item);
+                }
 
                 if (FMLLaunchHandler.side().isClient()) {
                     for (int a = 0; a < 40; ++a) {
@@ -100,9 +99,9 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
             player.playSound(SoundsTC.scan, 0.8F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.knowledge").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             setDepletedState(stack, true);
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         } else {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
     }
 

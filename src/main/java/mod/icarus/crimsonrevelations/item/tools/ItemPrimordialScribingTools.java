@@ -1,9 +1,5 @@
 package mod.icarus.crimsonrevelations.item.tools;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.item.CRItem;
@@ -30,14 +26,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.capabilities.IPlayerWarp;
-import thaumcraft.api.capabilities.ThaumcraftCapabilities;
 import thaumcraft.api.capabilities.IPlayerWarp.EnumWarpType;
+import thaumcraft.api.capabilities.ThaumcraftCapabilities;
 import thaumcraft.api.items.IScribeTools;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.potions.PotionWarpWard;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemPrimordialScribingTools extends CRItem implements IScribeTools {
     public ItemPrimordialScribingTools() {
@@ -66,16 +65,16 @@ public class ItemPrimordialScribingTools extends CRItem implements IScribeTools 
         int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
         IPlayerWarp warp = ThaumcraftCapabilities.getWarp(player);
 
-        // Eldritch or Twisted Curiosity
-        EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 3) : new ItemStack(ItemsTC.curio, 1, 5));
-
         if (stack.getItemDamage() >= stack.getMaxDamage()) {
             if (!world.isRemote) {
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
                 ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 2, tProg));
 
-                if (world.rand.nextDouble() <= CRConfig.general_settings.PRIMORDIAL_TOOLS_CURIOSITY_CHANCE)
+                if (world.rand.nextDouble() <= CRConfig.general_settings.PRIMORDIAL_TOOLS_CURIOSITY_CHANCE) {
+                    // Eldritch or Twisted Curiosity
+                    EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 3) : new ItemStack(ItemsTC.curio, 1, 5));
                     world.spawnEntity(item);
+                }
 
                 if (FMLLaunchHandler.side().isClient()) {
                     for (int a = 0; a < 40; ++a) {
@@ -105,9 +104,9 @@ public class ItemPrimordialScribingTools extends CRItem implements IScribeTools 
 
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.primordial").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             this.setDamage(stack, -this.getMaxDamage(stack));
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         } else {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
     }
 
