@@ -6,7 +6,8 @@
   "overrides": [
     {
       "predicate": {
-        "depleted": 1
+        "damaged": 1,
+        "damage": 1.0
       },
       "model": "crimsonrevelations:item/primordial_scribing_tools_active"
     }
