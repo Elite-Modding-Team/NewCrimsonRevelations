@@ -83,8 +83,8 @@ public class ItemKnowledgeScribingTools extends CRItem implements IScribeTools {
 
                 if (world.rand.nextDouble() <= CRConfig.general_settings.KNOWLEDGE_TOOLS_CURIOSITY_CHANCE) {
                     // Arcane or Illuminating Curiosity
-                    EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 0) : new ItemStack(ItemsTC.curio, 1, 4));
-                    world.spawnEntity(item);
+                    EntityItem curio = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 0) : new ItemStack(ItemsTC.curio, 1, 4));
+                    world.spawnEntity(curio);
                 }
 
                 if (FMLLaunchHandler.side().isClient()) {

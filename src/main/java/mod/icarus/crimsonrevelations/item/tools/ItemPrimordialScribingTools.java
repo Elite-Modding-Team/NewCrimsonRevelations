@@ -59,8 +59,8 @@ public class ItemPrimordialScribingTools extends CRItem implements IScribeTools 
 
                 if (world.rand.nextDouble() <= CRConfig.general_settings.PRIMORDIAL_TOOLS_CURIOSITY_CHANCE) {
                     // Eldritch or Twisted Curiosity
-                    EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 3) : new ItemStack(ItemsTC.curio, 1, 5));
-                    world.spawnEntity(item);
+                    EntityItem curio = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 3) : new ItemStack(ItemsTC.curio, 1, 5));
+                    world.spawnEntity(curio);
                 }
 
                 if (FMLLaunchHandler.side().isClient()) {
@@ -90,7 +90,7 @@ public class ItemPrimordialScribingTools extends CRItem implements IScribeTools 
             player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, 60 * 1200, 0, false, false));
 
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.primordial").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
-            this.setDamage(stack, -this.getMaxDamage(stack));
+            this.setDamage(stack, -this.getMaxDamage(stack)); // Won't restore on Creative mode but I guess that's normal behavior...?
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         } else {
             return new ActionResult<>(EnumActionResult.FAIL, stack);
