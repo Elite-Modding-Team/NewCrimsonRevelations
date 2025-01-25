@@ -140,33 +140,32 @@ public class CRBlockManaPod extends Block implements IGrowable {
     }
 
     @Override
-    public void updateTick(World par1World, BlockPos pos, IBlockState state, Random rand) {
-        if (!canBlockStay(par1World, pos, state)) {
-            dropBlockAsItem(par1World, pos, state, 0);
-            par1World.setBlockToAir(pos);
-        } else if (par1World.rand.nextInt(30) == 0) {
-            TileEntity tile = par1World.getTileEntity(pos);
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+        if (!canBlockStay(world, pos, state)) {
+            dropBlockAsItem(world, pos, state, 0);
+            world.setBlockToAir(pos);
+        } else if (world.rand.nextInt(30) == 0) {
+            TileEntity tile = world.getTileEntity(pos);
             if (tile instanceof CRTileManaPod) ((CRTileManaPod) tile).checkGrowth();
-            st.remove(new WorldCoordinates(pos, par1World.provider.getDimension()));
+            st.remove(new WorldCoordinates(pos, world.provider.getDimension()));
         }
     }
 
-    public boolean canBlockStay(World par1World, BlockPos pos, IBlockState state) {
-        Biome biome = par1World.getBiome(pos);
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state) {
+        Biome biome = world.getBiome(pos);
         boolean magicBiome = false;
         if (biome != null) magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
-        Block i1 = par1World.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).getBlock();
+        Block i1 = world.getBlockState(pos.up()).getBlock();
         return (magicBiome && (i1 instanceof BlockLog || i1 == BlocksTC.logGreatwood || i1 == BlocksTC.logSilverwood));
     }
 
     @Override
-    public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side) {
+    public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing facing) {
         Biome biome = world.getBiome(pos);
-        boolean magicBiome = false;
-        if (biome != null) magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
-        Block i1 = world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).getBlock();
-        boolean b = (i1 instanceof BlockLog || i1 == BlocksTC.logGreatwood || i1 == BlocksTC.logSilverwood);
-        return (side.getIndex() == 0 && b && magicBiome);
+        boolean magicBiome = biome != null && BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
+        Block blockAbove = world.getBlockState(pos.up()).getBlock();
+        boolean isLog = blockAbove instanceof BlockLog || blockAbove == BlocksTC.logGreatwood || blockAbove == BlocksTC.logSilverwood;
+        return facing == EnumFacing.DOWN && isLog && magicBiome;
     }
 
     @Override
