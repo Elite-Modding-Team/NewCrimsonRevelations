@@ -1,13 +1,31 @@
 {
   "variants": {
-    "age=0": { "model": "crimsonrevelations:manapod_stem_0" },
-    "age=1": { "model": "crimsonrevelations:manapod_stem_1" },
-    "age=2": { "model": "crimsonrevelations:manapod_stem_1" },
-    "age=3": { "model": "crimsonrevelations:manapod_stem_1" },
-    "age=4": { "model": "crimsonrevelations:manapod_stem_2" },
-    "age=5": { "model": "crimsonrevelations:manapod_stem_2" },
-    "age=6": { "model": "crimsonrevelations:manapod_stem_2" },
-    "age=7": { "model": "crimsonrevelations:manapod_stem_2" },
-    "age=8": { "model": "crimsonrevelations:manapod_stem_2" }
+    "age=0": {
+      "model": "crimsonrevelations:manapod_stem_0"
+    },
+    "age=1": {
+      "model": "crimsonrevelations:manapod_stem_1"
+    },
+    "age=2": {
+      "model": "crimsonrevelations:manapod_stem_1"
+    },
+    "age=3": {
+      "model": "crimsonrevelations:manapod_stem_1"
+    },
+    "age=4": {
+      "model": "crimsonrevelations:manapod_stem_2"
+    },
+    "age=5": {
+      "model": "crimsonrevelations:manapod_stem_2"
+    },
+    "age=6": {
+      "model": "crimsonrevelations:manapod_stem_2"
+    },
+    "age=7": {
+      "model": "crimsonrevelations:manapod_stem_2"
+    },
+    "age=8": {
+      "model": "crimsonrevelations:manapod_stem_2"
+    }
   }
 }

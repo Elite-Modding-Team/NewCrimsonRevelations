@@ -1,10 +1,10 @@
 {
   "animation": {
-	"frametime": 2,
-	"frames": [
+    "frametime": 2,
+    "frames": [
       2,
-	  1,
-	  0,
+      1,
+      0,
       1,
       2,
       3

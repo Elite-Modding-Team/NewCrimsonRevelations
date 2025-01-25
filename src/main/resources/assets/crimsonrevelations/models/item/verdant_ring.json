@@ -5,11 +5,15 @@
   },
   "overrides": [
     {
-      "predicate": { "type": 1 },
+      "predicate": {
+        "type": 1
+      },
       "model": "crimsonrevelations:item/ring_verdant_1"
     },
     {
-      "predicate": { "type": 2 },
+      "predicate": {
+        "type": 2
+      },
       "model": "crimsonrevelations:item/ring_verdant_2"
     }
   ]
