@@ -1,12 +1,7 @@
 package mod.icarus.crimsonrevelations.init;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.google.common.base.Preconditions;
-
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -16,7 +11,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import javax.annotation.Nonnull;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("rawtypes")
 @Mod.EventBusSubscriber(modid = NewCrimsonRevelations.MODID)

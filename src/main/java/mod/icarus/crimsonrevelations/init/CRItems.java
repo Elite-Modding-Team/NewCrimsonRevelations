@@ -1,16 +1,24 @@
 package mod.icarus.crimsonrevelations.init;
 
+import baubles.api.BaubleType;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
+import mod.icarus.crimsonrevelations.client.renderer.TileManaPodRenderer;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
+import mod.icarus.crimsonrevelations.item.CRItemManaBean;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.ItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.ItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
+import mod.icarus.crimsonrevelations.item.baubles.CRItemVerdantRing;
 import mod.icarus.crimsonrevelations.item.tools.ItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.ItemPrimordialScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.ItemSanitationScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.ItemBoneBow;
+import mod.icarus.crimsonrevelations.recipe.VerdantCharmToRing;
+import mod.icarus.crimsonrevelations.recipe.VerdantRingToCharm;
+import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -21,14 +29,15 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -44,8 +53,6 @@ import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 
 import javax.annotation.Nonnull;
-
-import baubles.api.BaubleType;
 
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
@@ -103,6 +110,10 @@ public class CRItems {
     public static Item runicRingRegen;
     @GameRegistry.ObjectHolder("sanitation_scribing_tools")
     public static Item sanitationScribingTools;
+    @GameRegistry.ObjectHolder("mana_bean")
+    public static Item manaBeanItem;
+    @GameRegistry.ObjectHolder("verdant_ring")
+    public static Item verdantBand;
 
     public static ArmorMaterial ARMOR_CULTIST_ARCHER = EnumHelper.addArmorMaterial("CULTIST_ARCHER", "CULTIST_ARCHER", 17, new int[]{2, 5, 5, 2}, 13, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F).setRepairItem(new ItemStack(crimsonPlate));
     public static ArmorMaterial BOOTS_METEOR = EnumHelper.addArmorMaterial("METEOR_BOOTS", "METEOR_BOOTS", 30, new int[]{2, 0, 0, 0}, 25, SoundEvents.ITEM_FIRECHARGE_USE, 2.0F).setRepairItem(new ItemStack(Items.BLAZE_POWDER));
@@ -142,7 +153,10 @@ public class CRItems {
 
                 CRRegistry.setup(new ItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
                 CRRegistry.setup(new ItemSanitationScribingTools(), "sanitation_scribing_tools"),
-                CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools")
+                CRRegistry.setup(new ItemPrimordialScribingTools(), "primordial_scribing_tools"),
+
+                CRRegistry.setup(new CRItemManaBean(), "mana_bean"),
+                CRRegistry.setup(new CRItemVerdantRing(), "verdant_ring")
         );
 
         if (Loader.isModLoaded("thaumicaugmentation")) {
@@ -154,6 +168,7 @@ public class CRItems {
                 .filter(block -> block.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID))
                 .filter(block -> !(block instanceof BlockDoor)) // Doors should not have an item block registered
                 .filter(block -> !(block instanceof BlockSlab)) // Slabs should not have an item block registered
+                .filter(block -> !(block instanceof CRBlockManaPod)) // Mana Pod Block should not have an item block registered > :|
                 .forEach(block -> registry.register(CRRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
@@ -166,6 +181,8 @@ public class CRItems {
                 ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
         registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), sanitationScribingTools, new ItemStack(sanitationScribingTools, 1, OreDictionary.WILDCARD_VALUE),
                 ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "sanitation_scribing_tools_refill"));
+        registry.register(new VerdantCharmToRing().setRegistryName(NewCrimsonRevelations.MODID, "verdant_charm_to_ring"));
+        registry.register(new VerdantRingToCharm().setRegistryName(NewCrimsonRevelations.MODID, "verdant_ring_to_charm"));
     }
 
     @SideOnly(Side.CLIENT)
@@ -177,5 +194,7 @@ public class CRItems {
                 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
             }
         }
+
+        ClientRegistry.bindTileEntitySpecialRenderer(CRTileManaPod.class, new TileManaPodRenderer());
     }
 }

@@ -3,12 +3,12 @@ package mod.icarus.crimsonrevelations;
 import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
 import mod.icarus.crimsonrevelations.events.CRClientEvents;
 import mod.icarus.crimsonrevelations.events.CREvents;
-import mod.icarus.crimsonrevelations.init.CRCreativeTabs;
-import mod.icarus.crimsonrevelations.init.CREntities;
-import mod.icarus.crimsonrevelations.init.CRRecipes;
-import mod.icarus.crimsonrevelations.init.CRRenderRegistry;
-import mod.icarus.crimsonrevelations.init.CRResearchRegistry;
+import mod.icarus.crimsonrevelations.init.*;
+import mod.icarus.crimsonrevelations.item.CRItemManaBean;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -51,6 +51,20 @@ public class NewCrimsonRevelations {
         CRRecipes.initArcaneCrafting();
         CRRecipes.initCrucible();
         CRRecipes.initInfusion();
+
+        if (!isServer()) {
+
+            IItemColor itemCrystalPlanterColourHandler = (stack, tintIndex) -> {
+                Item item = stack.getItem();
+                if (item == CRItems.manaBeanItem) {
+                    return ((CRItemManaBean) item).getColor(stack, tintIndex);
+                }
+                return 16777215;
+            };
+
+            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemCrystalPlanterColourHandler, CRItems.manaBeanItem);
+
+        }
     }
 
     @EventHandler
