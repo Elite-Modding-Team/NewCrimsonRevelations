@@ -7,8 +7,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
-public class ItemBoneBow extends CRItemBow {
-    public ItemBoneBow() {
+public class CRItemBoneBow extends CRItemBow {
+    public CRItemBoneBow() {
         // Durability, Damage Multiplier, Velocity Multiplier, Draw Time Multipler, Inaccuracy, Rarity, Repair Material
         super(512, 1.15F, 1.5F, 0.8F, 0.8F, EnumRarity.RARE, Ingredient.fromStacks(new ItemStack(Items.BONE)));
     }

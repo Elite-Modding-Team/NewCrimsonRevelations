@@ -32,7 +32,7 @@ public class VerdantCharmToRing extends ShapelessRecipes {
         if(item.isEmpty())
             return ItemStack.EMPTY;
 
-        ItemStack result = new ItemStack(CRItems.verdantBand);
+        ItemStack result = new ItemStack(CRItems.VERDANT_RING);
 
         if (item.getTagCompound() != null)
             result.setTagCompound(item.getTagCompound());

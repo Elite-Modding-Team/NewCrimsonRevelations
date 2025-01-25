@@ -15,7 +15,7 @@ public class CRRarities {
             return TextFormatting.DARK_RED;
         }
     };
-    
+
     public static final IRarity RARITY_KNOWLEDGE = new IRarity() {
         @Override
         public String getName() {

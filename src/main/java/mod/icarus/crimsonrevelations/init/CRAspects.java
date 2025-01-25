@@ -5,7 +5,6 @@ import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -13,7 +12,6 @@ import thaumcraft.api.aspects.AspectRegistryEvent;
 
 @SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
-@GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CRAspects {
     @SubscribeEvent
     public static void registerAspects(AspectRegistryEvent event) {

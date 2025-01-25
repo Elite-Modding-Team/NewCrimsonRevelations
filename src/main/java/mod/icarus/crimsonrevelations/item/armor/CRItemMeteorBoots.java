@@ -3,6 +3,7 @@ package mod.icarus.crimsonrevelations.item.armor;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRItems;
+import mod.icarus.crimsonrevelations.init.CRMaterials;
 import mod.icarus.crimsonrevelations.init.CRRarities;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -36,7 +37,7 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 // Courtesy of TheCodex6824 for some code used from Thaumic Augmentation's Void Thaumaturge Boots.
-public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
+public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/meteor_boots.png").toString();
 
     // Calculate attribute bonuses.
@@ -77,7 +78,7 @@ public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechar
         @Override
         public boolean test(EntityPlayer player) {
             for (ItemStack stack : player.getArmorInventoryList()) {
-                if (stack.getItem() == CRItems.meteorBoots)
+                if (stack.getItem() == CRItems.METEOR_BOOTS)
                     return true;
             }
 
@@ -85,8 +86,20 @@ public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechar
         }
     };
 
-    public ItemMeteorBoots(EntityEquipmentSlot equipmentSlot) {
-        super(CRItems.BOOTS_METEOR, 4, equipmentSlot);
+    public CRItemMeteorBoots(EntityEquipmentSlot equipmentSlot) {
+        super(CRMaterials.BOOTS_METEOR, 4, equipmentSlot);
+    }
+
+    public static boolean getSmashingState(ItemStack stack) {
+        return stack.hasTagCompound() && stack.getTagCompound().getBoolean("isSmashing");
+    }
+
+    public static void setSmashingState(ItemStack stack, boolean flag) {
+        if (!stack.hasTagCompound()) {
+            stack.setTagCompound(new NBTTagCompound());
+        }
+
+        stack.getTagCompound().setBoolean("isSmashing", flag);
     }
 
     @Override
@@ -138,18 +151,6 @@ public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechar
         return CRRarities.RARITY_FIREY;
     }
 
-    public static boolean getSmashingState(ItemStack stack) {
-        return stack.hasTagCompound() && stack.getTagCompound().getBoolean("isSmashing");
-    }
-
-    public static void setSmashingState(ItemStack stack, boolean flag) {
-        if (!stack.hasTagCompound()) {
-            stack.setTagCompound(new NBTTagCompound());
-        }
-
-        stack.getTagCompound().setBoolean("isSmashing", flag);
-    }
-
     // TODO: Make damage affected by fall distance?
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
@@ -157,7 +158,7 @@ public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechar
 
         // Activate smash state once the sneak key is pressed. Do not activate while flying.
         if (player.isSneaking() && !player.capabilities.isFlying && !player.isElytraFlying() && player.fallDistance > 0.0F && hasCharge) {
-            if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.meteorBoots))) {
+            if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.METEOR_BOOTS))) {
                 setSmashingState(stack, true);
                 player.playSound(SoundsTC.rumble, 1.0F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                 RechargeHelper.consumeCharge(stack, player, 2);
@@ -203,7 +204,7 @@ public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechar
                 }
 
                 player.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
-                ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.meteorBoots, 5 * 20);
+                player.getCooldownTracker().setCooldown(CRItems.METEOR_BOOTS, 5 * 20);
             }
         }
 

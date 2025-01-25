@@ -2,7 +2,7 @@ package mod.icarus.crimsonrevelations.item.armor;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.client.model.gear.ModelCultistArcherArmor;
-import mod.icarus.crimsonrevelations.init.CRItems;
+import mod.icarus.crimsonrevelations.init.CRMaterials;
 import mod.icarus.crimsonrevelations.init.CRRenderRegistry;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
@@ -15,14 +15,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCultistArcherArmor extends ItemArmor {
+public class CRItemCultistArcherArmor extends ItemArmor {
+    protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_archer_armor.png").toString();
     ModelBiped model1 = null;
     ModelBiped model2 = null;
 
-    protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_archer_armor.png").toString();
-
-    public ItemCultistArcherArmor(EntityEquipmentSlot equipmentSlot) {
-        super(CRItems.ARMOR_CULTIST_ARCHER, 4, equipmentSlot);
+    public CRItemCultistArcherArmor(EntityEquipmentSlot equipmentSlot) {
+        super(CRMaterials.ARMOR_CULTIST_ARCHER, 4, equipmentSlot);
     }
 
     @Override

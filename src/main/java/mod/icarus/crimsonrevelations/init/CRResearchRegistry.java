@@ -29,7 +29,7 @@ public class CRResearchRegistry {
         GolemMaterial.register(
                 new GolemMaterial("CR_CULT_PLATE", new String[]{"CR_GOLEM_MAT_CULT_PLATE"}, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/entity/golem/mat_cult_plate.png"),
                         4342338, 22, 9, 3, // [Color, Health, Armor , Damage] - [1 = 0.5]
-                        new ItemStack(CRItems.crimsonPlate), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
+                        new ItemStack(CRItems.CRIMSON_PLATE), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
                         new EnumGolemTrait[]{EnumGolemTrait.LIGHT, EnumGolemTrait.FIREPROOF} // Starting Traits
                 )
         );

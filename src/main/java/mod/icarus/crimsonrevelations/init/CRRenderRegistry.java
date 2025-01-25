@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class CRRenderRegistry {
     public static void preInit() {
         //RenderingRegistry.registerEntityRenderingHandler(EntityCultistArcher.class, RenderCultist::new);
-        
+
         RenderingRegistry.registerEntityRenderingHandler(EntityPrimalArrow.class, RenderPrimalArrow::new);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION)

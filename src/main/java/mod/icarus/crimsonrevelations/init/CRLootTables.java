@@ -32,11 +32,11 @@ public class CRLootTables {
             }
 
             if (crimson_material_pool != null) {
-                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRItems.crimsonFabric).getItem(), 1, 0,
+                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRItems.CRIMSON_FABRIC).getItem(), 1, 0,
                         new LootFunction[]{new SetCount(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0, 1)),
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_fabric"));
-                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRItems.crimsonPlate).getItem(), 1, 0,
+                crimson_material_pool.addEntry(new LootEntryItem(new ItemStack(CRItems.CRIMSON_PLATE).getItem(), 1, 0,
                         new LootFunction[]{new SetCount(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0, 1)),
                                 new LootingEnchantBonus(new LootCondition[0], new RandomValueRange(0, 1), 3)},
                         new LootCondition[0], "crimsonrevelations:crimson_plate"));
@@ -45,13 +45,13 @@ public class CRLootTables {
 
         if (event.getName().equals(LootTableList.CHESTS_DESERT_PYRAMID) || event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON)) {
             LootPool main = event.getTable().getPool("main");
-            main.addEntry(new LootEntryItem(CRItems.protectionRing, 5, 0, new LootFunction[0], new LootCondition[0], "loottable:protection_ring"));
+            main.addEntry(new LootEntryItem(CRItems.PROTECTION_RING, 5, 0, new LootFunction[0], new LootCondition[0], "loottable:protection_ring"));
         }
 
         if (event.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE) || event.getName().equals(LootTableList.CHESTS_STRONGHOLD_CROSSING) ||
                 event.getName().equals(LootTableList.CHESTS_STRONGHOLD_CORRIDOR)) {
             LootPool main = event.getTable().getPool("main");
-            main.addEntry(new LootEntryItem(CRItems.protectionRing, 3, 0, new LootFunction[0], new LootCondition[0], "loottable:protection_ring"));
+            main.addEntry(new LootEntryItem(CRItems.PROTECTION_RING, 3, 0, new LootFunction[0], new LootCondition[0], "loottable:protection_ring"));
         }
     }
 }

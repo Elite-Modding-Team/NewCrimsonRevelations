@@ -37,7 +37,7 @@ public class CREvents {
 
             // Kinetic Girdle of Shielding - Explodes when the Runic Shielding is pierced (20 second cooldown).
             if (charge > 0) {
-                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicGirdleKinetic) > 2 && !(player.getCooldownTracker().hasCooldown(CRItems.runicGirdleKinetic))) {
+                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.RUNIC_GIRDLE_KINETIC) > 2 && !(player.getCooldownTracker().hasCooldown(CRItems.RUNIC_GIRDLE_KINETIC))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_KINETIC, SoundCategory.PLAYERS, 0.8F, 1.0F);
                     player.world.createExplosion(player, player.posX, player.posY + player.height / 2.0F, player.posZ, 2.0F, false);
 
@@ -50,34 +50,34 @@ public class CREvents {
                         }
                     }
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicGirdleKinetic));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicGirdleKinetic, 20 * 20);
+                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_GIRDLE_KINETIC));
+                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.RUNIC_GIRDLE_KINETIC, 20 * 20);
                 }
 
                 // Revitalizing Ring of Shielding - Gives 6 seconds of Regeneration II when the Runic Shielding is pierced (20 second cooldown).
-                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicRingRegen) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicRingRegen))) {
+                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.RUNIC_RING_REGEN) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.RUNIC_RING_REGEN))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_REGEN, SoundCategory.PLAYERS, 1.5F, 1.0F);
                     player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 1, true, true));
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicRingRegen));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicRingRegen, 20 * 20);
+                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_REGEN));
+                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.RUNIC_RING_REGEN, 20 * 20);
                 }
 
                 // Amulet of Emergency Shielding - Gives 8 points of Runic Shielding when the Runic Shielding is pierced (40 second cooldown).
-                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.runicAmuletEmergency) > -1 && !(player.getCooldownTracker().hasCooldown(CRItems.runicAmuletEmergency))) {
+                if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.RUNIC_AMULET_EMERGENCY) > -1 && !(player.getCooldownTracker().hasCooldown(CRItems.RUNIC_AMULET_EMERGENCY))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_EMERGENCY, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     player.setAbsorptionAmount(charge + 8);
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicAmuletEmergency));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.runicAmuletEmergency, 40 * 20);
+                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_AMULET_EMERGENCY));
+                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.RUNIC_AMULET_EMERGENCY, 40 * 20);
                 }
 
                 // Charged Ring of Shielding - 25% chance to give 1 point of Runic Shielding, often restoring the Runic Shielding lost from damage.
-                if (BaublesApi.isBaubleEquipped(player, CRItems.runicRingCharged) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.runicRingCharged)) && player.world.rand.nextDouble() <= 0.25D) {
+                if (BaublesApi.isBaubleEquipped(player, CRItems.RUNIC_RING_CHARGED) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.RUNIC_RING_CHARGED)) && player.world.rand.nextDouble() <= 0.25D) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_CHARGE, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                     player.setAbsorptionAmount(charge + 1);
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.runicRingCharged));
+                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_CHARGED));
                 }
             }
         }
@@ -88,7 +88,7 @@ public class CREvents {
         for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
 
             // Prevents screen shaking and damage sound.
-            if (stack.getItem() == CRItems.meteorBoots) {
+            if (stack.getItem() == CRItems.METEOR_BOOTS) {
                 if (event.getSource() == DamageSource.HOT_FLOOR) {
                     event.setCanceled(true);
                 }
@@ -101,7 +101,7 @@ public class CREvents {
         for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
 
             // Immune to these damage types.
-            if (stack.getItem() == CRItems.meteorBoots) {
+            if (stack.getItem() == CRItems.METEOR_BOOTS) {
                 if (event.getSource() == DamageSource.HOT_FLOOR) {
                     event.setAmount(0.0F);
                     event.setCanceled(true);

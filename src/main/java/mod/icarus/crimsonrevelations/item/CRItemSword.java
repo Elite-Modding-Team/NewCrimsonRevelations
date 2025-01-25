@@ -18,7 +18,7 @@ public class CRItemSword extends ItemSword {
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        if (this == CRItems.crimsonSword)
+        if (this == CRItems.CRIMSON_SWORD)
             target.addPotionEffect(new PotionEffect(MobEffects.POISON, 6 * 20, 1));
 
         stack.damageItem(1, attacker);

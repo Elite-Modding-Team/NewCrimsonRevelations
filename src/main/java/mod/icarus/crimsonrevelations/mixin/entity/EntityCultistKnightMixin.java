@@ -43,7 +43,7 @@ public class EntityCultistKnightMixin extends EntityCultist {
                 this.setItemStackToSlot(EntityEquipmentSlot.HEAD, ItemStack.EMPTY);
             }
         } else {
-            this.setHeldItem(this.getActiveHand(), new ItemStack(CRItems.crimsonSword));
+            this.setHeldItem(this.getActiveHand(), new ItemStack(CRItems.CRIMSON_SWORD));
         }
     }
 
@@ -52,7 +52,7 @@ public class EntityCultistKnightMixin extends EntityCultist {
         boolean flag = super.attackEntityAsMob(entityIn);
 
         // Poison while cultist sword is equipped
-        if (flag && this.getHeldItemMainhand().getItem() == CRItems.crimsonSword && entityIn instanceof EntityLivingBase) {
+        if (flag && this.getHeldItemMainhand().getItem() == CRItems.CRIMSON_SWORD && entityIn instanceof EntityLivingBase) {
             ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.POISON, 6 * 20, 1));
         }
 

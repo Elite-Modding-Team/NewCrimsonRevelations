@@ -62,12 +62,12 @@ public class NewCrimsonRevelations {
     public void initClient(FMLInitializationEvent event) {
         IItemColor itemCrystalPlanterColourHandler = (stack, tintIndex) -> {
             Item item = stack.getItem();
-            if (item == CRItems.manaBeanItem) {
+            if (item == CRItems.MANA_BEAN) {
                 return ((CRItemManaBean) item).getColor(stack, tintIndex);
             }
             return 16777215;
         };
-        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemCrystalPlanterColourHandler, CRItems.manaBeanItem);
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemCrystalPlanterColourHandler, CRItems.MANA_BEAN);
     }
 
     @SideOnly(Side.CLIENT)

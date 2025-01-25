@@ -12,7 +12,7 @@ import thaumcraft.api.items.ItemsTC;
 import javax.annotation.Nonnull;
 
 public class VerdantRingToCharm extends ShapelessRecipes {
-    private static final Item ring = CRItems.verdantBand;
+    private static final Item ring = CRItems.VERDANT_RING;
 
     public VerdantRingToCharm() {
         super("", ItemStack.EMPTY, NonNullList.from(Ingredient.EMPTY, Ingredient.fromItem(ring)));

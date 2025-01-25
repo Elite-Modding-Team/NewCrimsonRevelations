@@ -24,8 +24,8 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "embellished_crimson_fabric"), new ShapelessArcaneRecipe(
                 defaultGroup, "CRIMSON_REVELATIONS_BASE", 10,
                 new AspectList(),
-                new ItemStack(CRItems.embellishedCrimsonFabric),
-                new Object[]{CRItems.crimsonFabric, CRItems.crimsonPlate}));
+                new ItemStack(CRItems.EMBELLISHED_CRIMSON_FABRIC),
+                new Object[]{CRItems.CRIMSON_FABRIC, CRItems.CRIMSON_PLATE}));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "glyphstone"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_ANCIENT_STONE", 15,
                 new AspectList(),
@@ -40,7 +40,7 @@ public class CRRecipes {
                 new ItemStack(ItemsTC.crimsonPlateHelm),
                 "PPP",
                 "P P",
-                'P', CRItems.crimsonPlate));
+                'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_chestplate"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 50,
                 new AspectList(),
@@ -48,7 +48,7 @@ public class CRRecipes {
                 "P P",
                 "FEF",
                 "PPP",
-                'F', CRItems.crimsonFabric, 'E', new ItemStack(CRItems.embellishedCrimsonFabric), 'P', CRItems.crimsonPlate));
+                'F', CRItems.CRIMSON_FABRIC, 'E', new ItemStack(CRItems.EMBELLISHED_CRIMSON_FABRIC), 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_greaves"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 40,
                 new AspectList(),
@@ -56,14 +56,14 @@ public class CRRecipes {
                 "PBP",
                 "P P",
                 "P P",
-                'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', CRItems.crimsonPlate));
+                'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_hood"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 25,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonRobeHelm),
                 "FFF",
                 "F F",
-                'F', CRItems.crimsonFabric));
+                'F', CRItems.CRIMSON_FABRIC));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_robes"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 50,
                 new AspectList(),
@@ -71,7 +71,7 @@ public class CRRecipes {
                 "P P",
                 "FEF",
                 "FFF",
-                'F', CRItems.crimsonFabric, 'E', new ItemStack(CRItems.embellishedCrimsonFabric), 'P', CRItems.crimsonPlate));
+                'F', CRItems.CRIMSON_FABRIC, 'E', new ItemStack(CRItems.EMBELLISHED_CRIMSON_FABRIC), 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_leggings"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 40,
                 new AspectList(),
@@ -79,55 +79,55 @@ public class CRRecipes {
                 "PBP",
                 "F F",
                 "F F",
-                'F', CRItems.crimsonFabric, 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', CRItems.crimsonPlate));
+                'F', CRItems.CRIMSON_FABRIC, 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_archer_helm"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 25,
                 new AspectList(),
-                new ItemStack(CRItems.crimsonArcherHelmet),
+                new ItemStack(CRItems.CRIMSON_ARCHER_HELMET),
                 "PPP",
                 "F F",
-                'F', CRItems.crimsonFabric, 'P', CRItems.crimsonPlate));
+                'F', CRItems.CRIMSON_FABRIC, 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_archer_chestplate"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 50,
                 new AspectList(),
-                new ItemStack(CRItems.crimsonArcherChestplate),
+                new ItemStack(CRItems.CRIMSON_ARCHER_CHESTPLATE),
                 "P P",
                 "FEF",
                 "FPF",
-                'F', CRItems.crimsonFabric, 'E', new ItemStack(CRItems.embellishedCrimsonFabric), 'P', CRItems.crimsonPlate));
+                'F', CRItems.CRIMSON_FABRIC, 'E', new ItemStack(CRItems.EMBELLISHED_CRIMSON_FABRIC), 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_archer_greaves"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 40,
                 new AspectList(),
-                new ItemStack(CRItems.crimsonArcherGreaves),
+                new ItemStack(CRItems.CRIMSON_ARCHER_LEGGINGS),
                 "PBP",
                 "P P",
                 "F F",
-                'F', CRItems.crimsonFabric, 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', CRItems.crimsonPlate));
+                'F', CRItems.CRIMSON_FABRIC, 'B', new ItemStack(ItemsTC.baubles, 1, 2), 'P', CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_boots"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_ARMORY", 15,
                 new AspectList(),
                 new ItemStack(ItemsTC.crimsonBoots),
                 "F F",
                 "P P",
-                'P', CRItems.crimsonPlate, 'F', CRItems.crimsonFabric));
+                'P', CRItems.CRIMSON_PLATE, 'F', CRItems.CRIMSON_FABRIC));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimson_sword"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_BASIC_CRIMSON_WEAPONRY", 50,
                 new AspectList(),
-                new ItemStack(CRItems.crimsonSword),
+                new ItemStack(CRItems.CRIMSON_SWORD),
                 "EPE",
                 "EIE",
                 "EPE",
-                'P', CRItems.crimsonPlate, 'I', new ItemStack(Items.IRON_SWORD, 1, OreDictionary.WILDCARD_VALUE), 'E', Items.SPIDER_EYE));
+                'P', CRItems.CRIMSON_PLATE, 'I', new ItemStack(Items.IRON_SWORD, 1, OreDictionary.WILDCARD_VALUE), 'E', Items.SPIDER_EYE));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "knowledge_scribing_tools"), new ShapelessArcaneRecipe(
                 defaultGroup, "CR_KNOWLEDGE_SCRIBING_TOOLS", 50,
                 new AspectList().add(Aspect.AIR, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1).add(Aspect.FIRE, 1).add(Aspect.ORDER, 1).add(Aspect.WATER, 1),
-                new ItemStack(CRItems.knowledgeScribingTools),
+                new ItemStack(CRItems.KNOWLEDGE_SCRIBING_TOOLS),
                 new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
                         ItemsTC.salisMundus, ThaumcraftApiHelper.makeCrystal(Aspect.SENSES), ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)}));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "aer_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(CRItems.aerArrow, 4),
+                new ItemStack(CRItems.AER_ARROW, 4),
                 " A ",
                 "ACA",
                 " A ",
@@ -135,7 +135,7 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "aqua_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(CRItems.aquaArrow, 4),
+                new ItemStack(CRItems.AQUA_ARROW, 4),
                 " A ",
                 "ACA",
                 " A ",
@@ -143,7 +143,7 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "ignis_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(CRItems.ignisArrow, 4),
+                new ItemStack(CRItems.IGNIS_ARROW, 4),
                 " A ",
                 "ACA",
                 " A ",
@@ -151,7 +151,7 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "ordo_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(CRItems.ordoArrow, 4),
+                new ItemStack(CRItems.ORDO_ARROW, 4),
                 " A ",
                 "ACA",
                 " A ",
@@ -159,7 +159,7 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "perditio_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(CRItems.perditioArrow, 4),
+                new ItemStack(CRItems.PERDITIO_ARROW, 4),
                 " A ",
                 "ACA",
                 " A ",
@@ -167,7 +167,7 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "terra_arrow"), new ShapedArcaneRecipe(
                 defaultGroup, "CR_PRIMAL_ARROWS", 10,
                 new AspectList(),
-                new ItemStack(CRItems.terraArrow, 4),
+                new ItemStack(CRItems.TERRA_ARROW, 4),
                 " A ",
                 "ACA",
                 " A ",
@@ -175,7 +175,7 @@ public class CRRecipes {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "sanitation_scribing_tools"), new ShapelessArcaneRecipe(
                 defaultGroup, "CR_SANITATION_SCRIBING_TOOLS", 50,
                 new AspectList().add(Aspect.AIR, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1).add(Aspect.FIRE, 1).add(Aspect.ORDER, 1).add(Aspect.WATER, 1),
-                new ItemStack(CRItems.sanitationScribingTools),
+                new ItemStack(CRItems.SANITATION_SCRIBING_TOOLS),
                 new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
                         new ItemStack(ItemsTC.sanitySoap, 1, OreDictionary.WILDCARD_VALUE), ThaumcraftApiHelper.makeCrystal(Aspect.MIND), ThaumcraftApiHelper.makeCrystal(Aspect.MIND)}));
     }
@@ -232,7 +232,7 @@ public class CRRecipes {
 
     public static void initInfusion() {
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "bone_bow"),
-                new InfusionRecipe("CR_BONE_BOW", new ItemStack(CRItems.boneBow), 2,
+                new InfusionRecipe("CR_BONE_BOW", new ItemStack(CRItems.BONE_BOW), 2,
                         new AspectList().add(Aspect.AIR, 40).add(Aspect.FLIGHT, 40).add(Aspect.ENTROPY, 40),
                         Items.BOW,
                         ThaumcraftApiHelper.makeCrystal(Aspect.ENTROPY, 1),
@@ -247,47 +247,47 @@ public class CRRecipes {
                         ThaumcraftApiHelper.makeCrystal(Aspect.DEATH),
                         "plateVoid",
                         "plateVoid",
-                        CRItems.crimsonFabric,
-                        CRItems.crimsonFabric));
+                        CRItems.CRIMSON_FABRIC,
+                        CRItems.CRIMSON_FABRIC));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
                         new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 20),
                         ItemsTC.crimsonPlateHelm,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate));
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_chestplate"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorChest), 2,
                         new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 30),
                         ItemsTC.crimsonPlateChest,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.embellishedCrimsonFabric));
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.EMBELLISHED_CRIMSON_FABRIC));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_greaves"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorLegs), 2,
                         new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 25),
                         ItemsTC.crimsonPlateLegs,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.crimsonPlate,
-                        CRItems.embellishedCrimsonFabric));
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.EMBELLISHED_CRIMSON_FABRIC));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "primordial_scribing_tools"),
-                new InfusionRecipe("CR_PRIMORDIAL_SCRIBING_TOOLS", new ItemStack(CRItems.primordialScribingTools), 0,
+                new InfusionRecipe("CR_PRIMORDIAL_SCRIBING_TOOLS", new ItemStack(CRItems.PRIMORDIAL_SCRIBING_TOOLS), 0,
                         new AspectList().add(Aspect.AIR, 50).add(Aspect.EARTH, 50).add(Aspect.ENTROPY, 50).add(Aspect.FIRE, 50).add(Aspect.ORDER, 50).add(Aspect.WATER, 50),
                         new ItemStack(ItemsTC.scribingTools),
                         ItemsTC.primordialPearl,
                         ItemsTC.voidSeed,
                         ItemsTC.voidSeed,
-                        CRItems.knowledgeScribingTools,
-                        CRItems.sanitationScribingTools,
+                        CRItems.KNOWLEDGE_SCRIBING_TOOLS,
+                        CRItems.SANITATION_SCRIBING_TOOLS,
                         ItemsTC.voidSeed));
-        ItemStack runicAmuletStack = new ItemStack(CRItems.runicAmulet);
+        ItemStack runicAmuletStack = new ItemStack(CRItems.RUNIC_AMULET);
         runicAmuletStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 8));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_amulet"),
                 new InfusionRecipe("CR_RUNIC_BAUBLES", runicAmuletStack, 2,
@@ -299,7 +299,7 @@ public class CRRecipes {
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
-        ItemStack runicGirdleStack = new ItemStack(CRItems.runicGirdle);
+        ItemStack runicGirdleStack = new ItemStack(CRItems.RUNIC_GIRDLE);
         runicGirdleStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 10));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_girdle"),
                 new InfusionRecipe("CR_RUNIC_BAUBLES", runicGirdleStack, 2,
@@ -312,7 +312,7 @@ public class CRRecipes {
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
-        ItemStack runicRingStack = new ItemStack(CRItems.runicRing);
+        ItemStack runicRingStack = new ItemStack(CRItems.RUNIC_RING);
         runicRingStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 5));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring"),
                 new InfusionRecipe("CR_RUNIC_BAUBLES", runicRingStack, 2,
@@ -323,48 +323,48 @@ public class CRRecipes {
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
-        ItemStack runicAmuletEmergencyStack = new ItemStack(CRItems.runicAmuletEmergency);
+        ItemStack runicAmuletEmergencyStack = new ItemStack(CRItems.RUNIC_AMULET_EMERGENCY);
         runicAmuletEmergencyStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 7));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_amulet_emergency"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicAmuletEmergencyStack, 4,
                         new AspectList().add(Aspect.EARTH, 50).add(Aspect.MAGIC, 25).add(Aspect.PROTECT, 50).add(Aspect.ENERGY, 25),
-                        new ItemStack(CRItems.runicAmulet),
+                        new ItemStack(CRItems.RUNIC_AMULET),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.PROTECT, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.EARTH, 1)));
-        ItemStack runicGirdleKineticStack = new ItemStack(CRItems.runicGirdleKinetic);
+        ItemStack runicGirdleKineticStack = new ItemStack(CRItems.RUNIC_GIRDLE_KINETIC);
         runicGirdleKineticStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 9));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_girdle_kinetic"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicGirdleKineticStack, 4,
                         new AspectList().add(Aspect.AIR, 50).add(Aspect.MAGIC, 25).add(Aspect.PROTECT, 25).add(Aspect.MOTION, 50),
-                        new ItemStack(CRItems.runicGirdle),
+                        new ItemStack(CRItems.RUNIC_GIRDLE),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
                         Items.GUNPOWDER,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1)));
-        ItemStack runicRingChargedStack = new ItemStack(CRItems.runicRingCharged);
+        ItemStack runicRingChargedStack = new ItemStack(CRItems.RUNIC_RING_CHARGED);
         runicRingChargedStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 4));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring_charged"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicRingChargedStack, 4,
                         new AspectList().add(Aspect.FIRE, 50).add(Aspect.MAGIC, 25).add(Aspect.ENERGY, 50).add(Aspect.PROTECT, 25),
-                        new ItemStack(CRItems.runicRing),
+                        new ItemStack(CRItems.RUNIC_RING),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
                         ItemsTC.amber,
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1)));
-        ItemStack runicRingRegenStack = new ItemStack(CRItems.runicRingRegen);
+        ItemStack runicRingRegenStack = new ItemStack(CRItems.RUNIC_RING_REGEN);
         runicRingRegenStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 4));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "runic_ring_regen"),
                 new InfusionRecipe("CR_SPECIAL_RUNIC_BAUBLES", runicRingRegenStack, 4,
                         new AspectList().add(Aspect.WATER, 50).add(Aspect.MAGIC, 25).add(Aspect.LIFE, 50).add(Aspect.PROTECT, 25),
-                        new ItemStack(CRItems.runicRing),
+                        new ItemStack(CRItems.RUNIC_RING),
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.WATER, 1),
@@ -375,7 +375,7 @@ public class CRRecipes {
         // Thaumic Augmentation Integration
         if (Loader.isModLoaded("thaumicaugmentation")) {
             ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "meteor_boots"),
-                    new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.meteorBoots), 4,
+                    new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.METEOR_BOOTS), 4,
                             new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
                             new ItemStack(ItemsTC.travellerBoots),
                             BlocksTC.crystalFire,

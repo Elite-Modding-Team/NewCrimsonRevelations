@@ -36,8 +36,8 @@ import thaumcraft.api.blocks.BlocksTC;
 import java.util.Random;
 
 public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
+    static Aspect[] displayAspects = (Aspect[]) Aspect.aspects.values().toArray((Object[]) new Aspect[0]);
     public final int itemUseDuration;
-
     Random rand;
 
     public CRItemManaBean() {
@@ -48,6 +48,16 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         setHasSubtypes(true);
         setMaxDamage(0);
         setAlwaysEdible();
+    }
+
+    public static ItemStack makeManaBean(Aspect aspect, int stackSize) {
+        if (aspect == null) {
+            return null;
+        } else {
+            ItemStack is = new ItemStack(CRItems.MANA_BEAN, stackSize, 0);
+            ((IEssentiaContainerItem) CRItems.MANA_BEAN).setAspects(is, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
+            return is;
+        }
     }
 
     public int getMaxItemUseDuration(ItemStack par1ItemStack) {
@@ -63,18 +73,6 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
                 } else {
                     player.addPotionEffect(new PotionEffect(p, 160 + world.rand.nextInt(80), 0));
                 }
-        }
-    }
-
-    static Aspect[] displayAspects = (Aspect[]) Aspect.aspects.values().toArray((Object[]) new Aspect[0]);
-
-    public static ItemStack makeManaBean(Aspect aspect, int stackSize) {
-        if (aspect == null) {
-            return null;
-        } else {
-            ItemStack is = new ItemStack(CRItems.manaBeanItem, stackSize, 0);
-            ((IEssentiaContainerItem) CRItems.manaBeanItem).setAspects(is, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
-            return is;
         }
     }
 

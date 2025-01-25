@@ -206,7 +206,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
                 aspect = ((CRTileManaPod) tile).aspect;
         }
         for (int k1 = 0; k1 < b0; k1++) {
-            ItemStack i = new ItemStack(CRItems.manaBeanItem);
+            ItemStack i = new ItemStack(CRItems.MANA_BEAN);
             ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
             dropped.add(i);
         }
@@ -217,7 +217,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
     @SideOnly(Side.CLIENT)
     @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return CRItems.manaBeanItem.getDefaultInstance();
+        return CRItems.MANA_BEAN.getDefaultInstance();
     }
 
     @Override
