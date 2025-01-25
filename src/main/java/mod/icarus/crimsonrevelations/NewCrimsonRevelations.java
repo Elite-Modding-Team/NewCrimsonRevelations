@@ -10,13 +10,13 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = NewCrimsonRevelations.MODID, name = NewCrimsonRevelations.NAME, version = NewCrimsonRevelations.VERSION, dependencies = NewCrimsonRevelations.DEPENDENCIES)
 public class NewCrimsonRevelations {
@@ -29,18 +29,9 @@ public class NewCrimsonRevelations {
     @Mod.Instance
     public static NewCrimsonRevelations instance;
 
-    public static boolean isServer() {
-        return FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER;
-    }
-
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new CREvents());
-
-        if (!isServer()) {
-            MinecraftForge.EVENT_BUS.register(new CRClientEvents());
-            CRRenderRegistry.preInit();
-        }
     }
 
     @EventHandler
@@ -51,25 +42,36 @@ public class NewCrimsonRevelations {
         CRRecipes.initArcaneCrafting();
         CRRecipes.initCrucible();
         CRRecipes.initInfusion();
-
-        if (!isServer()) {
-
-            IItemColor itemCrystalPlanterColourHandler = (stack, tintIndex) -> {
-                Item item = stack.getItem();
-                if (item == CRItems.manaBeanItem) {
-                    return ((CRItemManaBean) item).getColor(stack, tintIndex);
-                }
-                return 16777215;
-            };
-
-            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemCrystalPlanterColourHandler, CRItems.manaBeanItem);
-
-        }
     }
 
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
         CREntities.registerEntitySpawns();
         CRCompatHandler.postInit();
+    }
+
+    @SideOnly(Side.CLIENT)
+    @EventHandler
+    public void preInitClient(FMLPreInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(new CRClientEvents());
+        CRRenderRegistry.preInit();
+    }
+
+    @SideOnly(Side.CLIENT)
+    @EventHandler
+    public void initClient(FMLInitializationEvent event) {
+        IItemColor itemCrystalPlanterColourHandler = (stack, tintIndex) -> {
+            Item item = stack.getItem();
+            if (item == CRItems.manaBeanItem) {
+                return ((CRItemManaBean) item).getColor(stack, tintIndex);
+            }
+            return 16777215;
+        };
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemCrystalPlanterColourHandler, CRItems.manaBeanItem);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @EventHandler
+    public void postinitClient(FMLPostInitializationEvent event) {
     }
 }

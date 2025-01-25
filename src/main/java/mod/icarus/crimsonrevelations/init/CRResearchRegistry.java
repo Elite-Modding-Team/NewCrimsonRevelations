@@ -43,7 +43,7 @@ public class CRResearchRegistry {
         GolemMaterial.register(
                 new GolemMaterial("CR_TALLOW", new String[]{"CR_GOLEM_MAT_TALLOW"}, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/entity/golem/mat_tallow.png"),
                         12823156, 14, 4, 3, // [Color, Health, Armor , Damage] - [1 = 0.5]
-                        new ItemStack(CRBlocks.magicTallowBlock), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
+                        new ItemStack(CRBlocks.MAGIC_TALLOW_BLOCK), new ItemStack(ItemsTC.mechanismSimple), // Base Component, Base Mechanism
                         new EnumGolemTrait[]{} // Starting Traits
                 )
         );

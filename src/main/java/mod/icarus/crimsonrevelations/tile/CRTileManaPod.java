@@ -1,6 +1,5 @@
 package mod.icarus.crimsonrevelations.tile;
 
-import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
 import mod.icarus.crimsonrevelations.init.CRBlocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -17,19 +16,12 @@ import java.util.ArrayList;
 public class CRTileManaPod extends TileThaumcraft implements IAspectContainer {
     public Aspect aspect = null;
 
-    public CRBlockManaPod block = (CRBlockManaPod) CRBlocks.manaPodBlock;
-
-    public boolean canUpdate() {
-        return false;
-    }
-
     public void readSyncNBT(NBTTagCompound nbttagcompound) {
         this.aspect = Aspect.getAspect(nbttagcompound.getString("Aspect"));
     }
 
     public NBTTagCompound writeSyncNBT(NBTTagCompound nbttagcompound) {
-        if (this.aspect != null)
-            nbttagcompound.setString("Aspect", this.aspect.getTag());
+        if (this.aspect != null) nbttagcompound.setString("Aspect", this.aspect.getTag());
         return nbttagcompound;
     }
 
@@ -37,26 +29,24 @@ public class CRTileManaPod extends TileThaumcraft implements IAspectContainer {
         int l = getBlockMetadata();
         if (l < 7) {
             l++;
-            this.world.setBlockState(this.getPos(), block.withAge(l + 1), 3);
+            this.world.setBlockState(this.getPos(), CRBlocks.MANA_POD.withAge(l + 1), 3);
         }
         if (l > 2) {
             if (l == 3) {
                 AspectList al = new AspectList();
-                if (this.aspect != null)
-                    al.add(this.aspect, 1);
+                if (this.aspect != null) al.add(this.aspect, 1);
                 for (int d = 2; d < 6; d++) {
                     EnumFacing dir = EnumFacing.byIndex(d);
                     int x = this.getPos().getX() + dir.getXOffset();
                     int y = this.getPos().getY() + dir.getYOffset();
                     int z = this.getPos().getZ() + dir.getZOffset();
                     TileEntity tile = this.world.getTileEntity(new BlockPos(x, y, z));
-                    if (tile != null && tile instanceof CRTileManaPod &&
-                            ((CRTileManaPod) tile).aspect != null)
+                    if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null)
                         al.add(((CRTileManaPod) tile).aspect, 1);
                 }
                 if (al.size() > 1) {
                     Aspect[] aa = al.getAspects();
-                    ArrayList<Aspect> outlist = new ArrayList<Aspect>();
+                    ArrayList<Aspect> outlist = new ArrayList<>();
                     for (int i = 0; i < aa.length; i++) {
                         outlist.add(aa[i]);
                         for (int j = 0; j < aa.length; j++) {
@@ -69,7 +59,7 @@ public class CRTileManaPod extends TileThaumcraft implements IAspectContainer {
                             }
                         }
                     }
-                    if (outlist.size() > 0) {
+                    if (!outlist.isEmpty()) {
                         this.aspect = outlist.get(this.world.rand.nextInt(outlist.size()));
                         markDirty();
                     }

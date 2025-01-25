@@ -25,6 +25,6 @@ public class CRBlockMaterial extends Block {
 
     @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side) {
-        return this == CRBlocks.magicTallowBlock;
+        return this == CRBlocks.MAGIC_TALLOW_BLOCK;
     }
 }

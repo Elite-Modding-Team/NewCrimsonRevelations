@@ -140,7 +140,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         if (i1 instanceof BlockLog || i1 == BlocksTC.logGreatwood || i1 == BlocksTC.logSilverwood) {
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
             if (world.isAirBlock(pos1)) {
-                IBlockState k1 = CRBlocks.manaPodBlock.getStateForPlacement(world, pos1, facing, hitX, hitY, hitZ, 0, player);
+                IBlockState k1 = CRBlocks.MANA_POD.getStateForPlacement(world, pos1, facing, hitX, hitY, hitZ, 0, player);
                 world.setBlockState(pos1, k1, 2);
                 TileEntity tile = world.getTileEntity(pos1);
                 if (tile != null && tile instanceof CRTileManaPod && getAspects(player.getHeldItem(hand)) != null && getAspects(player.getHeldItem(hand)).size() > 0)

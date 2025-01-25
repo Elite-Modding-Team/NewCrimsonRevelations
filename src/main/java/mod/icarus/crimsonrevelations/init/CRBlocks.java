@@ -20,21 +20,19 @@ import javax.annotation.Nonnull;
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CRBlocks {
-    @GameRegistry.ObjectHolder("magic_tallow_block")
-    public static Block magicTallowBlock;
+    public static final CRBlockMaterial MAGIC_TALLOW_BLOCK = null;
 
-    @GameRegistry.ObjectHolder("mana_pod")
-    public static Block manaPodBlock;
+    public static final CRBlockManaPod MANA_POD = null;
 
     @SubscribeEvent
     public static void registerBlocks(@Nonnull final RegistryEvent.Register<Block> event) {
         final IForgeRegistry<Block> registry = event.getRegistry();
 
         registry.registerAll(
-                CRRegistry.setup(new CRBlockMaterial(Material.ROCK, MapColor.SAND, 4.0F, 15.0F, SoundType.STONE), "magic_tallow_block")
+                CRRegistry.setup(new CRBlockMaterial(Material.ROCK, MapColor.SAND, 4.0F, 15.0F, SoundType.STONE), "magic_tallow_block"),
+                CRRegistry.setup(new CRBlockManaPod(), "mana_pod")
         );
 
-        registry.register(new CRBlockManaPod().setTranslationKey(NewCrimsonRevelations.MODID + "." + "mana_pod").setRegistryName(NewCrimsonRevelations.MODID, "mana_pod"));
         GameRegistry.registerTileEntity(CRTileManaPod.class, new ResourceLocation(NewCrimsonRevelations.MODID, "mana_pod"));
     }
 }
