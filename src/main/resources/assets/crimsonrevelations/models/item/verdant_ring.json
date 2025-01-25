@@ -1,0 +1,16 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "crimsonrevelations:items/ring_verdant"
+  },
+  "overrides": [
+    {
+      "predicate": { "type": 1 },
+      "model": "crimsonrevelations:item/ring_verdant_1"
+    },
+    {
+      "predicate": { "type": 2 },
+      "model": "crimsonrevelations:item/ring_verdant_2"
+    }
+  ]
+}

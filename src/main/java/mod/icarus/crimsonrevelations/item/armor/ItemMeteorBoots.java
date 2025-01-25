@@ -1,8 +1,5 @@
 package mod.icarus.crimsonrevelations.item.armor;
 
-import java.util.function.BiFunction;
-import java.util.function.Predicate;
-
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRItems;
@@ -19,11 +16,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -31,15 +24,16 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.util.Constants.NBT;
-
 import thaumcraft.api.items.IRechargable;
 import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.lib.SoundsTC;
-
 import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager;
 import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager.MovementType;
 import thecodex6824.thaumicaugmentation.api.item.IArmorReduceFallDamage;
+
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
 
 // Courtesy of TheCodex6824 for some code used from Thaumic Augmentation's Void Thaumaturge Boots.
 public class ItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {

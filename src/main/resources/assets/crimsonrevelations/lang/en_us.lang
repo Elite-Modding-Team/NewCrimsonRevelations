@@ -6,6 +6,7 @@ entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
 
 # Blocks
 tile.crimsonrevelations.magic_tallow_block.name=Magic Tallow Block
+tile.crimsonrevelations.mana_pod.name=Mana Pod
 
 # Items
 item.crimsonrevelations.aer_arrow.name=Aer Arrow
@@ -34,6 +35,8 @@ item.crimsonrevelations.runic_ring_charged.name=Charged Ring of Runic Shielding
 item.crimsonrevelations.runic_ring_regen.name=Revitalizing Ring of Runic Shielding
 item.crimsonrevelations.sanitation_scribing_tools.name=Scribing Tools of Sanitation
 item.crimsonrevelations.terra_arrow.name=Terra Arrow
+item.crimsonrevelations.verdant_ring.name=Verdant Heart Band
+item.crimsonrevelations.mana_bean.name=Mana Bean
 
 # Research
 tc.research_category.REVELATIONS=Revelations
@@ -162,6 +165,9 @@ message.crimsonrevelations.scribing_tools.sanitation=Your scribing tools help cl
 # Tooltips
 tooltip.crimsonrevelations.scribing_tools.active=Right-click to absorb its power.
 tooltip.crimsonrevelations.scribing_tools.inactive=Depleted
+
+tooltip.crimsonrevelations.ctr=Can transform to a Ring on the crafting table.
+tooltip.crimsonrevelations.rtc=Can transform to charm on the crafting table.
 
 # Misc
 focus.crimsonrevelations.blinding_flash.name=Blinding Flash
