@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations.events;
 
 import baubles.api.BaublesApi;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import net.minecraft.entity.Entity;
@@ -17,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -50,8 +52,8 @@ public class CREvents {
                         }
                     }
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_GIRDLE_KINETIC));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.RUNIC_GIRDLE_KINETIC, 20 * 20);
+                    player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_GIRDLE_KINETIC));
+                    player.getCooldownTracker().setCooldown(CRItems.RUNIC_GIRDLE_KINETIC, 20 * 20);
                 }
 
                 // Revitalizing Ring of Shielding - Gives 6 seconds of Regeneration II when the Runic Shielding is pierced (20 second cooldown).
@@ -59,8 +61,8 @@ public class CREvents {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_REGEN, SoundCategory.PLAYERS, 1.5F, 1.0F);
                     player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 1, true, true));
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_REGEN));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.RUNIC_RING_REGEN, 20 * 20);
+                    player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_REGEN));
+                    player.getCooldownTracker().setCooldown(CRItems.RUNIC_RING_REGEN, 20 * 20);
                 }
 
                 // Amulet of Emergency Shielding - Gives 8 points of Runic Shielding when the Runic Shielding is pierced (40 second cooldown).
@@ -68,8 +70,8 @@ public class CREvents {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_EMERGENCY, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     player.setAbsorptionAmount(charge + 8);
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_AMULET_EMERGENCY));
-                    ((EntityPlayer) player).getCooldownTracker().setCooldown(CRItems.RUNIC_AMULET_EMERGENCY, 40 * 20);
+                    player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_AMULET_EMERGENCY));
+                    player.getCooldownTracker().setCooldown(CRItems.RUNIC_AMULET_EMERGENCY, 40 * 20);
                 }
 
                 // Charged Ring of Shielding - 25% chance to give 1 point of Runic Shielding, often restoring the Runic Shielding lost from damage.
@@ -77,7 +79,7 @@ public class CREvents {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_CHARGE, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                     player.setAbsorptionAmount(charge + 1);
 
-                    ((EntityPlayer) player).addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_CHARGED));
+                    player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_CHARGED));
                 }
             }
         }
@@ -107,6 +109,13 @@ public class CREvents {
                     event.setCanceled(true);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onUseBonemeal(BonemealEvent event) {
+        if(event.getBlock().getBlock() instanceof CRBlockManaPod){
+            event.setCanceled(true);
         }
     }
 }
