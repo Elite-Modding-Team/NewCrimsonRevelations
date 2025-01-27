@@ -78,8 +78,15 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
 
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (tab == NewCrimsonRevelations.tabCR || tab == CreativeTabs.SEARCH)
-            items.add(new ItemStack(this, 1, 0));
+        if (tab == NewCrimsonRevelations.tabCR || tab == CreativeTabs.SEARCH) {
+
+            for (Aspect tag : Aspect.aspects.values()) {
+                ItemStack i = new ItemStack(this);
+                this.setAspects(i, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT));
+                items.add(i);
+            }
+        }
+
     }
 
     @SideOnly(Side.CLIENT)
