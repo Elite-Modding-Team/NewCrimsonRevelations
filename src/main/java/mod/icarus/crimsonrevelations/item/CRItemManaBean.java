@@ -55,7 +55,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             return null;
         } else {
             ItemStack stack = new ItemStack(CRItems.MANA_BEAN, stackSize, 0);
-            ((IEssentiaContainerItem) CRItems.MANA_BEAN).setAspects(stack, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
+            ((IEssentiaContainerItem) CRItems.MANA_BEAN).setAspects(stack, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
             return stack;
         }
     }
@@ -88,7 +88,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
 
             for (Aspect tag : Aspect.aspects.values()) {
                 ItemStack stack = new ItemStack(this);
-                this.setAspects(stack, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT));
+                this.setAspects(stack, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
                 items.add(stack);
             }
         }
@@ -110,7 +110,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     @Override
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
         if (!par2World.isRemote && !par1ItemStack.hasTagCompound()) {
-            setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT));
+            setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
         }
 
         super.onUpdate(par1ItemStack, par2World, par3Entity, par4, par5);
@@ -119,7 +119,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     @Override
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
         if (!par1ItemStack.hasTagCompound()) {
-            setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT));
+            setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
         }
     }
 

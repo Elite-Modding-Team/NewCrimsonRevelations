@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class CRBlockManaPod extends Block implements IGrowable {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 8);
     public static float W1 = 0.0625F;
@@ -230,7 +231,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
 
         for (int k1 = 0; k1 < b0; k1++) {
             ItemStack i = new ItemStack(CRItems.MANA_BEAN);
-            ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
+            ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
             dropped.add(i);
         }
 

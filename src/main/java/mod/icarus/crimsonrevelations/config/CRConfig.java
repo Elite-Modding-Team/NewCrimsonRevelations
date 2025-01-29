@@ -35,11 +35,11 @@ public class CRConfig {
         @Config.RequiresMcRestart
         public int FURIOUS_ZOMBIE_WEIGHT = 5;
 
-        @Config.Name("Mana Bean: Aspect")
+        @Config.Name("Mana Bean: Aspect Count")
         @Config.Comment("Mana Bean contained aspect count. [default: 5]")
         @Config.RangeInt(min = 1, max = 128)
         @Config.RequiresMcRestart
-        public int MANA_BEAN_ASPECT = 5;
+        public int MANA_BEAN_ASPECT_COUNT = 5;
 
         @Config.Name("Mana Bean: Effect List")
         @Config.Comment("Configurable list of possible effects that eaten Mana Beans can apply.")
