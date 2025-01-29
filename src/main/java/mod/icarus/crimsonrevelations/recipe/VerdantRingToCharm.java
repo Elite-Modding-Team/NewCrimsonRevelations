@@ -4,18 +4,18 @@ import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapelessRecipes;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
 
 import javax.annotation.Nonnull;
 
-public class VerdantRingToCharm extends ShapelessRecipes {
+public class VerdantRingToCharm extends ShapelessArcaneRecipe {
     private static final Item ring = CRItems.VERDANT_RING;
 
     public VerdantRingToCharm() {
-        super("", ItemStack.EMPTY, NonNullList.from(Ingredient.EMPTY, Ingredient.fromItem(ring)));
+        super(new ResourceLocation(""), /*Research Required*/"", 5, new AspectList(), ItemStack.EMPTY, new Object[]{ring});
     }
 
     @Nonnull

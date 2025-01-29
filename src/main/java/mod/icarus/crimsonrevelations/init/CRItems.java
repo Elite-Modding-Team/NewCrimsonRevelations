@@ -16,8 +16,6 @@ import mod.icarus.crimsonrevelations.item.tools.CRItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemPrimordialScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemSanitationScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.CRItemBoneBow;
-import mod.icarus.crimsonrevelations.recipe.VerdantCharmToRing;
-import mod.icarus.crimsonrevelations.recipe.VerdantRingToCharm;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -143,8 +141,6 @@ public class CRItems {
                 ThaumcraftApiHelper.makeCrystal(Aspect.SENSES)).setRegistryName(NewCrimsonRevelations.MODID, "knowledge_scribing_tools_refill"));
         registry.register(new ShapelessOreRecipe(new ResourceLocation(Thaumcraft.MODID, "inkwell"), SANITATION_SCRIBING_TOOLS, new ItemStack(SANITATION_SCRIBING_TOOLS, 1, OreDictionary.WILDCARD_VALUE),
                 ThaumcraftApiHelper.makeCrystal(Aspect.MIND)).setRegistryName(NewCrimsonRevelations.MODID, "sanitation_scribing_tools_refill"));
-        registry.register(new VerdantCharmToRing().setRegistryName(NewCrimsonRevelations.MODID, "verdant_charm_to_ring"));
-        registry.register(new VerdantRingToCharm().setRegistryName(NewCrimsonRevelations.MODID, "verdant_ring_to_charm"));
     }
 
     @SubscribeEvent
