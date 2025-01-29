@@ -75,7 +75,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
                 if (effect.isInstant()) {
                     effect.affectEntity(player, player, player, 0, 3.0D);
                 } else {
-                    player.addPotionEffect(new PotionEffect(effect, 8 * 20 + world.rand.nextInt(80), 0));
+                    player.addPotionEffect(new PotionEffect(effect, (15 * 20) + (world.rand.nextInt(30) * 20), 0));
                 }
             }
         }
