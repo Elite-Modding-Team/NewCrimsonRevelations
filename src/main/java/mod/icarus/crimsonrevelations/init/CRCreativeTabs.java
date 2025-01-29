@@ -11,8 +11,8 @@ public class CRCreativeTabs extends CreativeTabs {
         super(length, name);
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public ItemStack createIcon() {
         return new ItemStack(ItemsTC.curio, 1, 6);
     }

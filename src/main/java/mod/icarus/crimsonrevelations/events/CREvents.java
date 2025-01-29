@@ -114,7 +114,8 @@ public class CREvents {
 
     @SubscribeEvent
     public static void onUseBonemeal(BonemealEvent event) {
-        if(event.getBlock().getBlock() instanceof CRBlockManaPod){
+        // Prevent bonemeal from working on mana beans
+        if (event.getBlock().getBlock() instanceof CRBlockManaPod) {
             event.setCanceled(true);
         }
     }

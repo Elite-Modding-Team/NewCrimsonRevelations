@@ -166,9 +166,6 @@ message.crimsonrevelations.scribing_tools.sanitation=Your scribing tools help cl
 tooltip.crimsonrevelations.scribing_tools.active=Right-click to absorb its power.
 tooltip.crimsonrevelations.scribing_tools.inactive=Depleted
 
-tooltip.crimsonrevelations.ctr=Can transform to a Ring on the crafting table.
-tooltip.crimsonrevelations.rtc=Can transform to charm on the crafting table.
-
 # Misc
 focus.crimsonrevelations.blinding_flash.name=Blinding Flash
 focus.crimsonrevelations.blinding_flash.text=Forms an orb of bright light that blinds and blurs targets while also causing weakness to non-players. Damage is doubled against undead targets but halved against non-undead targets.

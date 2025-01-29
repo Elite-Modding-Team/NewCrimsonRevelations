@@ -33,6 +33,7 @@ public class CRItemRunicBauble extends CRItemBauble implements IBauble {
         player.playSound(SoundsTC.hhoff, 0.75F, 1.0F);
     }
 
+    @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
             ItemStack stack = new ItemStack(this);

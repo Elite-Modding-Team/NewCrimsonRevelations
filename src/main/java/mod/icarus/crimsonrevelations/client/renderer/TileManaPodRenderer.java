@@ -23,12 +23,17 @@ public class TileManaPodRenderer extends TileEntitySpecialRenderer<CRTileManaPod
     public void render(CRTileManaPod pod, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         int meta;
         Aspect aspect = Aspect.PLANT;
+
         if (pod.getWorld() == null) {
             meta = 5;
         } else {
             meta = pod.getBlockMetadata();
-            if (pod.aspect != null) aspect = pod.aspect;
+
+            if (pod.aspect != null) {
+                aspect = pod.aspect;
+            }
         }
+
         if (meta > 1) {
             float br = 0.14509805F;
             float bg = 0.6156863F;
@@ -36,11 +41,13 @@ public class TileManaPodRenderer extends TileEntitySpecialRenderer<CRTileManaPod
             float fr = br;
             float fg = bg;
             float fb = bb;
+
             if (pod.aspect != null) {
                 Color color = new Color(aspect.getColor());
                 float ar = color.getRed() / 255.0F;
                 float ag = color.getGreen() / 255.0F;
                 float ab = color.getBlue() / 255.0F;
+
                 if (meta == 7) {
                     fr = ar;
                     fg = ag;
@@ -52,6 +59,7 @@ public class TileManaPodRenderer extends TileEntitySpecialRenderer<CRTileManaPod
                     fb = (bb + ab * m) / (m + 1.0F);
                 }
             }
+
             GlStateManager.pushMatrix();
             GlStateManager.enableLighting();
             GlStateManager.enableBlend();
@@ -59,13 +67,16 @@ public class TileManaPodRenderer extends TileEntitySpecialRenderer<CRTileManaPod
             GlStateManager.blendFunc(770, 771);
             GlStateManager.translate(x + 0.5D, y + 0.75D, z + 0.5D);
             GlStateManager.rotate(180.0F, 1.0F, 0.0F, 0.0F);
+
             if (meta > 2) {
                 EntityPlayerSP entityClientPlayerMP = (Minecraft.getMinecraft()).player;
                 float scale = MathHelper.sin((entityClientPlayerMP.ticksExisted + pod.hashCode() % 100) / 8.0F) * 0.1F + 0.9F;
                 GlStateManager.pushMatrix();
+
                 int j = meta * 10 + (int) (150.0F * scale);
                 int k = j % 65536;
                 int l = j / 65536;
+
                 OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, k, l);
                 GlStateManager.translate(0.0D, 0.1D, 0.0D);
                 GlStateManager.scale(0.125D * meta * scale, 0.125D * meta * scale, 0.125D * meta * scale);
@@ -73,6 +84,7 @@ public class TileManaPodRenderer extends TileEntitySpecialRenderer<CRTileManaPod
                 this.model.pod0.render(0.0625F);
                 GlStateManager.popMatrix();
             }
+
             GlStateManager.scale(0.15D * meta, 0.15D * meta, 0.15D * meta);
             GlStateManager.color(fr, fg, fb, 0.9F);
             this.bindTexture(POD_2_TEX);

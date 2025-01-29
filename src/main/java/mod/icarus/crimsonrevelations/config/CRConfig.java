@@ -35,6 +35,12 @@ public class CRConfig {
         @Config.RequiresMcRestart
         public int FURIOUS_ZOMBIE_WEIGHT = 5;
 
+        @Config.Name("Mana Bean: Aspect")
+        @Config.Comment("Mana Bean contained aspect count. [default: 5]")
+        @Config.RangeInt(min = 1, max = 128)
+        @Config.RequiresMcRestart
+        public int MANA_BEAN_ASPECT = 5;
+
         @Config.Name("Primordial Scribing Tools: Curiosity Chance")
         @Config.Comment("The chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
@@ -46,12 +52,6 @@ public class CRConfig {
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
         @Config.RequiresMcRestart
         public double KNOWLEDGE_TOOLS_CURIOSITY_CHANCE = 0.2D;
-
-        @Config.Name("Mana Bean: Aspect")
-        @Config.Comment("Mana Bean contained aspect count. [default: 5]")
-        @Config.RangeInt(min = 1, max = 128)
-        @Config.RequiresMcRestart
-        public int MANA_BEAN_ASPECT = 5;
     }
 
     public static class ModIntegrationSettings {

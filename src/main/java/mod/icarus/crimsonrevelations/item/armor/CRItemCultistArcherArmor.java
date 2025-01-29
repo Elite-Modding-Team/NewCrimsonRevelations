@@ -24,8 +24,8 @@ public class CRItemCultistArcherArmor extends ItemArmor {
         super(CRMaterials.ARMOR_CULTIST_ARCHER, 4, equipmentSlot);
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
         if (this.model1 == null) {
             this.model1 = new ModelCultistArcherArmor(0.5f);

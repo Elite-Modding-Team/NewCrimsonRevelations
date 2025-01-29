@@ -111,14 +111,14 @@ public class CRItemSanitationScribingTools extends CRItem implements IScribeTool
         return false;
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public boolean hasEffect(ItemStack stack) {
         return stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack);
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
         if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
             tooltip.add(new TextComponentTranslation("tooltip.crimsonrevelations.scribing_tools.active").getFormattedText());

@@ -23,19 +23,23 @@ public class VerdantRingToCharm extends ShapelessRecipes {
     public ItemStack getCraftingResult(@Nonnull InventoryCrafting var1) {
         ItemStack item = ItemStack.EMPTY;
 
-        for(int i = 0; i < var1.getSizeInventory(); i++) {
+        for (int i = 0; i < var1.getSizeInventory(); i++) {
             ItemStack stack = var1.getStackInSlot(i);
-            if(!stack.isEmpty() && stack.getItem() == ring)
+
+            if (!stack.isEmpty() && stack.getItem() == ring) {
                 item = stack;
+            }
         }
 
-        if(item.isEmpty())
+        if (item.isEmpty()) {
             return ItemStack.EMPTY;
+        }
 
         ItemStack result = new ItemStack(ItemsTC.charmVerdant);
 
-        if (item.getTagCompound() != null)
+        if (item.getTagCompound() != null) {
             result.setTagCompound(item.getTagCompound());
+        }
 
         return result;
     }

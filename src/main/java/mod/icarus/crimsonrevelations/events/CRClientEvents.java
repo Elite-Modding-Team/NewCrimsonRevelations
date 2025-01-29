@@ -2,18 +2,12 @@ package mod.icarus.crimsonrevelations.events;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.item.CRItemBow;
-import mod.icarus.crimsonrevelations.item.baubles.CRItemVerdantRing;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.FOVUpdateEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import thaumcraft.common.items.baubles.ItemVerdantCharm;
 
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
@@ -67,26 +61,6 @@ public class CRClientEvents {
 
             finalFov *= 1.0F - (customBow * 0.15F);
             event.setNewfov(finalFov);
-        }
-    }
-
-    @SideOnly(Side.CLIENT)
-    @SubscribeEvent
-    public void addEnderTiaraInformation(ItemTooltipEvent event) {
-        if (event.getEntityPlayer() == null)
-            return;
-
-        if (event.getItemStack().getItem() instanceof ItemVerdantCharm) {
-            event.getToolTip().add("");
-
-            event.getToolTip().add(I18n.format("tooltip.crimsonrevelations.ctr"));
-
-        }
-        if (event.getItemStack().getItem() instanceof CRItemVerdantRing) {
-            event.getToolTip().add("");
-
-            event.getToolTip().add(I18n.format("tooltip.crimsonrevelations.rtc"));
-
         }
     }
 }

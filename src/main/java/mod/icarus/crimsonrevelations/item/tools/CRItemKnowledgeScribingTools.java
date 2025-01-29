@@ -68,7 +68,7 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
         stack.getTagCompound().setBoolean("depleted", flag);
     }
 
-    // TODO: TC4 Research Port compat
+    // Currently not compatible with TC4 Research Port
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
@@ -110,8 +110,8 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
         return false;
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public boolean hasEffect(ItemStack stack) {
         return stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack);
     }
@@ -121,8 +121,8 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
         return CRRarities.RARITY_KNOWLEDGE;
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
         if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
             tooltip.add(new TextComponentTranslation("tooltip.crimsonrevelations.scribing_tools.active").getFormattedText());

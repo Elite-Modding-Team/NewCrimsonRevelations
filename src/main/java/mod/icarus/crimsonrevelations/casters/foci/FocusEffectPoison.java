@@ -82,6 +82,7 @@ public class FocusEffectPoison extends FocusEffect {
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
         final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         int color = 9039872;
+        
         pp.setAlphaF(0.7F);
         pp.setGravity(-0.2F);
         pp.setMaxAge(7 + world.rand.nextInt(5));

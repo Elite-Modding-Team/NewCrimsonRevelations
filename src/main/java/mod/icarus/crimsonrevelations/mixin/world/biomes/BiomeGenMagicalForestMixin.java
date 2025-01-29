@@ -16,6 +16,7 @@ public abstract class BiomeGenMagicalForestMixin {
     @Inject(method = "decorate", at = @At(value = "TAIL"))
     public void crDecorate(World world, Random rand, BlockPos pos, CallbackInfo ci) {
         WorldGenManaPods worldGenManaPods = new WorldGenManaPods();
+
         for (int k = 0; k < 10; k++) {
             int l = pos.getX() + rand.nextInt(16) + 8;
             byte b0 = 64;

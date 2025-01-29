@@ -111,6 +111,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         int l = getMetaFromState(state);
+
         switch (l) {
             case 0:
                 return new AxisAlignedBB(0.25F, W12, 0.25F, 0.75F, 1.0F, 0.75F);
@@ -129,6 +130,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
             case 7:
                 return new AxisAlignedBB(0.25F, W2, 0.25F, 0.75F, 1.0F, 0.75F);
         }
+
         return new AxisAlignedBB(0.25F, W2, 0.25F, 0.75F, 1.0F, 0.75F);
     }
 
@@ -146,7 +148,11 @@ public class CRBlockManaPod extends Block implements IGrowable {
             world.setBlockToAir(pos);
         } else if (world.rand.nextInt(30) == 0) {
             TileEntity tile = world.getTileEntity(pos);
-            if (tile instanceof CRTileManaPod) ((CRTileManaPod) tile).checkGrowth();
+
+            if (tile instanceof CRTileManaPod) {
+                ((CRTileManaPod) tile).checkGrowth();
+            }
+
             st.remove(new WorldCoordinates(pos, world.provider.getDimension()));
         }
     }
@@ -154,8 +160,13 @@ public class CRBlockManaPod extends Block implements IGrowable {
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state) {
         Biome biome = world.getBiome(pos);
         boolean magicBiome = false;
-        if (biome != null) magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
+
+        if (biome != null) {
+            magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
+        }
+
         Block i1 = world.getBlockState(pos.up()).getBlock();
+
         return (magicBiome && (i1 instanceof BlockLog || i1 == BlocksTC.logGreatwood || i1 == BlocksTC.logSilverwood));
     }
 
@@ -184,8 +195,11 @@ public class CRBlockManaPod extends Block implements IGrowable {
     @Override
     public void breakBlock(World world, BlockPos pos, IBlockState state) {
         TileEntity tile = world.getTileEntity(pos);
-        if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null)
+
+        if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null) {
             st.put(new WorldCoordinates(pos, world.provider.getDimension()), ((CRTileManaPod) tile).aspect);
+        }
+
         super.breakBlock(world, pos, state);
     }
 
@@ -193,10 +207,19 @@ public class CRBlockManaPod extends Block implements IGrowable {
     public ArrayList<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         ArrayList<ItemStack> dropped = new ArrayList<>();
         int metadata = getMetaFromState(state);
-        if (metadata < 2) return dropped;
+
+        if (metadata < 2) {
+            return dropped;
+        }
+
         byte b0 = 1;
-        if (metadata >= 7 && ((World) world).rand.nextFloat() > 0.33F) b0 = 2;
+
+        if (metadata >= 7 && ((World) world).rand.nextFloat() > 0.33F) {
+            b0 = 2;
+        }
+
         Aspect aspect = Aspect.PLANT;
+
         if (st.containsKey(new WorldCoordinates(pos, ((World) world).provider.getDimension()))) {
             aspect = st.get(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
         } else {
@@ -204,11 +227,13 @@ public class CRBlockManaPod extends Block implements IGrowable {
             if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null)
                 aspect = ((CRTileManaPod) tile).aspect;
         }
+
         for (int k1 = 0; k1 < b0; k1++) {
             ItemStack i = new ItemStack(CRItems.MANA_BEAN);
             ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
             dropped.add(i);
         }
+
         st.remove(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
         return dropped;
     }

@@ -72,9 +72,8 @@ public class ModelCultistArcherArmor extends ModelBiped {
 
     public ModelRenderer MbeltB;
 
-    // TODO: Further polishing
-    public ModelCultistArcherArmor(float f) {
-        super(f, 0.0F, 128, 64);
+    public ModelCultistArcherArmor(float modelSize) {
+        super(modelSize, 0.0F, 128, 64);
         this.textureWidth = 128;
         this.textureHeight = 64;
 
@@ -383,7 +382,7 @@ public class ModelCultistArcherArmor extends ModelBiped {
         this.bipedBody.addChild(this.MbeltR);
         this.bipedBody.addChild(this.MbeltB);
 
-        if (f >= 1.0F) {
+        if (modelSize >= 1.0F) {
             this.bipedBody.addChild(this.Quiver);
             this.bipedBody.addChild(this.Chestthing);
             this.bipedBody.addChild(this.Backplate);
@@ -451,10 +450,12 @@ public class ModelCultistArcherArmor extends ModelBiped {
         if (entity instanceof EntityLivingBase) {
             if (entity instanceof EntityArmorStand) {
                 EntityArmorStand stand = (EntityArmorStand) entity;
+
                 bipedHead.rotateAngleX = 0.017453292F * stand.getHeadRotation().getX();
                 bipedHead.rotateAngleY = 0.017453292F * stand.getHeadRotation().getY();
                 bipedHead.rotateAngleZ = 0.017453292F * stand.getHeadRotation().getZ();
                 bipedHead.setRotationPoint(0.0F, 1.0F, 0.0F);
+
                 bipedBody.rotateAngleX = 0.017453292F * stand.getBodyRotation().getX();
                 bipedBody.rotateAngleY = 0.017453292F * stand.getBodyRotation().getY();
                 bipedBody.rotateAngleZ = 0.017453292F * stand.getBodyRotation().getZ();
@@ -468,6 +469,7 @@ public class ModelCultistArcherArmor extends ModelBiped {
                 bipedLeftLeg.rotateAngleY = 0.017453292F * stand.getLeftLegRotation().getY();
                 bipedLeftLeg.rotateAngleZ = 0.017453292F * stand.getLeftLegRotation().getZ();
                 bipedLeftLeg.setRotationPoint(1.9F, 11.0F, 0.0F);
+
                 bipedRightLeg.rotateAngleX = 0.017453292F * stand.getRightLegRotation().getX();
                 bipedRightLeg.rotateAngleY = 0.017453292F * stand.getRightLegRotation().getY();
                 bipedRightLeg.rotateAngleZ = 0.017453292F * stand.getRightLegRotation().getZ();

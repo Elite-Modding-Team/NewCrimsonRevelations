@@ -15,8 +15,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -39,15 +39,17 @@ public class CRItemVerdantRing extends Item implements IBauble, IRechargable {
                 if (stack.getItem() instanceof CRItemVerdantRing && stack.hasTagCompound()) {
                     return stack.getTagCompound().getByte("type");
                 }
-                return 0.0f;
+                return 0.0F;
             }
         });
     }
 
+    @Override
     public EnumRarity getRarity(ItemStack itemstack) {
         return EnumRarity.RARE;
     }
 
+    @Override
     public BaubleType getBaubleType(ItemStack itemstack) {
         return BaubleType.RING;
     }
@@ -56,22 +58,23 @@ public class CRItemVerdantRing extends Item implements IBauble, IRechargable {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab == NewCrimsonRevelations.tabCR || tab == CreativeTabs.SEARCH) {
             items.add(new ItemStack(this));
-            ItemStack vhbl = new ItemStack(this);
-            vhbl.setTagInfo("type", new NBTTagByte((byte) 1));
-            items.add(vhbl);
-            ItemStack vhbl2 = new ItemStack(this);
-            vhbl2.setTagInfo("type", new NBTTagByte((byte) 2));
-            items.add(vhbl2);
+            ItemStack ring1 = new ItemStack(this);
+            ring1.setTagInfo("type", new NBTTagByte((byte) 1));
+            items.add(ring1);
+            ItemStack ring2 = new ItemStack(this);
+            ring2.setTagInfo("type", new NBTTagByte((byte) 2));
+            items.add(ring2);
         }
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (stack.hasTagCompound() && stack.getTagCompound().getByte("type") == 1) {
-            tooltip.add(TextFormatting.GOLD + I18n.translateToLocal("item.verdant_charm.life.text"));
+            tooltip.add(TextFormatting.GOLD + new TextComponentTranslation("item.verdant_charm.life.text").getFormattedText());
         }
         if (stack.hasTagCompound() && stack.getTagCompound().getByte("type") == 2) {
-            tooltip.add(TextFormatting.GOLD + I18n.translateToLocal("item.verdant_charm.sustain.text"));
+            tooltip.add(TextFormatting.GOLD + new TextComponentTranslation("item.verdant_charm.sustain.text").getFormattedText());
         }
     }
 
@@ -82,38 +85,47 @@ public class CRItemVerdantRing extends Item implements IBauble, IRechargable {
                 player.removePotionEffect(MobEffects.WITHER);
                 return;
             }
+
             if (player.getActivePotionEffect(MobEffects.POISON) != null && RechargeHelper.consumeCharge(itemstack, player, 10)) {
                 player.removePotionEffect(MobEffects.POISON);
                 return;
             }
+
             if (player.getActivePotionEffect(PotionFluxTaint.instance) != null && RechargeHelper.consumeCharge(itemstack, player, 5)) {
                 player.removePotionEffect(PotionFluxTaint.instance);
                 return;
             }
+
             if (itemstack.hasTagCompound() && itemstack.getTagCompound().getByte("type") == 1 && player.getHealth() < player.getMaxHealth() && RechargeHelper.consumeCharge(itemstack, player, 5)) {
-                player.heal(1.0f);
+                player.heal(1.0F);
                 return;
             }
+
             if (itemstack.hasTagCompound() && itemstack.getTagCompound().getByte("type") == 2) {
+
                 if (player.getAir() < 100 && RechargeHelper.consumeCharge(itemstack, player, 1)) {
                     player.setAir(300);
                     return;
                 }
+
                 if (player instanceof EntityPlayer && ((EntityPlayer) player).canEat(false) && RechargeHelper.consumeCharge(itemstack, player, 1)) {
-                    ((EntityPlayer) player).getFoodStats().addStats(1, 0.3f);
+                    ((EntityPlayer) player).getFoodStats().addStats(1, 0.3F);
                 }
             }
         }
     }
 
+    @Override
     public int getMaxCharge(ItemStack stack, EntityLivingBase player) {
         return 200;
     }
 
+    @Override
     public EnumChargeDisplay showInHud(ItemStack stack, EntityLivingBase player) {
         return EnumChargeDisplay.NORMAL;
     }
 
+    @Override
     public boolean willAutoSync(ItemStack itemstack, EntityLivingBase player) {
         return true;
     }

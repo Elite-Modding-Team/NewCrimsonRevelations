@@ -35,6 +35,7 @@ import thaumcraft.api.blocks.BlocksTC;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     static Aspect[] displayAspects = (Aspect[]) Aspect.aspects.values().toArray((Object[]) new Aspect[0]);
     public final int itemUseDuration;
@@ -44,7 +45,6 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         super(1, 0.5F, true);
         this.rand = new Random();
         this.itemUseDuration = 10;
-        setMaxStackSize(64);
         setHasSubtypes(true);
         setMaxDamage(0);
         setAlwaysEdible();
@@ -60,23 +60,29 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         }
     }
 
+    @Override
     public int getMaxItemUseDuration(ItemStack par1ItemStack) {
         return this.itemUseDuration;
     }
 
+    // Apply various random effects after eating (TODO: Add a configurable list of effects to prevent issues with unintended mod effects)
+    @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
             Potion p = ForgeRegistries.POTIONS.getValues().get(world.rand.nextInt(ForgeRegistries.POTIONS.getValues().size()));
-            if (p != null)
+
+            if (p != null) {
                 if (p.isInstant()) {
                     p.affectEntity(player, player, player, 2, 3.0D);
                 } else {
                     player.addPotionEffect(new PotionEffect(p, 160 + world.rand.nextInt(80), 0));
                 }
+            }
         }
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (tab == NewCrimsonRevelations.tabCR || tab == CreativeTabs.SEARCH) {
 
@@ -89,24 +95,32 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
 
     }
 
+    // Get aspect colors
     @SideOnly(Side.CLIENT)
     public int getColor(ItemStack stack, int par2) {
-        if (getAspects(stack) != null)
+        if (getAspects(stack) != null) {
             return getAspects(stack).getAspects()[0].getColor();
+        }
+
         int idx = (int) (System.currentTimeMillis() / 500L % displayAspects.length);
         return displayAspects[idx].getColor();
     }
 
+    // Add aspect count to our beans (5 by default)
+    @Override
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
-        if (!par2World.isRemote && !par1ItemStack.hasTagCompound())
+        if (!par2World.isRemote && !par1ItemStack.hasTagCompound()) {
             setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT));
+        }
+
         super.onUpdate(par1ItemStack, par2World, par3Entity, par4, par5);
     }
 
     @Override
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-        if (!par1ItemStack.hasTagCompound())
+        if (!par1ItemStack.hasTagCompound()) {
             setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT));
+        }
     }
 
     @Override
@@ -116,13 +130,16 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             aspects.readFromNBT(itemstack.getTagCompound());
             return (aspects.size() > 0) ? aspects : null;
         }
+
         return null;
     }
 
     @Override
     public void setAspects(ItemStack itemstack, AspectList aspects) {
-        if (!itemstack.hasTagCompound())
+        if (!itemstack.hasTagCompound()) {
             itemstack.setTagCompound(new NBTTagCompound());
+        }
+
         aspects.writeToNBT(itemstack.getTagCompound());
     }
 
@@ -131,30 +148,45 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         return false;
     }
 
+    @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        int par5 = pos.getY();
-        if (!player.canPlayerEdit(pos, facing, player.getHeldItem(hand)) || facing.getIndex() != 0)
+        if (!player.canPlayerEdit(pos, facing, player.getHeldItem(hand)) || facing.getIndex() != 0) {
             return EnumActionResult.FAIL;
+        }
+
         Biome biome = world.getBiome(pos);
         boolean magicBiome = false;
-        if (biome != null)
+
+        if (biome != null) {
             magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
-        if (!magicBiome)
+        }
+
+        if (!magicBiome) {
             return EnumActionResult.FAIL;
+        }
+
         Block i1 = world.getBlockState(pos).getBlock();
+
         if (i1 instanceof BlockLog || i1 == BlocksTC.logGreatwood || i1 == BlocksTC.logSilverwood) {
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
+
             if (world.isAirBlock(pos1)) {
                 IBlockState k1 = CRBlocks.MANA_POD.getStateForPlacement(world, pos1, facing, hitX, hitY, hitZ, 0, player);
                 world.setBlockState(pos1, k1, 2);
                 TileEntity tile = world.getTileEntity(pos1);
-                if (tile != null && tile instanceof CRTileManaPod && getAspects(player.getHeldItem(hand)) != null && getAspects(player.getHeldItem(hand)).size() > 0)
+
+                if (tile != null && tile instanceof CRTileManaPod && getAspects(player.getHeldItem(hand)) != null && getAspects(player.getHeldItem(hand)).size() > 0) {
                     ((CRTileManaPod) tile).aspect = getAspects(player.getHeldItem(hand)).getAspects()[0];
-                if (!player.capabilities.isCreativeMode)
+                }
+
+                if (!player.capabilities.isCreativeMode) {
                     player.getHeldItem(hand).setCount(player.getHeldItem(hand).getCount() - 1);
+                }
             }
+
             return EnumActionResult.SUCCESS;
         }
+
         return EnumActionResult.SUCCESS;
     }
 }

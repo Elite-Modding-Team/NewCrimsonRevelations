@@ -83,6 +83,7 @@ public class FocusEffectTaintPoison extends FocusEffect {
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
         final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         int color = 10354925;
+        
         pp.setGravity(-0.2F);
         pp.setMaxAge(10 + world.rand.nextInt(5));
         pp.setParticles(575, 8, 8);

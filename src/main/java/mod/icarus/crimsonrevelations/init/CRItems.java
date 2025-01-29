@@ -130,7 +130,7 @@ public class CRItems {
                 .filter(block -> block.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID))
                 .filter(block -> !(block instanceof BlockDoor)) // Doors should not have an item block registered
                 .filter(block -> !(block instanceof BlockSlab)) // Slabs should not have an item block registered
-                .filter(block -> !(block instanceof CRBlockManaPod)) // Mana Pod Block should not have an item block registered > :|
+                .filter(block -> !(block instanceof CRBlockManaPod)) // Mana Pods should not have an item block registered >:|
                 .forEach(block -> registry.register(CRRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
@@ -147,8 +147,8 @@ public class CRItems {
         registry.register(new VerdantRingToCharm().setRegistryName(NewCrimsonRevelations.MODID, "verdant_ring_to_charm"));
     }
 
-    @SideOnly(Side.CLIENT)
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void onRegisterModelsEvent(@Nonnull final ModelRegistryEvent event) {
         // Item Models
         for (final Item item : ForgeRegistries.ITEMS.getValues()) {

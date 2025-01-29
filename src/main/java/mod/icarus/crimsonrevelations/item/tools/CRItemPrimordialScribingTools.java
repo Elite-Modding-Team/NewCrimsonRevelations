@@ -43,7 +43,7 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
         this.setHasSubtypes(false);
     }
 
-    // TODO: TC4 Research Port compat
+    // Currently not compatible with TC4 Research Port
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
@@ -102,15 +102,14 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
         return false;
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public boolean hasEffect(ItemStack stack) {
         return stack.getItemDamage() >= stack.getMaxDamage();
     }
 
-
-    @Override
     @SideOnly(Side.CLIENT)
+    @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
         if (stack.getItemDamage() >= stack.getMaxDamage()) {
             tooltip.add(new TextComponentTranslation("tooltip.crimsonrevelations.scribing_tools.active").getFormattedText());
