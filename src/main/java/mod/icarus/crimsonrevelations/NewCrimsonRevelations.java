@@ -1,6 +1,7 @@
 package mod.icarus.crimsonrevelations;
 
 import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
+import mod.icarus.crimsonrevelations.config.CRConfigLists;
 import mod.icarus.crimsonrevelations.events.CRClientEvents;
 import mod.icarus.crimsonrevelations.events.CREvents;
 import mod.icarus.crimsonrevelations.init.*;
@@ -37,7 +38,7 @@ public class NewCrimsonRevelations {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         CRCompatHandler.init();
-
+        CRConfigLists.initLists();
         CRResearchRegistry.init();
 
         CRRecipes.initArcaneCrafting();

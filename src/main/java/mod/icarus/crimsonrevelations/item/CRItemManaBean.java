@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.config.CRConfigLists;
 import mod.icarus.crimsonrevelations.init.CRBlocks;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
@@ -25,7 +26,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
@@ -54,9 +54,9 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         if (aspect == null) {
             return null;
         } else {
-            ItemStack is = new ItemStack(CRItems.MANA_BEAN, stackSize, 0);
-            ((IEssentiaContainerItem) CRItems.MANA_BEAN).setAspects(is, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
-            return is;
+            ItemStack stack = new ItemStack(CRItems.MANA_BEAN, stackSize, 0);
+            ((IEssentiaContainerItem) CRItems.MANA_BEAN).setAspects(stack, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT));
+            return stack;
         }
     }
 
@@ -65,17 +65,17 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         return this.itemUseDuration;
     }
 
-    // Apply various random effects after eating (TODO: Add a configurable list of effects to prevent issues with unintended mod effects)
+    // Apply various random effects from a configurable list after eating
     @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
-            Potion p = ForgeRegistries.POTIONS.getValues().get(world.rand.nextInt(ForgeRegistries.POTIONS.getValues().size()));
+            Potion effect = CRConfigLists.manaBeanEffects.get(world.rand.nextInt(CRConfigLists.manaBeanEffects.size()));
 
-            if (p != null) {
-                if (p.isInstant()) {
-                    p.affectEntity(player, player, player, 2, 3.0D);
+            if (effect != null) {
+                if (effect.isInstant()) {
+                    effect.affectEntity(player, player, player, 0, 3.0D);
                 } else {
-                    player.addPotionEffect(new PotionEffect(p, 160 + world.rand.nextInt(80), 0));
+                    player.addPotionEffect(new PotionEffect(effect, 8 * 20 + world.rand.nextInt(80), 0));
                 }
             }
         }
@@ -87,9 +87,9 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
         if (tab == NewCrimsonRevelations.tabCR || tab == CreativeTabs.SEARCH) {
 
             for (Aspect tag : Aspect.aspects.values()) {
-                ItemStack i = new ItemStack(this);
-                this.setAspects(i, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT));
-                items.add(i);
+                ItemStack stack = new ItemStack(this);
+                this.setAspects(stack, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT));
+                items.add(stack);
             }
         }
 

@@ -41,6 +41,46 @@ public class CRConfig {
         @Config.RequiresMcRestart
         public int MANA_BEAN_ASPECT = 5;
 
+        @Config.Name("Mana Bean: Effect List")
+        @Config.Comment("Configurable list of possible effects that eaten Mana Beans can apply.")
+        public String[] MANA_BEAN_EFFECT_LIST = new String[]{
+                "minecraft:absorption",
+                "minecraft:blindness",
+                "minecraft:fire_resistance",
+                "minecraft:haste",
+                "minecraft:health_boost",
+                "minecraft:hunger",
+                "minecraft:instant_damage",
+                "minecraft:instant_health",
+                "minecraft:invisibility",
+                "minecraft:jump_boost",
+                "minecraft:levitation",
+                "minecraft:luck",
+                "minecraft:mining_fatigue",
+                "minecraft:nausea",
+                "minecraft:night_vision",
+                "minecraft:poison",
+                "minecraft:regeneration",
+                "minecraft:resistance",
+                "minecraft:saturation",
+                "minecraft:slowness",
+                "minecraft:speed",
+                "minecraft:strength",
+                "minecraft:unluck",
+                "minecraft:water_breathing",
+                "minecraft:weakness",
+                "minecraft:wither",
+                "thaumcraft:blurredvision",
+                "thaumcraft:deathgaze",
+                "thaumcraft:fluxtaint",
+                "thaumcraft:infectiousvisexhaust",
+                "thaumcraft:sunscorned",
+                "thaumcraft:thaumarhia",
+                "thaumcraft:unnaturalhunger",
+                "thaumcraft:visexhaust",
+                "thaumcraft:warpward"
+        };
+
         @Config.Name("Primordial Scribing Tools: Curiosity Chance")
         @Config.Comment("The chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
@@ -133,6 +173,7 @@ public class CRConfig {
         public static void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
             if (event.getModID().equals(NewCrimsonRevelations.MODID)) {
                 ConfigManager.sync(NewCrimsonRevelations.MODID, Config.Type.INSTANCE);
+                CRConfigLists.initLists();
             }
         }
     }
