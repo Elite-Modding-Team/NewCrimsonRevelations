@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "key": "!CR_MANA_POD",
+      "name": "crimsonrevelations.research.mana_pods.title",
+      "icons": [
+        "crimsonrevelations:mana_bean"
+      ],
+      "category": "BASICS",
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        -2,
+        0
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.mana_pods.stage.0"
+        }
+      ]
+    }
+  ]
+}

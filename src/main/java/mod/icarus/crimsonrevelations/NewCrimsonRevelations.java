@@ -37,6 +37,7 @@ public class NewCrimsonRevelations {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         CRCompatHandler.init();
+
         CRResearchRegistry.init();
 
         CRRecipes.initArcaneCrafting();
@@ -47,6 +48,7 @@ public class NewCrimsonRevelations {
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
         CREntities.registerEntitySpawns();
+
         CRCompatHandler.postInit();
     }
 
@@ -54,6 +56,7 @@ public class NewCrimsonRevelations {
     @EventHandler
     public void preInitClient(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new CRClientEvents());
+
         CRRenderRegistry.preInit();
     }
 
@@ -62,11 +65,14 @@ public class NewCrimsonRevelations {
     public void initClient(FMLInitializationEvent event) {
         IItemColor itemCrystalPlanterColourHandler = (stack, tintIndex) -> {
             Item item = stack.getItem();
+
             if (item == CRItems.MANA_BEAN) {
                 return ((CRItemManaBean) item).getColor(stack, tintIndex);
             }
+
             return 16777215;
         };
+
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemCrystalPlanterColourHandler, CRItems.MANA_BEAN);
     }
 

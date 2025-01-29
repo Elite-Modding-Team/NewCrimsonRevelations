@@ -18,6 +18,7 @@ import thaumcraft.api.golems.EnumGolemTrait;
 import thaumcraft.api.golems.parts.GolemMaterial;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchCategories;
+import thaumcraft.api.research.ScanBlock;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanningManager;
 import thaumcraft.common.entities.monster.cult.EntityCultistCleric;
@@ -60,9 +61,13 @@ public class CRResearchRegistry {
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/research"));
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/revelations"));
 
+        ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumcraft"));
+
         // Research
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_KNIGHT", EntityCultistKnight.class, true));
+
+        ScanningManager.addScannableThing(new ScanBlock("!CR_MANA_POD", CRBlocks.MANA_POD));
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION) {
             // Focus Effects
