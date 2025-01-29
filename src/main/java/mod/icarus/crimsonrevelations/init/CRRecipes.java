@@ -1,6 +1,8 @@
 package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.recipe.VerdantCharmToRing;
+import mod.icarus.crimsonrevelations.recipe.VerdantRingToCharm;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -178,6 +180,8 @@ public class CRRecipes {
                 new ItemStack(CRItems.SANITATION_SCRIBING_TOOLS),
                 new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
                         new ItemStack(ItemsTC.sanitySoap, 1, OreDictionary.WILDCARD_VALUE), ThaumcraftApiHelper.makeCrystal(Aspect.MIND), ThaumcraftApiHelper.makeCrystal(Aspect.MIND)}));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_charm_to_ring"), new VerdantCharmToRing());
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_ring_to_charm"), new VerdantRingToCharm());
     }
 
     public static void initCrucible() {
