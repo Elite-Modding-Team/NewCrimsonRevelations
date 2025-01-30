@@ -81,14 +81,20 @@ public class CRConfig {
                 "thaumcraft:warpward"
         };
 
+        @Config.Name("Mana Bean: Research Chance")
+        @Config.Comment("The percentage chance for an eaten Mana Bean to grant observations and theories for research. [default: 0.33]")
+        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.RequiresMcRestart
+        public double MANA_BEAN_RESEARCH_CHANCE = 0.33D;
+
         @Config.Name("Primordial Scribing Tools: Curiosity Chance")
-        @Config.Comment("The chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
+        @Config.Comment("The percentage chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
         @Config.RequiresMcRestart
         public double PRIMORDIAL_TOOLS_CURIOSITY_CHANCE = 0.3D;
 
         @Config.Name("Scribing Tools of Knowledge: Curiosity Chance")
-        @Config.Comment("The chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
+        @Config.Comment("The percentage chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
         @Config.RequiresMcRestart
         public double KNOWLEDGE_TOOLS_CURIOSITY_CHANCE = 0.2D;

@@ -23,15 +23,20 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IEssentiaContainerItem;
 import thaumcraft.api.blocks.BlocksTC;
+import thaumcraft.api.capabilities.IPlayerKnowledge;
+import thaumcraft.api.research.ResearchCategory;
+import thecodex6824.thaumcraftfix.api.research.ResearchCategoryTheorycraftFilter;
 
 import java.util.Random;
 
@@ -70,6 +75,16 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
             Potion effect = CRConfigLists.manaBeanEffects.get(world.rand.nextInt(CRConfigLists.manaBeanEffects.size()));
+
+            // Chance for an eaten bean to grant theories and observations for research
+            if (world.rand.nextDouble() <= CRConfig.general_settings.MANA_BEAN_RESEARCH_CHANCE) {
+                ResearchCategory[] rc = ResearchCategoryTheorycraftFilter.getAllowedTheorycraftCategories().toArray(new ResearchCategory[0]);
+                int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
+                int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
+
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg / 2));
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 2, tProg / 2));
+            }
 
             if (effect != null) {
                 if (effect.isInstant()) {
