@@ -1,0 +1,6 @@
+All Rights Reserved
+
+Copyright (C) 2025 Elite Modding Team
+
+All rights to original assets made for this mod (including but not limited to textures, logos, audio files, and other non-code materials) in this repository are reserved.
+These assets are not covered under the GNU General Public License v3.0.
