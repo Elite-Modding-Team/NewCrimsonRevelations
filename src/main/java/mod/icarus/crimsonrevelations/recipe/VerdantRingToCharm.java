@@ -15,7 +15,7 @@ public class VerdantRingToCharm extends ShapelessArcaneRecipe {
     private static final Item ring = CRItems.VERDANT_RING;
 
     public VerdantRingToCharm() {
-        super(new ResourceLocation(""), /*Research Required*/"", 5, new AspectList(), ItemStack.EMPTY, new Object[]{ring});
+        super(new ResourceLocation(""), "CR_VERDANT_BANDS", 50, new AspectList(), ItemStack.EMPTY, new Object[]{ring});
     }
 
     @Nonnull

@@ -15,7 +15,7 @@ public class VerdantCharmToRing extends ShapelessArcaneRecipe {
     private static final Item charm = ItemsTC.charmVerdant;
 
     public VerdantCharmToRing() {
-        super(new ResourceLocation(""), /*Research Required*/"", 5, new AspectList(), ItemStack.EMPTY, new Object[]{charm});
+        super(new ResourceLocation(""), "CR_VERDANT_BANDS", 50, new AspectList(), ItemStack.EMPTY, new Object[]{charm});
     }
 
     @Nonnull
@@ -25,7 +25,7 @@ public class VerdantCharmToRing extends ShapelessArcaneRecipe {
 
         for (int i = 0; i < var1.getSizeInventory(); i++) {
             ItemStack stack = var1.getStackInSlot(i);
-            
+
             if (!stack.isEmpty() && stack.getItem() == charm) {
                 item = stack;
             }
