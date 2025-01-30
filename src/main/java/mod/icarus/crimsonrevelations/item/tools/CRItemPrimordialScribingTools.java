@@ -27,10 +27,10 @@ import thaumcraft.api.capabilities.IPlayerWarp.EnumWarpType;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
 import thaumcraft.api.items.IScribeTools;
 import thaumcraft.api.items.ItemsTC;
-import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.potions.PotionWarpWard;
+import thecodex6824.thaumcraftfix.api.research.ResearchCategoryTheorycraftFilter;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -47,7 +47,7 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        ResearchCategory[] rc = ResearchCategories.researchCategories.values().toArray(new ResearchCategory[0]);
+        ResearchCategory[] rc = ResearchCategoryTheorycraftFilter.getAllowedTheorycraftCategories().toArray(new ResearchCategory[0]);
         int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
         int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
         IPlayerWarp warp = ThaumcraftCapabilities.getWarp(player);
