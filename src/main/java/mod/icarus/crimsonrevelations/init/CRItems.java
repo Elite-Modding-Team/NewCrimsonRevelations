@@ -66,7 +66,7 @@ public class CRItems {
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_LEGGINGS = null;
     public static final CRItemKnowledgeScribingTools KNOWLEDGE_SCRIBING_TOOLS = null;
     public static final CRItemManaBean MANA_BEAN = null;
-    public static final CRItemMeteorBoots METEOR_BOOTS = null;
+    public static final CRItem METEOR_BOOTS = null;
     public static final CRItemPrimordialScribingTools PRIMORDIAL_SCRIBING_TOOLS = null;
     public static final CRItemRunicBauble PROTECTION_RING = null;
     public static final CRItemRunicBauble RUNIC_AMULET = null;
@@ -110,13 +110,13 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.RING, EnumRarity.RARE, 4), "runic_ring_regen"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.AMULET, EnumRarity.RARE, 7), "runic_amulet_emergency"),
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
+                CRRegistry.setup(new CRItemVerdantRing(), "verdant_ring"),
 
                 CRRegistry.setup(new CRItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
                 CRRegistry.setup(new CRItemSanitationScribingTools(), "sanitation_scribing_tools"),
                 CRRegistry.setup(new CRItemPrimordialScribingTools(), "primordial_scribing_tools"),
 
-                CRRegistry.setup(new CRItemManaBean(), "mana_bean"),
-                CRRegistry.setup(new CRItemVerdantRing(), "verdant_ring")
+                CRRegistry.setup(new CRItemManaBean(), "mana_bean")
         );
 
         if (Loader.isModLoaded("thaumicaugmentation")) {
