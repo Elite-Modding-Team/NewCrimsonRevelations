@@ -3,8 +3,10 @@ package mod.icarus.crimsonrevelations.events;
 import baubles.api.BaublesApi;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
+import mod.icarus.crimsonrevelations.world.WorldGenManaPods;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,14 +16,17 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import thaumcraft.common.world.biomes.BiomeGenMagicalForest;
 
 import java.util.List;
 
@@ -117,6 +122,20 @@ public class CREvents {
         // Prevent bonemeal from working on mana beans
         if (event.getBlock().getBlock() instanceof CRBlockManaPod) {
             event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onDecorateBiome(DecorateBiomeEvent event) {
+        if (event.getWorld().getBiome(event.getPos()) instanceof BiomeGenMagicalForest) {
+            WorldGenManaPods worldGenManaPods = new WorldGenManaPods();
+
+            for (int k = 0; k < CRConfig.general_settings.MANA_BEAN_GENERATION_FREQUENCY; k++) {
+                int l = event.getPos().getX() + event.getWorld().rand.nextInt(16) + 8;
+                byte b0 = 64;
+                int i1 = event.getPos().getZ() + event.getWorld().rand.nextInt(16) + 8;
+                worldGenManaPods.generate(event.getWorld(), event.getWorld().rand, new BlockPos(l, b0, i1));
+            }
         }
     }
 }

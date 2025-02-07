@@ -81,6 +81,11 @@ public class CRConfig {
                 "thaumcraft:warpward"
         };
 
+        @Config.Name("Mana Bean: Generation Frequency")
+        @Config.Comment("The amount of iterations over block positions to generate Mana Pods. [default: 10]")
+        @Config.RangeInt(min = 0, max = 100)
+        public int MANA_BEAN_GENERATION_FREQUENCY = 10;
+
         @Config.Name("Mana Bean: Research Chance")
         @Config.Comment("The percentage chance for an eaten Mana Bean to grant observations and theories for research. [default: 0.33]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)

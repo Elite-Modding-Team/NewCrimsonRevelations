@@ -22,7 +22,6 @@ public class CRMixinLoader implements ILateMixinLoader {
         {
             put("mixins.crimsonrevelations.entities.json", () -> true);
             put("mixins.crimsonrevelations.events.json", () -> true);
-            put("mixins.crimsonrevelations.world.biomes.json", () -> true);
         }
     });
 
