@@ -104,7 +104,7 @@ dependencies {
         implementation 'com.cleanroommc:assetmover:2.5'
     }
     if (project.use_mixins.toBoolean()) {
-        implementation 'zone.rong:mixinbooter:9.1'
+        implementation 'zone.rong:mixinbooter:10.5'
         implementation 'com.cleanroommc:configanytime:3.0'
     }
 
@@ -122,7 +122,7 @@ dependencies {
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
-        String mixin = modUtils.enableMixins('zone.rong:mixinbooter:10.4', "mixins.${project.mod_id}.refmap.json")
+        String mixin = modUtils.enableMixins('zone.rong:mixinbooter:10.5', "mixins.${project.mod_id}.refmap.json")
         api(mixin) {
             transitive = false
         }
