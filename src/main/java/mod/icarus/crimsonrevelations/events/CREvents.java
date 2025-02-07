@@ -90,7 +90,7 @@ public class CREvents {
         for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
 
             // Prevents screen shaking and damage sound.
-            if (stack.getItem() == CRItems.METEOR_BOOTS) {
+            if (stack.getItem() == CRItems.meteorBoots) {
                 if (event.getSource() == DamageSource.HOT_FLOOR) {
                     event.setCanceled(true);
                 }
@@ -103,7 +103,7 @@ public class CREvents {
         for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
 
             // Immune to these damage types.
-            if (stack.getItem() == CRItems.METEOR_BOOTS) {
+            if (stack.getItem() == CRItems.meteorBoots) {
                 if (event.getSource() == DamageSource.HOT_FLOOR) {
                     event.setAmount(0.0F);
                     event.setCanceled(true);

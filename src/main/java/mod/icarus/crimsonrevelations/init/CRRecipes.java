@@ -450,7 +450,7 @@ public class CRRecipes {
         // Thaumic Augmentation Integration
         if (Loader.isModLoaded("thaumicaugmentation")) {
             ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "meteor_boots"),
-                    new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.METEOR_BOOTS), 4,
+                    new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.meteorBoots), 4,
                             new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
                             new ItemStack(ItemsTC.travellerBoots),
                             BlocksTC.crystalFire,

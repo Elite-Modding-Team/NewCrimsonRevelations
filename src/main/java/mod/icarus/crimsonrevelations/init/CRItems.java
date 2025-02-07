@@ -66,7 +66,6 @@ public class CRItems {
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_LEGGINGS = null;
     public static final CRItemKnowledgeScribingTools KNOWLEDGE_SCRIBING_TOOLS = null;
     public static final CRItemManaBean MANA_BEAN = null;
-    public static final CRItem METEOR_BOOTS = null;
     public static final CRItemPrimordialScribingTools PRIMORDIAL_SCRIBING_TOOLS = null;
     public static final CRItemRunicBauble PROTECTION_RING = null;
     public static final CRItemRunicBauble RUNIC_AMULET = null;
@@ -79,6 +78,9 @@ public class CRItems {
     public static final CRItemSanitationScribingTools SANITATION_SCRIBING_TOOLS = null;
     public static final CRItemSword CRIMSON_SWORD = null;
     public static final CRItemVerdantRing VERDANT_RING = null;
+
+    @GameRegistry.ObjectHolder("meteor_boots")
+    public static Item meteorBoots;
 
     @SubscribeEvent
     public static void registerItems(@Nonnull final RegistryEvent.Register<Item> event) {

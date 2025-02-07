@@ -78,7 +78,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
         @Override
         public boolean test(EntityPlayer player) {
             for (ItemStack stack : player.getArmorInventoryList()) {
-                if (stack.getItem() == CRItems.METEOR_BOOTS)
+                if (stack.getItem() == CRItems.meteorBoots)
                     return true;
             }
 
@@ -158,7 +158,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
 
         // Activate smash state once the sneak key is pressed. Do not activate while flying.
         if (player.isSneaking() && !player.capabilities.isFlying && !player.isElytraFlying() && player.fallDistance > 0.0F && hasCharge) {
-            if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.METEOR_BOOTS))) {
+            if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.meteorBoots))) {
                 setSmashingState(stack, true);
                 player.playSound(SoundsTC.rumble, 1.0F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                 RechargeHelper.consumeCharge(stack, player, 2);
@@ -204,7 +204,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
                 }
 
                 player.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
-                player.getCooldownTracker().setCooldown(CRItems.METEOR_BOOTS, 5 * 20);
+                player.getCooldownTracker().setCooldown(CRItems.meteorBoots, 5 * 20);
             }
         }
 
