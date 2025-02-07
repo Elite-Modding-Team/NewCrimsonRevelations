@@ -86,6 +86,10 @@ public class CRConfig {
         @Config.RangeInt(min = 0, max = 100)
         public int MANA_BEAN_GENERATION_FREQUENCY = 10;
 
+        @Config.Name("Mana Bean: Pech Loot")
+        @Config.Comment("Enables Primal Mana Beans to drop as loot from Pechs. [default: true]")
+        public boolean MANA_BEAN_PECH_LOOT = true;
+
         @Config.Name("Mana Bean: Research Chance")
         @Config.Comment("The percentage chance for an eaten Mana Bean to grant observations and theories for research. [default: 0.33]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
