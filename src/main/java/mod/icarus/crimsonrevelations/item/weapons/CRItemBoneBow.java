@@ -15,9 +15,8 @@ public class CRItemBoneBow extends CRItemBow {
 
     @Override
     public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
-        int ticks = this.getMaxItemUseDuration(stack) - count;
-
-        if (ticks > 18) {
+    	// Automatically fire the bow at full charge
+        if (Math.min(1.0F, (getMaxItemUseDuration(stack) - count) / 20.0F) >= 1.0F) {
             player.stopActiveHand();
         }
     }
