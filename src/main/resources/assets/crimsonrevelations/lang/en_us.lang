@@ -21,6 +21,7 @@ item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
 item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
 item.crimsonrevelations.ignis_arrow.name=Ignis Arrow
 item.crimsonrevelations.knowledge_scribing_tools.name=Scribing Tools of Knowledge
+item.crimsonrevelations.mana_bean.name=Mana Bean
 item.crimsonrevelations.meteor_boots.name=Boots of the Meteor
 item.crimsonrevelations.ordo_arrow.name=Ordo Arrow
 item.crimsonrevelations.perditio_arrow.name=Perditio Arrow
@@ -36,7 +37,7 @@ item.crimsonrevelations.runic_ring_regen.name=Revitalizing Ring of Runic Shieldi
 item.crimsonrevelations.sanitation_scribing_tools.name=Scribing Tools of Sanitation
 item.crimsonrevelations.terra_arrow.name=Terra Arrow
 item.crimsonrevelations.verdant_ring.name=Verdant Heart Band
-item.crimsonrevelations.mana_bean.name=Mana Bean
+item.crimsonrevelations.void_goggles.name=Goggles of Rift Vision
 
 # Research
 tc.research_category.REVELATIONS=Revelations
@@ -102,6 +103,9 @@ crimsonrevelations.research.special_runic_baubles.stage.1=I am now able to imbue
 
 crimsonrevelations.research.verdant_bands.title=Verdant Bands
 crimsonrevelations.research.verdant_bands.stage.0=Thanks to my previous successes with Runic Baubles, I've figured out how to convert any type of Verdant Heart Charm into its respective Verdant Heart Band counterpart at an Arcane Workbench.<BR>This would allow me to have both infusion enchantments if I so desire and should I change my mind, I am freely able to turn them back into charms using the same method. I also am able to craft them normally like I can with the charms.<PAGE>As I have previously noted with the charms, the Verdant Heart Band will wash all poisons or similar afflictions from my body at the cost of vis, but cannot heal actual wounds.<BR>There are two specialized enchantments I can apply to the band to improve its function, though I can only apply one of these enchantments to a given band.<LINE><PAGE>§lLifegiver§r<DIV>This infusion enchantment allows the Verdant Heart Band to regenerate the health of whomever wears it.<BR>§lSustainer§r<DIV>This infusion enchantment allows the Verdant Heart Band to slowly feed and sustain whomever wears it. This includes providing breathable air.
+
+crimsonrevelations.research.void_goggles.title=Goggles of Rift Vision
+crimsonrevelations.research.void_goggles.stage.0=[WIP]
 
 # Research: Auromancy
 crimsonrevelations.research.dark_auromancy.title=Dark Auromancy Studies

@@ -12,6 +12,7 @@ import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemVerdantRing;
+import mod.icarus.crimsonrevelations.item.baubles.CRItemVoidGoggles;
 import mod.icarus.crimsonrevelations.item.tools.CRItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemPrimordialScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemSanitationScribingTools;
@@ -64,6 +65,7 @@ public class CRItems {
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_CHESTPLATE = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_HELMET = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_LEGGINGS = null;
+    public static final CRItemVoidGoggles VOID_GOGGLES = null;
     public static final CRItemKnowledgeScribingTools KNOWLEDGE_SCRIBING_TOOLS = null;
     public static final CRItemManaBean MANA_BEAN = null;
     public static final CRItemPrimordialScribingTools PRIMORDIAL_SCRIBING_TOOLS = null;
@@ -95,6 +97,8 @@ public class CRItems {
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
+                
+                CRRegistry.setup(new CRItemVoidGoggles(), "void_goggles"),
 
                 CRRegistry.setup(new CRItemBoneBow(), "bone_bow"),
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "aer_arrow"),
@@ -130,7 +134,7 @@ public class CRItems {
                 .filter(block -> block.getRegistryName().getNamespace().equals(NewCrimsonRevelations.MODID))
                 .filter(block -> !(block instanceof BlockDoor)) // Doors should not have an item block registered
                 .filter(block -> !(block instanceof BlockSlab)) // Slabs should not have an item block registered
-                .filter(block -> !(block instanceof CRBlockManaPod)) // Mana Pods should not have an item block registered >:|
+                .filter(block -> !(block instanceof CRBlockManaPod)) // Mana Pods should not have an item block registered
                 .forEach(block -> registry.register(CRRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
