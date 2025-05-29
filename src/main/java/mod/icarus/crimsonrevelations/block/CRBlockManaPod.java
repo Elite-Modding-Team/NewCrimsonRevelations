@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -29,7 +30,6 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.internal.WorldCoordinates;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -67,6 +67,10 @@ public class CRBlockManaPod extends Block implements IGrowable {
 
     protected int getAge(IBlockState state) {
         return state.getValue(this.getAgeProperty());
+    }
+
+    public int getMaxAge() {
+        return 8;
     }
 
     public IBlockState withAge(int age) {
@@ -205,38 +209,36 @@ public class CRBlockManaPod extends Block implements IGrowable {
     }
 
     @Override
-    public ArrayList<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        ArrayList<ItemStack> dropped = new ArrayList<>();
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         int metadata = getMetaFromState(state);
 
-        if (metadata < 2) {
-            return dropped;
+        if (metadata >= 2) {
+            byte b0 = 1;
+
+            if (metadata >= 7 && ((World) world).rand.nextFloat() > 0.33F) {
+                b0 = 2;
+            }
+
+            Aspect aspect = Aspect.PLANT;
+
+            if (st.containsKey(new WorldCoordinates(pos, ((World) world).provider.getDimension()))) {
+                aspect = (Aspect) st.get(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
+            } else {
+                TileEntity tile = world.getTileEntity(pos);
+                if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null) {
+                    aspect = ((CRTileManaPod) tile).aspect;
+                }
+            }
+
+            for (int k1 = 0; k1 < b0; ++k1) {
+                ItemStack i = new ItemStack(CRItems.MANA_BEAN);
+
+                ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+                drops.add(i);
+            }
+
+            st.remove(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
         }
-
-        byte b0 = 1;
-
-        if (metadata >= 7 && ((World) world).rand.nextFloat() > 0.33F) {
-            b0 = 2;
-        }
-
-        Aspect aspect = Aspect.PLANT;
-
-        if (st.containsKey(new WorldCoordinates(pos, ((World) world).provider.getDimension()))) {
-            aspect = st.get(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
-        } else {
-            TileEntity tile = world.getTileEntity(pos);
-            if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null)
-                aspect = ((CRTileManaPod) tile).aspect;
-        }
-
-        for (int k1 = 0; k1 < b0; k1++) {
-            ItemStack i = new ItemStack(CRItems.MANA_BEAN);
-            ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
-            dropped.add(i);
-        }
-
-        st.remove(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
-        return dropped;
     }
 
     @SideOnly(Side.CLIENT)
