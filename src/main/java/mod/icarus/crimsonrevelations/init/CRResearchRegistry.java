@@ -26,7 +26,7 @@ import thaumcraft.common.entities.monster.cult.EntityCultistKnight;
 
 public class CRResearchRegistry {
     public static void init() {
-        // Golems
+        // Golem Materials
         GolemMaterial.register(
                 new GolemMaterial("CR_CULT_PLATE", new String[]{"CR_GOLEM_MAT_CULT_PLATE"}, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/entity/golem/mat_cult_plate.png"),
                         4342338, 22, 9, 3, // [Color, Health, Armor , Damage] - [1 = 0.5]
@@ -48,6 +48,7 @@ public class CRResearchRegistry {
                         new EnumGolemTrait[]{} // Starting Traits
                 )
         );
+
         // Focus Effects
         FocusEngine.registerElement(FocusEffectBlindingFlash.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/blinding_flash.png"), 16776421);
         FocusEngine.registerElement(FocusEffectPoison.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/poison.png"), 9039872);
@@ -62,6 +63,10 @@ public class CRResearchRegistry {
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/revelations"));
 
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumcraft"));
+
+        if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
+            ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/forbidden"));
+        }
 
         // Research
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));

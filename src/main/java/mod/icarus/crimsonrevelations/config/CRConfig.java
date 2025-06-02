@@ -102,6 +102,11 @@ public class CRConfig {
         @Config.RequiresMcRestart
         public double PRIMORDIAL_TOOLS_CURIOSITY_CHANCE = 0.3D;
 
+        @Config.Name("Research: Forbidden Magic")
+        @Config.Comment("Enables Forbidden Magic content (disable this if you prefer ReForbidden Magic's implementation of these items). [default: true]")
+        @Config.RequiresMcRestart
+        public boolean RESEARCH_FORBIDDEN_MAGIC = true;
+
         @Config.Name("Scribing Tools of Knowledge: Curiosity Chance")
         @Config.Comment("The percentage chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)

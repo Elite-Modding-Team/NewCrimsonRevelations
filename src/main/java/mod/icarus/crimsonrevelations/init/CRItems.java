@@ -4,6 +4,7 @@ import baubles.api.BaubleType;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
 import mod.icarus.crimsonrevelations.client.renderer.TileManaPodRenderer;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
@@ -15,6 +16,7 @@ import mod.icarus.crimsonrevelations.item.baubles.CRItemVerdantRing;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemVoidGoggles;
 import mod.icarus.crimsonrevelations.item.tools.CRItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemPrimordialScribingTools;
+import mod.icarus.crimsonrevelations.item.tools.CRItemPurifyingShovel;
 import mod.icarus.crimsonrevelations.item.tools.CRItemSanitationScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.CRItemBoneBow;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
@@ -97,7 +99,7 @@ public class CRItems {
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
-                
+
                 CRRegistry.setup(new CRItemVoidGoggles(), "void_goggles"),
 
                 CRRegistry.setup(new CRItemBoneBow(), "bone_bow"),
@@ -124,6 +126,12 @@ public class CRItems {
 
                 CRRegistry.setup(new CRItemManaBean(), "mana_bean")
         );
+
+        if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
+            registry.registerAll(
+                    CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel")
+            );
+        }
 
         if (Loader.isModLoaded("thaumicaugmentation")) {
             registry.register(CRRegistry.setup(new CRItemMeteorBoots(EntityEquipmentSlot.FEET), "meteor_boots"));
