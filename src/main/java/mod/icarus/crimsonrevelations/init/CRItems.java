@@ -12,6 +12,7 @@ import mod.icarus.crimsonrevelations.item.CRItemPickaxe;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
+import mod.icarus.crimsonrevelations.item.baubles.CRItemBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemVerdantRing;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemVoidGoggles;
@@ -85,6 +86,7 @@ public class CRItems {
     public static final CRItemSword CRIMSON_SWORD = null;
     public static final CRItemVerdantRing VERDANT_RING = null;
     public static final CRItemPickaxe DISTORTION_PICKAXE = null;
+    public static final CRItemBauble NUTRITION_RING = null;
     public static final CRItemPurifyingShovel PURIFYING_SHOVEL = null;
 
     @GameRegistry.ObjectHolder("meteor_boots")
@@ -134,7 +136,8 @@ public class CRItems {
         if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
             registry.registerAll(
                     CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel"),
-                    CRRegistry.setup(new CRItemPickaxe(ThaumcraftMaterials.TOOLMAT_ELEMENTAL, EnumRarity.RARE), "distortion_pickaxe")
+                    CRRegistry.setup(new CRItemPickaxe(ThaumcraftMaterials.TOOLMAT_ELEMENTAL, EnumRarity.RARE), "distortion_pickaxe"),
+                    CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring")
             );
         }
 

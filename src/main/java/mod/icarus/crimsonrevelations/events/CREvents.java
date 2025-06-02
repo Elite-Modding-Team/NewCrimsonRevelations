@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
@@ -21,6 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -118,30 +120,41 @@ public class CREvents {
             }
         }
     }
-    
+
     @SubscribeEvent
-    public void onPlayerBreakSpeedEvent(PlayerEvent.BreakSpeed event) {
+    public static void onItemUseFinish(LivingEntityUseItemEvent.Finish event) {
+        if (event.getEntityLiving() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+
+            // Ring of Nutrition boosts eaten foods
+            if (event.getItem().getItem() instanceof ItemFood) {
+                if (BaublesApi.isBaubleEquipped(player, CRItems.NUTRITION_RING) >= 0) {
+                    player.getFoodStats().addStats(1, 0.5F);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerBreakSpeedEvent(PlayerEvent.BreakSpeed event) {
         Item heldItem = event.getEntityPlayer().getHeldItemMainhand().getItem();
         BlockPos pos = event.getPos();
-        
+
         // Pickaxe of Distortion mines faster on harder blocks and mines slower on softer blocks
         if (heldItem == CRItems.DISTORTION_PICKAXE) {
             World world = event.getEntityPlayer().world;
             BlockPos pos1;
             pos1 = pos.add(0, 0, 0);
-            
+
             float hardness = world.getBlockState(pos1).getBlockHardness(world, pos1);
-            
+
             if (hardness == 0.0F) {
                 event.setNewSpeed(0.0F);
-            }
-            else if (hardness < 5.0F) {
+            } else if (hardness < 5.0F) {
                 event.setNewSpeed(0.1F);
-            }
-            else if (hardness < 20.0F) {
+            } else if (hardness < 20.0F) {
                 event.setNewSpeed(hardness / 2.0F);
-            }
-            else {
+            } else {
                 event.setNewSpeed(5.0F + hardness);
             }
         }
