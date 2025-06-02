@@ -8,6 +8,7 @@ import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
+import mod.icarus.crimsonrevelations.item.CRItemPickaxe;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
@@ -46,6 +47,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.Thaumcraft;
 import thaumcraft.api.ThaumcraftApiHelper;
+import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.aspects.Aspect;
 
 import javax.annotation.Nonnull;
@@ -82,6 +84,8 @@ public class CRItems {
     public static final CRItemSanitationScribingTools SANITATION_SCRIBING_TOOLS = null;
     public static final CRItemSword CRIMSON_SWORD = null;
     public static final CRItemVerdantRing VERDANT_RING = null;
+    public static final CRItemPickaxe DISTORTION_PICKAXE = null;
+    public static final CRItemPurifyingShovel PURIFYING_SHOVEL = null;
 
     @GameRegistry.ObjectHolder("meteor_boots")
     public static Item meteorBoots;
@@ -129,7 +133,8 @@ public class CRItems {
 
         if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
             registry.registerAll(
-                    CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel")
+                    CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel"),
+                    CRRegistry.setup(new CRItemPickaxe(ThaumcraftMaterials.TOOLMAT_ELEMENTAL, EnumRarity.RARE), "distortion_pickaxe")
             );
         }
 
