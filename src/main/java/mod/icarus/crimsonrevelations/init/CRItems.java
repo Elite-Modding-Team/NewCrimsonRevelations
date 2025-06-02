@@ -104,7 +104,7 @@ public class CRItems {
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
 
-                CRRegistry.setup(new CRItemVoidGoggles(), "void_goggles"),
+                //CRRegistry.setup(new CRItemVoidGoggles(), "void_goggles"),
 
                 CRRegistry.setup(new CRItemBoneBow(), "bone_bow"),
                 CRRegistry.setup(new CRItemArrow(EnumRarity.UNCOMMON), "aer_arrow"),
