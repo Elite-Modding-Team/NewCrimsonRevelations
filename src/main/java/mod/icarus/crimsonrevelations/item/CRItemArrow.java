@@ -32,7 +32,6 @@ public class CRItemArrow extends ItemArrow {
         if (this == CRItems.AER_ARROW) {
             EntityPrimalArrow aerArrow = new EntityPrimalArrow(world, shooter, CRItems.AER_ARROW);
             aerArrow.setArrowType(0);
-            aerArrow.setKnockbackStrength(2);
             aerArrow.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (itemRand.nextFloat() * 0.4F + 0.8F));
             return aerArrow;
         } else if (this == CRItems.AQUA_ARROW) {

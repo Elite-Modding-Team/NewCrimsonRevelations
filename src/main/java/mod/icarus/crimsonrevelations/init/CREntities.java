@@ -4,9 +4,16 @@ import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.dispenser.BehaviorProjectileDispense;
+import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.IProjectile;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -15,9 +22,72 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import thaumcraft.common.entities.monster.EntityBrainyZombie;
 import thaumcraft.common.entities.monster.EntityGiantBrainyZombie;
+import thaumcraft.common.lib.SoundsTC;
 
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 public class CREntities {
+    public static void registerDispenserBehavior() {
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(CRItems.AER_ARROW, new BehaviorProjectileDispense() {
+            protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+                EntityPrimalArrow entity = new EntityPrimalArrow(worldIn, position.getX(), position.getY(), position.getZ(), CRItems.AER_ARROW);
+                entity.pickupStatus = EntityPrimalArrow.PickupStatus.ALLOWED;
+                entity.setArrowType(0);
+                entity.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                return entity;
+            }
+        });
+
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(CRItems.AQUA_ARROW, new BehaviorProjectileDispense() {
+            protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+                EntityPrimalArrow entity = new EntityPrimalArrow(worldIn, position.getX(), position.getY(), position.getZ(), CRItems.AQUA_ARROW);
+                entity.pickupStatus = EntityPrimalArrow.PickupStatus.ALLOWED;
+                entity.setArrowType(1);
+                entity.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                return entity;
+            }
+        });
+
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(CRItems.IGNIS_ARROW, new BehaviorProjectileDispense() {
+            protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+                EntityPrimalArrow entity = new EntityPrimalArrow(worldIn, position.getX(), position.getY(), position.getZ(), CRItems.IGNIS_ARROW);
+                entity.pickupStatus = EntityPrimalArrow.PickupStatus.ALLOWED;
+                entity.setArrowType(2);
+                entity.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                return entity;
+            }
+        });
+
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(CRItems.ORDO_ARROW, new BehaviorProjectileDispense() {
+            protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+                EntityPrimalArrow entity = new EntityPrimalArrow(worldIn, position.getX(), position.getY(), position.getZ(), CRItems.ORDO_ARROW);
+                entity.pickupStatus = EntityPrimalArrow.PickupStatus.ALLOWED;
+                entity.setArrowType(3);
+                entity.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                return entity;
+            }
+        });
+
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(CRItems.PERDITIO_ARROW, new BehaviorProjectileDispense() {
+            protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+                EntityPrimalArrow entity = new EntityPrimalArrow(worldIn, position.getX(), position.getY(), position.getZ(), CRItems.PERDITIO_ARROW);
+                entity.pickupStatus = EntityPrimalArrow.PickupStatus.ALLOWED;
+                entity.setArrowType(4);
+                entity.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                return entity;
+            }
+        });
+
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(CRItems.TERRA_ARROW, new BehaviorProjectileDispense() {
+            protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+                EntityPrimalArrow entity = new EntityPrimalArrow(worldIn, position.getX(), position.getY(), position.getZ(), CRItems.TERRA_ARROW);
+                entity.pickupStatus = EntityPrimalArrow.PickupStatus.ALLOWED;
+                entity.setArrowType(5);
+                entity.playSound(SoundsTC.hhoff, 0.6F, 0.8F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                return entity;
+            }
+        });
+    }
+
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         int id = 0;

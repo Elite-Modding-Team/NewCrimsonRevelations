@@ -292,10 +292,14 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
                         entitylivingbase.setArrowCountInEntity(entitylivingbase.getArrowCountInEntity() + 1);
                     }
 
-                    if (this.knockbackStrength > 0) {
+                    if (this.knockbackStrength > 0 || this.getArrowType() == 0) {
                         float hVelocity = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-                        if (hVelocity > 0.0F) {
+
+                        // Aer Arrows apply extra knockback except we are also doing this check to account for Punch or anything else overriding the knockback strength
+                        if (hVelocity > 0.0F && this.getArrowType() != 0) {
                             entitylivingbase.addVelocity(this.motionX * (double) this.knockbackStrength * 0.6D / (double) hVelocity, 0.1D, this.motionZ * (double) this.knockbackStrength * 0.6D / (double) hVelocity);
+                        } else if (hVelocity > 0.0F && this.getArrowType() == 0) {
+                            entitylivingbase.addVelocity(this.motionX * (1.0D + (double) this.knockbackStrength) * 0.6D / (double) hVelocity, 0.1D, this.motionZ * (1.0D + (double) this.knockbackStrength * 0.6D) / (double) hVelocity);
                         }
                     }
 
