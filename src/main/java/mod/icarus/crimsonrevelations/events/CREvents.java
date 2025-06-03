@@ -129,7 +129,7 @@ public class CREvents {
             // Ring of Nutrition boosts eaten foods
             if (event.getItem().getItem() instanceof ItemFood) {
                 if (BaublesApi.isBaubleEquipped(player, CRItems.NUTRITION_RING) >= 0) {
-                    player.getFoodStats().addStats(1, 0.5F);
+                    player.getFoodStats().addStats(2, 1.0F);
                 }
             }
         }

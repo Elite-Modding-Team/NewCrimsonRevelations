@@ -277,6 +277,24 @@ public class CRRecipes {
                         CRItems.CRIMSON_FABRIC,
                         CRItems.CRIMSON_FABRIC));
 
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "distortion_pickaxe"),
+                new InfusionRecipe("CR_DISTORTION_PICKAXE", new ItemStack(CRItems.DISTORTION_PICKAXE), 1,
+                        new AspectList().add(Aspect.ENTROPY, 40).add(Aspect.TOOL, 40).add(Aspect.FLUX, 40),
+                        ItemsTC.thaumiumPick,
+                        ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
+                        ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
+                        ItemsTC.quicksilver,
+                        new ItemStack(ItemsTC.nuggets, 1, 10),
+                        BlocksTC.logGreatwood));
+
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
+                new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
+                        new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),
+                        new ItemStack(ItemsTC.baubles, 1, 1),
+                        ThaumcraftApiHelper.makeCrystal(Aspect.LIFE, 1),
+                        ThaumcraftApiHelper.makeCrystal(Aspect.ALCHEMY, 1),
+                        ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1)));
+
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
                         new AspectList().add(Aspect.METAL, 40).add(Aspect.AVERSION, 25).add(Aspect.PROTECT, 20),
@@ -311,13 +329,23 @@ public class CRRecipes {
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "primordial_scribing_tools"),
                 new InfusionRecipe("CR_PRIMORDIAL_SCRIBING_TOOLS", new ItemStack(CRItems.PRIMORDIAL_SCRIBING_TOOLS), 0,
                         new AspectList().add(Aspect.AIR, 50).add(Aspect.EARTH, 50).add(Aspect.ENTROPY, 50).add(Aspect.FIRE, 50).add(Aspect.ORDER, 50).add(Aspect.WATER, 50),
-                        new ItemStack(ItemsTC.scribingTools),
+                        ItemsTC.scribingTools,
                         ItemsTC.primordialPearl,
                         ItemsTC.voidSeed,
                         ItemsTC.voidSeed,
                         CRItems.KNOWLEDGE_SCRIBING_TOOLS,
                         CRItems.SANITATION_SCRIBING_TOOLS,
                         ItemsTC.voidSeed));
+
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),
+                new InfusionRecipe("CR_PURIFYING_SHOVEL", new ItemStack(CRItems.PURIFYING_SHOVEL), 1,
+                        new AspectList().add(Aspect.LIFE, 40).add(Aspect.LIGHT, 40).add(Aspect.TOOL, 40),
+                        ItemsTC.thaumiumShovel,
+                        ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
+                        ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
+                        ItemsTC.quicksilver,
+                        new ItemStack(ItemsTC.nuggets, 1, 10),
+                        BlocksTC.logSilverwood));
 
         ItemStack runicAmuletStack = new ItemStack(CRItems.RUNIC_AMULET);
         runicAmuletStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 8));
