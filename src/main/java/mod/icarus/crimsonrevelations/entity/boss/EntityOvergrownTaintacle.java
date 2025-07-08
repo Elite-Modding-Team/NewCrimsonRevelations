@@ -33,7 +33,7 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
 
     public EntityOvergrownTaintacle(World world) {
         super(world);
-        this.bossInfo = new BossInfoServer(this.getDisplayName(), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS);
+        this.bossInfo = new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS);
         this.setSize(1.0F, 5.5F);
         this.experienceValue = 50;
     }
@@ -85,6 +85,7 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
         setHealth(getMaxHealth());
         setCustomNameTag(ChampionModifier.mods[type].getModNameLocalized() + " " + getName());
         enablePersistence();
+
         switch (type) {
             // Bold
             case 0: {
@@ -142,6 +143,12 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
         this.makeChampion();
         this.bossInfo.setName(this.getDisplayName());
         return super.onInitialSpawn(diff, data);
+    }
+
+    @Override
+    public void setCustomNameTag(String name) {
+        super.setCustomNameTag(name);
+        this.bossInfo.setName(this.getDisplayName());
     }
 
     @Override

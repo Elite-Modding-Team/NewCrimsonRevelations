@@ -38,7 +38,7 @@ public class NewCrimsonRevelations {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         CREntities.registerDispenserBehavior();
-        
+
         CRCompatHandler.init();
         CRConfigLists.initLists();
         CRResearchRegistry.init();
