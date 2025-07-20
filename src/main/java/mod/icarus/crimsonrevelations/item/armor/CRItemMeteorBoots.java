@@ -154,7 +154,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
     // TODO: Make damage affected by fall distance?
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
-        boolean hasCharge = RechargeHelper.getCharge(stack) > 0;
+        boolean hasCharge = RechargeHelper.getCharge(stack) > 1;
 
         // Activate smash state once the sneak key is pressed. Do not activate while flying.
         if (player.isSneaking() && !player.capabilities.isFlying && !player.isElytraFlying() && player.fallDistance > 0.0F && hasCharge) {
