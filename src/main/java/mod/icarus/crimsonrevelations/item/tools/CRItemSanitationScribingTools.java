@@ -36,7 +36,7 @@ public class CRItemSanitationScribingTools extends CRItem implements IScribeTool
     public CRItemSanitationScribingTools() {
         super(EnumRarity.RARE);
         this.maxStackSize = 1;
-        this.setMaxDamage(80);
+        this.setMaxDamage(60);
         this.setHasSubtypes(false);
         this.addPropertyOverride(new ResourceLocation("depleted"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -72,16 +72,17 @@ public class CRItemSanitationScribingTools extends CRItem implements IScribeTool
         if (stack.getItemDamage() >= stack.getMaxDamage() && !getDepletedState(stack)) {
             if (!world.isRemote) {
                 // Removes some normal warp.
-                if (warp.get(EnumWarpType.NORMAL) > 10) {
-                    int amount = 5 + world.rand.nextInt(5);
-                    ThaumcraftApi.internalMethods.addWarpToPlayer(player, -amount, EnumWarpType.NORMAL);
+                if (warp.get(EnumWarpType.NORMAL) > 3) {
+                    ThaumcraftApi.internalMethods.addWarpToPlayer(player, -3, EnumWarpType.NORMAL);
                 } else if (warp.get(EnumWarpType.NORMAL) > 0) {
                     ThaumcraftApi.internalMethods.addWarpToPlayer(player, -1, EnumWarpType.NORMAL);
                 }
 
-                // Removes all temporary warp.
-                if (warp.get(EnumWarpType.TEMPORARY) > 0) {
-                    ThaumcraftApi.internalMethods.addWarpToPlayer(player, -warp.get(EnumWarpType.TEMPORARY), EnumWarpType.TEMPORARY);
+                // Removes some temporary warp.
+                if (warp.get(EnumWarpType.TEMPORARY) > 5) {
+                    ThaumcraftApi.internalMethods.addWarpToPlayer(player, -5, EnumWarpType.NORMAL);
+                } else if (warp.get(EnumWarpType.TEMPORARY) > 0) {
+                    ThaumcraftApi.internalMethods.addWarpToPlayer(player, -1, EnumWarpType.NORMAL);
                 }
 
                 if (FMLLaunchHandler.side().isClient()) {
@@ -95,8 +96,8 @@ public class CRItemSanitationScribingTools extends CRItem implements IScribeTool
             player.swingArm(EnumHand.MAIN_HAND);
             player.playSound(SoundsTC.hhon, 0.8F, 0.6F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
 
-            // 1 hour of Warp Ward.
-            player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, 60 * 1200, 0, false, false));
+            // 20 minutes of Warp Ward.
+            player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, 20 * 1200, 0, false, false));
 
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.sanitation").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             setDepletedState(stack, true);

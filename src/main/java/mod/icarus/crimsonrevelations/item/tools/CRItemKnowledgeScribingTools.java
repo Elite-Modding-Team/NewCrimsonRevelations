@@ -40,7 +40,7 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
     public CRItemKnowledgeScribingTools() {
         super(EnumRarity.RARE);
         this.maxStackSize = 1;
-        this.setMaxDamage(40);
+        this.setMaxDamage(60);
         this.setHasSubtypes(false);
         this.addPropertyOverride(new ResourceLocation("depleted"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)

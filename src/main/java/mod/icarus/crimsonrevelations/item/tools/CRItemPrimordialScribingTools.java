@@ -39,7 +39,7 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
     public CRItemPrimordialScribingTools() {
         super(EnumRarity.EPIC);
         this.maxStackSize = 1;
-        this.setMaxDamage(60);
+        this.setMaxDamage(200);
         this.setHasSubtypes(false);
     }
 
