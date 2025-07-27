@@ -44,7 +44,7 @@ public class FocusEffectTaintPoison extends FocusEffect {
     }
 
     @Override
-    public float getDamageForDisplay(final float finalPower) {
+    public float getDamageForDisplay(float finalPower) {
         return (4.0F + this.getSettingValue("power")) * finalPower;
     }
 
@@ -54,7 +54,7 @@ public class FocusEffectTaintPoison extends FocusEffect {
     }
 
     @Override
-    public boolean execute(final RayTraceResult target, final Trajectory trajectory, final float finalPower, final int num) {
+    public boolean execute(RayTraceResult target, Trajectory trajectory, float finalPower, int num) {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
         this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.bubble, SoundCategory.PLAYERS, 0.33F, 0.65F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
         this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.egscreech, SoundCategory.PLAYERS, 0.2F, 1.5F + (float) (this.getPackage().world.rand.nextGaussian() * 0.1F));
@@ -81,9 +81,9 @@ public class FocusEffectTaintPoison extends FocusEffect {
     @Override
     @SideOnly(Side.CLIENT)
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
-        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
+        FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         int color = 10354925;
-        
+
         pp.setGravity(-0.2F);
         pp.setMaxAge(10 + world.rand.nextInt(5));
         pp.setParticles(575, 8, 8);

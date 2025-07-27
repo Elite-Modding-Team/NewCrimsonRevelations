@@ -7,6 +7,7 @@ import mod.icarus.crimsonrevelations.client.renderer.TileManaPodRenderer;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.item.CRItem;
 import mod.icarus.crimsonrevelations.item.CRItemArrow;
+import mod.icarus.crimsonrevelations.item.CRItemLitmusPaper;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
 import mod.icarus.crimsonrevelations.item.CRItemPickaxe;
 import mod.icarus.crimsonrevelations.item.CRItemSword;
@@ -20,7 +21,9 @@ import mod.icarus.crimsonrevelations.item.tools.CRItemKnowledgeScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemPrimordialScribingTools;
 import mod.icarus.crimsonrevelations.item.tools.CRItemPurifyingShovel;
 import mod.icarus.crimsonrevelations.item.tools.CRItemSanitationScribingTools;
+import mod.icarus.crimsonrevelations.item.tools.CRItemTechnomancerScribingTools;
 import mod.icarus.crimsonrevelations.item.weapons.CRItemBoneBow;
+import mod.icarus.crimsonrevelations.item.weapons.CRItemExecutionAxe;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -57,22 +60,22 @@ import javax.annotation.Nonnull;
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CRItems {
-    public static final CRItem CRIMSON_FABRIC = null;
-    public static final CRItem CRIMSON_PLATE = null;
-    public static final CRItem EMBELLISHED_CRIMSON_FABRIC = null;
     public static final CRItemArrow AER_ARROW = null;
     public static final CRItemArrow AQUA_ARROW = null;
-    public static final CRItemArrow IGNIS_ARROW = null;
-    public static final CRItemArrow ORDO_ARROW = null;
-    public static final CRItemArrow PERDITIO_ARROW = null;
-    public static final CRItemArrow TERRA_ARROW = null;
     public static final CRItemBoneBow BONE_BOW = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_CHESTPLATE = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_HELMET = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_LEGGINGS = null;
-    public static final CRItemVoidGoggles VOID_GOGGLES = null;
+    public static final CRItem CRIMSON_FABRIC = null;
+    public static final CRItem CRIMSON_PLATE = null;
+    public static final CRItemSword CRIMSON_SWORD = null;
+    public static final CRItem EMBELLISHED_CRIMSON_FABRIC = null;
+    public static final CRItemExecutionAxe EXECUTION_AXE = null;
+    public static final CRItemArrow IGNIS_ARROW = null;
     public static final CRItemKnowledgeScribingTools KNOWLEDGE_SCRIBING_TOOLS = null;
     public static final CRItemManaBean MANA_BEAN = null;
+    public static final CRItemArrow ORDO_ARROW = null;
+    public static final CRItemArrow PERDITIO_ARROW = null;
     public static final CRItemPrimordialScribingTools PRIMORDIAL_SCRIBING_TOOLS = null;
     public static final CRItemRunicBauble PROTECTION_RING = null;
     public static final CRItemRunicBauble RUNIC_AMULET = null;
@@ -83,11 +86,17 @@ public class CRItems {
     public static final CRItemRunicBauble RUNIC_RING_CHARGED = null;
     public static final CRItemRunicBauble RUNIC_RING_REGEN = null;
     public static final CRItemSanitationScribingTools SANITATION_SCRIBING_TOOLS = null;
-    public static final CRItemSword CRIMSON_SWORD = null;
+    public static final CRItemArrow TERRA_ARROW = null;
     public static final CRItemVerdantRing VERDANT_RING = null;
+    
+    // Unused
+    public static final CRItemVoidGoggles VOID_GOGGLES = null;
+    
+    // Optional Content
     public static final CRItemPickaxe DISTORTION_PICKAXE = null;
     public static final CRItemBauble NUTRITION_RING = null;
     public static final CRItemPurifyingShovel PURIFYING_SHOVEL = null;
+    public static final CRItemLitmusPaper THAUMIC_LITMUS_PAPER = null;
 
     @GameRegistry.ObjectHolder("meteor_boots")
     public static Item meteorBoots;
@@ -101,6 +110,7 @@ public class CRItems {
                 CRRegistry.setup(new CRItem(EnumRarity.UNCOMMON), "embellished_crimson_fabric"),
                 CRRegistry.setup(new CRItem(EnumRarity.UNCOMMON), "crimson_plate"),
                 CRRegistry.setup(new CRItemSword(CRMaterials.TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
+                CRRegistry.setup(new CRItemExecutionAxe(), "execution_axe"),
 
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
@@ -126,18 +136,20 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
                 CRRegistry.setup(new CRItemVerdantRing(), "verdant_ring"),
 
+                CRRegistry.setup(new CRItemTechnomancerScribingTools(), "technomancer_scribing_tools"),
                 CRRegistry.setup(new CRItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
                 CRRegistry.setup(new CRItemSanitationScribingTools(), "sanitation_scribing_tools"),
                 CRRegistry.setup(new CRItemPrimordialScribingTools(), "primordial_scribing_tools"),
 
-                CRRegistry.setup(new CRItemManaBean(), "mana_bean")
+                CRRegistry.setup(new CRItemManaBean(), "mana_bean"),
+                CRRegistry.setup(new CRItemLitmusPaper(), "thaumic_litmus_paper")
         );
 
         if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
             registry.registerAll(
-                    CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel"),
                     CRRegistry.setup(new CRItemPickaxe(ThaumcraftMaterials.TOOLMAT_ELEMENTAL, EnumRarity.RARE), "distortion_pickaxe"),
-                    CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring")
+                    CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring"),
+                    CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel")
             );
         }
 

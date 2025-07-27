@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectBlindingFlash;
+import mod.icarus.crimsonrevelations.casters.foci.FocusEffectHex;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectPoison;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectTaintPoison;
 import mod.icarus.crimsonrevelations.config.CRConfig;
@@ -51,6 +52,7 @@ public class CRResearchRegistry {
 
         // Focus Effects
         FocusEngine.registerElement(FocusEffectBlindingFlash.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/blinding_flash.png"), 16776421);
+        FocusEngine.registerElement(FocusEffectHex.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/hex.png"), 2815273);
         FocusEngine.registerElement(FocusEffectPoison.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/poison.png"), 9039872);
 
         // Research Categories

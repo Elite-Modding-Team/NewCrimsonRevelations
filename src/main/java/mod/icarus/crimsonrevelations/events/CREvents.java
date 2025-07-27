@@ -9,16 +9,19 @@ import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.world.WorldGenManaPods;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -27,13 +30,17 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.common.world.biomes.BiomeGenMagicalForest;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+@SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CREvents {
@@ -90,6 +97,50 @@ public class CREvents {
 
                     player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_CHARGED));
                 }
+            }
+        }
+    }
+
+    // Axe of Execution - Smelts wood chopped, also works with Fortune and gives experience.
+    @SubscribeEvent
+    public static void onDropsSmelted(BlockEvent.HarvestDropsEvent event) {
+        if (event.getHarvester() != null && (event.getHarvester().getHeldItemMainhand().getItem() == CRItems.EXECUTION_AXE)) {
+            if (event.getState().getBlock().canHarvestBlock(event.getWorld(), event.getPos(), event.getHarvester())) {
+                List<ItemStack> to_be_removed = new ArrayList<ItemStack>();
+                List<ItemStack> to_be_added = new ArrayList<ItemStack>();
+
+                for (ItemStack input : event.getDrops()) {
+                    ItemStack result = FurnaceRecipes.instance().getSmeltingResult(input);
+
+                    if (!result.isEmpty()) {
+                        int i = input.getCount() * result.getCount();
+                        float f = FurnaceRecipes.instance().getSmeltingExperience(result);
+
+                        to_be_added.add(new ItemStack(result.getItem(), i + new Random().nextInt(2 + event.getFortuneLevel() - 1), result.getItemDamage()));
+                        to_be_removed.add(input);
+
+                        if (f == 0.0F) {
+                            i = 0;
+                        } else if (f < 1.0F) {
+                            int j = MathHelper.floor((float) i * f);
+
+                            if (j < MathHelper.ceil((float) i * f) && Math.random() < (double) ((float) i * f - (float) j)) {
+                                ++j;
+                            }
+
+                            i = j;
+                        }
+
+                        while (i > 0) {
+                            int k = EntityXPOrb.getXPSplit(i);
+                            i -= k;
+                            event.getHarvester().world.spawnEntity(new EntityXPOrb(event.getWorld(), event.getPos().getX(), event.getPos().getY() + 0.5D, event.getPos().getZ(), k));
+                        }
+                    }
+                }
+
+                event.getDrops().addAll(to_be_added);
+                event.getDrops().removeAll(to_be_removed);
             }
         }
     }

@@ -46,7 +46,7 @@ public class FocusEffectBlindingFlash extends FocusEffect {
     }
 
     @Override
-    public float getDamageForDisplay(final float finalPower) {
+    public float getDamageForDisplay(float finalPower) {
         return (3.0F + this.getSettingValue("power")) * finalPower;
     }
 
@@ -56,13 +56,13 @@ public class FocusEffectBlindingFlash extends FocusEffect {
     }
 
     @Override
-    public boolean execute(final RayTraceResult target, final Trajectory trajectory, final float finalPower, final int num) {
+    public boolean execute(RayTraceResult target, Trajectory trajectory, float finalPower, int num) {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
         this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, CRSoundEvents.FOCUS_BLINDING_LIGHT_HIT, SoundCategory.PLAYERS, 0.8F, 1.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
 
         if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit != null) {
-            final int duration = 20 * this.getSettingValue("duration");
-            final int potency = (int) (1.0F + this.getSettingValue("power") * finalPower / 2.0F);
+            int duration = 20 * this.getSettingValue("duration");
+            int potency = (int) (1.0F + this.getSettingValue("power") * finalPower / 2.0F);
 
             if (((EntityLivingBase) target.entityHit).isEntityUndead()) {
                 target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage((target.entityHit != null) ? target.entityHit : this.getPackage().getCaster(), this.getPackage().getCaster()).setDamageBypassesArmor().setDamageIsAbsolute(), this.getSettingValue("power") * finalPower * 2.0F);
@@ -91,9 +91,9 @@ public class FocusEffectBlindingFlash extends FocusEffect {
     @Override
     @SideOnly(Side.CLIENT)
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
-        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
+        FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         int color = 16776421;
-        
+
         pp.setAlphaF(new float[]{0.0F, 1.0F});
         pp.setGravity(-0.2F);
         pp.setGridSize(64);

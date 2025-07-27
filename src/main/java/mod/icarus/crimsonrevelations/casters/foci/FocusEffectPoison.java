@@ -44,7 +44,7 @@ public class FocusEffectPoison extends FocusEffect {
     }
 
     @Override
-    public float getDamageForDisplay(final float finalPower) {
+    public float getDamageForDisplay(float finalPower) {
         return (2.0F + this.getSettingValue("power")) * finalPower;
     }
 
@@ -54,14 +54,14 @@ public class FocusEffectPoison extends FocusEffect {
     }
 
     @Override
-    public boolean execute(final RayTraceResult target, final Trajectory trajectory, final float finalPower, final int num) {
+    public boolean execute(RayTraceResult target, Trajectory trajectory, float finalPower, int num) {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
         this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.bubble, SoundCategory.PLAYERS, 0.33F, 5.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
 
         if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit != null) {
-            final float damage = this.getDamageForDisplay(finalPower);
-            final int duration = 40 * this.getSettingValue("duration");
-            final int potency = (int) (1.0F + this.getSettingValue("power") * finalPower / 2.0F);
+            float damage = this.getDamageForDisplay(finalPower);
+            int duration = 40 * this.getSettingValue("duration");
+            int potency = (int) (1.0F + this.getSettingValue("power") * finalPower / 2.0F);
             target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage((target.entityHit != null) ? target.entityHit : this.getPackage().getCaster(), this.getPackage().getCaster()), damage);
 
             if (target.entityHit instanceof EntityLivingBase) {
@@ -80,9 +80,9 @@ public class FocusEffectPoison extends FocusEffect {
     @Override
     @SideOnly(Side.CLIENT)
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
-        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
+        FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         int color = 9039872;
-        
+
         pp.setAlphaF(0.7F);
         pp.setGravity(-0.2F);
         pp.setMaxAge(7 + world.rand.nextInt(5));

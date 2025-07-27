@@ -20,6 +20,7 @@ item.crimsonrevelations.crimson_plate.name=Crimson Plate
 item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
 item.crimsonrevelations.distortion_pickaxe.name=Pickaxe of Distortion
 item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
+item.crimsonrevelations.execution_axe.name=Axe of Execution
 item.crimsonrevelations.ignis_arrow.name=Ignis Arrow
 item.crimsonrevelations.knowledge_scribing_tools.name=Scribing Tools of Knowledge
 item.crimsonrevelations.mana_bean.name=Mana Bean
@@ -29,6 +30,7 @@ item.crimsonrevelations.ordo_arrow.name=Ordo Arrow
 item.crimsonrevelations.perditio_arrow.name=Perditio Arrow
 item.crimsonrevelations.primordial_scribing_tools.name=Primordial Scribing Tools
 item.crimsonrevelations.protection_ring.name=Ring of Protection
+item.crimsonrevelations.purifying_shovel.name=Shovel of the Purifier
 item.crimsonrevelations.runic_amulet.name=Amulet of Runic Shielding
 item.crimsonrevelations.runic_amulet_emergency.name=Amulet of Emergency Shielding
 item.crimsonrevelations.runic_girdle.name=Girdle of Runic Shielding
@@ -37,8 +39,9 @@ item.crimsonrevelations.runic_ring.name=Ring of Runic Shielding
 item.crimsonrevelations.runic_ring_charged.name=Charged Ring of Runic Shielding
 item.crimsonrevelations.runic_ring_regen.name=Revitalizing Ring of Runic Shielding
 item.crimsonrevelations.sanitation_scribing_tools.name=Scribing Tools of Sanitation
-item.crimsonrevelations.purifying_shovel.name=Shovel of the Purifier
+item.crimsonrevelations.technomancer_scribing_tools.name=Technomancer's Scribing Tools
 item.crimsonrevelations.terra_arrow.name=Terra Arrow
+item.crimsonrevelations.thaumic_litmus_paper.name=Thaumic Litmus Paper
 item.crimsonrevelations.verdant_ring.name=Verdant Heart Band
 item.crimsonrevelations.void_goggles.name=Goggles of Rift Vision
 
@@ -155,7 +158,7 @@ crimsonrevelations.research.purifying_shovel.stage.1=By infusing auram vis cryst
 
 # Research: Fundamentals
 crimsonrevelations.research.knowledge_scribing_tools.title=Scribing Tools of Knowledge
-crimsonrevelations.research.knowledge_scribing_tools.stage.0=Upon infusing mundane scribing tools with the power of all primal vis crystals, Sensus vis crystals, and Salis Mundus, they'll become the Scribing Tools of Knowledge.<BR>They will allow me to absorb them for extra theories and observations once depleted by right-clicking them at that state, I can then recharge them with some Sensus vis crystals. There is also a small chance that some of the absorbed knowledge will turn into a useful curiosity for my own research!<BR>Just to leave a reminder to myself, they only have a little less than half of the capacity as mundane scribing tools and they no longer can be replenished with ink.<BR>If I were to no longer need that extra boost of theories and observations, it would be best to use the original.
+crimsonrevelations.research.knowledge_scribing_tools.stage.0=Upon infusing mundane scribing tools with the power of all primal vis crystals, Sensus vis crystals, and Salis Mundus, they'll become the Scribing Tools of Knowledge.<BR>They will allow me to absorb them for extra theories and observations once depleted by right-clicking them at that state, I can then recharge them with some Sensus vis crystals. There is also a small chance that some of the absorbed knowledge will turn into a useful curiosity for my own research!<BR>Just to leave a reminder to myself, they only have a little more than half of the capacity as mundane scribing tools and they no longer can be replenished with ink.<BR>If I were to no longer need that extra boost of theories and observations, it would be best to use the original.
 
 crimsonrevelations.research.mana_pods.title=Mana Pods
 crimsonrevelations.research.mana_pods.stage.0=This strange, pod-like plant is only found growing on trees in Magical Forests. They grow very slowly and when harvested, usually only yield one or two colorful beans.<BR>These beans, that I call Mana Beans, contain concentrated amounts of essentia. They can also be consumed for more knowledge on research, though the results afterwards are often a bit unpredictable.<PAGE>They can be replanted on the roof of a log in a Magical Forest, but cultivation proves to be difficult and time-consuming. Bone meal also seems to have no effect on them unlike other plants.<BR>Wild mana pods usually only produce primal aspects, though it is said that planting beans adjacent to existing ones sometimes result in beans with compound aspects.<BR>Fully learning the proper way to farm a specific aspect that I really need would be useful for my studies.
@@ -164,10 +167,10 @@ crimsonrevelations.research.more_research.title=Taking Steps Further
 crimsonrevelations.research.more_research.stage.0=I realized that with all the research that I have to do to discover more about the Crimson Cult and all the other mysteries of the world, it will unfortunately end up taking forever to learn everything, not to mention that I often have trouble running out of necessary supplies that prevent me from progressing further and thus wasting more of my precious time.<BR>I must see what I can do to at least improve this a bit...
 
 crimsonrevelations.research.primordial_scribing_tools.title=Primordial Scribing Tools
-crimsonrevelations.research.primordial_scribing_tools.stage.0=With a Primordial Pearl, void seeds, some of the other useful scribing tools I learned to create, and essentia of all primal aspects, I can upgrade mundane scribing tools into the Primordial Scribing Tools.<BR>These scribing tools have the same benefits as the other scribing tools that were infused into them.<PAGE>Once they are depleted, I can simply right-click the scribing tools to absorb them for knowledge and a sanity cleansing, they will also regenerate themselves as if they were never used up.<BR>They are the ultimate scribing tools for any thaumaturge!
+crimsonrevelations.research.primordial_scribing_tools.stage.0=With a Primordial Pearl, void seeds, some of the other useful scribing tools I learned to create, and essentia of all primal aspects, I can upgrade mundane scribing tools into the Primordial Scribing Tools.<BR>These scribing tools have most of the same benefits as the other scribing tools that were infused into them. They also have the additional benefits of removing all temporary warp and applying over an hour of Warp Ward unlike the Scribing Tools of Sanitation.<PAGE>Once they are depleted, I can simply right-click the scribing tools to absorb them for knowledge and a sanity cleansing, they will also regenerate themselves as if they were never used up.<BR>They are the ultimate scribing tools for any thaumaturge!
 
 crimsonrevelations.research.sanitation_scribing_tools.title=Scribing Tools of Sanitation
-crimsonrevelations.research.sanitation_scribing_tools.stage.0=To help with my sanity, I can create the Scribing Tools of Sanitation by infusing mundane scribing tools with all primal vis crystals, Cognitio vis crystals, and Sanitizing Soap.<BR>Similarly to the Scribing Tools of Knowledge, these scribing tools can be absorbed after they deplete by right-clicking them at that state. As I absorb them, I will get all temporary warp and some normal warp removed, I also will have over an hour of Warp Ward applied.<BR>I can then easily recharge the tools again using Cognitio vis crystals, but ink can no longer be used to replenish them. The capacity of these tools are also slightly less than mundane scribing tools.
+crimsonrevelations.research.sanitation_scribing_tools.stage.0=To help with my sanity, I can create the Scribing Tools of Sanitation by infusing mundane scribing tools with all primal vis crystals, Cognitio vis crystals, and Sanitizing Soap.<BR>Similarly to the Scribing Tools of Knowledge, these scribing tools can be absorbed after they deplete by right-clicking them at that state. As I absorb them, I will get some temporary warp and some normal warp removed, I also will have over twenty minutes of Warp Ward applied.<BR>I can then easily recharge the tools again using Cognitio vis crystals, but ink can no longer be used to replenish them. These tools also have a little more than half of the capacity as mundane scribing tools.
 
 # Research: Golemancy
 crimsonrevelations.research.dark_golemancy.title=Dark Golemancy Studies
@@ -189,12 +192,17 @@ message.crimsonrevelations.scribing_tools.primordial=Your scribing tools bestow 
 message.crimsonrevelations.scribing_tools.sanitation=Your scribing tools help clear up a portion of your stressed mind.
 
 # Tooltips
+enchantment.infusion.BEHEADING=Beheading
+
 tooltip.crimsonrevelations.scribing_tools.active=Right-click to absorb its power.
 tooltip.crimsonrevelations.scribing_tools.inactive=Depleted
 
 # Misc
 focus.crimsonrevelations.blinding_flash.name=Blinding Flash
 focus.crimsonrevelations.blinding_flash.text=Forms an orb of bright light that blinds and blurs targets while also causing weakness to non-players. Damage is doubled against undead targets but halved against non-undead targets.
+
+focus.crimsonrevelations.hex.name=Hex
+focus.crimsonrevelations.hex.text=Summons the powers of entropy to harm and disrupt the targeted creature. Does not place a static field and has less negative effect variety unlike Curse.
 
 focus.crimsonrevelations.poison.name=Poison
 focus.crimsonrevelations.poison.text=Summons a blob of goo at your target and poisons it for double the usual duration.
@@ -203,8 +211,13 @@ focus.crimsonrevelations.taint_poison.name=Taint Poison
 focus.crimsonrevelations.taint_poison.text=Unleashes a glob of infectious taint at your target and poisons it for double the usual duration. Vulnerable targets can become corrupted with taint.
 
 focus.common.double_duration=Duration (two seconds)
+focus.common.nightshade=Nightshade
 
 research.m_OVERGROWN_TAINTACLE.text=Eliminate an Overgrown Taintacle.
+
+status.crimsonrevelations.warp.normal=Normal Warp: %d
+status.crimsonrevelations.warp.permanent=Permanent Warp: %d
+status.crimsonrevelations.warp.temporary=Temporary Warp: %d
 
 golem.material.cr_cult_plate=Crimson Plate
 golem.material.text.cr_cult_plate=This golem is crafted from an unknown lightweight metal that originated from the Crimson Cult. While not resistant to explosions unlike iron and thaumium, it is quite light and still fireproof.
