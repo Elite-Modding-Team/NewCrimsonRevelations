@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
 import net.minecraft.block.BlockDispenser;
@@ -91,7 +92,7 @@ public class CREntities {
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         int id = 0;
 
-        //registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
+        registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 9438728, 0x2F8405);
         registerEntity("primal_arrow", EntityPrimalArrow.class, id++, 64, 1, true);
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION) {
