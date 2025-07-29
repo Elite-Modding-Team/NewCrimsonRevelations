@@ -42,7 +42,7 @@ public class CREnchantments {
         if (event.getEntityLiving() instanceof EntityPlayerMP) {
             return false;
         }
-        
+
         return event.getDrops().stream()
                 .map(EntityItem::getItem)
                 .anyMatch(drop -> ItemStack.areItemStacksEqual(drop, head));
@@ -50,11 +50,11 @@ public class CREnchantments {
 
     public static Collection<ItemStack> getHeadDrop(EntityLivingBase entity) {
         Collection<ItemStack> drops = new ArrayList<>();
-        
+
         for (Map.Entry<Class<? extends EntityLivingBase>, Function<EntityLivingBase, ItemStack>> entry : CRRegistry.headDrops.entries()) {
             if (entry.getKey().isAssignableFrom(entity.getClass())) {
                 ItemStack stack = entry.getValue().apply(entity);
-                
+
                 if (!stack.isEmpty()) {
                     drops.add(stack.copy());
                 }
@@ -71,23 +71,26 @@ public class CREnchantments {
     public static void onHeadDrop(LivingDropsEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
         Random random = entity.world.rand;
-        int level = EnumInfusionEnchantment.getInfusionEnchantmentLevel(entity.getAttackingEntity().getHeldItemMainhand(), CREnchantments.BEHEADING);
 
-        if (shouldDropHead(entity, level)) {
-            Collection<ItemStack> heads = getHeadDrop(event.getEntityLiving());
-            
-            if (!heads.isEmpty()) {
-                // Pick one random ItemStack from the collection
-                ItemStack head = heads.toArray(new ItemStack[0])[random.nextInt(heads.size())];
-                
-                if (head.getCount() > 1) {
-                    head.setCount(random.nextInt(head.getCount()) + 1);
-                }
-                
-                if (!head.isEmpty() && !alreadyContainsDrop(event, head)) {
-                    EntityItem entityitem = new EntityItem(event.getEntityLiving().getEntityWorld(), event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, head.copy());
-                    entityitem.setDefaultPickupDelay();
-                    event.getDrops().add(entityitem);
+        if (entity.getAttackingEntity() != null) {
+            int level = EnumInfusionEnchantment.getInfusionEnchantmentLevel(entity.getAttackingEntity().getHeldItemMainhand(), CREnchantments.BEHEADING);
+
+            if (shouldDropHead(entity, level)) {
+                Collection<ItemStack> heads = getHeadDrop(event.getEntityLiving());
+
+                if (!heads.isEmpty()) {
+                    // Pick one random ItemStack from the collection
+                    ItemStack head = heads.toArray(new ItemStack[0])[random.nextInt(heads.size())];
+
+                    if (head.getCount() > 1) {
+                        head.setCount(random.nextInt(head.getCount()) + 1);
+                    }
+
+                    if (!head.isEmpty() && !alreadyContainsDrop(event, head)) {
+                        EntityItem entityitem = new EntityItem(event.getEntityLiving().getEntityWorld(), event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, head.copy());
+                        entityitem.setDefaultPickupDelay();
+                        event.getDrops().add(entityitem);
+                    }
                 }
             }
         }
@@ -98,21 +101,21 @@ public class CREnchantments {
         // If keepInventory is true, players do not fire the living drops event
         EntityLivingBase entity = event.getEntityLiving();
         Random random = entity.world.rand;
-        
-        if (entity.world.getGameRules().getBoolean("keepInventory") && entity instanceof EntityPlayerMP) {
+
+        if (entity.getAttackingEntity() != null && entity.world.getGameRules().getBoolean("keepInventory") && entity instanceof EntityPlayerMP) {
             int level = EnumInfusionEnchantment.getInfusionEnchantmentLevel(entity.getAttackingEntity().getHeldItemMainhand(), CREnchantments.BEHEADING);
 
             if (shouldDropHead(entity, level)) {
                 Collection<ItemStack> heads = getHeadDrop(entity);
-                
+
                 if (!heads.isEmpty()) {
                     // Pick one random ItemStack from the collection
                     ItemStack head = heads.toArray(new ItemStack[0])[random.nextInt(heads.size())];
-                    
+
                     if (head.getCount() > 1) {
                         head.setCount(random.nextInt(head.getCount()) + 1);
                     }
-                    
+
                     if (!head.isEmpty()) {
                         ((EntityPlayerMP) entity).dropItem(head.copy(), true);
                     }
