@@ -39,7 +39,7 @@ public class FocusEffectPunch extends FocusEffect {
 
     @Override
     public int getComplexity() {
-        return this.getSettingValue("knockback") * 2;
+        return this.getSettingValue("knockback") * 3;
     }
 
     @Override
