@@ -68,6 +68,8 @@ public class FocusEffectTaintPoison extends FocusEffect {
             if (target.entityHit instanceof EntityLivingBase) {
                 ((EntityLivingBase) target.entityHit).addPotionEffect(new PotionEffect(PotionFluxTaint.instance, duration, potency));
             }
+
+            return true;
         }
 
         return false;

@@ -1,12 +1,11 @@
 package mod.icarus.crimsonrevelations.casters.foci;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -18,34 +17,34 @@ import thaumcraft.api.casters.NodeSetting;
 import thaumcraft.api.casters.Trajectory;
 import thaumcraft.client.fx.ParticleEngine;
 import thaumcraft.client.fx.particles.FXGeneric;
-import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
-public class FocusEffectPoison extends FocusEffect {
+// Knock them back!
+public class FocusEffectPunch extends FocusEffect {
     @Override
     public Aspect getAspect() {
-        return Aspect.ALCHEMY;
+        return Aspect.MAN;
     }
 
     @Override
     public String getKey() {
-        return "focus." + NewCrimsonRevelations.MODID + ".poison";
+        return "focus." + NewCrimsonRevelations.MODID + ".punch";
     }
 
     @Override
     public NodeSetting[] createSettings() {
-        return new NodeSetting[]{new NodeSetting("power", "focus.common.power", new NodeSetting.NodeSettingIntRange(1, 5)), new NodeSetting("duration", "focus.common.double_duration", new NodeSetting.NodeSettingIntRange(1, 10))};
+        return new NodeSetting[]{new NodeSetting("knockback", "focus.common.knockback", new NodeSetting.NodeSettingIntRange(1, 5))};
     }
 
     @Override
     public int getComplexity() {
-        return this.getSettingValue("duration") + this.getSettingValue("power") * 2;
+        return this.getSettingValue("knockback") * 2;
     }
 
     @Override
     public float getDamageForDisplay(float finalPower) {
-        return (2.0F + this.getSettingValue("power")) * finalPower;
+        return 0.0F;
     }
 
     @Override
@@ -56,16 +55,17 @@ public class FocusEffectPoison extends FocusEffect {
     @Override
     public boolean execute(RayTraceResult target, Trajectory trajectory, float finalPower, int num) {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
-        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.bubble, SoundCategory.PLAYERS, 0.33F, 5.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
+        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, CRSoundEvents.FOCUS_PUNCH_HIT, SoundCategory.PLAYERS, 0.33F, 1.0F + this.getPackage().world.rand.nextFloat() * 0.1F);
 
         if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit != null) {
-            float damage = this.getDamageForDisplay(finalPower);
-            int duration = 40 * this.getSettingValue("duration");
-            int potency = (int) (1.0F + this.getSettingValue("power") * finalPower / 2.0F);
-            target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage((target.entityHit != null) ? target.entityHit : this.getPackage().getCaster(), this.getPackage().getCaster()), damage);
+            float knockback = this.getSettingValue("knockback");
 
             if (target.entityHit instanceof EntityLivingBase) {
-                ((EntityLivingBase) target.entityHit).addPotionEffect(new PotionEffect(MobEffects.POISON, duration, potency));
+                if (trajectory != null) {
+                    ((EntityLivingBase) target.entityHit).knockBack(getPackage().getCaster(), knockback * 0.8F, -trajectory.direction.x, -trajectory.direction.z);
+                } else {
+                    ((EntityLivingBase) target.entityHit).knockBack(getPackage().getCaster(), knockback * 0.8F, -MathHelper.sin(target.entityHit.rotationYaw * 0.02F), MathHelper.cos(target.entityHit.rotationYaw * 0.02F));
+                }
             }
 
             return true;
@@ -76,22 +76,22 @@ public class FocusEffectPoison extends FocusEffect {
 
     @Override
     public void onCast(Entity caster) {
-        caster.world.playSound(null, caster.getPosition().up(), SoundsTC.bubble, SoundCategory.PLAYERS, 0.33F, 0.9F + caster.world.rand.nextFloat() * 0.1F);
+        caster.world.playSound(null, caster.getPosition().up(), CRSoundEvents.FOCUS_PUNCH_SHOOT, SoundCategory.PLAYERS, 0.9F, 1.0F + caster.world.rand.nextFloat() * 0.1F);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
         FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
-        int color = 9039872;
+        int color = 16357381;
 
-        pp.setAlphaF(0.7F);
-        pp.setGravity(-0.2F);
-        pp.setMaxAge(7 + world.rand.nextInt(5));
-        pp.setParticles(575, 8, 8);
+        pp.setAlphaF(0.5F);
+        pp.setMaxAge(5 + world.rand.nextInt(5));
+        int q = world.rand.nextInt(4);
+        pp.setParticles(704 + q * 3, 3, 1);
         pp.setRBGColorF(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
-        pp.setSlowDown(0.75D);
-        pp.setScale((float) (0.1F + world.rand.nextGaussian() * 0.2F), 2.0F);
+        pp.setSlowDown(0.5D);
+        pp.setScale((float) (2.0F + world.rand.nextGaussian() * 0.2F), 3.0F);
         ParticleEngine.addEffect(world, pp);
     }
 }

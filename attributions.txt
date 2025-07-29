@@ -1,9 +1,11 @@
 Assets used from other sources.
 
 Blinding Flash Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/explosion-rays.html (changes made)
+Gravity Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/black-hole-bolas.html (changes made)
+Marked Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/delapouite/eye-target.html (changes made)
 Poison Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/foam.html (changes made)
+Punch Focus Effect Hit Sound: damnsatinist, Attribution 4.0, https://freesound.org/people/damnsatinist/sounds/493916/
+Punch Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/punch-blast.html (changes made)
+Punch Focus Effect Shoot Sound: damnsatinist, Attribution 4.0, https://freesound.org/people/damnsatinist/sounds/493915/
 Research Tab Background: http://www.terminal26.de
 Taint Poison Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/foamy-disc.html (changes made)
-Marked Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/delapouite/eye-target.html (changes made)
-Punch Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/punch-blast.html (changes made)
-Gravity Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/black-hole-bolas.html (changes made)

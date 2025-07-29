@@ -207,10 +207,14 @@ focus.crimsonrevelations.hex.text=Summons the powers of entropy to harm and disr
 focus.crimsonrevelations.poison.name=Poison
 focus.crimsonrevelations.poison.text=Summons a blob of goo at your target and poisons it for double the usual duration.
 
+focus.crimsonrevelations.punch.name=Punch
+focus.crimsonrevelations.punch.text=Creates an opposing force that greatly knocks things back, but at the cost of dealing no damage.
+
 focus.crimsonrevelations.taint_poison.name=Taint Poison
 focus.crimsonrevelations.taint_poison.text=Unleashes a glob of infectious taint at your target and poisons it for double the usual duration. Vulnerable targets can become corrupted with taint.
 
 focus.common.double_duration=Duration (two seconds)
+focus.common.knockback=Knockback
 focus.common.nightshade=Nightshade
 
 research.m_OVERGROWN_TAINTACLE.text=Eliminate an Overgrown Taintacle.

@@ -9,6 +9,16 @@
       "crimsonrevelations:foci/blinding_light/shoot"
     ]
   },
+  "focus.punch.hit": {
+    "sounds": [
+      "crimsonrevelations:foci/punch/hit"
+    ]
+  },
+  "focus.punch.shoot": {
+    "sounds": [
+      "crimsonrevelations:foci/punch/shoot"
+    ]
+  },
   "bauble.runic.charge": {
     "sounds": [
       "crimsonrevelations:bauble/runic/charge"

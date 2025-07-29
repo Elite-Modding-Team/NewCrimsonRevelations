@@ -96,6 +96,8 @@ public class FocusEffectHex extends FocusEffect {
                     }
                 }
             }
+
+            return true;
         }
 
         return false;

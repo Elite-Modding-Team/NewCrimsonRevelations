@@ -78,6 +78,8 @@ public class FocusEffectBlindingFlash extends FocusEffect {
                     ((EntityLivingBase) target.entityHit).addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, duration, potency));
                 }
             }
+
+            return true;
         }
 
         return false;

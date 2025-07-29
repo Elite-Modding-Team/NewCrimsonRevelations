@@ -4,6 +4,7 @@ import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectBlindingFlash;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectHex;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectPoison;
+import mod.icarus.crimsonrevelations.casters.foci.FocusEffectPunch;
 import mod.icarus.crimsonrevelations.casters.foci.FocusEffectTaintPoison;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
@@ -54,6 +55,7 @@ public class CRResearchRegistry {
         FocusEngine.registerElement(FocusEffectBlindingFlash.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/blinding_flash.png"), 16776421);
         FocusEngine.registerElement(FocusEffectHex.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/hex.png"), 2815273);
         FocusEngine.registerElement(FocusEffectPoison.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/poison.png"), 9039872);
+        FocusEngine.registerElement(FocusEffectPunch.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/punch.png"), 16357381);
 
         // Research Categories
         ResearchCategories.registerCategory("REVELATIONS", "CrimsonRites", new AspectList(), new ResourceLocation(Thaumcraft.MODID, "textures/items/crimson_rites.png"), new ResourceLocation(NewCrimsonRevelations.MODID, "textures/gui/research_background.jpg"), new ResourceLocation(Thaumcraft.MODID, "textures/gui/gui_research_back_over.png"));
