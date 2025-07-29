@@ -60,20 +60,6 @@ crimsonrevelations.research.praetor_armor.title=血腥主教盔甲
 crimsonrevelations.research.praetor_armor.stage.0=据说，血腥邪徒中最为精英的成员穿戴着一套性能远超寻常血腥骑士的盔甲。据这些关于“血腥主教”的描述所言，拿他们的盔甲与血腥邪徒的盔甲相比较，就像是拿要塞盔甲与普通神秘盔甲相比较。对我来说，试着让这种盔甲的优点为我所用，应该并非难事。
 crimsonrevelations.research.praetor_armor.stage.1=好吧，结果有点令人失望。血腥主教盔甲确实比其原型的血腥邪徒盔甲要更为优越，但比起我的要塞盔甲，并不像我所期望的那样，有更高的盔甲韧性和更强的连锁强化。事实上，它只比寻常的神秘盔甲好了一点而已。不过至少其外观确实令人印象深刻。
 
-crimsonrevelations.research.erythurgy.title=殷秘学
-crimsonrevelations.research.erythurgy.stage.0=显而易见的是，血腥邪徒使用了一套不同的神秘学魔法，而我正在逐渐熟悉这种魔法。现在，随着进一步破译的完成，我也许可以弄清楚这种魔法到底是什么。<BR>《血腥仪式》将其称为殷秘学（Erythurgy），或者是“红魔法”，至少根据我目前所破译的内容而言可以这么说。殷秘学指出了六种“元素”，与六种元始要素的学说惊人的相似。可能我应该进一步做些试验
-crimsonrevelations.research.erythurgy.stage.1=殷秘学绝非优雅的魔法，至少我可以这么说。其与神秘学的一种极其基础的理论形式非常相似，甚至无需理解魔法原理就能付诸应用。对神秘学而言需要智识和实践才能完成的任务，殷秘学则以一种野蛮的方式运用魔法能量来完成：用极其浪费的方法使物品弥漫在元始要素之中，以此来让物品进行转化。<BR>不过，尽管它相当粗野，殷秘学似乎能够达成一些我先前只能眺望的目标。我对“基本”要素的研究没出什么成果，但我发现了一些方法来应用Perditio和Ordo，虽然比起我的其他发现，这种应用方式略显浪费。也许在未来我能找到方法来改进处理流程。
-
-crimsonrevelations.research.entropic_processing.title=混沌过程
-crimsonrevelations.research.entropic_processing.stage.0=殷秘学通过大幅增加熵以将材料分解成更小的碎片。就我目前所观察到的而言，这并非无法手动完成的工作，但在处理时运用如此多的熵会大幅提高产率，这对处理昂贵的材料非常有用。<BR>我试着用这种处理方法来从普通花和大型花中获取更多的染料，但显然手动制取染料已经足够高效了。何况同样的结果能以完全非魔法的方式，用一些大型的磨制仪器来获得。不过，那就和魔法研究没什么太大关系了——我只是顺手做个笔记，以防日后派上用场。
-
-crimsonrevelations.research.ordered_deconstruction.title=有序解构
-crimsonrevelations.research.ordered_deconstruction.stage.0=虽然许多简单的物品都能被聚集成大型的方块，但并非所有方块都能被轻易分解。有时候，成品方块构造的方法会使得它很难在不损失大量成分的情况下拆解成可用的组分。但是，结果显示，通过添加大量的Ordo源质，这一流程的难度会大幅降低。
-
-crimsonrevelations.research.quartz_purification.title=石英提纯
-crimsonrevelations.research.quartz_purification.stage.0=有了我在Ordo方面的新知识，也许是时候回到我早起在炼金术方面的尝试了：原矿簇。我对大多数金属的试验都取得了成功，但尽管我知道石英原矿簇是可形成的，我却无法用相同方式重制它们。也许对其他原矿簇进行试验能给我提供一些灵感。
-crimsonrevelations.research.quartz_purification.stage.1=问题的关键看起来很简单：石英不是金属，所以我在纯化时通常使用的Metallum源质应当被替换为Vitreus源质，以匹配其晶体的本质特征。原始的Ordo也也需要在塑形时略微有些不同，但那对从殷秘学获取的知识而言，可谓微不足道。<BR>诚然，时运附魔的存在使得这种处理方式显得庸常无奇。但话说回来，作为对我能力的测试，这还是蛮有趣的。
-
 crimsonrevelations.research.bone_bow.title=骨弓
 crimsonrevelations.research.bone_bow.stage.0=我在《血腥仪式》的记述中找到了一些外观奇特的旧式弓的示意图。从我能够翻译的语言来看，它的构造与我之前发现的元素工具非常相似。<PAGE>奇怪的是，示意图中绘制的弓的起源似乎非常古老，一定是封存了很长时间。
 <BR>我想知道我最终会从这些邪徒身上发现什么？
