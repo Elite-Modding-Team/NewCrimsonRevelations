@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -42,10 +43,11 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
             target = "Lthaumcraft/common/entities/monster/cult/EntityCultistPortalLesser;spawnMinions()V",
             remap = false), remap = true)
     private void spawnMinionsRedirect(EntityCultistPortalLesser instance) {
-        spawnCultists();
+        cr$spawnCultists();
     }
 
-    void spawnCultists() {
+    @Unique
+    void cr$spawnCultists() {
         EntityLiving cultist = null;
         int random;
         random = this.world.rand.nextInt(4);
@@ -81,9 +83,9 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
                 pp.alpha = new float[]{0.8F, 0.8F};
                 pp.grid = 32;
                 pp.layer = 1;
-                pp.partStart = 337;
                 pp.partInc = 1;
                 pp.partNum = 5;
+                pp.partStart = 337;
                 float s = (float) (3.0F + world.rand.nextGaussian() * 2.0F);
                 pp.scale = new float[]{s, s};
                 pp.redEnd = 0.6F;
