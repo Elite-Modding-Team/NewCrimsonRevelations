@@ -1,6 +1,8 @@
 package mod.icarus.crimsonrevelations.mixin;
 
 import com.google.common.collect.ImmutableMap;
+
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import zone.rong.mixinbooter.ILateMixinLoader;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class CRMixinLoader implements ILateMixinLoader {
+public class CRLateMixinLoader implements ILateMixinLoader {
     private static final Map<String, Supplier<Boolean>> clientsideMixinConfigs = ImmutableMap.copyOf(new HashMap<String, Supplier<Boolean>>() {
         {
 
@@ -22,6 +24,7 @@ public class CRMixinLoader implements ILateMixinLoader {
         {
             put("mixins.crimsonrevelations.entities.json", () -> true);
             put("mixins.crimsonrevelations.events.json", () -> true);
+            put("mixins.crimsonrevelations.thaumometerscanning.json", () -> (!loaded("oldresearch") && CRConfig.general_settings.THAUMOMETER_OLD_SCANNING));
         }
     });
 

@@ -112,6 +112,15 @@ public class CRConfig {
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
         @Config.RequiresMcRestart
         public double KNOWLEDGE_TOOLS_CURIOSITY_CHANCE = 0.2D;
+
+        @Config.Name("Thaumometer: Old Scanning")
+        @Config.Comment
+                ({
+                        "Reintroduces the slower scanning functionality from Thaumcraft 4. [default: true]",
+                        "NOTE: This feature will always be disabled if TC4 Research Port is detected."
+                })
+        @Config.RequiresMcRestart
+        public boolean THAUMOMETER_OLD_SCANNING = true;
     }
 
     public static class ModIntegrationSettings {

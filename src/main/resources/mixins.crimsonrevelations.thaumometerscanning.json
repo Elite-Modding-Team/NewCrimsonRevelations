@@ -1,0 +1,11 @@
+{
+  "package": "mod.icarus.crimsonrevelations.mixin.thaumometerscanning",
+  "refmap": "mixins.crimsonrevelations.refmap.json",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ItemThaumometerMixin"
+  ],
+  "client": [],
+  "server": []
+}
