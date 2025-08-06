@@ -18,6 +18,7 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.*;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.common.lib.crafting.InfusionEnchantmentRecipe;
 
 public class CRRecipes {
     public static void initArcaneCrafting() {
@@ -209,51 +210,6 @@ public class CRRecipes {
     public static void initCrucible() {
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "ancientstone"),
                 new CrucibleRecipe("CR_ANCIENT_STONE", new ItemStack(BlocksTC.stoneAncient), new ItemStack(BlocksTC.stoneArcane), new AspectList().add(Aspect.ELDRITCH, 5)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropyblazepowder"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.BLAZE_POWDER, 4, 0), new ItemStack(Items.BLAZE_ROD), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropybonemeal"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.DYE, 6, 15), new ItemStack(Items.BONE), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropysunflower"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.DYE, 4, 11), new ItemStack(Blocks.DOUBLE_PLANT, 1, 0), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropylilac"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.DYE, 4, 13), new ItemStack(Blocks.DOUBLE_PLANT, 1, 1), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropyrose"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.DYE, 4, 1), new ItemStack(Blocks.DOUBLE_PLANT, 1, 4), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropypeony"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.DYE, 4, 9), new ItemStack(Blocks.DOUBLE_PLANT, 1, 5), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "entropysugar"),
-                new CrucibleRecipe("CR_ENTROPIC_PROCESSING", new ItemStack(Items.SUGAR, 2, 0), new ItemStack(Items.REEDS, 1, 0), new AspectList().add(Aspect.ENTROPY, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "orderwool"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Items.STRING, 4, 0), "wool", new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "orderglowstone"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Items.GLOWSTONE_DUST, 4, 0), new ItemStack(Blocks.GLOWSTONE), new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "ordermagma"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Items.MAGMA_CREAM, 2, 0), new ItemStack(Blocks.MAGMA), new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "orderquartz"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Items.QUARTZ, 4, 0), "blockQuartz", new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "ordersandstone"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Blocks.SAND, 4, 0), "sandstone", new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "orderprismarine"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Items.PRISMARINE_SHARD, 4, 0), "blockPrismarine", new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "orderchorus"),
-                new CrucibleRecipe("CR_ORDERED_DECONSTRUCTION", new ItemStack(Items.CHORUS_FRUIT_POPPED, 4, 0), new ItemStack(Blocks.PURPUR_BLOCK), new AspectList().add(Aspect.ORDER, 25)));
-
-        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "quartzcluster"),
-                new CrucibleRecipe("CR_QUARTZ_PURIFICATION", new ItemStack(ItemsTC.clusters, 2, 7), "oreQuartz", new AspectList().add(Aspect.ORDER, 5).add(Aspect.CRYSTAL, 5)));
     }
 
     public static void initInfusion() {
@@ -474,6 +430,16 @@ public class CRRecipes {
                         ThaumcraftApiHelper.makeCrystal(Aspect.DESIRE, 1),
                         potion2,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1)));
+
+        // Infusion Enchantments
+        InfusionEnchantmentRecipe beheadingInfusion = new InfusionEnchantmentRecipe(CREnchantments.BEHEADING,
+                new AspectList().add(Aspect.FIRE, 60).add(Aspect.AVERSION, 60),
+                new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
+                new ItemStack(Items.SKULL, 1, 0));
+
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion"), beheadingInfusion);
+        ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion_fake"), new InfusionEnchantmentRecipe(
+                beheadingInfusion, new ItemStack(Items.IRON_AXE)));
 
         // Thaumic Augmentation Integration
         if (Loader.isModLoaded("thaumicaugmentation")) {

@@ -29,11 +29,11 @@ import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CREnchantments {
     // Infusion Enchantments
-    // Enchantment Name, Tool Class, Stability, Research
+    // Enchantment Name, Tool Class, Max Level, Research
     public static EnumInfusionEnchantment BEHEADING = EnumHelper.addEnum(
             EnumInfusionEnchantment.class, "BEHEADING",
             new Class<?>[]{Set.class, int.class, String.class},
-            ImmutableSet.of("weapon"), 2, "CRIMSON_REVELATIONS_BASE"
+            ImmutableSet.of("weapon"), 5, "CR_BEHEADING_INFUSION"
     );
 
     // Beheading code taken directly from Tinkers' Antique for maximum configuration.
