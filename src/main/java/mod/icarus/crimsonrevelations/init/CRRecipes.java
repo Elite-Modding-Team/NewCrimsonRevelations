@@ -203,6 +203,14 @@ public class CRRecipes {
                 new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
                         new ItemStack(ItemsTC.sanitySoap, 1, OreDictionary.WILDCARD_VALUE), ThaumcraftApiHelper.makeCrystal(Aspect.MIND), ThaumcraftApiHelper.makeCrystal(Aspect.MIND)}));
 
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "technomancer_scribing_tools"), new ShapelessArcaneRecipe(
+                defaultGroup, "CR_TECHNOMANCER_SCRIBING_TOOLS", 25,
+                new AspectList(),
+                new ItemStack(CRItems.TECHNOMANCER_SCRIBING_TOOLS),
+                new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
+                        ItemsTC.visResonator}));
+
+        // Special Arcane Workbench Recipes
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_charm_to_ring"), new VerdantCharmToRing());
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_ring_to_charm"), new VerdantRingToCharm());
     }
@@ -291,6 +299,7 @@ public class CRRecipes {
                         ItemsTC.voidSeed,
                         CRItems.KNOWLEDGE_SCRIBING_TOOLS,
                         CRItems.SANITATION_SCRIBING_TOOLS,
+                        ItemsTC.voidSeed,
                         ItemsTC.voidSeed));
 
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),

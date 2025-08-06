@@ -86,12 +86,13 @@ public class CRItems {
     public static final CRItemRunicBauble RUNIC_RING_CHARGED = null;
     public static final CRItemRunicBauble RUNIC_RING_REGEN = null;
     public static final CRItemSanitationScribingTools SANITATION_SCRIBING_TOOLS = null;
+    public static final CRItemTechnomancerScribingTools TECHNOMANCER_SCRIBING_TOOLS = null;
     public static final CRItemArrow TERRA_ARROW = null;
     public static final CRItemVerdantRing VERDANT_RING = null;
-    
+
     // Unused
     public static final CRItemVoidGoggles VOID_GOGGLES = null;
-    
+
     // Optional Content
     public static final CRItemPickaxe DISTORTION_PICKAXE = null;
     public static final CRItemBauble NUTRITION_RING = null;
