@@ -341,41 +341,6 @@
       ]
     },
     {
-      "key": "CR_ANCIENT_BAUBLES",
-      "name": "crimsonrevelations.research.ancient_baubles.title",
-      "icons": [
-        "thaumcraft:baubles;1;3",
-        "crimsonrevelations:protection_ring"
-      ],
-      "category": "REVELATIONS",
-      "parents": [
-        "CRIMSON_REVELATIONS_BASE"
-      ],
-      "siblings": [],
-      "meta": [
-        "ROUND"
-      ],
-      "location": [
-        -8,
-        0
-      ],
-      "reward_item": [],
-      "reward_knowledge": [],
-      "stages": [
-        {
-          "text": "crimsonrevelations.research.ancient_baubles.stage.0"
-        }
-      ],
-      "addenda": [
-        {
-          "text": "crimsonrevelations.research.ancient_baubles.addenda.0",
-          "required_research": [
-            "RUNICSHIELDING"
-          ]
-        }
-      ]
-    },
-    {
       "key": "CR_RUNIC_BAUBLES",
       "name": "crimsonrevelations.research.runic_baubles.title",
       "icons": [
@@ -385,7 +350,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CR_ANCIENT_BAUBLES",
+        "CRIMSON_REVELATIONS_BASE",
         "~RUNICSHIELDING"
       ],
       "siblings": [],
@@ -394,7 +359,7 @@
         "HIDDEN"
       ],
       "location": [
-        -10,
+        -6,
         0
       ],
       "reward_item": [],
@@ -428,8 +393,8 @@
         "HIDDEN"
       ],
       "location": [
-        -10,
-        -2
+        -8,
+        0
       ],
       "reward_item": [],
       "reward_knowledge": [],

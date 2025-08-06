@@ -50,14 +50,14 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CR_ANCIENT_BAUBLES"
+        "CRIMSON_REVELATIONS_BASE"
       ],
       "siblings": [],
       "meta": [
         "HIDDEN"
       ],
       "location": [
-        -8,
+        0,
         2
       ],
       "reward_item": [],
