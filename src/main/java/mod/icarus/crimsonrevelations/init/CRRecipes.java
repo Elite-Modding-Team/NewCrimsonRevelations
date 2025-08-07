@@ -251,6 +251,17 @@ public class CRRecipes {
                         new ItemStack(ItemsTC.nuggets, 1, 10),
                         BlocksTC.logGreatwood));
 
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "execution_axe"),
+                new InfusionRecipe("CR_EXECUTION_AXE", new ItemStack(CRItems.EXECUTION_AXE), 4,
+                        new AspectList().add(Aspect.AVERSION, 75).add(Aspect.FIRE, 75).add(Aspect.DEATH, 25).add(Aspect.MAN, 25),
+                        ItemsTC.thaumiumAxe,
+                        ThaumcraftApiHelper.makeCrystal(Aspect.AVERSION),
+                        ThaumcraftApiHelper.makeCrystal(Aspect.FIRE),
+                        Items.FIRE_CHARGE,
+                        new ItemStack(ItemsTC.nuggets, 1, 10),
+                        CRItems.CRIMSON_PLATE,
+                        CRItems.CRIMSON_PLATE));
+
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
                 new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
                         new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),

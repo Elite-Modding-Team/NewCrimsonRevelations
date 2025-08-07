@@ -8,7 +8,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS_BASE",
+        "CR_EXECUTION_AXE",
         "~INFUSIONENCHANTMENT"
       ],
       "siblings": [],
@@ -33,6 +33,43 @@
           "text": "crimsonrevelations.research.beheading_infusion.stage.1",
           "recipes": [
             "crimsonrevelations:beheading_infusion_fake"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CR_EXECUTION_AXE",
+      "name": "crimsonrevelations.research.execution_axe.title",
+      "icons": [
+        "crimsonrevelations:execution_axe"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE",
+        "~CR_PRIMAL_ARROWS"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -2,
+        11
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.execution_axe.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ],
+          "required_item": []
+        },
+        {
+          "text": "crimsonrevelations.research.execution_axe.stage.1",
+          "recipes": [
+            "crimsonrevelations:execution_axe"
           ]
         }
       ]
