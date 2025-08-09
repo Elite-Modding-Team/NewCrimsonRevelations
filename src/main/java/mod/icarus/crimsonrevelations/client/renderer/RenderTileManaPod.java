@@ -14,7 +14,7 @@ import thaumcraft.api.aspects.Aspect;
 
 import java.awt.*;
 
-public class TileManaPodRenderer extends TileEntitySpecialRenderer<CRTileManaPod> {
+public class RenderTileManaPod extends TileEntitySpecialRenderer<CRTileManaPod> {
     private static final ResourceLocation POD_0_TEX = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/block/manapod_0.png");
     private static final ResourceLocation POD_2_TEX = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/block/manapod_2.png");
     private final ModelManaPod model = new ModelManaPod();

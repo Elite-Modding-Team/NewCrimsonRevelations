@@ -3,8 +3,8 @@ package mod.icarus.crimsonrevelations.init;
 import baubles.api.BaubleType;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
-import mod.icarus.crimsonrevelations.client.renderer.RendererTileEtherealBloom;
-import mod.icarus.crimsonrevelations.client.renderer.TileManaPodRenderer;
+import mod.icarus.crimsonrevelations.client.renderer.RenderTileEtherealBloom;
+import mod.icarus.crimsonrevelations.client.renderer.RenderTileManaPod;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.item.*;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
@@ -181,7 +181,7 @@ public class CRItems {
             }
         }
 
-        ClientRegistry.bindTileEntitySpecialRenderer(CRTileEtherealBloom.class, new RendererTileEtherealBloom());
-        ClientRegistry.bindTileEntitySpecialRenderer(CRTileManaPod.class, new TileManaPodRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(CRTileEtherealBloom.class, new RenderTileEtherealBloom());
+        ClientRegistry.bindTileEntitySpecialRenderer(CRTileManaPod.class, new RenderTileManaPod());
     }
 }

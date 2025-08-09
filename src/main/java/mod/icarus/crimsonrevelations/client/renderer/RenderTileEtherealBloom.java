@@ -13,7 +13,7 @@ import thaumcraft.client.lib.UtilsFX;
 import thaumcraft.client.renderers.models.ModelCube;
 
 @SideOnly(value=Side.CLIENT)
-public class RendererTileEtherealBloom extends TileEntitySpecialRenderer<CRTileEtherealBloom> {
+public class RenderTileEtherealBloom extends TileEntitySpecialRenderer<CRTileEtherealBloom> {
     private static final ResourceLocation tx1 = new ResourceLocation(Thaumcraft.MODID, "textures/models/crystalcapacitor.png");
     private static final ResourceLocation tx2 = new ResourceLocation(Thaumcraft.MODID, "textures/models/bloom_leaves.png");
     private static final ResourceLocation tx3 = new ResourceLocation(Thaumcraft.MODID, "textures/models/bloom_stalk.png");
