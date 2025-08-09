@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class CRBlockEtherealBloom extends BlockBush {
-    protected static final AxisAlignedBB BUSH_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
+    protected static final AxisAlignedBB BUSH_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.7D, 1.125D, 0.7D);
 
     public CRBlockEtherealBloom() {
         super(Material.PLANTS);
