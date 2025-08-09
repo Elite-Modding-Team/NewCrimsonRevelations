@@ -21,15 +21,18 @@ public class TCVec3 {
     }
 
     protected TCVec3(TCVec3Pool par1Vec3Pool, double par2, double par4, double par6) {
-        if (par2 == -0.0) {
-            par2 = 0.0;
+        if (par2 == -0.0D) {
+            par2 = 0.0D;
         }
-        if (par4 == -0.0) {
-            par4 = 0.0;
+
+        if (par4 == -0.0D) {
+            par4 = 0.0D;
         }
-        if (par6 == -0.0) {
-            par6 = 0.0;
+
+        if (par6 == -0.0D) {
+            par6 = 0.0D;
         }
+
         this.xCoord = par2;
         this.yCoord = par4;
         this.zCoord = par6;
@@ -43,21 +46,21 @@ public class TCVec3 {
         return this;
     }
 
-    @SideOnly(value=Side.CLIENT)
+    @SideOnly(value = Side.CLIENT)
     public TCVec3 subtract(TCVec3 par1Vec3) {
         return this.myVec3LocalPool.getVecFromPool(par1Vec3.xCoord - this.xCoord, par1Vec3.yCoord - this.yCoord, par1Vec3.zCoord - this.zCoord);
     }
 
     public TCVec3 normalize() {
         double var1 = MathHelper.sqrt(this.xCoord * this.xCoord + this.yCoord * this.yCoord + this.zCoord * this.zCoord);
-        return var1 < 1.0E-4 ? this.myVec3LocalPool.getVecFromPool(0.0, 0.0, 0.0) : this.myVec3LocalPool.getVecFromPool(this.xCoord / var1, this.yCoord / var1, this.zCoord / var1);
+        return var1 < 1.0E-4 ? this.myVec3LocalPool.getVecFromPool(0.0D, 0.0D, 0.0D) : this.myVec3LocalPool.getVecFromPool(this.xCoord / var1, this.yCoord / var1, this.zCoord / var1);
     }
 
     public double dotProduct(TCVec3 par1Vec3) {
         return this.xCoord * par1Vec3.xCoord + this.yCoord * par1Vec3.yCoord + this.zCoord * par1Vec3.zCoord;
     }
 
-    @SideOnly(value=Side.CLIENT)
+    @SideOnly(value = Side.CLIENT)
     public TCVec3 crossProduct(TCVec3 par1Vec3) {
         return this.myVec3LocalPool.getVecFromPool(this.yCoord * par1Vec3.zCoord - this.zCoord * par1Vec3.yCoord, this.zCoord * par1Vec3.xCoord - this.xCoord * par1Vec3.zCoord, this.xCoord * par1Vec3.yCoord - this.yCoord * par1Vec3.xCoord);
     }
@@ -95,33 +98,39 @@ public class TCVec3 {
         double var4 = par1Vec3.xCoord - this.xCoord;
         double var6 = par1Vec3.yCoord - this.yCoord;
         double var8 = par1Vec3.zCoord - this.zCoord;
-        if (var4 * var4 < (double)1.0E-7f) {
+
+        if (var4 * var4 < (double) 1.0E-7F) {
             return null;
         }
+
         double var10 = (par2 - this.xCoord) / var4;
-        return var10 >= 0.0 && var10 <= 1.0 ? this.myVec3LocalPool.getVecFromPool(this.xCoord + var4 * var10, this.yCoord + var6 * var10, this.zCoord + var8 * var10) : null;
+        return var10 >= 0.0D && var10 <= 1.0D ? this.myVec3LocalPool.getVecFromPool(this.xCoord + var4 * var10, this.yCoord + var6 * var10, this.zCoord + var8 * var10) : null;
     }
 
     public TCVec3 getIntermediateWithYValue(TCVec3 par1Vec3, double par2) {
         double var4 = par1Vec3.xCoord - this.xCoord;
         double var6 = par1Vec3.yCoord - this.yCoord;
         double var8 = par1Vec3.zCoord - this.zCoord;
-        if (var6 * var6 < (double)1.0E-7f) {
+
+        if (var6 * var6 < (double) 1.0E-7F) {
             return null;
         }
+
         double var10 = (par2 - this.yCoord) / var6;
-        return var10 >= 0.0 && var10 <= 1.0 ? this.myVec3LocalPool.getVecFromPool(this.xCoord + var4 * var10, this.yCoord + var6 * var10, this.zCoord + var8 * var10) : null;
+        return var10 >= 0.0D && var10 <= 1.0D ? this.myVec3LocalPool.getVecFromPool(this.xCoord + var4 * var10, this.yCoord + var6 * var10, this.zCoord + var8 * var10) : null;
     }
 
     public TCVec3 getIntermediateWithZValue(TCVec3 par1Vec3, double par2) {
         double var4 = par1Vec3.xCoord - this.xCoord;
         double var6 = par1Vec3.yCoord - this.yCoord;
         double var8 = par1Vec3.zCoord - this.zCoord;
-        if (var8 * var8 < (double)1.0E-7f) {
+
+        if (var8 * var8 < (double) 1.0E-7F) {
             return null;
         }
+
         double var10 = (par2 - this.zCoord) / var8;
-        return var10 >= 0.0 && var10 <= 1.0 ? this.myVec3LocalPool.getVecFromPool(this.xCoord + var4 * var10, this.yCoord + var6 * var10, this.zCoord + var8 * var10) : null;
+        return var10 >= 0.0D && var10 <= 1.0D ? this.myVec3LocalPool.getVecFromPool(this.xCoord + var4 * var10, this.yCoord + var6 * var10, this.zCoord + var8 * var10) : null;
     }
 
     public String toString() {
@@ -132,8 +141,8 @@ public class TCVec3 {
         float var2 = MathHelper.cos(par1);
         float var3 = MathHelper.sin(par1);
         double var4 = this.xCoord;
-        double var6 = this.yCoord * (double)var2 + this.zCoord * (double)var3;
-        double var8 = this.zCoord * (double)var2 - this.yCoord * (double)var3;
+        double var6 = this.yCoord * (double) var2 + this.zCoord * (double) var3;
+        double var8 = this.zCoord * (double) var2 - this.yCoord * (double) var3;
         this.xCoord = var4;
         this.yCoord = var6;
         this.zCoord = var8;
@@ -142,9 +151,9 @@ public class TCVec3 {
     public void rotateAroundY(float par1) {
         float var2 = MathHelper.cos(par1);
         float var3 = MathHelper.sin(par1);
-        double var4 = this.xCoord * (double)var2 + this.zCoord * (double)var3;
+        double var4 = this.xCoord * (double) var2 + this.zCoord * (double) var3;
         double var6 = this.yCoord;
-        double var8 = this.zCoord * (double)var2 - this.xCoord * (double)var3;
+        double var8 = this.zCoord * (double) var2 - this.xCoord * (double) var3;
         this.xCoord = var4;
         this.yCoord = var6;
         this.zCoord = var8;
@@ -153,8 +162,8 @@ public class TCVec3 {
     public void rotateAroundZ(float par1) {
         float var2 = MathHelper.cos(par1);
         float var3 = MathHelper.sin(par1);
-        double var4 = this.xCoord * (double)var2 + this.yCoord * (double)var3;
-        double var6 = this.yCoord * (double)var2 - this.xCoord * (double)var3;
+        double var4 = this.xCoord * (double) var2 + this.yCoord * (double) var3;
+        double var6 = this.yCoord * (double) var2 - this.xCoord * (double) var3;
         double var8 = this.zCoord;
         this.xCoord = var4;
         this.yCoord = var6;
