@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.item.tools;
 
+import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.item.CRItemShovel;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +20,6 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.network.PacketHandler;
-import thaumcraft.common.lib.network.fx.PacketFXZap;
 
 public class CRItemPurifyingShovel extends CRItemShovel {
     public CRItemPurifyingShovel() {
@@ -57,8 +57,7 @@ public class CRItemPurifyingShovel extends CRItemShovel {
                         float d1 = ((float) ex + world.rand.nextFloat());
                         float d2 = ((float) wy + world.rand.nextFloat());
                         float d0 = ((float) zee + world.rand.nextFloat());
-                        //Thaumcraft.proxy.nodeBolt(world, (float)player.posX, (float)player.posY, (float)player.posZ, d1, d2, d0);
-                        PacketHandler.INSTANCE.sendToAllAround(new PacketFXZap(player.getPositionVector(), new Vec3d(d1, d2, d0), 0xFFC0FF, 0.5F * 0.66F), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64.0D));
+                        PacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(player.getPositionVector(), new Vec3d(d1, d2, d0), 0xFFC0FF, 0.5F * 0.66F), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64.0D));
                     }
                 }
             }
