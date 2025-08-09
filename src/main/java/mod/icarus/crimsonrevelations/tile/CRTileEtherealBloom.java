@@ -1,10 +1,10 @@
 package mod.icarus.crimsonrevelations.tile;
 
+import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.util.TCVec3;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ITickable;
@@ -114,7 +114,7 @@ public class CRTileEtherealBloom
         }
 
         if (this.world.isRemote && this.growthCounter == 0) {
-            this.world.playSound((double) this.pos.getX() + 0.5, (double) this.pos.getY() + 0.5, (double) this.pos.getZ() + 0.5, SoundEvents.BLOCK_CHORUS_FLOWER_DEATH, SoundCategory.BLOCKS, 1.0f, 0.6f, false);
+            this.world.playSound((double) this.pos.getX() + 0.5, (double) this.pos.getY() + 0.5, (double) this.pos.getZ() + 0.5, CRSoundEvents.MISC_ROOTS, SoundCategory.BLOCKS, 1.0f, 0.6f, false);
         }
         ++this.growthCounter;
     }

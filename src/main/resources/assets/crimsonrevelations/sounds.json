@@ -38,5 +38,12 @@
     "sounds": [
       "crimsonrevelations:bauble/runic/regen"
     ]
+  },
+  "misc.roots": {
+    "sounds": [
+      "crimsonrevelations:misc/roots1",
+      "crimsonrevelations:misc/roots2",
+      "crimsonrevelations:misc/roots3"
+    ]
   }
 }
