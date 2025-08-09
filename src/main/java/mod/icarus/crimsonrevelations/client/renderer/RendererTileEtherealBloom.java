@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.client.renderer;
 
+import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.tile.CRTileEtherealBloom;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -7,15 +8,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.Thaumcraft;
 import thaumcraft.client.lib.UtilsFX;
 import thaumcraft.client.renderers.models.ModelCube;
 
 @SideOnly(value=Side.CLIENT)
 public class RendererTileEtherealBloom extends TileEntitySpecialRenderer<CRTileEtherealBloom> {
-    private static final ResourceLocation tx1 = new ResourceLocation("thaumcraft", "textures/models/crystalcapacitor.png");
-    private static final ResourceLocation tx2 = new ResourceLocation("thaumcraft", "textures/models/bloom_leaves.png");
-    private static final ResourceLocation tx3 = new ResourceLocation("thaumcraft", "textures/models/bloom_stalk.png");
-    public static final ResourceLocation texture = new ResourceLocation("thaumcraft", "textures/misc/nodes.png");
+    private static final ResourceLocation tx1 = new ResourceLocation(Thaumcraft.MODID, "textures/models/crystalcapacitor.png");
+    private static final ResourceLocation tx2 = new ResourceLocation(Thaumcraft.MODID, "textures/models/bloom_leaves.png");
+    private static final ResourceLocation tx3 = new ResourceLocation(Thaumcraft.MODID, "textures/models/bloom_stalk.png");
+    public static final ResourceLocation texture = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/misc/nodes.png");
     private final ModelCube model = new ModelCube();
 
     public void render(CRTileEtherealBloom tile, double x, double y, double z, float pt, int ds, float alpha) {

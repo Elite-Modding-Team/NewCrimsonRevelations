@@ -181,7 +181,7 @@ public class CRItems {
             }
         }
 
-        ClientRegistry.bindTileEntitySpecialRenderer(CRTileManaPod.class, new TileManaPodRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(CRTileEtherealBloom.class, new RendererTileEtherealBloom());
+        ClientRegistry.bindTileEntitySpecialRenderer(CRTileManaPod.class, new TileManaPodRenderer());
     }
 }

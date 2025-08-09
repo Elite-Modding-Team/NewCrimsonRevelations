@@ -32,6 +32,7 @@ public class CRBlocks {
         final IForgeRegistry<Block> registry = event.getRegistry();
 
         registry.registerAll(
+                CRRegistry.setup(new CRBlockEtherealBloom(), "ethereal_bloom"),
                 CRRegistry.setup(new CRBlockMaterial(Material.ROCK, MapColor.SAND, 4.0F, 15.0F, SoundType.STONE), "magic_tallow_block"),
                 CRRegistry.setup(new CRBlockManaPod(), "mana_pod")
         );
