@@ -5,6 +5,7 @@ entity.crimsonrevelations.cultist_archer.name=Crimson Archer
 entity.crimsonrevelations.overgrown_taintacle.name=Overgrown Taintacle
 
 # Blocks
+tile.crimsonrevelations.ethereal_bloom.name=Ethereal Bloom
 tile.crimsonrevelations.magic_tallow_block.name=Magic Tallow Block
 tile.crimsonrevelations.mana_pod.name=Mana Pod
 
