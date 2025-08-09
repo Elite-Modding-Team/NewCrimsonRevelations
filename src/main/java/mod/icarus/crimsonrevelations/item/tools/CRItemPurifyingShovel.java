@@ -54,10 +54,7 @@ public class CRItemPurifyingShovel extends CRItemShovel {
                     if (target != null && target == BlocksTC.fluxGoo) {
                         purified++;
                         world.setBlockToAir(new BlockPos(ex, wy, zee));
-                        float d1 = ((float) ex + world.rand.nextFloat());
-                        float d2 = ((float) wy + world.rand.nextFloat());
-                        float d0 = ((float) zee + world.rand.nextFloat());
-                        PacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(player.getPositionVector(), new Vec3d(d1, d2, d0), 0xFFC0FF, 0.5F * 0.66F), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64.0D));
+                        PacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(player.getPositionVector(), new Vec3d(aim.getX(), aim.getY(), aim.getZ()), 0xFFC0FF, 0.5F * 0.66F), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64.0D));
                     }
                 }
             }
