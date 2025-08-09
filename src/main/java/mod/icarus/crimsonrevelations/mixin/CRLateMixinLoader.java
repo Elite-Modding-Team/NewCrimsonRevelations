@@ -1,7 +1,6 @@
 package mod.icarus.crimsonrevelations.mixin;
 
 import com.google.common.collect.ImmutableMap;
-
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;

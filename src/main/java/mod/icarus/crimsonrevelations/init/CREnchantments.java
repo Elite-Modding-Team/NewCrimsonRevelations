@@ -1,14 +1,6 @@
 package mod.icarus.crimsonrevelations.init;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.function.Function;
-
 import com.google.common.collect.ImmutableSet;
-
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,6 +15,9 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
+
+import java.util.*;
+import java.util.function.Function;
 
 // TODO: Add recipe and research
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)

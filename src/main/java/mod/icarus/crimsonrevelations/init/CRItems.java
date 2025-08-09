@@ -3,27 +3,20 @@ package mod.icarus.crimsonrevelations.init;
 import baubles.api.BaubleType;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
+import mod.icarus.crimsonrevelations.client.renderer.RendererTileEtherealBloom;
 import mod.icarus.crimsonrevelations.client.renderer.TileManaPodRenderer;
 import mod.icarus.crimsonrevelations.config.CRConfig;
-import mod.icarus.crimsonrevelations.item.CRItem;
-import mod.icarus.crimsonrevelations.item.CRItemArrow;
-import mod.icarus.crimsonrevelations.item.CRItemLitmusPaper;
-import mod.icarus.crimsonrevelations.item.CRItemManaBean;
-import mod.icarus.crimsonrevelations.item.CRItemPickaxe;
-import mod.icarus.crimsonrevelations.item.CRItemSword;
+import mod.icarus.crimsonrevelations.item.*;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemVerdantRing;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemVoidGoggles;
-import mod.icarus.crimsonrevelations.item.tools.CRItemKnowledgeScribingTools;
-import mod.icarus.crimsonrevelations.item.tools.CRItemPrimordialScribingTools;
-import mod.icarus.crimsonrevelations.item.tools.CRItemPurifyingShovel;
-import mod.icarus.crimsonrevelations.item.tools.CRItemSanitationScribingTools;
-import mod.icarus.crimsonrevelations.item.tools.CRItemTechnomancerScribingTools;
+import mod.icarus.crimsonrevelations.item.tools.*;
 import mod.icarus.crimsonrevelations.item.weapons.CRItemBoneBow;
 import mod.icarus.crimsonrevelations.item.weapons.CRItemExecutionAxe;
+import mod.icarus.crimsonrevelations.tile.CRTileEtherealBloom;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
@@ -189,5 +182,6 @@ public class CRItems {
         }
 
         ClientRegistry.bindTileEntitySpecialRenderer(CRTileManaPod.class, new TileManaPodRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(CRTileEtherealBloom.class, new RendererTileEtherealBloom());
     }
 }

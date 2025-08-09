@@ -1,18 +1,16 @@
 package mod.icarus.crimsonrevelations.mixin;
 
 import com.google.common.collect.ImmutableMap;
-
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import zone.rong.mixinbooter.IEarlyMixinLoader;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
 
 public class CRCoreMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
     private static final Map<String, Supplier<Boolean>> clientsideMixinConfigs = ImmutableMap.copyOf(new HashMap<String, Supplier<Boolean>>() {
