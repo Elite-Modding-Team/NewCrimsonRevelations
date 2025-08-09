@@ -173,7 +173,7 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
         this.setDead();
         this.playSound(SoundsTC.gore, 1.0F, 0.65F / (rand.nextFloat() * 0.4F + 0.8F));
 
-        if (FMLLaunchHandler.side().isClient()) {
+        if (FMLLaunchHandler.side().isClient() && this.world.isRemote) {
             for (int k = 0; k < 40; ++k) {
                 FXDispatcher.INSTANCE.splooshFX(this);
                 FXDispatcher.INSTANCE.taintsplosionFX(this);
