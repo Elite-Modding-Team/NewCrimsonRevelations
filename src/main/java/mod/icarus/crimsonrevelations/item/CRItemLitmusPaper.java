@@ -1,6 +1,5 @@
 package mod.icarus.crimsonrevelations.item;
 
-import mod.icarus.crimsonrevelations.item.CRItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;

@@ -3,7 +3,6 @@ package mod.icarus.crimsonrevelations.init;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

@@ -1,7 +1,5 @@
 package mod.icarus.crimsonrevelations.item.tools;
 
-import javax.annotation.Nullable;
-
 import mod.icarus.crimsonrevelations.item.CRItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,6 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.items.IRechargable;
 import thaumcraft.api.items.IScribeTools;
 import thaumcraft.api.items.RechargeHelper;
+
+import javax.annotation.Nullable;
 
 // As Scribing Tools mainly check for durability, we'll need to have it be affected by vis charge.
 public class CRItemTechnomancerScribingTools extends CRItem implements IScribeTools, IRechargable {

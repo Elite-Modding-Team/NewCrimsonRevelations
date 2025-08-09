@@ -1,8 +1,10 @@
 package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.block.CRBlockEtherealBloom;
 import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
 import mod.icarus.crimsonrevelations.block.CRBlockMaterial;
+import mod.icarus.crimsonrevelations.tile.CRTileEtherealBloom;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -23,6 +25,7 @@ public class CRBlocks {
     public static final CRBlockMaterial MAGIC_TALLOW_BLOCK = null;
 
     public static final CRBlockManaPod MANA_POD = null;
+    public static final CRBlockEtherealBloom ETHEREAL_BLOOM = null;
 
     @SubscribeEvent
     public static void registerBlocks(@Nonnull final RegistryEvent.Register<Block> event) {
@@ -34,5 +37,6 @@ public class CRBlocks {
         );
 
         GameRegistry.registerTileEntity(CRTileManaPod.class, new ResourceLocation(NewCrimsonRevelations.MODID, "mana_pod"));
+        GameRegistry.registerTileEntity(CRTileEtherealBloom.class, new ResourceLocation(NewCrimsonRevelations.MODID, "ethereal_bloom"));
     }
 }

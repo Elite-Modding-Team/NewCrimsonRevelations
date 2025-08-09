@@ -1,11 +1,7 @@
 package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
-import mod.icarus.crimsonrevelations.casters.foci.FocusEffectBlindingFlash;
-import mod.icarus.crimsonrevelations.casters.foci.FocusEffectHex;
-import mod.icarus.crimsonrevelations.casters.foci.FocusEffectPoison;
-import mod.icarus.crimsonrevelations.casters.foci.FocusEffectPunch;
-import mod.icarus.crimsonrevelations.casters.foci.FocusEffectTaintPoison;
+import mod.icarus.crimsonrevelations.casters.foci.*;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import net.minecraft.item.ItemStack;

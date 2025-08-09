@@ -1,0 +1,6 @@
+{
+  "parent": "block/tall_grass",
+  "textures": {
+    "cross": "crimsonrevelations:items/purifier_seed"
+  }
+}

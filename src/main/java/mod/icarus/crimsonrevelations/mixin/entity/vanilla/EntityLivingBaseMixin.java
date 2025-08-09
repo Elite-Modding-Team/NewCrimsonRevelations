@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.mixin.entity.vanilla;
 
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -7,14 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-
-import mod.icarus.crimsonrevelations.config.CRConfig;
 import thaumcraft.common.items.tools.ItemThaumometer;
 
 @Mixin(EntityLivingBase.class)

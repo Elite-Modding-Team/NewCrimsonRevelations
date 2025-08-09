@@ -1,7 +1,5 @@
 package mod.icarus.crimsonrevelations.entity;
 
-import javax.annotation.Nullable;
-
 import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,6 +29,8 @@ import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.entities.ai.combat.AICultistHurtByTarget;
 import thaumcraft.common.entities.monster.EntityEldritchGuardian;
 import thaumcraft.common.entities.monster.cult.EntityCultist;
+
+import javax.annotation.Nullable;
 
 public class EntityCultistArcher extends EntityCultist implements IRangedAttackMob {
     private static final DataParameter<Boolean> SWINGING_ARMS;
