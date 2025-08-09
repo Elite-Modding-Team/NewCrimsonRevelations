@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.tile;
 
+import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.util.TCVec3;
 import net.minecraft.block.Block;
@@ -18,7 +19,6 @@ import thaumcraft.api.entities.ITaintedMob;
 import thaumcraft.common.blocks.world.taint.ITaintBlock;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.network.PacketHandler;
-import thaumcraft.common.lib.network.fx.PacketFXZap;
 
 import java.util.List;
 
@@ -55,17 +55,17 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
             }
         }
 
-        if (!this.world.isRemote && this.counter % 10 == 0 && !this.sleep) {
+        if (!this.world.isRemote && this.counter % 20 == 0 && !this.sleep) {
             List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(pos.getX() - 16, pos.getY() - 16, pos.getZ() - 16, pos.getX() + 16, pos.getY() + 16, pos.getZ() + 16));
 
             for (EntityLivingBase victim : entities) {
                 if (victim instanceof ITaintedMob) {
                     if (!(victim instanceof EntityPlayer)) {
-                        boolean attack = victim.attackEntityFrom(DamageSource.MAGIC, (float) 10.0F);
+                        boolean attack = victim.attackEntityFrom(DamageSource.MAGIC, (float) 2.0F);
 
                         if (attack) {
                             this.world.playSound(null, pos, SoundsTC.zap, SoundCategory.BLOCKS, 1.0F, 1.1F);
-                            PacketHandler.INSTANCE.sendToAllAround(new PacketFXZap(new Vec3d(this.pos.add(0, 1.2D, 0)), new Vec3d(victim.getPosition()), 0x23333, 1), new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), victim.posX, victim.posY, victim.posZ, 64.0D));
+                            PacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(new Vec3d(this.pos.add(0.0D, 1.0D, 0.0D)), new Vec3d(victim.getPosition()), 0x23333, 1), new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), victim.posX, victim.posY, victim.posZ, 64.0D));
                         }
                     }
                 }

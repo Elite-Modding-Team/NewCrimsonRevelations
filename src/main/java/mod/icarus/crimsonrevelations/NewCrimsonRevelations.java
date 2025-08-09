@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations;
 
+import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
 import mod.icarus.crimsonrevelations.config.CRConfigLists;
 import mod.icarus.crimsonrevelations.events.CRClientEvents;
@@ -24,6 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.common.lib.network.PacketHandler;
 
 @Mod(modid = NewCrimsonRevelations.MODID, name = NewCrimsonRevelations.NAME, version = NewCrimsonRevelations.VERSION, dependencies = NewCrimsonRevelations.DEPENDENCIES)
 public class NewCrimsonRevelations {
@@ -76,6 +78,9 @@ public class NewCrimsonRevelations {
     @EventHandler
     public void preInitClient(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new CRClientEvents());
+
+        int id = 0;
+        PacketHandler.INSTANCE.registerMessage(CRPacketFXArcBolt.class, CRPacketFXArcBolt.class, id++, Side.CLIENT);
 
         CRRenderRegistry.preInit();
     }
