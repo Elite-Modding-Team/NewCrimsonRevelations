@@ -38,6 +38,7 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
         this.sleep = false;
     }
 
+    @Override
     public void update() {
         if (this.counter == 0) {
             this.rad = this.counter = this.world.rand.nextInt(100);
