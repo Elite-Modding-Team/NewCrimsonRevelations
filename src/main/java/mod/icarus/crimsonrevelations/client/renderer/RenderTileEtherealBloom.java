@@ -59,6 +59,15 @@ public class RenderTileEtherealBloom extends TileEntitySpecialRenderer<CRTileEth
         GlStateManager.alphaFunc(516, 0.004F);
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(770, 1);
+
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(x + 0.5F - (scale4 / 8.0F), y + scale1 - (scale4 / 6.0F), z + 0.5F - (scale4 / 8.0F));
+        GlStateManager.scale(scale4 / 4.0F, scale4 / 3.0F, scale4 / 4.0F);
+        this.bindTexture(tx1);
+        this.model.render();
+        GlStateManager.popMatrix();
+
+        //
         GlStateManager.pushMatrix();
         GlStateManager.depthMask(false);
         GlStateManager.disableCull();
@@ -69,12 +78,8 @@ public class RenderTileEtherealBloom extends TileEntitySpecialRenderer<CRTileEth
         GlStateManager.enableAlpha();
         GlStateManager.depthMask(true);
         GlStateManager.popMatrix();
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(x + 0.5F - (scale4 / 8.0F), y + scale1 - (scale4 / 6.0F), z + 0.5F - (scale4 / 8.0F));
-        GlStateManager.scale(scale4 / 4.0F, scale4 / 3.0F, scale4 / 4.0F);
-        this.bindTexture(tx1);
-        this.model.render();
-        GlStateManager.popMatrix();
+        //
+
         GlStateManager.disableBlend();
         float r1 = MathHelper.sin(((float) tile.counter + pt) / 12.0F) * 2.0F;
         float r2 = MathHelper.sin(((float) tile.counter + pt) / 11.0F) * 2.0F;
