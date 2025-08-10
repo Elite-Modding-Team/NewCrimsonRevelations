@@ -210,6 +210,12 @@ public class CRRecipes {
                 new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
                         ItemsTC.visResonator}));
 
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "thaumic_litmus_paper"), new ShapelessArcaneRecipe(
+                defaultGroup, "CR_THAUMIC_LITMUS_PAPER", 10,
+                new AspectList().add(Aspect.WATER, 1),
+                new ItemStack(CRItems.THAUMIC_LITMUS_PAPER, 4),
+                new Object[]{Items.PAPER, ItemsTC.salisMundus}));
+
         // Special Arcane Workbench Recipes
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_charm_to_ring"), new VerdantCharmToRing());
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_ring_to_charm"), new VerdantRingToCharm());

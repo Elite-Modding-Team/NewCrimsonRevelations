@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "key": "CR_THAUMIC_LITMUS_PAPER",
+      "name": "crimsonrevelations.research.thaumic_litmus_paper.title",
+      "icons": [
+        "crimsonrevelations:thaumic_litmus_paper"
+      ],
+      "category": "BASICS",
+      "parents": [
+        "~WARP"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        -3,
+        -2
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.thaumic_litmus_paper.stage.0",
+          "recipes": [
+            "crimsonrevelations:thaumic_litmus_paper"
+          ]
+        }
+      ]
+    }
+  ]
+}

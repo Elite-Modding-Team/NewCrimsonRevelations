@@ -69,6 +69,10 @@ public class CRResearchRegistry {
         if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
             ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/forbidden"));
         }
+        
+        if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
+            ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/litmus_paper"));
+        }
 
         // Research
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));
