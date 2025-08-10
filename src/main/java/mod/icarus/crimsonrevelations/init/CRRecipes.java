@@ -220,7 +220,7 @@ public class CRRecipes {
                 new CrucibleRecipe("CR_ANCIENT_STONE", new ItemStack(BlocksTC.stoneAncient), new ItemStack(BlocksTC.stoneArcane), new AspectList().add(Aspect.ELDRITCH, 5)));
 
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "ethereal_bloom"),
-                new CrucibleRecipe("ETHEREAL_BLOOM", new ItemStack(CRBlocks.ETHEREAL_BLOOM), BlocksTC.shimmerleaf, new AspectList().add(Aspect.LIGHT, 20).add(Aspect.PLANT, 40).add(Aspect.LIFE, 40).add(Aspect.FLUX, 40)));
+                new CrucibleRecipe("CR_ETHEREAL_BLOOM", new ItemStack(CRBlocks.ETHEREAL_BLOOM), BlocksTC.shimmerleaf, new AspectList().add(Aspect.LIGHT, 20).add(Aspect.PLANT, 40).add(Aspect.LIFE, 40).add(Aspect.FLUX, 40)));
 
     }
 
