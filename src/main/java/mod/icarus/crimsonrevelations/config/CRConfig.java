@@ -102,11 +102,6 @@ public class CRConfig {
         @Config.RequiresMcRestart
         public double PRIMORDIAL_TOOLS_CURIOSITY_CHANCE = 0.3D;
 
-        @Config.Name("Research: Forbidden Magic")
-        @Config.Comment("Enables Forbidden Magic content (disable this if you prefer ReForbidden Magic's implementation of these items). [default: true]")
-        @Config.RequiresMcRestart
-        public boolean RESEARCH_FORBIDDEN_MAGIC = true;
-
         @Config.Name("Scribing Tools of Knowledge: Curiosity Chance")
         @Config.Comment("The percentage chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
@@ -124,10 +119,31 @@ public class CRConfig {
     }
 
     public static class ModIntegrationSettings {
+        @Config.Name("Conflicting Content Removal Check")
+        @Config.Comment("Automatically disables content originating from (or similar to) other addons if those addons are installed alongside this mod. [default: true]")
+        @Config.RequiresMcRestart
+        public boolean CONFLICTING_CONTENT_REMOVAL_CHECK = true;
+
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration. [default: true]")
         @Config.RequiresMcRestart
         public boolean JER_INTEGRATION = true;
+
+        @Config.Name("Research: Forbidden Magic")
+        @Config.Comment({
+                "Enables Forbidden Magic content (Pickaxe of Distortion, Ring of Nutrition, and Shovel of the Purifier). [default: true]",
+                "NOTE: The content will always be disabled if Conflicting Content Removal Check is kept enabled and ReForbidden Magic is installed!"
+        })
+        @Config.RequiresMcRestart
+        public boolean RESEARCH_FORBIDDEN_MAGIC = true;
+
+        @Config.Name("Research: Thaumic Litmus Paper")
+        @Config.Comment({
+                "Enables the Thaumic Litmus Paper item. [default: true]",
+                "NOTE: The content will always be disabled if Conflicting Content Removal Check is kept enabled and Warp Apocalypse is installed!"
+        })
+        @Config.RequiresMcRestart
+        public boolean RESEARCH_THAUMIC_LITMUS_PAPER = true;
 
         @Config.Name("Thaumic Augmentation Integration")
         @Config.Comment("Enables Thaumic Augmentation integration. [default: true]")

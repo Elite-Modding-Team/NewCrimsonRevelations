@@ -1,6 +1,7 @@
 package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.recipe.VerdantCharmToRing;
 import mod.icarus.crimsonrevelations.recipe.VerdantRingToCharm;
 import net.minecraft.init.Blocks;
@@ -210,11 +211,17 @@ public class CRRecipes {
                 new Object[]{new ItemStack(ItemsTC.scribingTools, 1, OreDictionary.WILDCARD_VALUE),
                         ItemsTC.visResonator}));
 
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "thaumic_litmus_paper"), new ShapelessArcaneRecipe(
-                defaultGroup, "CR_THAUMIC_LITMUS_PAPER", 10,
-                new AspectList().add(Aspect.WATER, 1),
-                new ItemStack(CRItems.THAUMIC_LITMUS_PAPER, 4),
-                new Object[]{Items.PAPER, ItemsTC.salisMundus}));
+        // Optional Arcane Workbench Recipes
+        if (CRConfig.mod_integration_settings.RESEARCH_THAUMIC_LITMUS_PAPER) {
+            if (CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("warptheory"))
+                return;
+
+            ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "thaumic_litmus_paper"), new ShapelessArcaneRecipe(
+                    defaultGroup, "CR_THAUMIC_LITMUS_PAPER", 10,
+                    new AspectList().add(Aspect.WATER, 1),
+                    new ItemStack(CRItems.THAUMIC_LITMUS_PAPER, 4),
+                    new Object[]{Items.PAPER, ItemsTC.salisMundus}));
+        }
 
         // Special Arcane Workbench Recipes
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "verdant_charm_to_ring"), new VerdantCharmToRing());
@@ -251,16 +258,6 @@ public class CRRecipes {
                         CRItems.CRIMSON_FABRIC,
                         CRItems.CRIMSON_FABRIC));
 
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "distortion_pickaxe"),
-                new InfusionRecipe("CR_DISTORTION_PICKAXE", new ItemStack(CRItems.DISTORTION_PICKAXE), 1,
-                        new AspectList().add(Aspect.ENTROPY, 40).add(Aspect.TOOL, 40).add(Aspect.FLUX, 40),
-                        ItemsTC.thaumiumPick,
-                        ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
-                        ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
-                        ItemsTC.quicksilver,
-                        new ItemStack(ItemsTC.nuggets, 1, 10),
-                        BlocksTC.logGreatwood));
-
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "execution_axe"),
                 new InfusionRecipe("CR_EXECUTION_AXE", new ItemStack(CRItems.EXECUTION_AXE), 4,
                         new AspectList().add(Aspect.AVERSION, 75).add(Aspect.FIRE, 75).add(Aspect.DEATH, 25).add(Aspect.MAN, 25),
@@ -271,14 +268,6 @@ public class CRRecipes {
                         new ItemStack(ItemsTC.nuggets, 1, 10),
                         CRItems.CRIMSON_PLATE,
                         CRItems.CRIMSON_PLATE));
-
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
-                new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
-                        new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),
-                        new ItemStack(ItemsTC.baubles, 1, 1),
-                        ThaumcraftApiHelper.makeCrystal(Aspect.LIFE, 1),
-                        ThaumcraftApiHelper.makeCrystal(Aspect.ALCHEMY, 1),
-                        ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1)));
 
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
@@ -322,16 +311,6 @@ public class CRRecipes {
                         CRItems.SANITATION_SCRIBING_TOOLS,
                         ItemsTC.voidSeed,
                         ItemsTC.voidSeed));
-
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),
-                new InfusionRecipe("CR_PURIFYING_SHOVEL", new ItemStack(CRItems.PURIFYING_SHOVEL), 1,
-                        new AspectList().add(Aspect.LIFE, 40).add(Aspect.LIGHT, 40).add(Aspect.TOOL, 40),
-                        ItemsTC.thaumiumShovel,
-                        ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
-                        ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
-                        ItemsTC.quicksilver,
-                        new ItemStack(ItemsTC.nuggets, 1, 10),
-                        BlocksTC.logSilverwood));
 
         ItemStack runicAmuletStack = new ItemStack(CRItems.RUNIC_AMULET);
         runicAmuletStack.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 8));
@@ -461,7 +440,7 @@ public class CRRecipes {
                         potion2,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1)));
 
-        // Infusion Enchantments
+        // Infusion Enchantment Recipes
         InfusionEnchantmentRecipe beheadingInfusion = new InfusionEnchantmentRecipe(CREnchantments.BEHEADING,
                 new AspectList().add(Aspect.FIRE, 60).add(Aspect.AVERSION, 60),
                 new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
@@ -470,6 +449,40 @@ public class CRRecipes {
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion"), beheadingInfusion);
         ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion_fake"), new InfusionEnchantmentRecipe(
                 beheadingInfusion, new ItemStack(Items.IRON_AXE)));
+
+        // Optional Infusion Recipes
+        if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
+            if (CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))
+                return;
+
+            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "distortion_pickaxe"),
+                    new InfusionRecipe("CR_DISTORTION_PICKAXE", new ItemStack(CRItems.DISTORTION_PICKAXE), 1,
+                            new AspectList().add(Aspect.ENTROPY, 40).add(Aspect.TOOL, 40).add(Aspect.FLUX, 40),
+                            ItemsTC.thaumiumPick,
+                            ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
+                            ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
+                            ItemsTC.quicksilver,
+                            new ItemStack(ItemsTC.nuggets, 1, 10),
+                            BlocksTC.logGreatwood));
+
+            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
+                    new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
+                            new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),
+                            new ItemStack(ItemsTC.baubles, 1, 1),
+                            ThaumcraftApiHelper.makeCrystal(Aspect.LIFE, 1),
+                            ThaumcraftApiHelper.makeCrystal(Aspect.ALCHEMY, 1),
+                            ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1)));
+
+            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),
+                    new InfusionRecipe("CR_PURIFYING_SHOVEL", new ItemStack(CRItems.PURIFYING_SHOVEL), 1,
+                            new AspectList().add(Aspect.LIFE, 40).add(Aspect.LIGHT, 40).add(Aspect.TOOL, 40),
+                            ItemsTC.thaumiumShovel,
+                            ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
+                            ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
+                            ItemsTC.quicksilver,
+                            new ItemStack(ItemsTC.nuggets, 1, 10),
+                            BlocksTC.logSilverwood));
+        }
 
         // Thaumic Augmentation Integration
         if (Loader.isModLoaded("thaumicaugmentation")) {

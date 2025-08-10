@@ -135,16 +135,25 @@ public class CRItems {
                 CRRegistry.setup(new CRItemSanitationScribingTools(), "sanitation_scribing_tools"),
                 CRRegistry.setup(new CRItemPrimordialScribingTools(), "primordial_scribing_tools"),
 
-                CRRegistry.setup(new CRItemManaBean(), "mana_bean"),
-                CRRegistry.setup(new CRItemLitmusPaper(), "thaumic_litmus_paper")
+                CRRegistry.setup(new CRItemManaBean(), "mana_bean")
         );
 
-        if (CRConfig.general_settings.RESEARCH_FORBIDDEN_MAGIC) {
+        if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
+            if (CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))
+                return;
+
             registry.registerAll(
                     CRRegistry.setup(new CRItemPickaxe(ThaumcraftMaterials.TOOLMAT_ELEMENTAL, EnumRarity.RARE), "distortion_pickaxe"),
                     CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring"),
                     CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel")
             );
+        }
+
+        if (CRConfig.mod_integration_settings.RESEARCH_THAUMIC_LITMUS_PAPER) {
+            if (CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("warptheory"))
+                return;
+
+            registry.register(CRRegistry.setup(new CRItemLitmusPaper(), "thaumic_litmus_paper"));
         }
 
         if (Loader.isModLoaded("thaumicaugmentation")) {
