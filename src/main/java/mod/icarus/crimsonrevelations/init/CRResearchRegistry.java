@@ -3,6 +3,7 @@ package mod.icarus.crimsonrevelations.init;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.casters.foci.*;
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -79,10 +80,11 @@ public class CRResearchRegistry {
         }
 
         // Research
+        ScanningManager.addScannableThing(new ScanBlock("!CR_MANA_POD", CRBlocks.MANA_POD));
+
+        ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_ARCHER", EntityCultistArcher.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_KNIGHT", EntityCultistKnight.class, true));
-
-        ScanningManager.addScannableThing(new ScanBlock("!CR_MANA_POD", CRBlocks.MANA_POD));
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION) {
             // Focus Effects

@@ -37,6 +37,31 @@
       ]
     },
     {
+      "key": "!CR_CRIMSON_ARCHER",
+      "name": "crimsonrevelations.research.crimson_archer.title",
+      "icons": [
+        "crimsonrevelations:textures/research/b_archer.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "location": [
+        -5,
+        5
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.crimson_archer.stage.0"
+        }
+      ]
+    },
+    {
       "key": "!CR_CRIMSON_CLERIC",
       "name": "crimsonrevelations.research.crimson_cleric.title",
       "icons": [
