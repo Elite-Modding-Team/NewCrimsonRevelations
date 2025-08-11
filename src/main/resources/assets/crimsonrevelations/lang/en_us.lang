@@ -122,14 +122,17 @@ crimsonrevelations.research.dark_auromancy.stage.0=I have discovered drafts with
 crimsonrevelations.research.focus_blinding_flash.title=Focus Effect: Blinding Flash
 crimsonrevelations.research.focus_blinding_flash.stage.0=Blinding Flash has the ability to blind and blur targets, as well as weaken non-player targets.<BR>Damage is doubled and armor is pierced against undead targets while damage is halved against non-undead targets, it is best to utilize this effect only during certain situations.
 
+crimsonrevelations.research.focus_hex.title=Focus Effect: Hex
+crimsonrevelations.research.focus_hex.stage.0=Using the Crimson Rites, the pech wand can be deciphered further into the original form of Curse called Hex. There is no corrupting field of energy that occurs after it hits the ground and the amount of effects applied have slightly been toned down.<BR>The damage is a bit higher than Curse to make up for these losses.<PAGE>A new setting called Nightshade can be applied to Hex. With Nightshade enabled, all negative effects will be applied at once rather than randomly.
+
 crimsonrevelations.research.focus_poison.title=Focus Effect: Poison
 crimsonrevelations.research.focus_poison.stage.0=The poison inflicted from this blast of noxious goo lasts twice as long when compared to other effects.<BR>I must be wary however that a fair amount of monsters are resistant to being poisoned, such as the undead, spiders, and other rather fearsome opponents.
 
+crimsonrevelations.research.focus_punch.title=Focus Effect: Punch
+crimsonrevelations.research.focus_punch.stage.0=This bizarre effect is purely focused on punching things away!<BR>Punch deals no damage whatsoever unlike Air, but has greater knockback than it. The higher focus on utility rather than combat makes it excellent to use with combo spells.
+
 crimsonrevelations.research.focus_taint_poison.title=Focus Effect: Taint Poison
 crimsonrevelations.research.focus_taint_poison.stage.0=Taint Poison is much more deadly than regular poison. It lasts just as long and is acidic enough to even go through armor.<BR>I must be careful when handling this effect, it's all fun and games until the target becomes infected, in which case more extreme measures must be taken.<BR>Undead seem to be completely unaffected by this type of poison.
-
-crimsonrevelations.research.overgrown_taintacle.title=Overgrown Taintacle
-crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
 # Research: Bestiary
 crimsonrevelations.research.cult_bestiary.title=The Cult Bestiary
@@ -146,7 +149,8 @@ crimsonrevelations.research.crimson_knight.title=Crimson Knight
 crimsonrevelations.research.crimson_knight.stage.0=These are the main foot soldiers of the Crimson Cult as said by the Crimson Rites, the knights mostly do basic mundane tasks such as protecting clerics from harm during their rituals and scouting various areas within the Overworld.<BR>Despite not knowing dangerous spells like the clerics, the knights are actually a very §osneaky§r type, the swords that they carry are tipped with a potent poison. I should thus be careful when dealing with them especially in larger numbers as even the toughest diamond armor won't protect me from being poisoned.<BR>These tipped swords were recently provided to the knights after a recent arsenal change, the iron swords they had previously were not working too well for them apparently...
 crimsonrevelations.research.crimson_knight.addenda.0=It looks like the knights also have their own subrank system based on skill and loyalty. They are promoted to a sergeant after some time and don a stronger sword imbued with magic, they also don't cover their head for clearer vision. Finally, they become commanders which is just one small step before becoming a cleric, I can easily recognize them by their own hoods that they wear and the voidified swords that they carry.<PAGE>Encountering these types of knights are more of a rare anomaly, but it is interesting to see how the Crimson Cult has this system in place.
 
-crimsonrevelations.text.overgrown_taintacle=You have absorbed some of the Overgrown Taintacle's power.
+crimsonrevelations.research.overgrown_taintacle.title=Overgrown Taintacle
+crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
 # Research: Forbidden
 crimsonrevelations.research.distortion_pickaxe.title=Pickaxe of Distortion

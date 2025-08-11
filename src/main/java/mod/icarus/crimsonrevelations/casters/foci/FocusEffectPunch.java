@@ -49,7 +49,7 @@ public class FocusEffectPunch extends FocusEffect {
 
     @Override
     public String getResearch() {
-        return "CR_FOCUS_POISON";
+        return "CR_FOCUS_PUNCH";
     }
 
     @Override

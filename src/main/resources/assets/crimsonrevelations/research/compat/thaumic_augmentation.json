@@ -82,17 +82,18 @@
       "category": "REVELATIONS",
       "parents": [
         "CR_DARK_AUROMANCY",
-        "CR_FOCUS_POISON",
+        "~CR_FOCUS_POISON",
         "~!CR_OVERGROWN_TAINTACLE",
         "~FOCUSCURSE"
       ],
       "siblings": [],
       "meta": [
-        "HIDDEN"
+        "HIDDEN",
+        "REVERSE"
       ],
       "location": [
         -1,
-        -5
+        -6
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -108,8 +109,7 @@
           ],
           "required_research": [
             "!TaintSwarm",
-            "!vitium",
-            "!alienis"
+            "!vitium"
           ]
         }
       ]

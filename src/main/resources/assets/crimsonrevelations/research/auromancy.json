@@ -40,10 +40,12 @@
         "~FOCUSHEAL"
       ],
       "siblings": [],
-      "meta": [],
+      "meta": [
+        "REVERSE"
+      ],
       "location": [
         1,
-        -5
+        -6
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -55,9 +57,40 @@
             "THEORY;AUROMANCY;2"
           ],
           "required_research": [
-            "!lux",
-            "!sensus"
+            "!lux"
           ]
+        }
+      ]
+    },
+    {
+      "key": "CR_FOCUS_HEX",
+      "name": "crimsonrevelations.research.focus_hex.title",
+      "icons": [
+        "focus:focus.crimsonrevelations.hex"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_DARK_AUROMANCY",
+        "~FOCUSCURSE"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "location": [
+        -1,
+        -5
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.focus_hex.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1",
+            "THEORY;AUROMANCY;1"
+          ],
+          "required_research": []
         }
       ]
     },
@@ -86,8 +119,39 @@
             "OBSERVATION;AUROMANCY;1"
           ],
           "required_research": [
-            "!alkimia",
-            "!mortuus"
+            "!alkimia"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CR_FOCUS_PUNCH",
+      "name": "crimsonrevelations.research.focus_punch.title",
+      "icons": [
+        "focus:focus.crimsonrevelations.punch"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_DARK_AUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "location": [
+        1,
+        -5
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.focus_punch.stage.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1"
+          ],
+          "required_research": [
+            "!humanus"
           ]
         }
       ]
