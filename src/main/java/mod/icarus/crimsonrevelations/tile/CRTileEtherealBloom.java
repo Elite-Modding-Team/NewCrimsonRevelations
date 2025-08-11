@@ -55,7 +55,7 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
             }
         }
 
-        if (!this.world.isRemote && this.counter % 20 == 0 && !this.sleep) {
+        /*if (!this.world.isRemote && this.counter % 20 == 0 && !this.sleep) {
             List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(pos.getX() - 16, pos.getY() - 16, pos.getZ() - 16, pos.getX() + 16, pos.getY() + 16, pos.getZ() + 16));
 
             for (EntityLivingBase victim : entities) {
@@ -70,7 +70,7 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
                     }
                 }
             }
-        }
+        }*/
 
         if (!this.world.isRemote && this.counter % 20 == 0 && !this.sleep) {
             this.rad = (int) ((double) this.rad + (5.0D + Math.sqrt(1 + this.rad1) * 5.0D + (double) this.world.rand.nextInt(5)));
