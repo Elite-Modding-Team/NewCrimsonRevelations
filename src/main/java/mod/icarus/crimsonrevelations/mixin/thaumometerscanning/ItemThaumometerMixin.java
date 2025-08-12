@@ -31,14 +31,17 @@ import thaumcraft.common.lib.utils.EntityUtils;
 @Mixin(ItemThaumometer.class)
 public abstract class ItemThaumometerMixin extends Item {
     @Shadow(remap = false)
-    protected abstract RayTraceResult getRayTraceResultFromPlayerWild(World worldIn, EntityPlayer playerIn, boolean useLiquids);
+    protected RayTraceResult getRayTraceResultFromPlayerWild(World worldIn, EntityPlayer playerIn, boolean useLiquids) {
+        return null;
+    }
 
     @Shadow(remap = false)
     private void updateAura(ItemStack stack, World world, EntityPlayerMP player) {
     }
 
     @Shadow(remap = false)
-    public abstract void doScan(World worldIn, EntityPlayer playerIn);
+    public void doScan(World worldIn, EntityPlayer playerIn) {
+    }
 
     @Shadow(remap = false)
     private void drawFX(final World worldIn, final EntityPlayer playerIn) {
