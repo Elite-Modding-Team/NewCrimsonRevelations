@@ -1,43 +1,37 @@
 {
   "entries": [
     {
-      "key": "CR_ETHEREAL_BLOOM",
-      "name": "crimsonrevelations.research.ethereal_bloom.title",
+      "key": "CR_ANCIENT_STONE",
+      "name": "crimsonrevelations.research.ancient_stone.title",
       "icons": [
-        "crimsonrevelations:ethereal_bloom"
+        "thaumcraft:stone_ancient"
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CRIMSON_REVELATIONS_BASE",
-        "~HEDGEALCHEMY",
-        "!PLANTWOOD",
-        "!PLANTSHIMMERLEAF"
+        "CRIMSON_REVELATIONS_BASE"
       ],
       "siblings": [],
-      "meta": [
-        "HIDDEN"
-      ],
+      "meta": [],
       "location": [
         -2,
-        15
+        -1
       ],
       "reward_item": [],
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.ethereal_bloom.stage.0",
+          "text": "crimsonrevelations.research.ancient_stone.stage.0",
           "required_knowledge": [
-            "THEORY;ALCHEMY;2",
-            "OBSERVATION;AUROMANCY;1"
-          ],
-          "required_item": [
-            "thaumcraft:shimmerleaf"
+            "THEORY;ALCHEMY;1",
+            "OBSERVATION;ELDRITCH;2"
           ]
         },
         {
-          "text": "crimsonrevelations.research.ethereal_bloom.stage.1",
+          "text": "crimsonrevelations.research.ancient_stone.stage.1",
           "recipes": [
-            "crimsonrevelations:ethereal_bloom"
+            "crimsonrevelations:ancientstone",
+            "crimsonrevelations:ancient_stone_tile",
+            "crimsonrevelations:glyphstone"
           ]
         }
       ]

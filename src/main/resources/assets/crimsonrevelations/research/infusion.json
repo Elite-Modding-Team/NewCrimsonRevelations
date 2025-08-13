@@ -8,7 +8,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "CR_EXECUTION_AXE",
+        "~CR_EXECUTION_AXE",
         "~INFUSIONENCHANTMENT"
       ],
       "siblings": [],
@@ -16,8 +16,8 @@
         "HIDDEN"
       ],
       "location": [
-        -2,
-        9
+        1,
+        4
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -38,6 +38,98 @@
       ]
     },
     {
+      "key": "CR_BONE_BOW",
+      "name": "crimsonrevelations.research.bone_bow.title",
+      "icons": [
+        "crimsonrevelations:bone_bow"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE",
+        "~ELEMENTALTOOLS"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -3,
+        1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.bone_bow.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "OBSERVATION;GOLEMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:bone;3",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'perditio'}]}",
+            "minecraft:string;3"
+          ],
+          "required_craft": [
+            "minecraft:bow"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.bone_bow.stage.1",
+          "recipes": [
+            "crimsonrevelations:bone_bow"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CR_CRIMSON_BLADE",
+      "name": "crimsonrevelations.research.crimson_blade.title",
+      "icons": [
+        "thaumcraft:crimson_blade"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "~CRIMSON_REVELATIONS_BASE",
+        "CR_BASIC_CRIMSON_WEAPONRY",
+        "~BASEELDRITCH"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        4,
+        -3
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.crimson_blade.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;ELDRITCH;1"
+          ],
+          "required_research": [
+            "!mortuus",
+            "!aversio"
+          ],
+          "required_craft": [
+            "thaumcraft:void_sword"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.crimson_blade.stage.1",
+          "recipes": [
+            "crimsonrevelations:crimsonblade"
+          ],
+          "warp": 2
+        }
+      ],
+      "addenda": []
+    },
+    {
       "key": "CR_EXECUTION_AXE",
       "name": "crimsonrevelations.research.execution_axe.title",
       "icons": [
@@ -53,8 +145,8 @@
         "HIDDEN"
       ],
       "location": [
-        -2,
-        11
+        0,
+        4
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -70,6 +162,59 @@
           "text": "crimsonrevelations.research.execution_axe.stage.1",
           "recipes": [
             "crimsonrevelations:execution_axe"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CR_PRIMAL_ARROWS",
+      "name": "crimsonrevelations.research.primal_arrows.title",
+      "icons": [
+        "crimsonrevelations:aer_arrow",
+        "crimsonrevelations:aqua_arrow",
+        "crimsonrevelations:ignis_arrow",
+        "crimsonrevelations:ordo_arrow",
+        "crimsonrevelations:perditio_arrow",
+        "crimsonrevelations:terra_arrow"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_BONE_BOW"
+      ],
+      "siblings": [],
+      "meta": [],
+      "location": [
+        -3,
+        3
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.primal_arrows.stage.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:arrow;6",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'aer'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'ignis'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'ordo'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'perditio'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'terra'}]}"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.primal_arrows.stage.1",
+          "recipes": [
+            "crimsonrevelations:aer_arrow",
+            "crimsonrevelations:aqua_arrow",
+            "crimsonrevelations:ignis_arrow",
+            "crimsonrevelations:ordo_arrow",
+            "crimsonrevelations:perditio_arrow",
+            "crimsonrevelations:terra_arrow"
           ]
         }
       ]

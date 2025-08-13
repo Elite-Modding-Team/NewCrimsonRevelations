@@ -1,6 +1,47 @@
 {
   "entries": [
     {
+      "key": "CR_FOCUS_TAINT_POISON",
+      "name": "crimsonrevelations.research.focus_taint_poison.title",
+      "icons": [
+        "focus:focus.crimsonrevelations.taint_poison"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_DARK_AUROMANCY",
+        "~CR_FOCUS_POISON",
+        "~!CR_OVERGROWN_TAINTACLE",
+        "~FOCUSCURSE"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -1,
+        -6
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.focus_taint_poison.stage.0",
+          "required_knowledge": [
+            "THEORY;ELDRITCH;2",
+            "THEORY;AUROMANCY;2"
+          ],
+          "required_item": [
+            "thaumcraft:void_seed;8"
+          ],
+          "required_research": [
+            "!TaintSwarm",
+            "!vitium"
+          ]
+        }
+      ]
+    },
+    {
       "key": "CR_METEOR_BOOTS",
       "name": "crimsonrevelations.research.meteor_boots.title",
       "icons": [
@@ -17,8 +58,8 @@
         "HIDDEN"
       ],
       "location": [
-        -6,
-        2
+        -5,
+        1
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -70,47 +111,6 @@
       "stages": [
         {
           "text": "crimsonrevelations.research.overgrown_taintacle.stage.0"
-        }
-      ]
-    },
-    {
-      "key": "CR_FOCUS_TAINT_POISON",
-      "name": "crimsonrevelations.research.focus_taint_poison.title",
-      "icons": [
-        "focus:focus.crimsonrevelations.taint_poison"
-      ],
-      "category": "REVELATIONS",
-      "parents": [
-        "CR_DARK_AUROMANCY",
-        "~CR_FOCUS_POISON",
-        "~!CR_OVERGROWN_TAINTACLE",
-        "~FOCUSCURSE"
-      ],
-      "siblings": [],
-      "meta": [
-        "HIDDEN",
-        "REVERSE"
-      ],
-      "location": [
-        -1,
-        -6
-      ],
-      "reward_item": [],
-      "reward_knowledge": [],
-      "stages": [
-        {
-          "text": "crimsonrevelations.research.focus_taint_poison.stage.0",
-          "required_knowledge": [
-            "THEORY;ELDRITCH;2",
-            "THEORY;AUROMANCY;2"
-          ],
-          "required_item": [
-            "thaumcraft:void_seed;8"
-          ],
-          "required_research": [
-            "!TaintSwarm",
-            "!vitium"
-          ]
         }
       ]
     }
