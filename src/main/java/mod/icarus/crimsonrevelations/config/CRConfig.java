@@ -120,7 +120,7 @@ public class CRConfig {
 
     public static class ModIntegrationSettings {
         @Config.Name("Conflicting Content Removal Check")
-        @Config.Comment("Automatically disables content originating from (or similar to) other addons if those addons are installed alongside this mod. [default: true]")
+        @Config.Comment("Automatically disables content originating from other addons if those addons are installed alongside this mod. [default: true]")
         @Config.RequiresMcRestart
         public boolean CONFLICTING_CONTENT_REMOVAL_CHECK = true;
 
