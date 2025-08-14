@@ -1,5 +1,7 @@
 package mod.icarus.crimsonrevelations.config;
 
+import com.cleanroommc.configanytime.ConfigAnytime;
+
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -210,6 +212,11 @@ public class CRConfig {
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
         public int TAINT_SWARM_WEIGHT = 20;
+    }
+
+    // ConfigAnytime is needed to ensure mixins can be toggleable with config settings
+    static {
+        ConfigAnytime.register(CRConfig.class);
     }
 
     @Mod.EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
