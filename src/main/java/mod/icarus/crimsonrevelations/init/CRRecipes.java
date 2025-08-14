@@ -213,14 +213,13 @@ public class CRRecipes {
 
         // Optional Arcane Workbench Recipes
         if (CRConfig.mod_integration_settings.RESEARCH_THAUMIC_LITMUS_PAPER) {
-            if (CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("warptheory"))
-                return;
-
-            ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "thaumic_litmus_paper"), new ShapelessArcaneRecipe(
-                    defaultGroup, "CR_THAUMIC_LITMUS_PAPER", 10,
-                    new AspectList().add(Aspect.WATER, 1),
-                    new ItemStack(CRItems.THAUMIC_LITMUS_PAPER, 4),
-                    new Object[]{Items.PAPER, ItemsTC.salisMundus}));
+            if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("warptheory"))) {
+                ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "thaumic_litmus_paper"), new ShapelessArcaneRecipe(
+                        defaultGroup, "CR_THAUMIC_LITMUS_PAPER", 10,
+                        new AspectList().add(Aspect.WATER, 1),
+                        new ItemStack(CRItems.THAUMIC_LITMUS_PAPER, 4),
+                        new Object[]{Items.PAPER, ItemsTC.salisMundus}));
+            }
         }
 
         // Special Arcane Workbench Recipes
@@ -452,36 +451,36 @@ public class CRRecipes {
 
         // Optional Infusion Recipes
         if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
-            if (CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))
-                return;
+            if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))) {
 
-            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "distortion_pickaxe"),
-                    new InfusionRecipe("CR_DISTORTION_PICKAXE", new ItemStack(CRItems.DISTORTION_PICKAXE), 1,
-                            new AspectList().add(Aspect.ENTROPY, 40).add(Aspect.TOOL, 40).add(Aspect.FLUX, 40),
-                            ItemsTC.thaumiumPick,
-                            ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
-                            ItemsTC.quicksilver,
-                            new ItemStack(ItemsTC.nuggets, 1, 10),
-                            BlocksTC.logGreatwood));
+                ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "distortion_pickaxe"),
+                        new InfusionRecipe("CR_DISTORTION_PICKAXE", new ItemStack(CRItems.DISTORTION_PICKAXE), 1,
+                                new AspectList().add(Aspect.ENTROPY, 40).add(Aspect.TOOL, 40).add(Aspect.FLUX, 40),
+                                ItemsTC.thaumiumPick,
+                                ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
+                                ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
+                                ItemsTC.quicksilver,
+                                new ItemStack(ItemsTC.nuggets, 1, 10),
+                                BlocksTC.logGreatwood));
 
-            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
-                    new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
-                            new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),
-                            new ItemStack(ItemsTC.baubles, 1, 1),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.LIFE, 1),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.ALCHEMY, 1),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1)));
+                ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
+                        new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
+                                new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),
+                                new ItemStack(ItemsTC.baubles, 1, 1),
+                                ThaumcraftApiHelper.makeCrystal(Aspect.LIFE, 1),
+                                ThaumcraftApiHelper.makeCrystal(Aspect.ALCHEMY, 1),
+                                ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1)));
 
-            ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),
-                    new InfusionRecipe("CR_PURIFYING_SHOVEL", new ItemStack(CRItems.PURIFYING_SHOVEL), 1,
-                            new AspectList().add(Aspect.LIFE, 40).add(Aspect.LIGHT, 40).add(Aspect.TOOL, 40),
-                            ItemsTC.thaumiumShovel,
-                            ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
-                            ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
-                            ItemsTC.quicksilver,
-                            new ItemStack(ItemsTC.nuggets, 1, 10),
-                            BlocksTC.logSilverwood));
+                ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),
+                        new InfusionRecipe("CR_PURIFYING_SHOVEL", new ItemStack(CRItems.PURIFYING_SHOVEL), 1,
+                                new AspectList().add(Aspect.LIFE, 40).add(Aspect.LIGHT, 40).add(Aspect.TOOL, 40),
+                                ItemsTC.thaumiumShovel,
+                                ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
+                                ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
+                                ItemsTC.quicksilver,
+                                new ItemStack(ItemsTC.nuggets, 1, 10),
+                                BlocksTC.logSilverwood));
+            }
         }
 
         // Thaumic Augmentation Integration
