@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class CRBlockEtherealBloom extends BlockBush {
     protected static final AxisAlignedBB BUSH_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.7D, 1.125D, 0.7D);
@@ -40,26 +39,13 @@ public class CRBlockEtherealBloom extends BlockBush {
     }
 
     @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-        this.checkAndDropBlock(worldIn, pos, state);
-    }
-
-    @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        this.checkAndDropBlock(worldIn, pos, state);
-    }
-
-    protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
-        if (!this.canPlaceBlockAt(worldIn, pos)) {
-            this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-        }
-    }
-
-    @Override
     public boolean canPlaceBlockAt(World world, BlockPos pos) {
         return world.getBlockState(pos.down()).isFullBlock();
+    }
+
+    @Override
+    protected boolean canSustainBush(IBlockState state) {
+        return state.getBlock() != Blocks.AIR;
     }
 
     @Override
@@ -80,6 +66,11 @@ public class CRBlockEtherealBloom extends BlockBush {
     @Override
     public EnumBlockRenderType getRenderType(IBlockState state) {
         return EnumBlockRenderType.INVISIBLE;
+    }
+
+    @Override
+    public Block.EnumOffsetType getOffsetType() {
+        return Block.EnumOffsetType.NONE;
     }
 
     @Override
