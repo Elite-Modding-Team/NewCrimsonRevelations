@@ -161,7 +161,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
             if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.meteorBoots))) {
                 setSmashingState(stack, true);
                 player.playSound(SoundsTC.rumble, 1.0F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
-                RechargeHelper.consumeCharge(stack, player, 2);
+                if (!player.capabilities.isCreativeMode) RechargeHelper.consumeCharge(stack, player, 2);
             }
         }
 
