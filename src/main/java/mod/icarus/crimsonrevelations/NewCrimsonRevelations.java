@@ -7,6 +7,7 @@ import mod.icarus.crimsonrevelations.events.CRClientEvents;
 import mod.icarus.crimsonrevelations.events.CREvents;
 import mod.icarus.crimsonrevelations.init.*;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
+import mod.icarus.crimsonrevelations.proxy.CommonProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -36,6 +38,8 @@ public class NewCrimsonRevelations {
 
     @Mod.Instance
     public static NewCrimsonRevelations instance;
+    @SidedProxy(clientSide = "mod.icarus.crimsonrevelations.proxy.ClientProxy", serverSide = "mod.icarus.crimsonrevelations.proxy.CommonProxy")
+    public static CommonProxy proxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
