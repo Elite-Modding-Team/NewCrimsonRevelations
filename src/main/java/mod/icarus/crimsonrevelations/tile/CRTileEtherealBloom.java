@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.tile;
 
+import mod.icarus.crimsonrevelations.client.CRPacketHandler;
 import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.util.TCVec3;
@@ -18,7 +19,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import thaumcraft.api.entities.ITaintedMob;
 import thaumcraft.common.blocks.world.taint.ITaintBlock;
 import thaumcraft.common.lib.SoundsTC;
-import thaumcraft.common.lib.network.PacketHandler;
 
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
 
                         if (attack) {
                             this.world.playSound(null, pos, SoundsTC.zap, SoundCategory.BLOCKS, 1.0F, 1.1F);
-                            PacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(new Vec3d(this.pos.add(0.0D, 1.0D, 0.0D)), new Vec3d(victim.getPosition()), 0x23333, 1), new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), victim.posX, victim.posY, victim.posZ, 64.0D));
+                            CRPacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(new Vec3d(this.pos.add(0.0D, 1.0D, 0.0D)), new Vec3d(victim.getPosition()), 0x23333, 1), new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), victim.posX, victim.posY, victim.posZ, 64.0D));
                         }
                     }
                 }
