@@ -9,6 +9,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -70,30 +72,32 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
         cultist.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(cultist.getPosition())), null);
 
         // Restores portal spawning particles from TC5
-        if (cultist != null) {
-            for (int i = 0; i < 20; ++i) {
-                double d0 = this.rand.nextGaussian() * 0.05;
-                double d2 = this.rand.nextGaussian() * 0.05;
-                double d3 = this.rand.nextGaussian() * 0.05;
-                double d4 = 2.0;
+        if (FMLLaunchHandler.side().isClient()) {
+            if (cultist != null) {
+                for (int i = 0; i < 20; ++i) {
+                    double d0 = this.rand.nextGaussian() * 0.05;
+                    double d2 = this.rand.nextGaussian() * 0.05;
+                    double d3 = this.rand.nextGaussian() * 0.05;
+                    double d4 = 2.0;
 
-                FXDispatcher.GenPart pp = new FXDispatcher.GenPart();
-                pp.age = 10 + world.rand.nextInt(10);
-                pp.alpha = new float[]{0.8F, 0.8F};
-                pp.grid = 32;
-                pp.layer = 1;
-                pp.partInc = 1;
-                pp.partNum = 5;
-                pp.partStart = 337;
-                float s = (float) (3.0F + world.rand.nextGaussian() * 2.0F);
-                pp.scale = new float[]{s, s};
-                pp.redEnd = 0.6F;
-                pp.greenEnd = 0.0F;
-                pp.blueEnd = 0.0F;
+                    FXDispatcher.GenPart pp = new FXDispatcher.GenPart();
+                    pp.age = 10 + world.rand.nextInt(10);
+                    pp.alpha = new float[]{0.8F, 0.8F};
+                    pp.grid = 32;
+                    pp.layer = 1;
+                    pp.partInc = 1;
+                    pp.partNum = 5;
+                    pp.partStart = 337;
+                    float s = (float) (3.0F + world.rand.nextGaussian() * 2.0F);
+                    pp.scale = new float[]{s, s};
+                    pp.redEnd = 0.6F;
+                    pp.greenEnd = 0.0F;
+                    pp.blueEnd = 0.0F;
 
-                FXDispatcher.INSTANCE.drawGenericParticles(cultist.posX + this.rand.nextFloat() * cultist.width * 2.0f - cultist.width + d0 * d4,
-                        cultist.posY + this.rand.nextFloat() * cultist.height + d2 * d4,
-                        cultist.posZ + this.rand.nextFloat() * cultist.width * 2.0f - cultist.width + d3 * d4, d0, d2, d3, pp);
+                    FXDispatcher.INSTANCE.drawGenericParticles(cultist.posX + this.rand.nextFloat() * cultist.width * 2.0f - cultist.width + d0 * d4,
+                            cultist.posY + this.rand.nextFloat() * cultist.height + d2 * d4,
+                            cultist.posZ + this.rand.nextFloat() * cultist.width * 2.0f - cultist.width + d3 * d4, d0, d2, d3, pp);
+                }
             }
         }
 
