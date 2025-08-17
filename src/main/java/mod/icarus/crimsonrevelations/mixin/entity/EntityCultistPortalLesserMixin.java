@@ -57,6 +57,7 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
             case 1:
                 cultist = new EntityCultistArcher(this.world);
                 break;
+            case 2:
             default:
                 cultist = new EntityCultistKnight(this.world);
                 break;
