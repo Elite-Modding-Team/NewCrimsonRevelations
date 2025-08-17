@@ -1,5 +1,7 @@
 package mod.icarus.crimsonrevelations.mixin.entity;
 
+import mod.icarus.crimsonrevelations.client.CRPacketHandler;
+import mod.icarus.crimsonrevelations.client.fx.CRPacketFXCultistPortal;
 import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.init.CRLootTables;
 import net.minecraft.entity.EntityLiving;
@@ -9,13 +11,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.entities.monster.cult.EntityCultistCleric;
 import thaumcraft.common.entities.monster.cult.EntityCultistKnight;
 import thaumcraft.common.entities.monster.cult.EntityCultistPortalLesser;
@@ -49,21 +48,16 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
 
     @Unique
     void cr$spawnCultists() {
-        EntityLiving cultist = null;
-        int random;
-        random = this.world.rand.nextInt(4);
+        EntityLiving cultist;
 
-        switch (random) {
+        switch (this.world.rand.nextInt(4)) {
             case 0:
                 cultist = new EntityCultistCleric(this.world);
                 break;
             case 1:
                 cultist = new EntityCultistArcher(this.world);
                 break;
-            case 2:
-                cultist = new EntityCultistKnight(this.world);
-                break;
-            case 3:
+            default:
                 cultist = new EntityCultistKnight(this.world);
                 break;
         }
@@ -72,34 +66,7 @@ public class EntityCultistPortalLesserMixin extends EntityMob {
         cultist.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(cultist.getPosition())), null);
 
         // Restores portal spawning particles from TC5
-        if (FMLLaunchHandler.side().isClient()) {
-            if (cultist != null) {
-                for (int i = 0; i < 20; ++i) {
-                    double d0 = this.rand.nextGaussian() * 0.05;
-                    double d2 = this.rand.nextGaussian() * 0.05;
-                    double d3 = this.rand.nextGaussian() * 0.05;
-                    double d4 = 2.0;
-
-                    FXDispatcher.GenPart pp = new FXDispatcher.GenPart();
-                    pp.age = 10 + world.rand.nextInt(10);
-                    pp.alpha = new float[]{0.8F, 0.8F};
-                    pp.grid = 32;
-                    pp.layer = 1;
-                    pp.partInc = 1;
-                    pp.partNum = 5;
-                    pp.partStart = 337;
-                    float s = (float) (3.0F + world.rand.nextGaussian() * 2.0F);
-                    pp.scale = new float[]{s, s};
-                    pp.redEnd = 0.6F;
-                    pp.greenEnd = 0.0F;
-                    pp.blueEnd = 0.0F;
-
-                    FXDispatcher.INSTANCE.drawGenericParticles(cultist.posX + this.rand.nextFloat() * cultist.width * 2.0f - cultist.width + d0 * d4,
-                            cultist.posY + this.rand.nextFloat() * cultist.height + d2 * d4,
-                            cultist.posZ + this.rand.nextFloat() * cultist.width * 2.0f - cultist.width + d3 * d4, d0, d2, d3, pp);
-                }
-            }
-        }
+        CRPacketHandler.INSTANCE.sendToAll(new CRPacketFXCultistPortal(cultist.posX, cultist.posY, cultist.posZ, cultist.width, cultist.height));
 
         this.world.spawnEntity(cultist);
         cultist.playSound(SoundsTC.wandfail, 1.0F, 1.0F);
