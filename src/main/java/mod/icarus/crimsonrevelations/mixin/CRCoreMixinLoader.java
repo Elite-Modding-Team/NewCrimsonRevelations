@@ -21,7 +21,6 @@ public class CRCoreMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
 
     private static final Map<String, Supplier<Boolean>> commonMixinConfigs = ImmutableMap.copyOf(new HashMap<String, Supplier<Boolean>>() {
         {
-            put("mixins.crimsonrevelations.early.entities.json", () -> true);
         }
     });
 

@@ -23,7 +23,6 @@ public class CRLateMixinLoader implements ILateMixinLoader {
         {
             put("mixins.crimsonrevelations.entities.json", () -> true);
             put("mixins.crimsonrevelations.events.json", () -> true);
-            put("mixins.crimsonrevelations.thaumometerscanning.json", () -> (!loaded("oldresearch") && CRConfig.general_settings.THAUMOMETER_OLD_SCANNING));
         }
     });
 
