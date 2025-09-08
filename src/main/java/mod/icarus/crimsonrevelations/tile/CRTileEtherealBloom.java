@@ -27,14 +27,14 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
     public int rad;
     public int rad1 = 0;
     public int growthCounter = 100;
-    public int foundTaint = 300;
+    public int foundTaint = 100;
     public static final int bloomsleep = 300;
-    public int sleepcounter = 300 * 4;
+    public int sleepcounter = 300;
     public boolean sleep = false;
 
     public void resetSleep() {
-        this.foundTaint = 300;
-        this.sleepcounter = 300 * 4;
+        this.foundTaint = 100;
+        this.sleepcounter = 300;
         this.sleep = false;
     }
 
@@ -51,7 +51,7 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
 
             if (!this.sleep) {
                 this.counter = 0;
-                this.sleepcounter = 300 * 4;
+                this.sleepcounter = 300;
             }
         }
 
