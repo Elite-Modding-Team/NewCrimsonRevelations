@@ -196,6 +196,22 @@ public class CREvents {
     }
 
     @SubscribeEvent
+    public static void onHurtEvent(LivingHurtEvent event) {
+        EntityLivingBase entity = event.getEntityLiving();
+        DamageSource damageSource = event.getSource();
+        Entity trueSource = damageSource.getTrueSource();
+
+        if (trueSource instanceof EntityLivingBase && trueSource != null) {
+            Item heldItem = ((EntityLivingBase) trueSource).getHeldItemMainhand().getItem();
+
+            if (heldItem == CRItems.CRIMSON_SWORD) {
+                // Poison while cultist sword is equipped
+                entity.addPotionEffect(new PotionEffect(MobEffects.POISON, 6 * 20, 1));
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void onItemUseFinish(LivingEntityUseItemEvent.Finish event) {
         if (event.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
