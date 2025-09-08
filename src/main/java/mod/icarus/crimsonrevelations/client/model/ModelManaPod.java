@@ -1,4 +1,4 @@
-package mod.icarus.crimsonrevelations.client.model.gear;
+package mod.icarus.crimsonrevelations.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

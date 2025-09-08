@@ -1,7 +1,7 @@
 package mod.icarus.crimsonrevelations.client.renderer;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
-import mod.icarus.crimsonrevelations.client.model.gear.ModelManaPod;
+import mod.icarus.crimsonrevelations.client.model.ModelManaPod;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
