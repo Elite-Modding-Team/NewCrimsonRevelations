@@ -8,8 +8,7 @@
     "EntityCultistClericMixin",
     "EntityCultistKnightMixin",
     "EntityCultistPortalLesserMixin",
-    "EntityGiantBrainyZombieMixin",
-    "EntityPechMixin"
+    "EntityGiantBrainyZombieMixin"
   ],
   "client": [],
   "server": []

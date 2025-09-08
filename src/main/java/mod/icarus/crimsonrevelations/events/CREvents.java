@@ -6,9 +6,11 @@ import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
+import mod.icarus.crimsonrevelations.item.CRItemManaBean;
 import mod.icarus.crimsonrevelations.world.WorldGenManaPods;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -25,6 +27,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
@@ -34,6 +37,9 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.common.entities.monster.EntityPech;
 import thaumcraft.common.world.biomes.BiomeGenMagicalForest;
 
 import java.util.ArrayList;
@@ -167,6 +173,23 @@ public class CREvents {
                 if (event.getSource() == DamageSource.HOT_FLOOR) {
                     event.setAmount(0.0F);
                     event.setCanceled(true);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onDropsEvent(LivingDropsEvent event) {
+        EntityLivingBase entity = event.getEntityLiving();
+        Aspect[] aspects = Aspect.getPrimalAspects().toArray(new Aspect[0]);
+
+        // Pechs drop primal mana beans.
+        if (!entity.world.isRemote && CRConfig.general_settings.MANA_BEAN_PECH_LOOT && entity instanceof EntityPech) {
+            for (int i = 0; i < 1 + event.getLootingLevel(); ++i) {
+                if (entity.getRNG().nextBoolean()) {
+                    ItemStack is = new ItemStack(CRItems.MANA_BEAN);
+                    ((CRItemManaBean) is.getItem()).setAspects(is, new AspectList().add(aspects[entity.getRNG().nextInt(aspects.length)], 1));
+                    event.getDrops().add(new EntityItem(entity.world, entity.posX, entity.posY, entity.posZ, is));
                 }
             }
         }
