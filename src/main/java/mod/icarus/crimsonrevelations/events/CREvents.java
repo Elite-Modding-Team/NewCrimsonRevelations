@@ -40,6 +40,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.common.entities.monster.EntityPech;
+import thaumcraft.common.entities.monster.cult.EntityCultist;
 import thaumcraft.common.world.biomes.BiomeGenMagicalForest;
 
 import java.util.ArrayList;
@@ -153,7 +154,18 @@ public class CREvents {
 
     @SubscribeEvent
     public static void onAttackEvent(LivingAttackEvent event) {
-        for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
+        EntityLivingBase entity = event.getEntityLiving();
+        DamageSource damageSource = event.getSource();
+        Entity trueSource = damageSource.getTrueSource();
+
+        // Cultists no longer harm other cultists and teammates.
+        if (trueSource instanceof EntityCultist && trueSource != null) {
+            if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
+                event.setCanceled(true);
+            }
+        }
+
+        for (ItemStack stack : entity.getArmorInventoryList()) {
 
             // Prevents screen shaking and damage sound.
             if (stack.getItem() == CRItems.meteorBoots) {
@@ -166,7 +178,19 @@ public class CREvents {
 
     @SubscribeEvent
     public static void onDamageEvent(LivingDamageEvent event) {
-        for (ItemStack stack : event.getEntityLiving().getArmorInventoryList()) {
+        EntityLivingBase entity = event.getEntityLiving();
+        DamageSource damageSource = event.getSource();
+        Entity trueSource = damageSource.getTrueSource();
+
+        // Cultists no longer harm other cultists and teammates.
+        if (trueSource instanceof EntityCultist && trueSource != null) {
+            if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
+                event.setAmount(0.0F);
+                event.setCanceled(true);
+            }
+        }
+
+        for (ItemStack stack : entity.getArmorInventoryList()) {
 
             // Immune to these damage types.
             if (stack.getItem() == CRItems.meteorBoots) {
