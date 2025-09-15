@@ -1,7 +1,6 @@
-package mod.icarus.crimsonrevelations.item.weapons;
+package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.init.CREnchantments;
-import mod.icarus.crimsonrevelations.item.CRItemAxe;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;

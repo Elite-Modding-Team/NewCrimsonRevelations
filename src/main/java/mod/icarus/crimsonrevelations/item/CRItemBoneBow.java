@@ -1,6 +1,5 @@
-package mod.icarus.crimsonrevelations.item.weapons;
+package mod.icarus.crimsonrevelations.item;
 
-import mod.icarus.crimsonrevelations.item.CRItemBow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;

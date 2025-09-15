@@ -1,8 +1,7 @@
-package mod.icarus.crimsonrevelations.item.tools;
+package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
-import mod.icarus.crimsonrevelations.item.CRItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,6 +1,5 @@
-package mod.icarus.crimsonrevelations.item.tools;
+package mod.icarus.crimsonrevelations.item;
 
-import mod.icarus.crimsonrevelations.item.CRItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

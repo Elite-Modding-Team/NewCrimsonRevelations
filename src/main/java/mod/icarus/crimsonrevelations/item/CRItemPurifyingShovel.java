@@ -1,8 +1,7 @@
-package mod.icarus.crimsonrevelations.item.tools;
+package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.client.CRPacketHandler;
 import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
-import mod.icarus.crimsonrevelations.item.CRItemShovel;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
