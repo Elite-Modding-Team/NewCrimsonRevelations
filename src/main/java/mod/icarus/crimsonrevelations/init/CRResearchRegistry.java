@@ -88,10 +88,6 @@ public class CRResearchRegistry {
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_KNIGHT", EntityCultistKnight.class, true));
 
-        if (Loader.isModLoaded("thaumcraftfix")) {
-            ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumcraftfix"));
-        }
-        
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION) {
             // Focus Effects
             FocusEngine.registerElement(FocusEffectTaintPoison.class, new ResourceLocation(NewCrimsonRevelations.MODID, "textures/foci/taint_poison.png"), 10354925);

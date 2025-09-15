@@ -17,6 +17,7 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -27,13 +28,17 @@ import thaumcraft.api.capabilities.IPlayerWarp.EnumWarpType;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
 import thaumcraft.api.items.IScribeTools;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.potions.PotionWarpWard;
 import thecodex6824.thaumcraftfix.api.research.ResearchCategoryTheorycraftFilter;
 
 import javax.annotation.Nullable;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CRItemPrimordialScribingTools extends CRItem implements IScribeTools {
     public CRItemPrimordialScribingTools() {
@@ -43,19 +48,29 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
         this.setHasSubtypes(false);
     }
 
-    // Currently not compatible with TC4 Research Port
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        ResearchCategory[] rc = ResearchCategoryTheorycraftFilter.getAllowedTheorycraftCategories().toArray(new ResearchCategory[0]);
-        int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
-        int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
+        ResearchCategory[] categories = this.getResearchCategories();
+        int observationProgress = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
+        int theoryProgress = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
         IPlayerWarp warp = ThaumcraftCapabilities.getWarp(player);
 
         if (stack.getItemDamage() >= stack.getMaxDamage()) {
             if (!world.isRemote) {
-                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
-                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 2, tProg));
+                if (categories.length > 0) {
+                    ThaumcraftApi.internalMethods.addKnowledge(
+                            player,
+                            IPlayerKnowledge.EnumKnowledgeType.OBSERVATION,
+                            categories[player.getRNG().nextInt(categories.length)],
+                            MathHelper.getInt(player.getRNG(), observationProgress / 2, observationProgress));
+
+                    ThaumcraftApi.internalMethods.addKnowledge(
+                            player,
+                            IPlayerKnowledge.EnumKnowledgeType.THEORY,
+                            categories[player.getRNG().nextInt(categories.length)],
+                            MathHelper.getInt(player.getRNG(), theoryProgress / 2, theoryProgress));
+                }
 
                 if (world.rand.nextDouble() <= CRConfig.general_settings.PRIMORDIAL_TOOLS_CURIOSITY_CHANCE) {
                     // Eldritch or Twisted Curiosity
@@ -94,6 +109,23 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         } else {
             return new ActionResult<>(EnumActionResult.FAIL, stack);
+        }
+    }
+
+    // Use Thaumcraft Fix's filter if it's also installed.
+    private ResearchCategory[] getResearchCategories() {
+        if (Loader.isModLoaded("thaumcraftfix")) {
+            return ResearchCategoryTheorycraftFilter.getAllowedTheorycraftCategories().toArray(new ResearchCategory[0]);
+        } else {
+            Set<ResearchCategory> categories = new HashSet<>();
+            categories.add(ResearchCategories.getResearchCategory("ALCHEMY"));
+            categories.add(ResearchCategories.getResearchCategory("ARTIFICE"));
+            categories.add(ResearchCategories.getResearchCategory("AUROMANCY"));
+            categories.add(ResearchCategories.getResearchCategory("BASICS"));
+            categories.add(ResearchCategories.getResearchCategory("GOLEMANCY"));
+            categories.add(ResearchCategories.getResearchCategory("INFUSION"));
+            categories.add(ResearchCategories.getResearchCategory("ELDRITCH"));
+            return categories.toArray(new ResearchCategory[0]);
         }
     }
 
