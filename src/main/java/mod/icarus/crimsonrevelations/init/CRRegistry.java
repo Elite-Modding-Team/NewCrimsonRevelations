@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -16,9 +17,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import thaumcraft.common.lib.events.PlayerEvents;
 
 import javax.annotation.Nonnull;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 
@@ -27,6 +32,7 @@ import java.util.function.Function;
 public class CRRegistry {
     public static final Multimap<Class<? extends EntityLivingBase>, Function<EntityLivingBase, ItemStack>> headDrops = ArrayListMultimap.create();
     public static final Multimap<Class<? extends EntityLivingBase>, ItemStack> headDropsRaw = ArrayListMultimap.create();
+    private static Field lastChargeField;
 
     @Nonnull
     public static <T extends IForgeRegistryEntry> T setup(@Nonnull final T entry, @Nonnull final String name) {
@@ -63,6 +69,21 @@ public class CRRegistry {
         return biomes.toArray(new Biome[0]);
     }
 
+    // Get Runic Shielding amount
+    public static int getRunicShielding(EntityPlayer player) {
+        try {
+            if (lastChargeField == null)
+                lastChargeField = PlayerEvents.class.getDeclaredField("lastCharge");
+            if (!lastChargeField.isAccessible())
+                lastChargeField.setAccessible(true);
+
+            HashMap<Integer, Integer> lastCharge = (HashMap<Integer, Integer>) lastChargeField.get(null);
+            return lastCharge.getOrDefault(player.getEntityId(), 0);
+        } catch (Exception ignored) {
+            return 0;
+        }
+    }
+
     /**
      * Registers a beheading head drop for all entities that extend the given class
      *
@@ -72,7 +93,7 @@ public class CRRegistry {
     public static void registerHeadDropForAll(Class<? extends EntityLivingBase> clazz, ItemStack head) {
         for (EntityEntry entry : ForgeRegistries.ENTITIES) {
             Class<? extends Entity> entityClass = entry.getEntityClass();
-            
+
             if (clazz.isAssignableFrom(entityClass)) {
                 registerHeadDrop((Class<? extends EntityLivingBase>) entityClass, head);
             }
@@ -97,7 +118,7 @@ public class CRRegistry {
      */
     public static void registerHeadDrop(Class<? extends EntityLivingBase> clazz, ItemStack head) {
         final ItemStack safeStack = head.copy();
-        
+
         registerHeadDrop(clazz, e -> safeStack);
         headDropsRaw.put(clazz, head);
     }
