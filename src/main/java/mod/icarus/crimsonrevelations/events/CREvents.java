@@ -219,14 +219,6 @@ public class CREvents {
                     player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_AMULET_EMERGENCY));
                     player.getCooldownTracker().setCooldown(CRItems.RUNIC_AMULET_EMERGENCY, 40 * 20);
                 }
-
-                // Charged Ring of Shielding - 25% chance to give 1 point of Runic Shielding, often restoring the Runic Shielding lost from damage.
-                if (BaublesApi.isBaubleEquipped(player, CRItems.RUNIC_RING_CHARGED) > 0 && !(player.getCooldownTracker().hasCooldown(CRItems.RUNIC_RING_CHARGED)) && player.world.rand.nextDouble() <= 0.25D) {
-                    player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_CHARGE, SoundCategory.PLAYERS, 1.0F, 1.0F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
-                    player.setAbsorptionAmount(charge + 1);
-
-                    player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_RING_CHARGED));
-                }
             }
         }
     }
