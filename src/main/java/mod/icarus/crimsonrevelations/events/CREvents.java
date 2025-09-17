@@ -211,10 +211,10 @@ public class CREvents {
                     player.getCooldownTracker().setCooldown(CRItems.RUNIC_RING_REGEN, 20 * 20);
                 }
 
-                // Amulet of Emergency Shielding - Gives 8 points of Runic Shielding when the Runic Shielding is pierced (40 second cooldown).
+                // Amulet of Emergency Shielding - Gives 8 points of Absorption when the Runic Shielding is pierced (40 second cooldown).
                 if (charge <= event.getAmount() && BaublesApi.isBaubleEquipped(player, CRItems.RUNIC_AMULET_EMERGENCY) > -1 && !(player.getCooldownTracker().hasCooldown(CRItems.RUNIC_AMULET_EMERGENCY))) {
                     player.world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.RUNIC_BAUBLE_EMERGENCY, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    player.setAbsorptionAmount(charge + 8);
+                    player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 40 * 20, 1, true, true));
 
                     player.addStat(StatList.getObjectUseStats(CRItems.RUNIC_AMULET_EMERGENCY));
                     player.getCooldownTracker().setCooldown(CRItems.RUNIC_AMULET_EMERGENCY, 40 * 20);
