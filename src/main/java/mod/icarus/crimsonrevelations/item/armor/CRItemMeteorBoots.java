@@ -38,7 +38,7 @@ import java.util.function.Predicate;
 // Courtesy of TheCodex6824 for some code used from Thaumic Augmentation's Void Thaumaturge Boots.
 public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/meteor_boots.png").toString();
-    
+
     // Calculate attribute bonuses.    
     protected static final BiFunction<EntityPlayer, MovementType, Float> MOVEMENT_FUNC = (player, type) -> {
         float boost = 0;
@@ -130,6 +130,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
         boolean hasCharge = RechargeHelper.getCharge(stack) > 1;
+        double motion = Math.abs(player.motionX) + Math.abs(player.motionZ) + Math.abs(player.motionY);
 
         // Activate smash state once the sneak key is pressed. Do not activate while flying.
         if (player.isSneaking() && !player.capabilities.isFlying && !player.isElytraFlying() && player.fallDistance > 0.0F && hasCharge) {
@@ -180,6 +181,14 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
 
                 player.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
                 player.getCooldownTracker().setCooldown(CRItems.meteorBoots, 5 * 20);
+            }
+        }
+
+        // Particles when sprinting or jumping
+        if (!world.isRemote) {
+            if (!player.isInWater() && (motion > 0.1F || player.isSprinting())) {
+                ((WorldServer) world).spawnParticle(EnumParticleTypes.FLAME, (double) (player.posX + Math.random() - 0.5F),
+                        (double) (player.getEntityBoundingBox().minY + 0.25F + ((Math.random() - 0.5) * 0.25F)), (double) (player.posZ + Math.random() - 0.5F), 1, 0.0D, 0.025D, 0.0D, 0.0D);
             }
         }
 

@@ -129,8 +129,9 @@ public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRecha
             }
         }
 
+        // Particles when sprinting or jumping
         if (!world.isRemote) {
-            if (!player.isWet() && (motion > 0.1F || player.isSprinting())) {
+            if (!player.isInWater() && (motion > 0.1F || player.isSprinting())) {
                 ((WorldServer) world).spawnParticle(EnumParticleTypes.END_ROD, (double) (player.posX + Math.random() - 0.5F),
                         (double) (player.getEntityBoundingBox().minY + 0.25F + ((Math.random() - 0.5) * 0.25F)), (double) (player.posZ + Math.random() - 0.5F), 1, 0.0D, 0.025D, 0.0D, 0.0D);
             }
