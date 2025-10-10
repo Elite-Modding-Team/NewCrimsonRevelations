@@ -7,6 +7,7 @@ import mod.icarus.crimsonrevelations.client.renderer.RenderTileEtherealBloom;
 import mod.icarus.crimsonrevelations.client.renderer.RenderTileManaPod;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.item.*;
+import mod.icarus.crimsonrevelations.item.armor.CRItemCometBoots;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemBauble;
@@ -91,6 +92,8 @@ public class CRItems {
 
     @GameRegistry.ObjectHolder("meteor_boots")
     public static Item meteorBoots;
+    @GameRegistry.ObjectHolder("comet_boots")
+    public static Item cometBoots;
 
     @SubscribeEvent
     public static void registerItems(@Nonnull final RegistryEvent.Register<Item> event) {
@@ -152,7 +155,8 @@ public class CRItems {
         }
 
         if (Loader.isModLoaded("thaumicaugmentation")) {
-            registry.register(CRRegistry.setup(new CRItemMeteorBoots(EntityEquipmentSlot.FEET), "meteor_boots"));
+            registry.register(CRRegistry.setup(new CRItemCometBoots(), "comet_boots"));
+            registry.register(CRRegistry.setup(new CRItemMeteorBoots(), "meteor_boots"));
         }
 
         // Item Blocks

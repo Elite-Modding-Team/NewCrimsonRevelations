@@ -13,7 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,55 +38,36 @@ import java.util.function.Predicate;
 // Courtesy of TheCodex6824 for some code used from Thaumic Augmentation's Void Thaumaturge Boots.
 public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/meteor_boots.png").toString();
-
-    // Calculate attribute bonuses.
-    protected static final BiFunction<EntityPlayer, MovementType, Float> MOVEMENT_FUNC = new BiFunction<EntityPlayer, MovementType, Float>() {
-        @Override
-        public Float apply(EntityPlayer player, MovementType type) {
-            switch (type) {
-                case DRY_GROUND: {
-                    float boost = (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED;
-                    return player.isSneaking() ? boost / 4.0F : boost;
-                }
-
-                case JUMP_BEGIN:
-                    return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_BOOST;
-                case JUMP_FACTOR:
-                    return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_FACTOR;
-                case STEP_HEIGHT:
-                    return !player.isSneaking() ? (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_STEP_HEIGHT : 0.0F;
-
-                case WATER_GROUND: {
-                    float boost = Math.max((float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION,
-                            (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_WATER_SPEED);
-                    return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION : boost;
-                }
-
-                case WATER_SWIM: {
-                    float boost = (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_WATER_SPEED;
-                    return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION : boost;
-                }
-
-                default:
-                    return 0.0F;
-            }
+    
+    // Calculate attribute bonuses.    
+    protected static final BiFunction<EntityPlayer, MovementType, Float> MOVEMENT_FUNC = (player, type) -> {
+        float boost = 0;
+        switch (type) {
+            case DRY_GROUND:
+                boost = (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED;
+                return player.isSneaking() ? boost / 4.0F : boost;
+            case WATER_GROUND:
+                boost = (float) Math.max(CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED / 4.0F, CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION);
+                return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION : boost;
+            case WATER_SWIM:
+                boost = (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_WATER_SPEED;
+                return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION : boost;
+            case JUMP_BEGIN:
+                return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_BOOST;
+            case JUMP_FACTOR:
+                return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_BOOST;
+            case STEP_HEIGHT:
+                return !player.isSneaking() ? (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_STEP_HEIGHT : 0.0F;
+            default:
+                return boost;
         }
     };
 
-    protected static final Predicate<EntityPlayer> CONTINUE_FUNC = new Predicate<EntityPlayer>() {
-        @Override
-        public boolean test(EntityPlayer player) {
-            for (ItemStack stack : player.getArmorInventoryList()) {
-                if (stack.getItem() == CRItems.meteorBoots)
-                    return true;
-            }
+    protected static final Predicate<EntityPlayer> CONTINUE_FUNC = player ->
+            player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof CRItemMeteorBoots;
 
-            return false;
-        }
-    };
-
-    public CRItemMeteorBoots(EntityEquipmentSlot equipmentSlot) {
-        super(CRMaterials.BOOTS_METEOR, 4, equipmentSlot);
+    public CRItemMeteorBoots() {
+        super(CRMaterials.BOOTS_METEOR, 4, EntityEquipmentSlot.FEET);
     }
 
     public static boolean getSmashingState(ItemStack stack) {
@@ -139,11 +119,6 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
             RechargeHelper.rechargeItemBlindly(charged, null, getMaxCharge(charged, null));
             items.add(charged);
         }
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.RARE;
     }
 
     @Override
