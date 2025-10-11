@@ -1,14 +1,14 @@
 package mod.icarus.crimsonrevelations.client.model.gear;
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.util.math.MathHelper;
+import thaumcraft.client.renderers.models.gear.ModelCustomArmor;
 
-public class ModelCultistArcherArmor extends ModelBiped {
+public class ModelCultistArcherArmor extends ModelCustomArmor {
     public ModelRenderer GauntletstrapR1;
     public ModelRenderer GauntletstrapR2;
     public ModelRenderer GauntletR;
@@ -73,7 +73,7 @@ public class ModelCultistArcherArmor extends ModelBiped {
     public ModelRenderer MbeltB;
 
     public ModelCultistArcherArmor(float modelSize) {
-        super(modelSize, 0.0F, 128, 64);
+        super(modelSize, 0, 128, 64);
         this.textureWidth = 128;
         this.textureHeight = 64;
 
@@ -509,14 +509,12 @@ public class ModelCultistArcherArmor extends ModelBiped {
             bipedRightLeg.render(scale);
             bipedLeftLeg.render(scale);
             bipedHeadwear.render(scale);
+            GlStateManager.popMatrix();
         } else {
             GlStateManager.scale(1.01F, 1.01F, 1.01F);
 
-            if (entity.isSneaking()) {
-                GlStateManager.translate(0.0F, 0.2F, 0.0F);
-            }
-
             bipedHead.render(scale);
+            GlStateManager.popMatrix();
             bipedBody.render(scale);
             bipedRightArm.render(scale);
             bipedLeftArm.render(scale);
@@ -524,7 +522,5 @@ public class ModelCultistArcherArmor extends ModelBiped {
             bipedLeftLeg.render(scale);
             bipedHeadwear.render(scale);
         }
-
-        GlStateManager.popMatrix();
     }
 }

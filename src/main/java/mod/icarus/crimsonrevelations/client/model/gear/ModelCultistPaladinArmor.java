@@ -7,14 +7,14 @@ import net.minecraft.entity.item.EntityArmorStand;
 import thaumcraft.client.renderers.models.gear.ModelLeaderArmor;
 
 public class ModelCultistPaladinArmor extends ModelLeaderArmor {
-    ModelRenderer WingL1;
-    ModelRenderer WingL2;
-    ModelRenderer WingL3;
-    ModelRenderer WingL4;
-    ModelRenderer WingR1;
-    ModelRenderer WingR2;
-    ModelRenderer WingR3;
-    ModelRenderer WingR4;
+    public ModelRenderer WingL1;
+    public ModelRenderer WingL2;
+    public ModelRenderer WingL3;
+    public ModelRenderer WingL4;
+    public ModelRenderer WingR1;
+    public ModelRenderer WingR2;
+    public ModelRenderer WingR3;
+    public ModelRenderer WingR4;
 
     public ModelCultistPaladinArmor(float modelSize) {
         super(modelSize);
