@@ -7,6 +7,7 @@ import mod.icarus.crimsonrevelations.client.renderer.RenderTileEtherealBloom;
 import mod.icarus.crimsonrevelations.client.renderer.RenderTileManaPod;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.item.*;
+import mod.icarus.crimsonrevelations.item.armor.CRItemAncientCultistArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCometBoots;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
@@ -52,6 +53,9 @@ import javax.annotation.Nonnull;
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CRItems {
     public static final CRItemArrow AER_ARROW = null;
+    public static final CRItemAncientCultistArmor ANCIENT_CRIMSON_CHESTPLATE = null;
+    public static final CRItemAncientCultistArmor ANCIENT_CRIMSON_HELMET = null;
+    public static final CRItemAncientCultistArmor ANCIENT_CRIMSON_LEGGINGS = null;
     public static final CRItemArrow AQUA_ARROW = null;
     public static final CRItemBoneBow BONE_BOW = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_CHESTPLATE = null;
@@ -90,10 +94,10 @@ public class CRItems {
     public static final CRItemPurifyingShovel PURIFYING_SHOVEL = null;
     public static final CRItemLitmusPaper THAUMIC_LITMUS_PAPER = null;
 
-    @GameRegistry.ObjectHolder("meteor_boots")
-    public static Item meteorBoots;
     @GameRegistry.ObjectHolder("comet_boots")
     public static Item cometBoots;
+    @GameRegistry.ObjectHolder("meteor_boots")
+    public static Item meteorBoots;
 
     @SubscribeEvent
     public static void registerItems(@Nonnull final RegistryEvent.Register<Item> event) {
@@ -106,6 +110,9 @@ public class CRItems {
                 CRRegistry.setup(new CRItemSword(CRMaterials.TOOL_CULTIST, EnumRarity.UNCOMMON), "crimson_sword"),
                 CRRegistry.setup(new CRItemExecutionAxe(), "execution_axe"),
 
+                CRRegistry.setup(new CRItemAncientCultistArmor(EntityEquipmentSlot.HEAD), "ancient_crimson_helmet"),
+                CRRegistry.setup(new CRItemAncientCultistArmor(EntityEquipmentSlot.CHEST), "ancient_crimson_chestplate"),
+                CRRegistry.setup(new CRItemAncientCultistArmor(EntityEquipmentSlot.LEGS), "ancient_crimson_leggings"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
