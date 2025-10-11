@@ -10,6 +10,7 @@ import mod.icarus.crimsonrevelations.item.*;
 import mod.icarus.crimsonrevelations.item.armor.CRItemAncientCultistArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCometBoots;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
+import mod.icarus.crimsonrevelations.item.armor.CRItemCultistPaladinArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
@@ -62,6 +63,9 @@ public class CRItems {
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_HELMET = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_LEGGINGS = null;
     public static final CRItem CRIMSON_FABRIC = null;
+    public static final CRItemCultistPaladinArmor CRIMSON_PALADIN_CHESTPLATE = null;
+    public static final CRItemCultistPaladinArmor CRIMSON_PALADIN_HELMET = null;
+    public static final CRItemCultistPaladinArmor CRIMSON_PALADIN_LEGGINGS = null;
     public static final CRItem CRIMSON_PLATE = null;
     public static final CRItemSword CRIMSON_SWORD = null;
     public static final CRItem EMBELLISHED_CRIMSON_FABRIC = null;
@@ -116,6 +120,9 @@ public class CRItems {
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.HEAD), "crimson_archer_helmet"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.CHEST), "crimson_archer_chestplate"),
                 CRRegistry.setup(new CRItemCultistArcherArmor(EntityEquipmentSlot.LEGS), "crimson_archer_leggings"),
+                CRRegistry.setup(new CRItemCultistPaladinArmor(EntityEquipmentSlot.HEAD), "crimson_paladin_helmet"),
+                CRRegistry.setup(new CRItemCultistPaladinArmor(EntityEquipmentSlot.CHEST), "crimson_paladin_chestplate"),
+                CRRegistry.setup(new CRItemCultistPaladinArmor(EntityEquipmentSlot.LEGS), "crimson_paladin_leggings"),
 
                 //CRRegistry.setup(new CRItemVoidGoggles(), "void_goggles"),
 
