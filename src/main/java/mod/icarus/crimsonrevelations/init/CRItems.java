@@ -11,6 +11,7 @@ import mod.icarus.crimsonrevelations.item.armor.CRItemAncientCultistArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCometBoots;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistArcherArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemCultistPaladinArmor;
+import mod.icarus.crimsonrevelations.item.armor.CRItemCultistRangerArmor;
 import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemBauble;
 import mod.icarus.crimsonrevelations.item.baubles.CRItemRunicBauble;
@@ -123,6 +124,9 @@ public class CRItems {
                 CRRegistry.setup(new CRItemCultistPaladinArmor(EntityEquipmentSlot.HEAD), "crimson_paladin_helmet"),
                 CRRegistry.setup(new CRItemCultistPaladinArmor(EntityEquipmentSlot.CHEST), "crimson_paladin_chestplate"),
                 CRRegistry.setup(new CRItemCultistPaladinArmor(EntityEquipmentSlot.LEGS), "crimson_paladin_leggings"),
+                CRRegistry.setup(new CRItemCultistRangerArmor(EntityEquipmentSlot.HEAD), "crimson_ranger_helmet"),
+                CRRegistry.setup(new CRItemCultistRangerArmor(EntityEquipmentSlot.CHEST), "crimson_ranger_chestplate"),
+                CRRegistry.setup(new CRItemCultistRangerArmor(EntityEquipmentSlot.LEGS), "crimson_ranger_leggings"),
 
                 //CRRegistry.setup(new CRItemVoidGoggles(), "void_goggles"),
 
