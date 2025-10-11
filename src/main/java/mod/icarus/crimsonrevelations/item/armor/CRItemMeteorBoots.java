@@ -47,7 +47,8 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
                 boost = (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED;
                 return player.isSneaking() ? boost / 4.0F : boost;
             case WATER_GROUND:
-                boost = (float) Math.max(CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED / 4.0F, CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION);
+                boost = (float) Math.max((float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_LAND_SPEED / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION,
+                        (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_WATER_SPEED);
                 return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_SNEAK_REDUCTION : boost;
             case WATER_SWIM:
                 boost = (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_WATER_SPEED;
@@ -55,7 +56,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
             case JUMP_BEGIN:
                 return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_BOOST;
             case JUMP_FACTOR:
-                return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_BOOST;
+                return (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_JUMP_FACTOR;
             case STEP_HEIGHT:
                 return !player.isSneaking() ? (float) CRConfig.thaumic_augmentation_settings.METEOR_BOOTS_STEP_HEIGHT : 0.0F;
             default:
