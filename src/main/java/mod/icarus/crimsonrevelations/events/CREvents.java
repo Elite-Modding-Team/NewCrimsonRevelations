@@ -110,6 +110,19 @@ public class CREvents {
             }
         }
 
+        if (entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+
+            // Ring of Nutriment - Starvation Immunity
+            if (BaublesApi.isBaubleEquipped(player, CRItems.NUTRITION_RING) >= 0) {
+
+                // Prevents screen shaking and damage sound.
+                if (event.getSource() == DamageSource.STARVE) {
+                    event.setCanceled(true);
+                }
+            }
+        }
+
         for (ItemStack stack : entity.getArmorInventoryList()) {
 
             // Prevents screen shaking and damage sound.
@@ -132,6 +145,18 @@ public class CREvents {
             if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
                 event.setAmount(0.0F);
                 event.setCanceled(true);
+            }
+        }
+
+        if (entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+
+            // Ring of Nutriment - Starvation Immunity
+            if (BaublesApi.isBaubleEquipped(player, CRItems.NUTRITION_RING) >= 0) {
+                if (event.getSource() == DamageSource.STARVE) {
+                    event.setAmount(0.0F);
+                    event.setCanceled(true);
+                }
             }
         }
 
@@ -229,7 +254,7 @@ public class CREvents {
         if (event.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 
-            // Ring of Nutrition boosts eaten foods: +1-4 Hunger and +0.5 Saturation
+            // Ring of Nutriment boosts eaten foods: +1-4 Hunger and +0.5 Saturation
             if (event.getItem().getItem() instanceof ItemFood) {
                 if (BaublesApi.isBaubleEquipped(player, CRItems.NUTRITION_RING) >= 0) {
                     int random = player.world.rand.nextInt(4);

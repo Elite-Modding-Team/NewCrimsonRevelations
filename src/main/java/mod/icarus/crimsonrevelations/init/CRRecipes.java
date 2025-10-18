@@ -452,7 +452,6 @@ public class CRRecipes {
         // Optional Infusion Recipes
         if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
             if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))) {
-
                 ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "distortion_pickaxe"),
                         new InfusionRecipe("CR_DISTORTION_PICKAXE", new ItemStack(CRItems.DISTORTION_PICKAXE), 1,
                                 new AspectList().add(Aspect.ENTROPY, 40).add(Aspect.TOOL, 40).add(Aspect.FLUX, 40),
@@ -465,11 +464,12 @@ public class CRRecipes {
 
                 ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "nutrition_ring"),
                         new InfusionRecipe("CR_NUTRITION_RING", new ItemStack(CRItems.NUTRITION_RING), 1,
-                                new AspectList().add(Aspect.LIFE, 20).add(Aspect.ALCHEMY, 20).add(Aspect.ENERGY, 20),
-                                new ItemStack(ItemsTC.baubles, 1, 1),
+                                new AspectList().add(Aspect.LIFE, 40).add(Aspect.ENERGY, 30).add(Aspect.PLANT, 40),
+                                new ItemStack(ItemsTC.baubles, 1, 5),
+                                new ItemStack(ItemsTC.nuggets, 1, 10),
                                 ThaumcraftApiHelper.makeCrystal(Aspect.LIFE, 1),
-                                ThaumcraftApiHelper.makeCrystal(Aspect.ALCHEMY, 1),
-                                ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1)));
+                                ThaumcraftApiHelper.makeCrystal(Aspect.ENERGY, 1),
+                                ThaumcraftApiHelper.makeCrystal(Aspect.PLANT, 1)));
 
                 ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "purifying_shovel"),
                         new InfusionRecipe("CR_PURIFYING_SHOVEL", new ItemStack(CRItems.PURIFYING_SHOVEL), 1,
