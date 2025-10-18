@@ -15,6 +15,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -228,10 +229,12 @@ public class CREvents {
         if (event.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 
-            // Ring of Nutrition boosts eaten foods
+            // Ring of Nutrition boosts eaten foods: +1-4 Hunger and +0.5 Saturation
             if (event.getItem().getItem() instanceof ItemFood) {
                 if (BaublesApi.isBaubleEquipped(player, CRItems.NUTRITION_RING) >= 0) {
-                    player.getFoodStats().addStats(2, 1.0F);
+                    int random = player.world.rand.nextInt(4);
+                    player.getFoodStats().addStats(1 + random, 0.5F);
+                    player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.PLAYERS, 1.0F, 0.5F);
                 }
             }
         }
