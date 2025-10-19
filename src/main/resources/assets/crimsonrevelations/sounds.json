@@ -39,6 +39,11 @@
       "crimsonrevelations:bauble/runic/regen"
     ]
   },
+  "misc.distortion_pickaxe.clank": {
+    "sounds": [
+      "crimsonrevelations:misc/clank"
+    ]
+  },
   "misc.roots": {
     "sounds": [
       "crimsonrevelations:misc/roots1",

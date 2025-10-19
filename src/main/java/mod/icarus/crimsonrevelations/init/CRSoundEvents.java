@@ -11,6 +11,7 @@ public class CRSoundEvents {
     public static final SoundEvent FOCUS_BLINDING_LIGHT_SHOOT = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "focus.blinding_light.shoot"));
     public static final SoundEvent FOCUS_PUNCH_HIT = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "focus.punch.hit"));
     public static final SoundEvent FOCUS_PUNCH_SHOOT = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "focus.punch.shoot"));
+    public static final SoundEvent MISC_DISTORTION_PICKAXE_CLANK = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "misc.distortion_pickaxe.clank"));
     public static final SoundEvent MISC_ROOTS = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "misc.roots"));
     public static final SoundEvent RUNIC_BAUBLE_CHARGE = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "bauble.runic.charge"));
     public static final SoundEvent RUNIC_BAUBLE_EMERGENCY = new SoundEvent(new ResourceLocation(NewCrimsonRevelations.MODID, "bauble.runic.emergency"));

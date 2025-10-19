@@ -23,6 +23,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -41,6 +42,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.entities.monster.EntityPech;
 import thaumcraft.common.entities.monster.cult.EntityCultist;
 import thaumcraft.common.world.biomes.BiomeGenMagicalForest;
@@ -270,13 +272,47 @@ public class CREvents {
         Item heldItem = event.getEntityPlayer().getHeldItemMainhand().getItem();
         BlockPos pos = event.getPos();
 
-        // Pickaxe of Distortion mines faster on harder blocks and mines slower on softer blocks
-        if (heldItem == CRItems.DISTORTION_PICKAXE) {
+        if (heldItem == CRItems.EXECUTION_AXE) {
             World world = event.getEntityPlayer().world;
+            double j = 1.3D;
+
+            // Break Particles
+            for (int i = 0; i < 2; i++) {
+                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getY() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D);
+                world.spawnParticle(EnumParticleTypes.FLAME, pos.getX() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getY() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D);
+            }
+        }
+
+        // Pickaxe of Warped Distortion mines faster on harder blocks and mines slower on softer blocks
+        if (heldItem == CRItems.DISTORTION_PICKAXE) {
+            EntityPlayer player = event.getEntityPlayer();
+            World world = player.world;
             BlockPos pos1;
             pos1 = pos.add(0, 0, 0);
 
             float hardness = world.getBlockState(pos1).getBlockHardness(world, pos1);
+            double j = 1.2D;
+
+            // Particles and sounds
+            if (hardness < 5.0F) {
+                for (int i = 0; i < 2; i++) {
+                    FXDispatcher.INSTANCE.drawWispyMotes(pos.getX() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getY() + 0.5D + world.rand.nextDouble() * j - j / 2,
+                            pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D, 10, 0.3F + world.rand.nextFloat() * 0.3F, 0.0F, 0.7F + world.rand.nextFloat() * 0.3F, -0.05F);
+                }
+
+                if (player.isSwingInProgress && player.ticksExisted % 5 == 0) {
+                    player.world.playSound(null, pos1.getX(), pos1.getY(), pos1.getZ(), CRSoundEvents.MISC_DISTORTION_PICKAXE_CLANK, SoundCategory.PLAYERS, 0.175F, 0.5F / (world.rand.nextFloat() * 0.4F + 0.8F));
+                }
+            } else {
+                for (int i = 0; i < 2; i++) {
+                    FXDispatcher.INSTANCE.drawWispyMotes(pos.getX() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getY() + 0.5D + world.rand.nextDouble() * j - j / 2,
+                            pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D, 10, 0.3F + world.rand.nextFloat() * 0.3F, 0.1F + world.rand.nextFloat() * 0.2F, 0.7F + world.rand.nextFloat() * 0.3F, -0.2F);
+                }
+
+                if (player.isSwingInProgress && player.ticksExisted % 5 == 0) {
+                    player.world.playSound(null, pos1.getX(), pos1.getY(), pos1.getZ(), CRSoundEvents.MISC_DISTORTION_PICKAXE_CLANK, SoundCategory.PLAYERS, 0.175F, 0.75F / (world.rand.nextFloat() * 0.4F + 0.8F));
+                }
+            }
 
             if (hardness == 0.0F) {
                 event.setNewSpeed(0.0F);

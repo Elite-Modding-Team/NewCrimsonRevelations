@@ -30,7 +30,7 @@ item.crimsonrevelations.crimson_ranger_helmet.name=Crimson Ranger Helm
 item.crimsonrevelations.crimson_ranger_chestplate.name=Crimson Ranger Cuirass
 item.crimsonrevelations.crimson_ranger_leggings.name=Crimson Ranger Greaves
 item.crimsonrevelations.crimson_sword.name=Crimson Cult Sword
-item.crimsonrevelations.distortion_pickaxe.name=Pickaxe of Distortion
+item.crimsonrevelations.distortion_pickaxe.name=Pickaxe of Warped Distortion
 item.crimsonrevelations.embellished_crimson_fabric.name=Embellished Crimson Fabric
 item.crimsonrevelations.execution_axe.name=Axe of Execution
 item.crimsonrevelations.ignis_arrow.name=Ignis Arrow
@@ -187,9 +187,9 @@ crimsonrevelations.research.overgrown_taintacle.title=Overgrown Taintacle
 crimsonrevelations.research.overgrown_taintacle.stage.0=During one of my treks in the Emptiness, I have discovered a significantly stronger and more aggressive Taintacle variant. It seems to have a symbiotic relationship with the environment, which would explain the main source of its power.<BR>Hunting these larger Taintacles would be ideal, I should be able to harvest whatever congealed energy it leaves off for my own purposes.
 
 # Research: Optional
-crimsonrevelations.research.distortion_pickaxe.title=Pickaxe of Distortion
-crimsonrevelations.research.distortion_pickaxe.stage.0=Obsidian is a hassle to mine, and unfortunately efficiency isn't cutting it anymore, I need something to bring about a faster way of breaking this sturdy block.<BR>Perhaps I should observe the atomic structure of obsidian, maybe some results can be yield from it.
-crimsonrevelations.research.distortion_pickaxe.stage.1=I've observed the interaction with obsidian atoms and the matter contained within a vitium vis crystal. The atoms repel from the matter as if they were matching magnets!<BR>This gave me a grand idea for a tool that should allow me to harvest obsidian far faster than a normal diamond pickaxe could, I thus deemed this unusual pickaxe to be the Pickaxe of Distortion!<PAGE>This pickaxe should allow me to harvest sturdy obsidian or any material with a high hardness value a lot faster. It also appears that this pickaxe also creates a problem when extracting softer materials, it takes as long as it would to mine obsidian when I mine dirt, sand, and softer materials similar to that.
+crimsonrevelations.research.distortion_pickaxe.title=Pickaxe of Warped Distortion
+crimsonrevelations.research.distortion_pickaxe.stage.0=Blocks like obsidian are a hassle to mine, and unfortunately efficiency isn't cutting it anymore, I need something to bring about a faster way of breaking the toughest of blocks.<BR>Perhaps I should observe the atomic structure of obsidian, maybe some results can be yield from it.
+crimsonrevelations.research.distortion_pickaxe.stage.1=I've observed the interaction with obsidian atoms and the matter contained within a vitium vis crystal. The atoms repel from the matter as if they were matching magnets!<BR>This gave me a grand idea for a tool that should allow me to harvest tough blocks far faster than a normal diamond pickaxe could, I thus deemed this unusual pickaxe to be the Pickaxe of Warped Distortion!<PAGE>This pickaxe should allow me to harvest any material with a high hardness value a lot faster. It also appears that this pickaxe also creates a problem when extracting softer materials, it takes as long as it would to mine obsidian when I mine dirt, sand, and softer materials similar to that.
 
 crimsonrevelations.research.nutrition_ring.title=Ring of Nutriment
 crimsonrevelations.research.nutrition_ring.stage.0=Running out of food is often a problem when I take long exploration treks. This of course will not be ideal for my studies, I will need something that can help provide aid with hunger.

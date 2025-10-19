@@ -45,7 +45,6 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.Thaumcraft;
 import thaumcraft.api.ThaumcraftApiHelper;
-import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.aspects.Aspect;
 
 import javax.annotation.Nonnull;
@@ -159,7 +158,7 @@ public class CRItems {
         if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
             if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))) {
                 registry.registerAll(
-                        CRRegistry.setup(new CRItemPickaxe(ThaumcraftMaterials.TOOLMAT_ELEMENTAL, EnumRarity.RARE), "distortion_pickaxe"),
+                        CRRegistry.setup(new CRItemDistortedPickaxe(), "distortion_pickaxe"),
                         CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring"),
                         CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel")
                 );
