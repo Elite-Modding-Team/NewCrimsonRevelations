@@ -2,11 +2,13 @@ package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.client.CRPacketHandler;
 import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
+import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -18,7 +20,12 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.api.potions.PotionFluxTaint;
+import thaumcraft.api.potions.PotionVisExhaust;
+import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
+import thaumcraft.common.lib.potions.PotionInfectiousVisExhaust;
+import thaumcraft.common.lib.potions.PotionThaumarhia;
 
 public class CRItemPurifyingShovel extends CRItemShovel {
     public CRItemPurifyingShovel() {
@@ -40,6 +47,43 @@ public class CRItemPurifyingShovel extends CRItemShovel {
     }
 
     @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        if (player.isSneaking() && (player.isPotionActive(PotionFluxTaint.instance) || player.isPotionActive(PotionInfectiousVisExhaust.instance) ||
+                player.isPotionActive(PotionThaumarhia.instance) || player.isPotionActive(PotionVisExhaust.instance))) {
+            player.swingArm(hand);
+
+            for (int a = 0; a < 20; ++a) {
+                FXDispatcher.INSTANCE.smokeSpiral(player.posX, player.getEntityBoundingBox().minY + player.height / 2.0F, player.posZ, 1.5F,
+                        player.world.rand.nextInt(360), (int) (player.getEntityBoundingBox().minY - 2.0F), 12751838);
+            }
+
+            // Remove Taint based potion effects
+            if (player.isPotionActive(PotionFluxTaint.instance)) {
+                player.removePotionEffect(PotionFluxTaint.instance);
+            }
+
+            if (player.isPotionActive(PotionInfectiousVisExhaust.instance)) {
+                player.removePotionEffect(PotionInfectiousVisExhaust.instance);
+            }
+
+            if (player.isPotionActive(PotionThaumarhia.instance)) {
+                player.removePotionEffect(PotionThaumarhia.instance);
+            }
+
+            if (player.isPotionActive(PotionVisExhaust.instance)) {
+                player.removePotionEffect(PotionVisExhaust.instance);
+            }
+
+            player.getHeldItem(hand).damageItem(15, player);
+            player.getCooldownTracker().setCooldown(this, 10 * 20);
+            world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.MISC_PURIFYING_SHOVEL_PURIFY, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+        }
+
+        return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+    }
+
+    @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         int purified = 0;
 
@@ -54,8 +98,8 @@ public class CRItemPurifyingShovel extends CRItemShovel {
                         purified++;
                         world.setBlockToAir(new BlockPos(ex, wy, zee));
 
-                        for (int k = 0; k < 1; ++k) {
-                            CRPacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(new Vec3d(player.posX, player.posY + 1.0D, player.posZ), new Vec3d(aim.getX(), aim.getY(), aim.getZ()), 0xC293DE, 0.5F * 0.66F), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64.0D));
+                        for (int k = 0; k < world.rand.nextInt(2); ++k) {
+                            CRPacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(new Vec3d(player.posX, player.posY + 1.0D, player.posZ), new Vec3d(aim.getX(), aim.getY(), aim.getZ()), 12751838, 0.5F * 0.66F), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64.0D));
                         }
                     }
                 }

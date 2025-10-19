@@ -44,6 +44,11 @@
       "crimsonrevelations:misc/clank"
     ]
   },
+  "misc.purifying_shovel.purify": {
+    "sounds": [
+      "crimsonrevelations:misc/purify"
+    ]
+  },
   "misc.roots": {
     "sounds": [
       "crimsonrevelations:misc/roots1",

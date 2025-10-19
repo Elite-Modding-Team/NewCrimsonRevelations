@@ -40,6 +40,8 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import thaumcraft.api.ThaumcraftApiHelper;
+import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.client.fx.FXDispatcher;
@@ -55,9 +57,9 @@ import java.util.Random;
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
 @GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CREvents {
-    // Axe of Execution - Smelts wood chopped, also works with Fortune and gives experience.
     @SubscribeEvent
-    public static void onDropsSmelted(BlockEvent.HarvestDropsEvent event) {
+    public static void onHarvestDrops(BlockEvent.HarvestDropsEvent event) {
+        // Axe of Execution - Smelts wood chopped, also works with Fortune and gives experience.
         if (event.getHarvester() != null && (event.getHarvester().getHeldItemMainhand().getItem() == CRItems.EXECUTION_AXE)) {
             if (event.getState().getBlock().canHarvestBlock(event.getWorld(), event.getPos(), event.getHarvester())) {
                 List<ItemStack> to_be_removed = new ArrayList<ItemStack>();
@@ -89,6 +91,28 @@ public class CREvents {
                             int k = EntityXPOrb.getXPSplit(i);
                             i -= k;
                             event.getHarvester().world.spawnEntity(new EntityXPOrb(event.getWorld(), event.getPos().getX(), event.getPos().getY() + 0.5D, event.getPos().getZ(), k));
+                        }
+                    }
+                }
+
+                event.getDrops().addAll(to_be_added);
+                event.getDrops().removeAll(to_be_removed);
+            }
+        }
+
+        // Shovel of the Purifier - Has a chance to convert harvested tainted blocks to flux crystals
+        if (event.getHarvester() != null && (event.getHarvester().getHeldItemMainhand().getItem() == CRItems.PURIFYING_SHOVEL)) {
+            if (event.getState().getBlock().canHarvestBlock(event.getWorld(), event.getPos(), event.getHarvester())) {
+                List<ItemStack> to_be_removed = new ArrayList<ItemStack>();
+                List<ItemStack> to_be_added = new ArrayList<ItemStack>();
+
+                if (event.getWorld().rand.nextDouble() <= 0.1D) {
+                    to_be_added.add(ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1 + new Random().nextInt(2 + event.getFortuneLevel() - 1)));
+
+                    // If the tainted block drops something remove it in favor of the crystal
+                    if (!event.getDrops().isEmpty()) {
+                        for (ItemStack input : event.getDrops()) {
+                            to_be_removed.add(input);
                         }
                     }
                 }
@@ -322,6 +346,21 @@ public class CREvents {
                 event.setNewSpeed(hardness / 2.0F);
             } else {
                 event.setNewSpeed(5.0F + hardness);
+            }
+        }
+
+        if (heldItem == CRItems.PURIFYING_SHOVEL) {
+            World world = event.getEntityPlayer().world;
+            BlockPos pos1;
+            pos1 = pos.add(0, 0, 0);
+            double j = 1.2D;
+
+            // Break Particles
+            if (world.getBlockState(pos1).getMaterial() == ThaumcraftMaterials.MATERIAL_TAINT) {
+                for (int i = 0; i < 2; i++) {
+                    FXDispatcher.INSTANCE.drawWispyMotes(pos.getX() + 0.5D + world.rand.nextDouble() * j - j / 2, pos.getY() + 0.5D + world.rand.nextDouble() * j - j / 2,
+                            pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D, 10, 0.4F + world.rand.nextFloat() * 0.3F, 0.2F + world.rand.nextFloat() * 0.2F, 0.5F + world.rand.nextFloat() * 0.3F, -0.2F);
+                }
             }
         }
     }
