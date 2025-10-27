@@ -67,6 +67,9 @@ public class CRItems {
     public static final CRItemCultistPaladinArmor CRIMSON_PALADIN_HELMET = null;
     public static final CRItemCultistPaladinArmor CRIMSON_PALADIN_LEGGINGS = null;
     public static final CRItem CRIMSON_PLATE = null;
+    public static final CRItemCultistRangerArmor CRIMSON_RANGER_CHESTPLATE = null;
+    public static final CRItemCultistRangerArmor CRIMSON_RANGER_HELMET = null;
+    public static final CRItemCultistRangerArmor CRIMSON_RANGER_LEGGINGS = null;
     public static final CRItemSword CRIMSON_SWORD = null;
     public static final CRItem EMBELLISHED_CRIMSON_FABRIC = null;
     public static final CRItemExecutionAxe EXECUTION_AXE = null;
