@@ -20,8 +20,10 @@ import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.api.items.IWarpingGear;
 
 // TODO: Add armor material
-public class CRItemCultistRangerArmor extends ItemArmor implements IVisDiscountGear, IWarpingGear {
+public class CRItemCultistRangerArmor extends CRItemArmorDyeable implements IVisDiscountGear, IWarpingGear {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_ranger_armor.png").toString();
+    protected static final String TEXTURE_PATH_DYED = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_ranger_armor_dyed.png").toString();
+    protected static final String TEXTURE_PATH_DYED_OVERLAY = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_ranger_armor_dyed_overlay.png").toString();
     ModelBiped model1 = null;
     ModelBiped model2 = null;
 
@@ -47,6 +49,11 @@ public class CRItemCultistRangerArmor extends ItemArmor implements IVisDiscountG
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
+        // If dye is never used on it, it'll use a dyeless texture instead with the original crimson cult colors
+        if (this.getDyedColor(stack) != getDefaultDyedColorForMeta(stack.getMetadata())) {
+            return type == null ? TEXTURE_PATH_DYED : TEXTURE_PATH_DYED_OVERLAY;
+        }
+
         return TEXTURE_PATH;
     }
 
