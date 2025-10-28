@@ -9,6 +9,7 @@ import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -66,7 +67,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+    public int getMaxItemUseDuration(ItemStack stack) {
         return this.itemUseDuration;
     }
 
@@ -98,13 +99,13 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
         if (tab == NewCrimsonRevelations.tabCR || tab == CreativeTabs.SEARCH) {
 
             for (Aspect tag : Aspect.aspects.values()) {
                 ItemStack stack = new ItemStack(this);
                 this.setAspects(stack, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
-                items.add(stack);
+                list.add(stack);
             }
         }
 
@@ -117,32 +118,32 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             return getAspects(stack).getAspects()[0].getColor();
         }
 
-        int idx = (int) (System.currentTimeMillis() / 500L % displayAspects.length);
-        return displayAspects[idx].getColor();
+        int id = (int) (System.currentTimeMillis() / 500L % displayAspects.length);
+        return displayAspects[id].getColor();
     }
 
     // Add aspect count to our beans (5 by default)
     @Override
-    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
-        if (!par2World.isRemote && !par1ItemStack.hasTagCompound()) {
-            setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+        if (!world.isRemote && !stack.hasTagCompound()) {
+            setAspects(stack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
         }
 
-        super.onUpdate(par1ItemStack, par2World, par3Entity, par4, par5);
+        super.onUpdate(stack, world, entity, itemSlot, isSelected);
     }
 
     @Override
-    public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-        if (!par1ItemStack.hasTagCompound()) {
-            setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+        if (!stack.hasTagCompound()) {
+            setAspects(stack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
         }
     }
 
     @Override
-    public AspectList getAspects(ItemStack itemstack) {
-        if (itemstack.hasTagCompound()) {
+    public AspectList getAspects(ItemStack stack) {
+        if (stack.hasTagCompound()) {
             AspectList aspects = new AspectList();
-            aspects.readFromNBT(itemstack.getTagCompound());
+            aspects.readFromNBT(stack.getTagCompound());
             return (aspects.size() > 0) ? aspects : null;
         }
 
@@ -150,17 +151,24 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     }
 
     @Override
-    public void setAspects(ItemStack itemstack, AspectList aspects) {
-        if (!itemstack.hasTagCompound()) {
-            itemstack.setTagCompound(new NBTTagCompound());
+    public void setAspects(ItemStack stack, AspectList aspects) {
+        if (!stack.hasTagCompound()) {
+            stack.setTagCompound(new NBTTagCompound());
         }
 
-        aspects.writeToNBT(itemstack.getTagCompound());
+        aspects.writeToNBT(stack.getTagCompound());
     }
 
     @Override
     public boolean ignoreContainedAspects() {
         return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
+        return (getAspects(stack) != null && !(getAspects(stack)).aspects.isEmpty()) ?
+                (String.format(super.getItemStackDisplayName(stack), getAspects(stack).getAspects()[0].getName())) : I18n.format(getTranslationKey(stack) + ".default.name");
     }
 
     @Override
@@ -180,14 +188,14 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             return EnumActionResult.FAIL;
         }
 
-        Block i1 = world.getBlockState(pos).getBlock();
+        Block block = world.getBlockState(pos).getBlock();
 
-        if (i1 instanceof BlockLog || i1 == BlocksTC.logGreatwood || i1 == BlocksTC.logSilverwood) {
+        if (block instanceof BlockLog || block == BlocksTC.logGreatwood || block == BlocksTC.logSilverwood) {
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
 
             if (world.isAirBlock(pos1)) {
-                IBlockState k1 = CRBlocks.MANA_POD.getStateForPlacement(world, pos1, facing, hitX, hitY, hitZ, 0, player);
-                world.setBlockState(pos1, k1, 2);
+                IBlockState state = CRBlocks.MANA_POD.getStateForPlacement(world, pos1, facing, hitX, hitY, hitZ, 0, player);
+                world.setBlockState(pos1, state, 2);
                 TileEntity tile = world.getTileEntity(pos1);
 
                 if (tile != null && tile instanceof CRTileManaPod && getAspects(player.getHeldItem(hand)) != null && getAspects(player.getHeldItem(hand)).size() > 0) {
