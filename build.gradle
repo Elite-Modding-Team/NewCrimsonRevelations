@@ -108,15 +108,18 @@ dependencies {
         implementation 'com.cleanroommc:configanytime:3.0'
     }
 
-    // Example of deobfuscating a dependency
-    // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
+    // Had Enough Items
+    implementation rfg.deobf('curse.maven:had-enough-items-557549:7282920')
+    implementation rfg.deobf('curse.maven:just-enough-resources-jer-240630:4440936')
+
+    // ConfigAnytime
     implementation rfg.deobf('com.cleanroommc:configanytime:3.0')
+
+    // Thaumcraft, Baubles, and addons
     implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')
     implementation rfg.deobf('curse.maven:baubles-227083:2518667')
-    implementation rfg.deobf('curse.maven:thaumic-augmentation-319441:5129455')
-    implementation rfg.deobf('curse.maven:thaumcraftfix-1069346:6101011')
-    implementation 'curse.maven:just-enough-resources-jer-240630:4440936'
-    runtimeOnly 'curse.maven:jei-238222:4538010'
+    implementation rfg.deobf('curse.maven:thaumic-augmentation-319441:6047659')
+    implementation rfg.deobf('curse.maven:thaumcraftfix-1069346:7040753')
 
     // Dev environment only, needed to run Thaumcraft Fix with Forge 2847
     runtimeOnly 'com.cleanroommc:strip-latest-forge-requirements:1.0'
