@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations.item;
 
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRRarities;
+import mod.icarus.crimsonrevelations.util.ResearchHelperNCR;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -20,7 +21,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -28,17 +28,13 @@ import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.items.IScribeTools;
 import thaumcraft.api.items.ItemsTC;
-import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
-import thecodex6824.thaumcraftfix.api.research.ResearchCategoryTheorycraftFilter;
 
 import javax.annotation.Nullable;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools {
     public CRItemKnowledgeScribingTools() {
@@ -75,7 +71,7 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        ResearchCategory[] categories = this.getResearchCategories();
+        ResearchCategory[] categories = ResearchHelperNCR.getResearchCategories();
         int observationProgress = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
         int theoryProgress = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
 
@@ -116,23 +112,6 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         } else {
             return new ActionResult<>(EnumActionResult.FAIL, stack);
-        }
-    }
-
-    // Use Thaumcraft Fix's filter if it's also installed.
-    private ResearchCategory[] getResearchCategories() {
-        if (Loader.isModLoaded("thaumcraftfix")) {
-            return ResearchCategoryTheorycraftFilter.getAllowedTheorycraftCategories().toArray(new ResearchCategory[0]);
-        } else {
-            Set<ResearchCategory> categories = new HashSet<>();
-            categories.add(ResearchCategories.getResearchCategory("ALCHEMY"));
-            categories.add(ResearchCategories.getResearchCategory("ARTIFICE"));
-            categories.add(ResearchCategories.getResearchCategory("AUROMANCY"));
-            categories.add(ResearchCategories.getResearchCategory("BASICS"));
-            categories.add(ResearchCategories.getResearchCategory("GOLEMANCY"));
-            categories.add(ResearchCategories.getResearchCategory("INFUSION"));
-            categories.add(ResearchCategories.getResearchCategory("ELDRITCH"));
-            return categories.toArray(new ResearchCategory[0]);
         }
     }
 

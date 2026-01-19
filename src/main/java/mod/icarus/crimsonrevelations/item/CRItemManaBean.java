@@ -6,6 +6,7 @@ import mod.icarus.crimsonrevelations.config.CRConfigLists;
 import mod.icarus.crimsonrevelations.init.CRBlocks;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.tile.CRTileManaPod;
+import mod.icarus.crimsonrevelations.util.ResearchHelperNCR;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
@@ -37,7 +38,6 @@ import thaumcraft.api.aspects.IEssentiaContainerItem;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.research.ResearchCategory;
-import thecodex6824.thaumcraftfix.api.research.ResearchCategoryTheorycraftFilter;
 
 import java.util.Random;
 
@@ -79,7 +79,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
 
             // Chance for an eaten bean to grant theories and observations for research
             if (world.rand.nextDouble() <= CRConfig.general_settings.MANA_BEAN_RESEARCH_CHANCE) {
-                ResearchCategory[] rc = ResearchCategoryTheorycraftFilter.getAllowedTheorycraftCategories().toArray(new ResearchCategory[0]);
+                ResearchCategory[] rc = ResearchHelperNCR.getResearchCategories();
                 int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
                 int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
 
