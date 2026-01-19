@@ -6,7 +6,6 @@ import mod.icarus.crimsonrevelations.init.CREnchantments;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 import thaumcraft.common.lib.events.PlayerEvents;
 
@@ -14,7 +13,7 @@ import thaumcraft.common.lib.events.PlayerEvents;
 public class PlayerEventsMixin {
     @ModifyReturnValue(method = "getFinalDiscount", at = @At("RETURN"))
     private static int modifyFinalDiscountMixin(int discount, @Local(argsOnly = true, ordinal = 0)ItemStack stack) {
-        if(!stack.isEmpty() && !(stack.getItem() instanceof IVisDiscountGear)) {
+        if(!stack.isEmpty()) {
             int level = EnumInfusionEnchantment.getInfusionEnchantmentLevel(stack, CREnchantments.VIS_ATTUNEMENT);
             if(level > 0) {
                 discount += level;
