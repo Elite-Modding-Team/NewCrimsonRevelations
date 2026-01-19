@@ -14,18 +14,16 @@ import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
-@GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CRClientEvents {
     // Courtesy of NeRdTheNed
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public void bowFOV(FOVUpdateEvent event) {
+    public static void bowFOV(FOVUpdateEvent event) {
         final EntityPlayer eventPlayer = event.getEntity();
         final Item eventItem = eventPlayer.getActiveItemStack().getItem();
 
@@ -84,7 +82,7 @@ public class CRClientEvents {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public void renderBow(RenderSpecificHandEvent event) {
+    public static void renderBow(RenderSpecificHandEvent event) {
         final Minecraft mc = Minecraft.getMinecraft();
         final Item eventItem = event.getItemStack().getItem();
 

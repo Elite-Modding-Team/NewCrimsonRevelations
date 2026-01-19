@@ -211,6 +211,8 @@ message.crimsonrevelations.scribing_tools.sanitation=Your scribing tools help cl
 
 # Tooltips
 enchantment.infusion.BEHEADING=Beheading
+enchantment.infusion.CHAMELEON=Chameleon
+enchantment.infusion.VIS_ATTUNEMENT=Vis Attuned
 
 tooltip.crimsonrevelations.scribing_tools.active=Right-click to absorb its power.
 tooltip.crimsonrevelations.scribing_tools.inactive=Depleted

@@ -1,4 +1,4 @@
-package mod.icarus.crimsonrevelations.client.fx;
+package mod.icarus.crimsonrevelations.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;

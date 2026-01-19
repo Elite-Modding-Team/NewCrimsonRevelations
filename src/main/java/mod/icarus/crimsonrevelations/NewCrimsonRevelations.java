@@ -1,12 +1,12 @@
 package mod.icarus.crimsonrevelations;
 
-import mod.icarus.crimsonrevelations.client.CRPacketHandler;
+import mod.icarus.crimsonrevelations.client.keybinds.KeyBindings;
 import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
 import mod.icarus.crimsonrevelations.config.CRConfigLists;
-import mod.icarus.crimsonrevelations.events.CRClientEvents;
 import mod.icarus.crimsonrevelations.init.*;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
 import mod.icarus.crimsonrevelations.item.IDyeableGear;
+import mod.icarus.crimsonrevelations.network.CRPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,7 +17,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -39,11 +38,12 @@ public class NewCrimsonRevelations {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        CRPacketHandler.init();
+
         CREntities.registerDispenserBehavior();
 
         CRCompatHandler.init();
@@ -76,15 +76,14 @@ public class NewCrimsonRevelations {
     @SideOnly(Side.CLIENT)
     @EventHandler
     public void preInitClient(FMLPreInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new CRClientEvents());
-
-        CRPacketHandler.preInit();
         CRRenderRegistry.preInit();
     }
 
     @SideOnly(Side.CLIENT)
     @EventHandler
     public void initClient(FMLInitializationEvent event) {
+        KeyBindings.init();
+
         IItemColor itemColorHandler = (stack, tintIndex) -> {
             if (tintIndex == 1 && stack.getItem() instanceof IDyeableGear) {
                 return ((IDyeableGear) stack.getItem()).getDyedColor(stack);

@@ -14,7 +14,7 @@ import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 @Mixin(value = CasterManager.class, remap = false)
 public class CasterManagerMixin {
     @ModifyReturnValue(method = "getTotalVisDiscount", at = @At("RETURN"))
-    private static float visAttunementInfusionAdjustmentMixin(float original, @Local(argsOnly = true) EntityPlayer player) {
+    private static float visAttunementInfusionAdjustmentMixin(float original, @Local(ordinal = 0, argsOnly = true) EntityPlayer player) {
         for(ItemStack armor : player.inventory.armorInventory) {
             if(!armor.isEmpty() && !(armor.getItem() instanceof IVisDiscountGear)) {
                 int level = EnumInfusionEnchantment.getInfusionEnchantmentLevel(armor, CREnchantments.VIS_ATTUNEMENT);

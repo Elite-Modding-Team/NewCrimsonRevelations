@@ -1,18 +1,18 @@
 package mod.icarus.crimsonrevelations.recipe;
 
+import mod.icarus.crimsonrevelations.init.CREnchantments;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.common.lib.crafting.InfusionEnchantmentRecipe;
-import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 
 import java.util.List;
 
 public class VisAttunementInfusionRecipe extends InfusionEnchantmentRecipe {
-    public VisAttunementInfusionRecipe(EnumInfusionEnchantment ench, AspectList as, Object... components) {
-        super(ench, as, components);
+    public VisAttunementInfusionRecipe(AspectList as, Object... components) {
+        super(CREnchantments.VIS_ATTUNEMENT, as, components);
     }
 
     public VisAttunementInfusionRecipe(InfusionEnchantmentRecipe recipe, ItemStack in) {

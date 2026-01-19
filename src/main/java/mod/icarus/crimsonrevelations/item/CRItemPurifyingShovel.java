@@ -1,8 +1,8 @@
 package mod.icarus.crimsonrevelations.item;
 
-import mod.icarus.crimsonrevelations.client.CRPacketHandler;
-import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
+import mod.icarus.crimsonrevelations.network.CRPacketHandler;
+import mod.icarus.crimsonrevelations.network.packets.CRPacketFXArcBolt;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
