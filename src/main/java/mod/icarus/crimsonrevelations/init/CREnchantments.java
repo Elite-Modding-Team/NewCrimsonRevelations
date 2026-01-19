@@ -15,4 +15,13 @@ public class CREnchantments {
             new Class<?>[]{Set.class, int.class, String.class},
             ImmutableSet.of("weapon"), 5, "CR_BEHEADING_INFUSION"
     );
+
+    public static EnumInfusionEnchantment VIS_ATTUNEMENT = EnumHelper.addEnum(
+            EnumInfusionEnchantment.class, "VIS_ATTUNEMENT",
+            new Class<?>[]{Set.class, int.class, String.class},
+            ImmutableSet.of("armor"),
+            //Keeping the infusion level to 3 so it is on par with the Goggles of Revealing, but does not
+            // make the higher tier TA armors obsolete.
+            3, "CR_VIS_ATTUNEMENT_INFUSION"
+    );
 }

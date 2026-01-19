@@ -22,6 +22,7 @@ public class CRLateMixinLoader implements ILateMixinLoader {
         {
             put("mixins.crimsonrevelations.entities.json", () -> true);
             put("mixins.crimsonrevelations.events.json", () -> true);
+            put("mixins.crimsonrevelations.misc.json", () -> true);
         }
     });
 
