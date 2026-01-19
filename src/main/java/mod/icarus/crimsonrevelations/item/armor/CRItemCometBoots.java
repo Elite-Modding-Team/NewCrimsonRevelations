@@ -1,8 +1,5 @@
 package mod.icarus.crimsonrevelations.item.armor;
 
-import java.util.function.BiFunction;
-import java.util.function.Predicate;
-
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRMaterials;
@@ -34,6 +31,9 @@ import thaumcraft.api.items.RechargeHelper;
 import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager;
 import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager.MovementType;
 import thecodex6824.thaumicaugmentation.api.item.IArmorReduceFallDamage;
+
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
 
 public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/comet_boots.png").toString();

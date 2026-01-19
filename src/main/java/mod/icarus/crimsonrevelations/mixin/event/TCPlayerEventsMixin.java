@@ -1,13 +1,12 @@
 package mod.icarus.crimsonrevelations.mixin.event;
 
+import baubles.api.BaublesApi;
+import com.llamalad7.mixinextras.sugar.Local;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.entity.player.EntityPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import com.llamalad7.mixinextras.sugar.Local;
-
-import baubles.api.BaublesApi;
 import thaumcraft.common.lib.events.PlayerEvents;
 
 @Mixin(value = PlayerEvents.class, remap = false)

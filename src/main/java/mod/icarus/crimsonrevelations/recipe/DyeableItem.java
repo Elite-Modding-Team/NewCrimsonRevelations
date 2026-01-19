@@ -1,13 +1,13 @@
 package mod.icarus.crimsonrevelations.recipe;
 
-import java.util.ArrayList;
-
 import mod.icarus.crimsonrevelations.item.IDyeableGear;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.DyeUtils;
+
+import java.util.ArrayList;
 
 // Courtesy of TheCodex6824
 public class DyeableItem extends RecipesArmorDyes {

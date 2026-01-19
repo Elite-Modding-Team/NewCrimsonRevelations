@@ -1,9 +1,5 @@
 package mod.icarus.crimsonrevelations.item.armor;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import mod.icarus.crimsonrevelations.item.IDyeableGear;
 import net.minecraft.block.BlockCauldron;
 import net.minecraft.block.state.IBlockState;
@@ -17,11 +13,7 @@ import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
@@ -29,6 +21,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants.NBT;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class CRItemArmorDyeable extends ItemArmor implements IDyeableGear {
     public CRItemArmorDyeable(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot) {

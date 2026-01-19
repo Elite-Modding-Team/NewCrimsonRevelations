@@ -1,26 +1,14 @@
 package mod.icarus.crimsonrevelations.tile;
 
-import mod.icarus.crimsonrevelations.client.CRPacketHandler;
-import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.util.TCVec3;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import thaumcraft.api.entities.ITaintedMob;
 import thaumcraft.common.blocks.world.taint.ITaintBlock;
-import thaumcraft.common.lib.SoundsTC;
-
-import java.util.List;
 
 public class CRTileEtherealBloom extends TileEntity implements ITickable {
     public int counter = 0;
