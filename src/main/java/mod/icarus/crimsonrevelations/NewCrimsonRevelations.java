@@ -4,7 +4,6 @@ import mod.icarus.crimsonrevelations.client.CRPacketHandler;
 import mod.icarus.crimsonrevelations.compat.CRCompatHandler;
 import mod.icarus.crimsonrevelations.config.CRConfigLists;
 import mod.icarus.crimsonrevelations.events.CRClientEvents;
-import mod.icarus.crimsonrevelations.events.CREvents;
 import mod.icarus.crimsonrevelations.init.*;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
 import mod.icarus.crimsonrevelations.item.IDyeableGear;
@@ -40,7 +39,7 @@ public class NewCrimsonRevelations {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new CREvents());
+
     }
 
     @EventHandler
