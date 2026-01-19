@@ -14,24 +14,22 @@ import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber(modid = NewCrimsonRevelations.MODID)
-@GameRegistry.ObjectHolder(NewCrimsonRevelations.MODID)
 public class CRClientEvents {
     // Courtesy of NeRdTheNed
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public void bowFOV(FOVUpdateEvent event) {
+    public static void bowFOV(FOVUpdateEvent event) {
         final EntityPlayer eventPlayer = event.getEntity();
         final Item eventItem = eventPlayer.getActiveItemStack().getItem();
 
         if (eventItem instanceof CRItemBow) {
             float finalFov = event.getFov();
-            final float itemUseCount = ((CRItemBow) eventItem).getMaxItemUseDuration(eventPlayer.getActiveItemStack()) - eventPlayer.getItemInUseCount();
+            final float itemUseCount = eventItem.getMaxItemUseDuration(eventPlayer.getActiveItemStack()) - eventPlayer.getItemInUseCount();
 
             /*
              * First, we have to reverse the standard bow zoom.
@@ -84,7 +82,7 @@ public class CRClientEvents {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public void renderBow(RenderSpecificHandEvent event) {
+    public static void renderBow(RenderSpecificHandEvent event) {
         final Minecraft mc = Minecraft.getMinecraft();
         final Item eventItem = event.getItemStack().getItem();
 
@@ -104,7 +102,7 @@ public class CRClientEvents {
             GlStateManager.rotate(handedSide * 35.3F, 0.0F, 1.0F, 0.0F);
             GlStateManager.rotate(handedSide * -9.785F, 0.0F, 0.0F, 1.0F);
 
-            final float ticks = ((CRItemBow) eventItem).getMaxItemUseDuration(event.getItemStack()) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
+            final float ticks = eventItem.getMaxItemUseDuration(event.getItemStack()) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
             float drawTime = 20.0F * ((CRItemBow) eventItem).drawTimeMult;
             float divTicks = ticks / drawTime;
             divTicks = ((divTicks * divTicks) + (divTicks * 2.0F)) / 3.0F;

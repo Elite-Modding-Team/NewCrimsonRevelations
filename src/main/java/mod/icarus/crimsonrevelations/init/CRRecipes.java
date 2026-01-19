@@ -4,6 +4,7 @@ import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.recipe.VerdantCharmToRing;
 import mod.icarus.crimsonrevelations.recipe.VerdantRingToCharm;
+import mod.icarus.crimsonrevelations.recipe.VisAttunementInfusionRecipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -444,10 +445,26 @@ public class CRRecipes {
                 new AspectList().add(Aspect.FIRE, 60).add(Aspect.AVERSION, 60),
                 new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
                 new ItemStack(Items.SKULL, 1, 0));
-
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion"), beheadingInfusion);
         ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion_fake"), new InfusionEnchantmentRecipe(
                 beheadingInfusion, new ItemStack(Items.IRON_AXE)));
+
+        InfusionEnchantmentRecipe chameleonInfusion = new InfusionEnchantmentRecipe(CREnchantments.CHAMELEON,
+                new AspectList().add(Aspect.MIND, 60).add(Aspect.MAGIC, 60).add(Aspect.VOID, 20),
+                new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
+                new ItemStack(ItemsTC.quicksilver),
+                new ItemStack(ItemsTC.nuggets, 1, 10));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "chameleon_infusion"), chameleonInfusion);
+        ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "chameleon_infusion_fake"), new InfusionEnchantmentRecipe(
+                chameleonInfusion, new ItemStack(Items.IRON_AXE)));
+
+        InfusionEnchantmentRecipe visAttunementInfusion = new VisAttunementInfusionRecipe(
+                new AspectList().add(Aspect.MAGIC, 100).add(Aspect.AURA, 80),
+                new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
+                new ItemStack(ItemsTC.fabric));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "vis_attunement_infusion"), visAttunementInfusion);
+        ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "vis_attunement_infusion_fake"), new InfusionEnchantmentRecipe(
+                visAttunementInfusion, new ItemStack(Items.IRON_CHESTPLATE)));
 
         // Optional Infusion Recipes
         if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {

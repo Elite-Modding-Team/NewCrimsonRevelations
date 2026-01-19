@@ -1,7 +1,6 @@
 package mod.icarus.crimsonrevelations.mixin;
 
 import com.google.common.collect.ImmutableMap;
-import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import zone.rong.mixinbooter.ILateMixinLoader;
@@ -23,6 +22,7 @@ public class CRLateMixinLoader implements ILateMixinLoader {
         {
             put("mixins.crimsonrevelations.entities.json", () -> true);
             put("mixins.crimsonrevelations.events.json", () -> true);
+            put("mixins.crimsonrevelations.misc.json", () -> true);
         }
     });
 

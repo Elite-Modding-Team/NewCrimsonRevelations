@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.mixin.entity;
 
+import mod.icarus.crimsonrevelations.init.CRItems;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -10,8 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import mod.icarus.crimsonrevelations.init.CRItems;
 import thaumcraft.common.entities.monster.EntityInhabitedZombie;
 
 @Mixin(value = EntityInhabitedZombie.class, remap = false)

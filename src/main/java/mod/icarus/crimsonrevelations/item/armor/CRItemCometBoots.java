@@ -1,8 +1,5 @@
 package mod.icarus.crimsonrevelations.item.armor;
 
-import java.util.function.BiFunction;
-import java.util.function.Predicate;
-
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRMaterials;
@@ -35,6 +32,9 @@ import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager;
 import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager.MovementType;
 import thecodex6824.thaumicaugmentation.api.item.IArmorReduceFallDamage;
 
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
+
 public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/comet_boots.png").toString();
 
@@ -46,7 +46,7 @@ public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRecha
                 boost = (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_LAND_SPEED;
                 return player.isSneaking() ? boost / 4.0F : boost;
             case WATER_GROUND:
-                boost = (float) Math.max((float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_LAND_SPEED / (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_SNEAK_REDUCTION,
+                boost = Math.max((float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_LAND_SPEED / (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_SNEAK_REDUCTION,
                         (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_WATER_SPEED);
                 return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_SNEAK_REDUCTION : boost;
             case WATER_SWIM:
@@ -133,8 +133,8 @@ public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRecha
         // Particles when sprinting or jumping
         if (!world.isRemote) {
             if (!player.isInWater() && (motion > 0.1F || player.isSprinting())) {
-                ((WorldServer) world).spawnParticle(EnumParticleTypes.END_ROD, (double) (player.posX + Math.random() - 0.5F),
-                        (double) (player.getEntityBoundingBox().minY + 0.25F + ((Math.random() - 0.5) * 0.25F)), (double) (player.posZ + Math.random() - 0.5F), 1, 0.0D, 0.025D, 0.0D, 0.0D);
+                ((WorldServer) world).spawnParticle(EnumParticleTypes.END_ROD, player.posX + Math.random() - 0.5F,
+                        player.getEntityBoundingBox().minY + 0.25F + ((Math.random() - 0.5) * 0.25F), player.posZ + Math.random() - 0.5F, 1, 0.0D, 0.025D, 0.0D, 0.0D);
             }
         }
 

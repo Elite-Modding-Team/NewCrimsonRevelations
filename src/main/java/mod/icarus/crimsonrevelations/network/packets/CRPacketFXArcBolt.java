@@ -1,6 +1,4 @@
-package mod.icarus.crimsonrevelations.client.fx;
-
-import java.awt.Color;
+package mod.icarus.crimsonrevelations.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;
@@ -10,6 +8,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.client.fx.FXDispatcher;
+
+import java.awt.*;
 
 public class CRPacketFXArcBolt implements IMessage, IMessageHandler<CRPacketFXArcBolt, IMessage> {
     private Vec3d source;

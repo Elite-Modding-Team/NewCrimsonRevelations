@@ -1,7 +1,6 @@
 package mod.icarus.crimsonrevelations.config;
 
 import com.cleanroommc.configanytime.ConfigAnytime;
-
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;

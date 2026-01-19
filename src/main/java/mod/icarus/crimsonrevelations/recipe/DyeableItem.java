@@ -1,13 +1,15 @@
 package mod.icarus.crimsonrevelations.recipe;
 
-import java.util.ArrayList;
-
 import mod.icarus.crimsonrevelations.item.IDyeableGear;
 import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.DyeUtils;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 // Courtesy of TheCodex6824
 public class DyeableItem extends RecipesArmorDyes {
@@ -69,11 +71,14 @@ public class DyeableItem extends RecipesArmorDyes {
             float totalMaximum = Math.max(totalComponents[0], Math.max(totalComponents[1], totalComponents[2]));
 
             for (ItemStack d : dyes) {
-                float[] dyeColor = DyeUtils.colorFromStack(d).get().getColorComponentValues();
-                totalComponents[0] += dyeColor[0];
-                totalComponents[1] += dyeColor[1];
-                totalComponents[2] += dyeColor[2];
-                totalMaximum += Math.max(dyeColor[0], Math.max(dyeColor[1], dyeColor[2]));
+                Optional<EnumDyeColor> colorValue = DyeUtils.colorFromStack(d);
+                if(colorValue.isPresent()) {
+                    float[] dyeColor = colorValue.get().getColorComponentValues();
+                    totalComponents[0] += dyeColor[0];
+                    totalComponents[1] += dyeColor[1];
+                    totalComponents[2] += dyeColor[2];
+                    totalMaximum += Math.max(dyeColor[0], Math.max(dyeColor[1], dyeColor[2]));
+                }
             }
 
             totalComponents[0] /= dyes.size() + 1;

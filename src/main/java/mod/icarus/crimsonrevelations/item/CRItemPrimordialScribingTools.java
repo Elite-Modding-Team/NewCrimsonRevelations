@@ -32,7 +32,6 @@ import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.potions.PotionWarpWard;
 
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 public class CRItemPrimordialScribingTools extends CRItem implements IScribeTools {

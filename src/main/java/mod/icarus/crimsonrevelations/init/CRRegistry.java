@@ -24,7 +24,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import thaumcraft.common.lib.events.PlayerEvents;
 
 import javax.annotation.Nonnull;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;

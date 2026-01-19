@@ -1,9 +1,9 @@
 package mod.icarus.crimsonrevelations.mixin.entity;
 
-import mod.icarus.crimsonrevelations.client.CRPacketHandler;
-import mod.icarus.crimsonrevelations.client.fx.CRPacketFXCultistPortal;
 import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.init.CRLootTables;
+import mod.icarus.crimsonrevelations.network.CRPacketHandler;
+import mod.icarus.crimsonrevelations.network.packets.CRPacketFXCultistPortal;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;

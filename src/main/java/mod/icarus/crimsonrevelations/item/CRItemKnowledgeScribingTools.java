@@ -33,7 +33,6 @@ import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
 
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools {

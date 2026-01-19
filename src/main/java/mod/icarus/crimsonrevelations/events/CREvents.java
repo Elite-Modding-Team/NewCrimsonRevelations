@@ -28,11 +28,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -111,9 +107,7 @@ public class CREvents {
 
                     // If the tainted block drops something remove it in favor of the crystal
                     if (!event.getDrops().isEmpty()) {
-                        for (ItemStack input : event.getDrops()) {
-                            to_be_removed.add(input);
-                        }
+                        to_be_removed.addAll(event.getDrops());
                     }
                 }
 
@@ -131,7 +125,7 @@ public class CREvents {
 
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
-            if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
+            if (entity.isOnSameTeam(trueSource)) {
                 event.setCanceled(true);
             }
         }
@@ -168,7 +162,7 @@ public class CREvents {
 
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
-            if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
+            if (entity.isOnSameTeam(trueSource)) {
                 event.setAmount(0.0F);
                 event.setCanceled(true);
             }

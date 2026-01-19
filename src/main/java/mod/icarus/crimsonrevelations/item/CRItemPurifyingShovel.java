@@ -1,18 +1,14 @@
 package mod.icarus.crimsonrevelations.item;
 
-import mod.icarus.crimsonrevelations.client.CRPacketHandler;
-import mod.icarus.crimsonrevelations.client.fx.CRPacketFXArcBolt;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
+import mod.icarus.crimsonrevelations.network.CRPacketHandler;
+import mod.icarus.crimsonrevelations.network.packets.CRPacketFXArcBolt;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;

@@ -30,7 +30,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalSpawnData {
-    private static final DataParameter<Integer> ARROW_TYPE = EntityDataManager.<Integer>createKey(EntityPrimalArrow.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> ARROW_TYPE = EntityDataManager.createKey(EntityPrimalArrow.class, DataSerializers.VARINT);
     private Item item;
 
     private int knockbackStrength;
@@ -90,7 +90,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float hVelocity = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ) * (180D / Math.PI));
-            this.rotationPitch = (float) (MathHelper.atan2(this.motionY, (double) hVelocity) * (180D / Math.PI));
+            this.rotationPitch = (float) (MathHelper.atan2(this.motionY, hVelocity) * (180D / Math.PI));
             this.prevRotationYaw = this.rotationYaw;
             this.prevRotationPitch = this.rotationPitch;
         }
@@ -113,9 +113,9 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
         if (this.inGround) {
             if ((block != this.inTile || block.getMetaFromState(iblockstate) != this.inData) && !this.world.collidesWithAnyBlock(this.getEntityBoundingBox().grow(0.05D))) {
                 this.inGround = false;
-                this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
-                this.motionY *= (double) (this.rand.nextFloat() * 0.2F);
-                this.motionZ *= (double) (this.rand.nextFloat() * 0.2F);
+                this.motionX *= this.rand.nextFloat() * 0.2F;
+                this.motionY *= this.rand.nextFloat() * 0.2F;
+                this.motionZ *= this.rand.nextFloat() * 0.2F;
                 this.ticksInGround = 0;
             } else {
                 this.ticksInGround++;
@@ -165,7 +165,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
             float hVelocity = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ) * (180D / Math.PI));
 
-            for (this.rotationPitch = (float) (MathHelper.atan2(this.motionY, (double) hVelocity) * (180D / Math.PI)); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
+            for (this.rotationPitch = (float) (MathHelper.atan2(this.motionY, hVelocity) * (180D / Math.PI)); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
                 ;
             }
 
@@ -197,9 +197,9 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
                 this.extinguish();
             }
 
-            this.motionX *= (double) motionMultiplier;
-            this.motionY *= (double) motionMultiplier;
-            this.motionZ *= (double) motionMultiplier;
+            this.motionX *= motionMultiplier;
+            this.motionY *= motionMultiplier;
+            this.motionZ *= motionMultiplier;
 
             if (!this.hasNoGravity()) {
                 this.motionY -= 0.05D;
@@ -227,7 +227,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
         if (this.getIsCritical()) {
             baseDamage += this.rand.nextInt(baseDamage / 2 + 2);
         }
-        double damage = (double) baseDamage;
+        double damage = baseDamage;
         switch (this.getArrowType()) {
             case 2:
                 // More Damage - Fire
@@ -341,9 +341,9 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
             IBlockState iblockstate = this.world.getBlockState(blockpos);
             this.inTile = iblockstate.getBlock();
             this.inData = this.inTile.getMetaFromState(iblockstate);
-            this.motionX = (double) ((float) (raytraceResultIn.hitVec.x - this.posX));
-            this.motionY = (double) ((float) (raytraceResultIn.hitVec.y - this.posY));
-            this.motionZ = (double) ((float) (raytraceResultIn.hitVec.z - this.posZ));
+            this.motionX = (float) (raytraceResultIn.hitVec.x - this.posX);
+            this.motionY = (float) (raytraceResultIn.hitVec.y - this.posY);
+            this.motionZ = (float) (raytraceResultIn.hitVec.z - this.posZ);
             float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
             this.posX -= this.motionX / (double) f2 * 0.05D;
             this.posY -= this.motionY / (double) f2 * 0.05D;
@@ -389,7 +389,7 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
         final Entity shooter = world.getEntityByID(data.readInt());
 
         if (shooter instanceof EntityLivingBase) {
-            this.shootingEntity = (EntityLivingBase) shooter;
+            this.shootingEntity = shooter;
         }
     }
 }

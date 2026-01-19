@@ -222,7 +222,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
             Aspect aspect = Aspect.PLANT;
 
             if (st.containsKey(new WorldCoordinates(pos, ((World) world).provider.getDimension()))) {
-                aspect = (Aspect) st.get(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
+                aspect = st.get(new WorldCoordinates(pos, ((World) world).provider.getDimension()));
             } else {
                 TileEntity tile = world.getTileEntity(pos);
                 if (tile instanceof CRTileManaPod && ((CRTileManaPod) tile).aspect != null) {
