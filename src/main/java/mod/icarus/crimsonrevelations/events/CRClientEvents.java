@@ -31,7 +31,7 @@ public class CRClientEvents {
 
         if (eventItem instanceof CRItemBow) {
             float finalFov = event.getFov();
-            final float itemUseCount = ((CRItemBow) eventItem).getMaxItemUseDuration(eventPlayer.getActiveItemStack()) - eventPlayer.getItemInUseCount();
+            final float itemUseCount = eventItem.getMaxItemUseDuration(eventPlayer.getActiveItemStack()) - eventPlayer.getItemInUseCount();
 
             /*
              * First, we have to reverse the standard bow zoom.
@@ -104,7 +104,7 @@ public class CRClientEvents {
             GlStateManager.rotate(handedSide * 35.3F, 0.0F, 1.0F, 0.0F);
             GlStateManager.rotate(handedSide * -9.785F, 0.0F, 0.0F, 1.0F);
 
-            final float ticks = ((CRItemBow) eventItem).getMaxItemUseDuration(event.getItemStack()) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
+            final float ticks = eventItem.getMaxItemUseDuration(event.getItemStack()) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
             float drawTime = 20.0F * ((CRItemBow) eventItem).drawTimeMult;
             float divTicks = ticks / drawTime;
             divTicks = ((divTicks * divTicks) + (divTicks * 2.0F)) / 3.0F;

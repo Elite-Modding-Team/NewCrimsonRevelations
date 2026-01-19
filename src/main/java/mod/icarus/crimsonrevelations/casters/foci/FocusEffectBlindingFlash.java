@@ -96,7 +96,7 @@ public class FocusEffectBlindingFlash extends FocusEffect {
         FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         int color = 16776421;
 
-        pp.setAlphaF(new float[]{0.0F, 1.0F});
+        pp.setAlphaF(0.0F, 1.0F);
         pp.setGravity(-0.2F);
         pp.setGridSize(64);
         pp.setLoop(true);

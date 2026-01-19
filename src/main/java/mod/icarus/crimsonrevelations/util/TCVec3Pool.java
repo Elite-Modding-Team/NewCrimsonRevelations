@@ -30,7 +30,7 @@ public class TCVec3Pool {
             var7 = new TCVec3(this, par1, par3, par5);
             this.vec3Cache.add(var7);
         } else {
-            var7 = (TCVec3) this.vec3Cache.get(this.nextFreeSpace);
+            var7 = this.vec3Cache.get(this.nextFreeSpace);
             var7.setComponents(par1, par3, par5);
         }
 

@@ -61,7 +61,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             return null;
         } else {
             ItemStack stack = new ItemStack(CRItems.MANA_BEAN, stackSize, 0);
-            ((IEssentiaContainerItem) CRItems.MANA_BEAN).setAspects(stack, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+            CRItems.MANA_BEAN.setAspects(stack, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
             return stack;
         }
     }
@@ -198,7 +198,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
                 world.setBlockState(pos1, state, 2);
                 TileEntity tile = world.getTileEntity(pos1);
 
-                if (tile != null && tile instanceof CRTileManaPod && getAspects(player.getHeldItem(hand)) != null && getAspects(player.getHeldItem(hand)).size() > 0) {
+                if (tile instanceof CRTileManaPod && getAspects(player.getHeldItem(hand)) != null && getAspects(player.getHeldItem(hand)).size() > 0) {
                     ((CRTileManaPod) tile).aspect = getAspects(player.getHeldItem(hand)).getAspects()[0];
                 }
 

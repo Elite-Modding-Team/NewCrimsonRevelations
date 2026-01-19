@@ -107,9 +107,7 @@ public class CREvents {
 
                     // If the tainted block drops something remove it in favor of the crystal
                     if (!event.getDrops().isEmpty()) {
-                        for (ItemStack input : event.getDrops()) {
-                            to_be_removed.add(input);
-                        }
+                        to_be_removed.addAll(event.getDrops());
                     }
                 }
 
@@ -127,7 +125,7 @@ public class CREvents {
 
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
-            if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
+            if (entity.isOnSameTeam(trueSource)) {
                 event.setCanceled(true);
             }
         }
@@ -164,7 +162,7 @@ public class CREvents {
 
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
-            if (((EntityLivingBase) entity).isOnSameTeam(trueSource)) {
+            if (entity.isOnSameTeam(trueSource)) {
                 event.setAmount(0.0F);
                 event.setCanceled(true);
             }
