@@ -61,7 +61,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             return null;
         } else {
             ItemStack stack = new ItemStack(CRItems.MANA_BEAN, stackSize, 0);
-            CRItems.MANA_BEAN.setAspects(stack, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+            CRItems.MANA_BEAN.setAspects(stack, (new AspectList()).add(aspect, CRConfig.mana_beans.aspectCount));
             return stack;
         }
     }
@@ -78,7 +78,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
             Potion effect = CRConfigLists.manaBeanEffects.get(world.rand.nextInt(CRConfigLists.manaBeanEffects.size()));
 
             // Chance for an eaten bean to grant theories and observations for research
-            if (world.rand.nextDouble() <= CRConfig.general_settings.MANA_BEAN_RESEARCH_CHANCE) {
+            if (world.rand.nextDouble() <= CRConfig.mana_beans.researchChance) {
                 ResearchCategory[] rc = ResearchHelperNCR.getResearchCategories();
                 int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
                 int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
@@ -104,7 +104,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
 
             for (Aspect tag : Aspect.aspects.values()) {
                 ItemStack stack = new ItemStack(this);
-                this.setAspects(stack, (new AspectList()).add(tag, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+                this.setAspects(stack, (new AspectList()).add(tag, CRConfig.mana_beans.aspectCount));
                 list.add(stack);
             }
         }
@@ -126,7 +126,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
         if (!world.isRemote && !stack.hasTagCompound()) {
-            setAspects(stack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+            setAspects(stack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.mana_beans.aspectCount));
         }
 
         super.onUpdate(stack, world, entity, itemSlot, isSelected);
@@ -135,7 +135,7 @@ public class CRItemManaBean extends ItemFood implements IEssentiaContainerItem {
     @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player) {
         if (!stack.hasTagCompound()) {
-            setAspects(stack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+            setAspects(stack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], CRConfig.mana_beans.aspectCount));
         }
     }
 

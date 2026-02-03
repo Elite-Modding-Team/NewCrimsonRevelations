@@ -233,7 +233,7 @@ public class CRBlockManaPod extends Block implements IGrowable {
             for (int k1 = 0; k1 < b0; ++k1) {
                 ItemStack i = new ItemStack(CRItems.MANA_BEAN);
 
-                ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.general_settings.MANA_BEAN_ASPECT_COUNT));
+                ((CRItemManaBean) i.getItem()).setAspects(i, (new AspectList()).add(aspect, CRConfig.mana_beans.aspectCount));
                 drops.add(i);
             }
 

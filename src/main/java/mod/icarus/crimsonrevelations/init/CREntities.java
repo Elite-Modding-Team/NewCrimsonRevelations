@@ -101,8 +101,8 @@ public class CREntities {
     }
 
     public static void registerEntitySpawns() {
-        if (CRConfig.general_settings.FURIOUS_ZOMBIE_SPAWNING) {
-            EntityRegistry.addSpawn(EntityGiantBrainyZombie.class, CRConfig.general_settings.FURIOUS_ZOMBIE_WEIGHT, 1, 1, EnumCreatureType.MONSTER, CRRegistry.getEntityBiomes(EntityBrainyZombie.class));
+        if (CRConfig.furious_zombie.enableFuriousZombieSpawning) {
+            EntityRegistry.addSpawn(EntityGiantBrainyZombie.class, CRConfig.furious_zombie.spawnWeight, 1, 1, EnumCreatureType.MONSTER, CRRegistry.getEntityBiomes(EntityBrainyZombie.class));
         }
     }
 

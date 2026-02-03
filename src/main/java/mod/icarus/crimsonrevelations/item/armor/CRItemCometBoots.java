@@ -43,21 +43,21 @@ public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRecha
         float boost = 0;
         switch (type) {
             case DRY_GROUND:
-                boost = (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_LAND_SPEED;
+                boost = (float) CRConfig.comet_boots.landSpeed;
                 return player.isSneaking() ? boost / 4.0F : boost;
             case WATER_GROUND:
-                boost = Math.max((float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_LAND_SPEED / (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_SNEAK_REDUCTION,
-                        (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_WATER_SPEED);
-                return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_SNEAK_REDUCTION : boost;
+                boost = Math.max((float) CRConfig.comet_boots.landSpeed / (float) CRConfig.comet_boots.sneakReduction,
+                        (float) CRConfig.comet_boots.waterSpeedBoost);
+                return player.isSneaking() ? boost / (float) CRConfig.comet_boots.sneakReduction : boost;
             case WATER_SWIM:
-                boost = (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_WATER_SPEED;
-                return player.isSneaking() ? boost / (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_SNEAK_REDUCTION : boost;
+                boost = (float) CRConfig.comet_boots.waterSpeedBoost;
+                return player.isSneaking() ? boost / (float) CRConfig.comet_boots.sneakReduction : boost;
             case JUMP_BEGIN:
-                return (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_JUMP_BOOST;
+                return (float) CRConfig.comet_boots.jumpBoost;
             case JUMP_FACTOR:
-                return (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_JUMP_FACTOR;
+                return (float) CRConfig.comet_boots.jumpFactor;
             case STEP_HEIGHT:
-                return !player.isSneaking() ? (float) CRConfig.thaumic_augmentation_settings.COMET_BOOTS_STEP_HEIGHT : 0.0F;
+                return !player.isSneaking() ? (float) CRConfig.comet_boots.stepHeight : 0.0F;
             default:
                 return boost;
         }
