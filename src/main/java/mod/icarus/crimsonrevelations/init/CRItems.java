@@ -153,20 +153,20 @@ public class CRItems {
                 CRRegistry.setup(new CRItemManaBean(), "mana_bean")
         );
 
-        if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
-            if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))) {
-                registry.registerAll(
-                        CRRegistry.setup(new CRItemDistortedPickaxe(), "distortion_pickaxe"),
-                        CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring"),
-                        CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel")
-                );
-            }
+        if (CRConfig.distortion_pickaxe.enableDistortionPickaxe) {
+            registry.register(CRRegistry.setup(new CRItemDistortedPickaxe(), "distortion_pickaxe"));
         }
 
-        if (CRConfig.mod_integration_settings.RESEARCH_THAUMIC_LITMUS_PAPER) {
-            if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("warptheory"))) {
-                registry.register(CRRegistry.setup(new CRItemLitmusPaper(), "thaumic_litmus_paper"));
-            }
+        if (CRConfig.nutrition_ring.enableNutritionRing) {
+            registry.register(CRRegistry.setup(new CRItemBauble(BaubleType.RING, EnumRarity.RARE), "nutrition_ring"));
+        }
+
+        if (CRConfig.purifying_shovel.enablePurifyingShovel) {
+            registry.register(CRRegistry.setup(new CRItemPurifyingShovel(), "purifying_shovel"));
+        }
+
+        if (CRConfig.thaumic_litmus_paper.enableThaumicLitmusPaper) {
+            registry.register(CRRegistry.setup(new CRItemLitmusPaper(), "thaumic_litmus_paper"));
         }
 
         if (Loader.isModLoaded("thaumicaugmentation")) {

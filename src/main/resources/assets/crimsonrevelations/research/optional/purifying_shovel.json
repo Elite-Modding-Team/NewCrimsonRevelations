@@ -1,0 +1,48 @@
+{
+  "entries": [
+    {
+      "key": "CR_PURIFYING_SHOVEL",
+      "name": "crimsonrevelations.research.purifying_shovel.title",
+      "icons": [
+        "crimsonrevelations:purifying_shovel"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE",
+        "~ELEMENTALTOOLS",
+        "f_toomuchflux",
+        "!vitium"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -1,
+        1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.purifying_shovel.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_item": [
+            "thaumcraft:log_silverwood",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'auram'}]}"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.purifying_shovel.stage.1",
+          "recipes": [
+            "crimsonrevelations:purifying_shovel"
+          ]
+        }
+      ]
+    }
+  ]
+}

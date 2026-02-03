@@ -1,0 +1,47 @@
+{
+  "entries": [
+    {
+      "key": "CR_DISTORTION_PICKAXE",
+      "name": "crimsonrevelations.research.distortion_pickaxe.title",
+      "icons": [
+        "crimsonrevelations:distortion_pickaxe"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE",
+        "~ELEMENTALTOOLS",
+        "!vitium"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        1,
+        1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.distortion_pickaxe.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:obsidian",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'vitium'}]}"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.distortion_pickaxe.stage.1",
+          "recipes": [
+            "crimsonrevelations:distortion_pickaxe"
+          ]
+        }
+      ]
+    }
+  ]
+}

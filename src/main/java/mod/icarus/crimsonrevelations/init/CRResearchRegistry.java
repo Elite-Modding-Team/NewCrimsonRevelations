@@ -67,19 +67,10 @@ public class CRResearchRegistry {
 
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumcraft"));
 
-        if (CRConfig.mod_integration_settings.RESEARCH_FORBIDDEN_MAGIC) {
-        	if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("forbiddenmagicre"))) {
-                ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/forbidden"));
-            }
-            ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/forbidden"));
-        }
-
-        if (CRConfig.mod_integration_settings.RESEARCH_THAUMIC_LITMUS_PAPER) {
-        	if (!(CRConfig.mod_integration_settings.CONFLICTING_CONTENT_REMOVAL_CHECK && Loader.isModLoaded("warptheory"))) {
-                ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/litmus_paper"));
-            }
-            ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/litmus_paper"));
-        }
+        if (CRConfig.distortion_pickaxe.enableDistortionPickaxe) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/distortion_pickaxe"));
+        if (CRConfig.nutrition_ring.enableNutritionRing) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/nutrition_ring"));
+        if (CRConfig.purifying_shovel.enablePurifyingShovel) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/purifying_shovel"));
+        if (CRConfig.thaumic_litmus_paper.enableThaumicLitmusPaper) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/litmus_paper"));
 
         // Research
         ScanningManager.addScannableThing(new ScanBlock("!CR_MANA_POD", CRBlocks.MANA_POD));

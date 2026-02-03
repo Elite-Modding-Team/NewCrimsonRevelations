@@ -10,14 +10,37 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = NewCrimsonRevelations.MODID, name = NewCrimsonRevelations.NAME)
 public class CRConfig {
+    @Config.Comment("Pickaxe of Warped Distortion")
+    public static DistortionPickaxeSettings distortion_pickaxe = new DistortionPickaxeSettings();
+
     @Config.Comment("General")
     public static GeneralSettings general_settings = new GeneralSettings();
 
     @Config.Comment("Mod Integration")
     public static ModIntegrationSettings mod_integration_settings = new ModIntegrationSettings();
 
+    @Config.Comment("Ring of Nutriment")
+    public static NutritionRingSettings nutrition_ring = new NutritionRingSettings();
+
+    @Config.Comment("Shovel of the Purifier")
+    public static PurifyingShovelSettings purifying_shovel = new PurifyingShovelSettings();
+
     @Config.Comment("Thaumic Augmentation")
     public static TAIntegrationSettings thaumic_augmentation_settings = new TAIntegrationSettings();
+
+    @Config.Comment("Thaumic Litmus Paper")
+    public static ThaumicLitmusPaperSettings thaumic_litmus_paper = new ThaumicLitmusPaperSettings();
+
+    public static class DistortionPickaxeSettings {
+        @Config.RequiresMcRestart
+        @Config.Name("Enable Warped Pickaxe of Distortion")
+        @Config.Comment("Enables the Pickaxe of Warped Distortion")
+        public boolean enableDistortionPickaxe = true;
+
+        @Config.Name("Mining Sounds")
+        @Config.Comment("The Pickaxe of Warped Distortion will play its own unique sounds when mining blocks")
+        public boolean miningSounds = true;
+    }
 
     public static class GeneralSettings {
         @Config.Name("Furious Zombie: Spawning")
@@ -111,36 +134,29 @@ public class CRConfig {
     }
 
     public static class ModIntegrationSettings {
-        @Config.Name("Conflicting Content Removal Check")
-        @Config.Comment("Automatically disables content originating from other addons if those addons are installed alongside this mod. [default: true]")
-        @Config.RequiresMcRestart
-        public boolean CONFLICTING_CONTENT_REMOVAL_CHECK = true;
-
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration. [default: true]")
         @Config.RequiresMcRestart
         public boolean JER_INTEGRATION = true;
 
-        @Config.Name("Research: Forbidden Magic")
-        @Config.Comment({
-                "Enables Forbidden Magic content (Pickaxe of Distortion, Ring of Nutrition, and Shovel of the Purifier). [default: true]",
-                "NOTE: The content will always be disabled if Conflicting Content Removal Check is kept enabled and ReForbidden Magic is installed!"
-        })
-        @Config.RequiresMcRestart
-        public boolean RESEARCH_FORBIDDEN_MAGIC = true;
-
-        @Config.Name("Research: Thaumic Litmus Paper")
-        @Config.Comment({
-                "Enables the Thaumic Litmus Paper item. [default: true]",
-                "NOTE: The content will always be disabled if Conflicting Content Removal Check is kept enabled and Warp Apocalypse is installed!"
-        })
-        @Config.RequiresMcRestart
-        public boolean RESEARCH_THAUMIC_LITMUS_PAPER = true;
-
         @Config.Name("Thaumic Augmentation Integration")
         @Config.Comment("Enables Thaumic Augmentation integration. [default: true]")
         @Config.RequiresMcRestart
         public boolean TA_INTEGRATION = true;
+    }
+
+    public static class NutritionRingSettings {
+        @Config.RequiresMcRestart
+        @Config.Name("Enable Ring of Nutriment")
+        @Config.Comment("Enables the Ring of Nutriment")
+        public boolean enableNutritionRing = true;
+    }
+
+    public static class PurifyingShovelSettings {
+        @Config.RequiresMcRestart
+        @Config.Name("Enable Shovel of the Purifier")
+        @Config.Comment("Enables the Shovel of the Purifier")
+        public boolean enablePurifyingShovel = true;
     }
 
     public static class TAIntegrationSettings {
@@ -238,6 +254,13 @@ public class CRConfig {
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
         public int TAINT_SWARM_WEIGHT = 20;
+    }
+
+    public static class ThaumicLitmusPaperSettings {
+        @Config.RequiresMcRestart
+        @Config.Name("Enable Thaumic Litmus Paper")
+        @Config.Comment("Enables the Thaumic Litmus Paper")
+        public boolean enableThaumicLitmusPaper = true;
     }
 
     // ConfigAnytime is needed to ensure mixins can be toggleable with config settings

@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "key": "CR_NUTRITION_RING",
+      "name": "crimsonrevelations.research.nutrition_ring.title",
+      "icons": [
+        "crimsonrevelations:nutrition_ring"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -1,
+        2
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.nutrition_ring.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "OBSERVATION;INFUSION;1"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.nutrition_ring.stage.1",
+          "recipes": [
+            "crimsonrevelations:nutrition_ring"
+          ]
+        }
+      ]
+    }
+  ]
+}

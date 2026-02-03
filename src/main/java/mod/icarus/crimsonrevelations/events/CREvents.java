@@ -318,7 +318,7 @@ public class CREvents {
                             pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D, 10, 0.3F + world.rand.nextFloat() * 0.3F, 0.0F, 0.7F + world.rand.nextFloat() * 0.3F, -0.05F);
                 }
 
-                if (player.isSwingInProgress && player.ticksExisted % 5 == 0) {
+                if (player.isSwingInProgress && player.ticksExisted % 5 == 0 && CRConfig.distortion_pickaxe.miningSounds) {
                     player.world.playSound(null, pos1.getX(), pos1.getY(), pos1.getZ(), CRSoundEvents.MISC_DISTORTION_PICKAXE_CLANK, SoundCategory.PLAYERS, 0.175F, 0.5F / (world.rand.nextFloat() * 0.4F + 0.8F));
                 }
             } else {
@@ -327,7 +327,7 @@ public class CREvents {
                             pos.getZ() + 0.5D + world.rand.nextDouble() * j - j / 2, 0.0D, 0.0D, 0.0D, 10, 0.3F + world.rand.nextFloat() * 0.3F, 0.1F + world.rand.nextFloat() * 0.2F, 0.7F + world.rand.nextFloat() * 0.3F, -0.2F);
                 }
 
-                if (player.isSwingInProgress && player.ticksExisted % 5 == 0) {
+                if (player.isSwingInProgress && player.ticksExisted % 5 == 0 && CRConfig.distortion_pickaxe.miningSounds) {
                     player.world.playSound(null, pos1.getX(), pos1.getY(), pos1.getZ(), CRSoundEvents.MISC_DISTORTION_PICKAXE_CLANK, SoundCategory.PLAYERS, 0.175F, 0.75F / (world.rand.nextFloat() * 0.4F + 0.8F));
                 }
             }
