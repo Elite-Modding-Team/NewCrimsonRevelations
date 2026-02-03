@@ -19,6 +19,9 @@ public class CRConfig {
     @Config.Comment("Furious Zombie")
     public static FuriousZombieSettings furious_zombie = new FuriousZombieSettings();
 
+    @Config.Comment("Infusion Enchantments")
+    public static InfusionEnchantmentSettings infusion_enchants = new InfusionEnchantmentSettings();
+
     @Config.Comment("Scribing Tools of Knowledge")
     public static KnowledgeToolsSettings knowledge_tools = new KnowledgeToolsSettings();
 
@@ -111,6 +114,14 @@ public class CRConfig {
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
         public int spawnWeight = 5;
+    }
+
+    public static class InfusionEnchantmentSettings {
+        @Config.Name("Chameleon Blacklist")
+        @Config.Comment("List of tools that should never be compatible with the Chameleon infusion enchantment.")
+        public String[] chameleonBlacklist = new String[]{
+                "minecraft:absorption"
+        };
     }
 
     public static class KnowledgeToolsSettings {

@@ -67,10 +67,10 @@ public class CRResearchRegistry {
 
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumcraft"));
 
-        if (CRConfig.distortion_pickaxe.enableDistortionPickaxe) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/distortion_pickaxe"));
-        if (CRConfig.nutrition_ring.enableNutritionRing) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/nutrition_ring"));
-        if (CRConfig.purifying_shovel.enablePurifyingShovel) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/purifying_shovel"));
-        if (CRConfig.thaumic_litmus_paper.enableThaumicLitmusPaper) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/litmus_paper"));
+        if (CRConfig.distortion_pickaxe.enableDistortionPickaxe) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/distortion_pickaxe"));
+        if (CRConfig.nutrition_ring.enableNutritionRing) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/nutrition_ring"));
+        if (CRConfig.purifying_shovel.enablePurifyingShovel) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/purifying_shovel"));
+        if (CRConfig.thaumic_litmus_paper.enableThaumicLitmusPaper) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/litmus_paper"));
 
         // Research
         ScanningManager.addScannableThing(new ScanBlock("!CR_MANA_POD", CRBlocks.MANA_POD));

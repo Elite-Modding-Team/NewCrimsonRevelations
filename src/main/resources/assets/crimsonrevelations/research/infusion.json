@@ -8,7 +8,7 @@
       ],
       "category": "REVELATIONS",
       "parents": [
-        "~CR_EXECUTION_AXE",
+        "CR_EXECUTION_AXE",
         "~INFUSIONENCHANTMENT"
       ],
       "siblings": [],
@@ -16,8 +16,8 @@
         "HIDDEN"
       ],
       "location": [
-        1,
-        4
+        0,
+        6
       ],
       "reward_item": [],
       "reward_knowledge": [],
@@ -78,6 +78,42 @@
           "text": "crimsonrevelations.research.bone_bow.stage.1",
           "recipes": [
             "crimsonrevelations:bone_bow"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CR_CHAMELEON_INFUSION",
+      "name": "crimsonrevelations.research.chameleon_infusion.title",
+      "icons": [
+        "crimsonrevelations:textures/research/r_chameleon_infusion.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_BEHEADING_INFUSION"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        1,
+        5
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.chameleon_infusion.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;3"
+          ],
+          "required_item": []
+        },
+        {
+          "text": "crimsonrevelations.research.chameleon_infusion.stage.1",
+          "recipes": [
+            "crimsonrevelations:chameleon_infusion_fake"
           ]
         }
       ]
@@ -216,6 +252,36 @@
             "crimsonrevelations:perditio_arrow",
             "crimsonrevelations:terra_arrow"
           ]
+        }
+      ]
+    },
+    {
+      "key": "CR_VIS_ATTUNEMENT_INFUSION",
+      "name": "crimsonrevelations.research.vis_attunement_infusion.title",
+      "icons": [
+        "crimsonrevelations:textures/research/r_vis_attunement_infusion.png"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CR_BEHEADING_INFUSION"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -1,
+        5
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.vis_attunement_infusion.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ],
+          "required_item": []
         }
       ]
     }

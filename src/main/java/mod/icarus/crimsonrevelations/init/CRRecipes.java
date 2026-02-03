@@ -2,6 +2,7 @@ package mod.icarus.crimsonrevelations.init;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.recipe.ChameleonInfusionRecipe;
 import mod.icarus.crimsonrevelations.recipe.VerdantCharmToRing;
 import mod.icarus.crimsonrevelations.recipe.VerdantRingToCharm;
 import mod.icarus.crimsonrevelations.recipe.VisAttunementInfusionRecipe;
@@ -447,14 +448,14 @@ public class CRRecipes {
         ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "beheading_infusion_fake"), new InfusionEnchantmentRecipe(
                 beheadingInfusion, new ItemStack(Items.IRON_AXE)));
 
-        InfusionEnchantmentRecipe chameleonInfusion = new InfusionEnchantmentRecipe(CREnchantments.CHAMELEON,
+        InfusionEnchantmentRecipe chameleonInfusion = new ChameleonInfusionRecipe(
                 new AspectList().add(Aspect.MIND, 60).add(Aspect.MAGIC, 60).add(Aspect.VOID, 20),
                 new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
                 new ItemStack(ItemsTC.quicksilver),
                 new ItemStack(ItemsTC.nuggets, 1, 10));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "chameleon_infusion"), chameleonInfusion);
         ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "chameleon_infusion_fake"), new InfusionEnchantmentRecipe(
-                chameleonInfusion, new ItemStack(Items.IRON_AXE)));
+                chameleonInfusion, new ItemStack(Items.IRON_SWORD)));
 
         InfusionEnchantmentRecipe visAttunementInfusion = new VisAttunementInfusionRecipe(
                 new AspectList().add(Aspect.MAGIC, 100).add(Aspect.AURA, 80),

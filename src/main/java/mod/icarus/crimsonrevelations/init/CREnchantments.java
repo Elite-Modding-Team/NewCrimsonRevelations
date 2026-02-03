@@ -23,7 +23,7 @@ public class CREnchantments {
             //Two levels might be a bit much since that gives 3 enchant slots. Also, you may want to add
             //  a tooltip or message when the chameleon slot changes. Just toss it into the CycleChameleon
             //  message handler.
-            2, "INFUSIONENCHANTMENT"//TODO: add research "CR_CHAMELEON_INFUSION"
+            2, "CR_CHAMELEON_INFUSION"
     );
 
     public static EnumInfusionEnchantment VIS_ATTUNEMENT = EnumHelper.addEnum(
@@ -32,6 +32,6 @@ public class CREnchantments {
             ImmutableSet.of("armor"),
             //Keeping the infusion level to 3 so it is on par with the Goggles of Revealing, but does not
             // make the higher tier TA armors obsolete.
-            3, "INFUSIONENCHANTMENT"//TODO: add research "CR_VIS_ATTUNEMENT_INFUSION"
+            3, "CR_VIS_ATTUNEMENT_INFUSION"
     );
 }
