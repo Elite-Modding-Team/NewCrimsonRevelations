@@ -10,17 +10,32 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = NewCrimsonRevelations.MODID, name = NewCrimsonRevelations.NAME)
 public class CRConfig {
+    @Config.Comment("Boots of the Comet")
+    public static CometBootsSettings comet_boots = new CometBootsSettings();
+
     @Config.Comment("Pickaxe of Warped Distortion")
     public static DistortionPickaxeSettings distortion_pickaxe = new DistortionPickaxeSettings();
 
-    @Config.Comment("General")
-    public static GeneralSettings general_settings = new GeneralSettings();
+    @Config.Comment("Furious Zombie")
+    public static FuriousZombieSettings furious_zombie = new FuriousZombieSettings();
+
+    @Config.Comment("Scribing Tools of Knowledge")
+    public static KnowledgeToolsSettings knowledge_tools = new KnowledgeToolsSettings();
+
+    @Config.Comment("Mana Beans")
+    public static ManaBeanSettings mana_beans = new ManaBeanSettings();
 
     @Config.Comment("Mod Integration")
     public static ModIntegrationSettings mod_integration_settings = new ModIntegrationSettings();
 
+    @Config.Comment("Boots of the Meteor")
+    public static MeteorBootsSettings meteor_boots = new MeteorBootsSettings();
+
     @Config.Comment("Ring of Nutriment")
     public static NutritionRingSettings nutrition_ring = new NutritionRingSettings();
+
+    @Config.Comment("Scribing Tools of Knowledge")
+    public static PrimordialToolsSettings primordial_tools = new PrimordialToolsSettings();
 
     @Config.Comment("Shovel of the Purifier")
     public static PurifyingShovelSettings purifying_shovel = new PurifyingShovelSettings();
@@ -31,43 +46,91 @@ public class CRConfig {
     @Config.Comment("Thaumic Litmus Paper")
     public static ThaumicLitmusPaperSettings thaumic_litmus_paper = new ThaumicLitmusPaperSettings();
 
+    public static class CometBootsSettings {
+        @Config.Name("Jump Boost")
+        @Config.Comment("The boost applied when the wearer jumps, this is added to the base jump height of the player. [default: 0.3]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double jumpBoost = 0.3D;
+
+        @Config.Name("Jump Factor")
+        @Config.Comment("The boost applied to player movement while in the air. Note that sprinting's jump modifier uses this value as well. [default: 0.02]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double jumpFactor = 0.02D;
+
+        @Config.Name("Land Speed Boost")
+        @Config.Comment("The boost applied while the wearer is on the ground, this is added to the base movement of the player per tick. [default: 0.06]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double landSpeed = 0.06D;
+
+        @Config.Name("Sneak Reduction")
+        @Config.Comment("Any speed boosts (not jump) will be divided by this value while sneaking. [default: 4.0]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double sneakReduction = 4.0D;
+
+        @Config.Name("Step Height")
+        @Config.Comment("The boost applied to the player's step height (while not sneaking), this is added to the vanilla default value of 0.6. [default: 0.67]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double stepHeight = 0.67D;
+
+        @Config.Name("Water Speed Boost")
+        @Config.Comment("The boost applied while the wearer is in water, this is added to the base movement of the player per tick. [default: 0.03]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double waterSpeedBoost = 0.03D;
+    }
+
     public static class DistortionPickaxeSettings {
         @Config.RequiresMcRestart
         @Config.Name("Enable Warped Pickaxe of Distortion")
-        @Config.Comment("Enables the Pickaxe of Warped Distortion")
+        @Config.Comment("Enables the Pickaxe of Warped Distortion. [default: true]")
         public boolean enableDistortionPickaxe = true;
 
         @Config.Name("Mining Sounds")
-        @Config.Comment("The Pickaxe of Warped Distortion will play its own unique sounds when mining blocks")
+        @Config.Comment("The Pickaxe of Warped Distortion will play its own unique sounds when mining blocks. [default: true]")
         public boolean miningSounds = true;
     }
 
-    public static class GeneralSettings {
-        @Config.Name("Furious Zombie: Spawning")
+    public static class FuriousZombieSettings {
+        @Config.Name("Spawning")
         @Config.Comment("Enables Furious Zombies to spawn naturally. [default: true]")
         @Config.RequiresMcRestart
-        public boolean FURIOUS_ZOMBIE_SPAWNING = true;
+        public boolean enableFuriousZombieSpawning = true;
 
-        @Config.Name("Furious Zombie: Underground Spawning")
+        @Config.Name("Underground Spawning")
         @Config.Comment("Enables Furious Zombies to spawn naturally underground. [default: false]")
         @Config.RequiresMcRestart
-        public boolean FURIOUS_ZOMBIE_UNDERGROUND_SPAWNING = false;
+        public boolean enableUndergroundSpawning = false;
 
-        @Config.Name("Furious Zombie: Spawn Weight")
+        @Config.Name("Spawn Weight")
         @Config.Comment("Default spawn weight of Furious Zombies. [default: 5]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int FURIOUS_ZOMBIE_WEIGHT = 5;
+        public int spawnWeight = 5;
+    }
 
-        @Config.Name("Mana Bean: Aspect Count")
+    public static class KnowledgeToolsSettings {
+        @Config.Name("Curiosity Chance")
+        @Config.Comment("The percentage chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
+        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.RequiresMcRestart
+        public double curiosityChance = 0.2D;
+    }
+
+    public static class ManaBeanSettings {
+        @Config.Name("Aspect Count")
         @Config.Comment("Mana Bean contained aspect count. [default: 5]")
         @Config.RangeInt(min = 1, max = 128)
         @Config.RequiresMcRestart
-        public int MANA_BEAN_ASPECT_COUNT = 5;
+        public int aspectCount = 5;
 
-        @Config.Name("Mana Bean: Effect List")
+        @Config.Name("Effect List")
         @Config.Comment("Configurable list of possible effects that eaten Mana Beans can apply.")
-        public String[] MANA_BEAN_EFFECT_LIST = new String[]{
+        public String[] effectList = new String[]{
                 "minecraft:absorption",
                 "minecraft:blindness",
                 "minecraft:fire_resistance",
@@ -105,161 +168,124 @@ public class CRConfig {
                 "thaumcraft:warpward"
         };
 
-        @Config.Name("Mana Bean: Generation Frequency")
+        @Config.Name("Generation Frequency")
         @Config.Comment("The amount of iterations over block positions to generate Mana Pods. [default: 10]")
         @Config.RangeInt(min = 0, max = 100)
-        public int MANA_BEAN_GENERATION_FREQUENCY = 10;
+        public int generationFrequency = 10;
 
-        @Config.Name("Mana Bean: Pech Loot")
+        @Config.Name("Pech Loot")
         @Config.Comment("Enables Primal Mana Beans to drop as loot from Pechs. [default: true]")
-        public boolean MANA_BEAN_PECH_LOOT = true;
+        public boolean pechLoot = true;
 
-        @Config.Name("Mana Bean: Research Chance")
+
+        @Config.Name("Research Chance")
         @Config.Comment("The percentage chance for an eaten Mana Bean to grant observations and theories for research. [default: 0.33]")
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
         @Config.RequiresMcRestart
-        public double MANA_BEAN_RESEARCH_CHANCE = 0.33D;
+        public double researchChance = 0.33D;
+    }
 
-        @Config.Name("Primordial Scribing Tools: Curiosity Chance")
-        @Config.Comment("The percentage chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
-        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+    public static class MeteorBootsSettings {
+        @Config.Name("Jump Boost")
+        @Config.Comment("The boost applied when the wearer jumps, this is added to the base jump height of the player. [default: 0.3]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
         @Config.RequiresMcRestart
-        public double PRIMORDIAL_TOOLS_CURIOSITY_CHANCE = 0.3D;
+        public double jumpBoost = 0.3D;
 
-        @Config.Name("Scribing Tools of Knowledge: Curiosity Chance")
-        @Config.Comment("The percentage chance for a curiosity to be obtained from the Scribing Tools of Knowledge. [default: 0.2]")
-        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.Name("Jump Factor")
+        @Config.Comment("The boost applied to player movement while in the air. Note that sprinting's jump modifier uses this value as well. [default: 0.02]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
         @Config.RequiresMcRestart
-        public double KNOWLEDGE_TOOLS_CURIOSITY_CHANCE = 0.2D;
+        public double jumpFactor = 0.02D;
+
+        @Config.Name("Land Speed Boost")
+        @Config.Comment("The boost applied while the wearer is on the ground, this is added to the base movement of the player per tick. [default: 0.06]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double landSpeed = 0.06D;
+
+        @Config.Name("Sneak Reduction")
+        @Config.Comment("Any speed boosts (not jump) will be divided by this value while sneaking. [default: 4.0]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double sneakReduction = 4.0D;
+
+        @Config.Name("Step Height")
+        @Config.Comment("The boost applied to the player's step height (while not sneaking), this is added to the vanilla default value of 0.6. [default: 0.67]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double stepHeight = 0.67D;
+
+        @Config.Name("Water Speed Boost")
+        @Config.Comment("The boost applied while the wearer is in water, this is added to the base movement of the player per tick. [default: 0.03]")
+        @Config.RangeDouble(min = 0.0D, max = 10.0D)
+        @Config.RequiresMcRestart
+        public double waterSpeedBoost = 0.03D;
     }
 
     public static class ModIntegrationSettings {
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration. [default: true]")
         @Config.RequiresMcRestart
-        public boolean JER_INTEGRATION = true;
+        public boolean enableJERIntegration = true;
 
         @Config.Name("Thaumic Augmentation Integration")
         @Config.Comment("Enables Thaumic Augmentation integration. [default: true]")
         @Config.RequiresMcRestart
-        public boolean TA_INTEGRATION = true;
+        public boolean enableTAIntegration = true;
     }
 
     public static class NutritionRingSettings {
         @Config.RequiresMcRestart
         @Config.Name("Enable Ring of Nutriment")
-        @Config.Comment("Enables the Ring of Nutriment")
+        @Config.Comment("Enables the Ring of Nutriment. [default: true]")
         public boolean enableNutritionRing = true;
+    }
+
+    public static class PrimordialToolsSettings {
+        @Config.Name("Curiosity Chance")
+        @Config.Comment("The percentage chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
+        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.RequiresMcRestart
+        public double curiosityChance = 0.3D;
     }
 
     public static class PurifyingShovelSettings {
         @Config.RequiresMcRestart
         @Config.Name("Enable Shovel of the Purifier")
-        @Config.Comment("Enables the Shovel of the Purifier")
+        @Config.Comment("Enables the Shovel of the Purifier. [default: true]")
         public boolean enablePurifyingShovel = true;
     }
 
     public static class TAIntegrationSettings {
-        @Config.Name("Boots of the Comet: Jump Boost")
-        @Config.Comment("The boost applied when the wearer jumps, this is added to the base jump height of the player. [default: 0.3]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double COMET_BOOTS_JUMP_BOOST = 0.3D;
-
-        @Config.Name("Boots of the Comet: Jump Factor")
-        @Config.Comment("The boost applied to player movement while in the air. Note that sprinting's jump modifier uses this value as well. [default: 0.02]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double COMET_BOOTS_JUMP_FACTOR = 0.02D;
-
-        @Config.Name("Boots of the Comet: Land Speed Boost")
-        @Config.Comment("The boost applied while the wearer is on the ground, this is added to the base movement of the player per tick. [default: 0.06]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double COMET_BOOTS_LAND_SPEED = 0.06D;
-
-        @Config.Name("Boots of the Comet: Sneak Reduction")
-        @Config.Comment("Any speed boosts (not jump) will be divided by this value while sneaking. [default: 4.0]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double COMET_BOOTS_SNEAK_REDUCTION = 4.0D;
-
-        @Config.Name("Boots of the Comet: Step Height")
-        @Config.Comment("The boost applied to the player's step height (while not sneaking), this is added to the vanilla default value of 0.6. [default: 0.67]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double COMET_BOOTS_STEP_HEIGHT = 0.67D;
-
-        @Config.Name("Boots of the Comet: Water Speed Boost")
-        @Config.Comment("The boost applied while the wearer is in water, this is added to the base movement of the player per tick. [default: 0.03]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double COMET_BOOTS_WATER_SPEED = 0.03D;
-
-        @Config.Name("Boots of the Meteor: Jump Boost")
-        @Config.Comment("The boost applied when the wearer jumps, this is added to the base jump height of the player. [default: 0.3]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double METEOR_BOOTS_JUMP_BOOST = 0.3D;
-
-        @Config.Name("Boots of the Meteor: Jump Factor")
-        @Config.Comment("The boost applied to player movement while in the air. Note that sprinting's jump modifier uses this value as well. [default: 0.02]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double METEOR_BOOTS_JUMP_FACTOR = 0.02D;
-
-        @Config.Name("Boots of the Meteor: Land Speed Boost")
-        @Config.Comment("The boost applied while the wearer is on the ground, this is added to the base movement of the player per tick. [default: 0.06]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double METEOR_BOOTS_LAND_SPEED = 0.06D;
-
-        @Config.Name("Boots of the Meteor: Sneak Reduction")
-        @Config.Comment("Any speed boosts (not jump) will be divided by this value while sneaking. [default: 4.0]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double METEOR_BOOTS_SNEAK_REDUCTION = 4.0D;
-
-        @Config.Name("Boots of the Meteor: Step Height")
-        @Config.Comment("The boost applied to the player's step height (while not sneaking), this is added to the vanilla default value of 0.6. [default: 0.67]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double METEOR_BOOTS_STEP_HEIGHT = 0.67D;
-
-        @Config.Name("Boots of the Meteor: Water Speed Boost")
-        @Config.Comment("The boost applied while the wearer is in water, this is added to the base movement of the player per tick. [default: 0.03]")
-        @Config.RangeDouble(min = 0.0D, max = 10.0D)
-        @Config.RequiresMcRestart
-        public double METEOR_BOOTS_WATER_SPEED = 0.03D;
-
-        @Config.Name("Overgrown Taintacle: Boss Bar")
-        @Config.Comment("Enables the Overgrown Taintacle's boss bar. [default: true]")
+        @Config.Name("Overgrown Taintacle Boss Bar")
+        @Config.Comment("Enables the Overgrown Taintacle's boss bar. [default: false]")
         @Config.RequiresWorldRestart
-        public boolean OVERGROWN_TAINTACLE_BOSS_BAR = true;
+        public boolean overgrownTaintacleBossBar = false;
 
-        @Config.Name("Overgrown Taintacle: Spawn Weight")
-        @Config.Comment("Default spawn weight of Overgrown Taintacles. [default: 1]")
+        @Config.Name("Overgrown Taintacle Spawn Weight")
+        @Config.Comment("Default spawn weight of Overgrown Taintacles in the Emptiness' Tainted Lands. [default: 1]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int OVERGROWN_TAINTACLE_WEIGHT = 1;
+        public int overgrownTaintacleWeight = 1;
 
-        @Config.Name("Taint Seed: Spawn Weight")
-        @Config.Comment("Default spawn weight of Taint Seeds. [default: 20]")
+        @Config.Name("Taint Seed Spawn Weight")
+        @Config.Comment("Default spawn weight of Taint Seeds in the Emptiness' Tainted Lands. [default: 20]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int TAINT_SEED_WEIGHT = 20;
+        public int taintSeedWeight = 20;
 
-        @Config.Name("Taint Swarm: Spawn Weight")
-        @Config.Comment("Default spawn weight of Taint Swarms. [default: 20]")
+        @Config.Name("Taint Swarm Spawn Weight")
+        @Config.Comment("Default spawn weight of Taint Swarms in the Emptiness' Tainted Lands. [default: 20]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int TAINT_SWARM_WEIGHT = 20;
+        public int taintSwarmWeight = 20;
     }
 
     public static class ThaumicLitmusPaperSettings {
         @Config.RequiresMcRestart
         @Config.Name("Enable Thaumic Litmus Paper")
-        @Config.Comment("Enables the Thaumic Litmus Paper")
+        @Config.Comment("Enables the Thaumic Litmus Paper. [default: true]")
         public boolean enableThaumicLitmusPaper = true;
     }
 

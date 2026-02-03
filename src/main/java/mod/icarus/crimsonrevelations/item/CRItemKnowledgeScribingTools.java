@@ -90,7 +90,7 @@ public class CRItemKnowledgeScribingTools extends CRItem implements IScribeTools
                             MathHelper.getInt(player.getRNG(), theoryProgress / 3, theoryProgress / 2));
                 }
 
-                if (world.rand.nextDouble() <= CRConfig.general_settings.KNOWLEDGE_TOOLS_CURIOSITY_CHANCE) {
+                if (world.rand.nextDouble() <= CRConfig.knowledge_tools.curiosityChance) {
                     // Arcane or Illuminating Curiosity
                     EntityItem curio = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 0) : new ItemStack(ItemsTC.curio, 1, 4));
                     world.spawnEntity(curio);

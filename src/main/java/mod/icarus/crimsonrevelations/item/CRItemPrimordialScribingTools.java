@@ -66,7 +66,7 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
                             MathHelper.getInt(player.getRNG(), theoryProgress / 2, theoryProgress));
                 }
 
-                if (world.rand.nextDouble() <= CRConfig.general_settings.PRIMORDIAL_TOOLS_CURIOSITY_CHANCE) {
+                if (world.rand.nextDouble() <= CRConfig.primordial_tools.curiosityChance) {
                     // Eldritch or Twisted Curiosity
                     EntityItem curio = new EntityItem(world, player.posX, player.posY, player.posZ, world.rand.nextBoolean() ? new ItemStack(ItemsTC.curio, 1, 3) : new ItemStack(ItemsTC.curio, 1, 5));
                     world.spawnEntity(curio);

@@ -11,10 +11,10 @@ import thecodex6824.thaumicaugmentation.api.world.TABiomes;
 public class TAIntegration {
     public static void postInit() {
         // Extra taint mobs
-        EntityRegistry.addSpawn(EntityTaintSeed.class, CRConfig.thaumic_augmentation_settings.TAINT_SEED_WEIGHT, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
-        EntityRegistry.addSpawn(EntityTaintSwarm.class, CRConfig.thaumic_augmentation_settings.TAINT_SWARM_WEIGHT, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
+        EntityRegistry.addSpawn(EntityTaintSeed.class, CRConfig.thaumic_augmentation_settings.taintSeedWeight, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
+        EntityRegistry.addSpawn(EntityTaintSwarm.class, CRConfig.thaumic_augmentation_settings.taintSwarmWeight, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
 
         // Boss
-        EntityRegistry.addSpawn(EntityOvergrownTaintacle.class, CRConfig.thaumic_augmentation_settings.OVERGROWN_TAINTACLE_WEIGHT, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
+        EntityRegistry.addSpawn(EntityOvergrownTaintacle.class, CRConfig.thaumic_augmentation_settings.overgrownTaintacleWeight, 1, 1, EnumCreatureType.MONSTER, TABiomes.TAINTED_LANDS);
     }
 }

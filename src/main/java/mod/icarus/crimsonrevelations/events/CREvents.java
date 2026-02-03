@@ -198,7 +198,7 @@ public class CREvents {
         Aspect[] aspects = Aspect.getPrimalAspects().toArray(new Aspect[0]);
 
         // Pechs drop primal mana beans.
-        if (!entity.world.isRemote && CRConfig.general_settings.MANA_BEAN_PECH_LOOT && entity instanceof EntityPech) {
+        if (!entity.world.isRemote && CRConfig.mana_beans.pechLoot && entity instanceof EntityPech) {
             for (int i = 0; i < 1 + event.getLootingLevel(); ++i) {
                 if (entity.getRNG().nextBoolean()) {
                     ItemStack is = new ItemStack(CRItems.MANA_BEAN);
@@ -372,7 +372,7 @@ public class CREvents {
         if (event.getWorld().getBiome(event.getPos()) instanceof BiomeGenMagicalForest) {
             WorldGenManaPods worldGenManaPods = new WorldGenManaPods();
 
-            for (int k = 0; k < CRConfig.general_settings.MANA_BEAN_GENERATION_FREQUENCY; k++) {
+            for (int k = 0; k < CRConfig.mana_beans.generationFrequency; k++) {
                 int l = event.getPos().getX() + event.getWorld().rand.nextInt(16) + 8;
                 byte b0 = 64;
                 int i1 = event.getPos().getZ() + event.getWorld().rand.nextInt(16) + 8;

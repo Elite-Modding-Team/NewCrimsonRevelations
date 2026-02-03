@@ -56,13 +56,13 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
     @Override
     public void removeTrackingPlayer(final EntityPlayerMP player) {
         super.removeTrackingPlayer(player);
-        if (CRConfig.thaumic_augmentation_settings.OVERGROWN_TAINTACLE_BOSS_BAR) this.bossInfo.removePlayer(player);
+        if (CRConfig.thaumic_augmentation_settings.overgrownTaintacleBossBar) this.bossInfo.removePlayer(player);
     }
 
     @Override
     public void addTrackingPlayer(final EntityPlayerMP player) {
         super.addTrackingPlayer(player);
-        if (CRConfig.thaumic_augmentation_settings.OVERGROWN_TAINTACLE_BOSS_BAR) this.bossInfo.addPlayer(player);
+        if (CRConfig.thaumic_augmentation_settings.overgrownTaintacleBossBar) this.bossInfo.addPlayer(player);
     }
 
     // Fixes it spawning with lower health

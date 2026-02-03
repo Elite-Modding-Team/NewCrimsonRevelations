@@ -95,14 +95,14 @@ public class CREntities {
         registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 9438728, 0x2F8405);
         registerEntity("primal_arrow", EntityPrimalArrow.class, id++, 64, 1, true);
 
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.TA_INTEGRATION) {
+        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.enableTAIntegration) {
             registerEntity("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
         }
     }
 
     public static void registerEntitySpawns() {
-        if (CRConfig.general_settings.FURIOUS_ZOMBIE_SPAWNING) {
-            EntityRegistry.addSpawn(EntityGiantBrainyZombie.class, CRConfig.general_settings.FURIOUS_ZOMBIE_WEIGHT, 1, 1, EnumCreatureType.MONSTER, CRRegistry.getEntityBiomes(EntityBrainyZombie.class));
+        if (CRConfig.furious_zombie.enableFuriousZombieSpawning) {
+            EntityRegistry.addSpawn(EntityGiantBrainyZombie.class, CRConfig.furious_zombie.spawnWeight, 1, 1, EnumCreatureType.MONSTER, CRRegistry.getEntityBiomes(EntityBrainyZombie.class));
         }
     }
 

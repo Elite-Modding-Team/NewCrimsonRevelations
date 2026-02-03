@@ -14,7 +14,7 @@ public class CRConfigLists {
         manaBeanEffects.clear();
 
         try {
-            for (String entry : CRConfig.general_settings.MANA_BEAN_EFFECT_LIST) {
+            for (String entry : CRConfig.mana_beans.effectList) {
                 ResourceLocation resLoc = new ResourceLocation(entry);
 
                 if (ForgeRegistries.POTIONS.containsKey(resLoc)) {

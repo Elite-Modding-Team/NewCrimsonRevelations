@@ -15,7 +15,7 @@ public class EntityGiantBrainyZombieMixin extends EntityMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        if (!CRConfig.general_settings.FURIOUS_ZOMBIE_UNDERGROUND_SPAWNING) {
+        if (!CRConfig.furious_zombie.enableUndergroundSpawning) {
             return super.getCanSpawnHere() && this.world.canSeeSky(new BlockPos(this));
         } else {
             return super.getCanSpawnHere();
