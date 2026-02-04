@@ -282,6 +282,12 @@
             "THEORY;INFUSION;2"
           ],
           "required_item": []
+        },
+        {
+          "text": "crimsonrevelations.research.vis_attunement_infusion.stage.1",
+          "recipes": [
+            "crimsonrevelations:vis_attunement_infusion_fake"
+          ]
         }
       ]
     }
