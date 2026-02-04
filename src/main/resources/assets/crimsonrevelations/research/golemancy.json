@@ -24,7 +24,8 @@
       "reward_knowledge": [],
       "stages": [
         {
-          "text": "crimsonrevelations.research.dark_golemancy.stage.0"
+          "text": "crimsonrevelations.research.dark_golemancy.stage.0",
+          "warp": 1
         }
       ]
     },
