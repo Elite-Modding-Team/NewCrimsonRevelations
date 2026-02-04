@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.item;
 
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.network.CRPacketHandler;
 import mod.icarus.crimsonrevelations.network.packets.CRPacketFXArcBolt;
@@ -70,7 +71,7 @@ public class CRItemPurifyingShovel extends CRItemShovel {
                 player.removePotionEffect(PotionVisExhaust.instance);
             }
 
-            player.getHeldItem(hand).damageItem(15, player);
+            player.getHeldItem(hand).damageItem(CRConfig.purifying_shovel.specialCost, player);
             player.getCooldownTracker().setCooldown(this, 10 * 20);
             world.playSound(null, player.posX, player.posY, player.posZ, CRSoundEvents.MISC_PURIFYING_SHOVEL_PURIFY, SoundCategory.PLAYERS, 1.0F, 1.0F);
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
@@ -103,7 +104,7 @@ public class CRItemPurifyingShovel extends CRItemShovel {
         }
 
         if (purified > 0) {
-            player.getHeldItem(hand).damageItem(Math.min(purified, 15), player);
+            player.getHeldItem(hand).damageItem(Math.min(purified, CRConfig.purifying_shovel.fluxGooMaxCost), player);
             player.swingArm(hand);
             world.playSound(player, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundsTC.zap, SoundCategory.PLAYERS, 1.0F, 1.0F);
             return EnumActionResult.SUCCESS;

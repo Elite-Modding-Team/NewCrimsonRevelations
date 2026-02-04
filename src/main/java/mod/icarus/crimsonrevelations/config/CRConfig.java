@@ -43,6 +43,9 @@ public class CRConfig {
     @Config.Comment("Shovel of the Purifier")
     public static PurifyingShovelSettings purifying_shovel = new PurifyingShovelSettings();
 
+    @Config.Comment("Scribing Tools of Sanitation")
+    public static SanitationToolsSettings sanitation_tools = new SanitationToolsSettings();
+
     @Config.Comment("Thaumic Augmentation")
     public static TAIntegrationSettings thaumic_augmentation_settings = new TAIntegrationSettings();
 
@@ -259,6 +262,12 @@ public class CRConfig {
         @Config.RangeDouble(min = 0.0D, max = 1.0D)
         @Config.RequiresMcRestart
         public double curiosityChance = 0.3D;
+
+        @Config.Name("Warp Ward Duration")
+        @Config.Comment("The amount of time in minutes that Warp Ward lasts. [default: 60]")
+        @Config.RangeInt(min = 0, max = 99999)
+        @Config.RequiresMcRestart
+        public int warpWardDuration = 60;
     }
 
     public static class PurifyingShovelSettings {
@@ -266,6 +275,26 @@ public class CRConfig {
         @Config.Name("Enable Shovel of the Purifier")
         @Config.Comment("Enables the Shovel of the Purifier. [default: true]")
         public boolean enablePurifyingShovel = true;
+
+        @Config.Name("Shovel of the Purifier Flux Goo Max Cost")
+        @Config.Comment("The maximum amount of durability that is consumed when the Shovel of the Purifier removes nearby Flux Goo. [default: 15]")
+        @Config.RangeInt(min = 0, max = 99999)
+        @Config.RequiresMcRestart
+        public int fluxGooMaxCost = 15;
+
+        @Config.Name("Shovel of the Purifier Special Cost")
+        @Config.Comment("The amount of durability that is consumed when the Shovel of the Purifier removes taint effects from its user. [default: 15]")
+        @Config.RangeInt(min = 0, max = 99999)
+        @Config.RequiresMcRestart
+        public int specialCost = 15;
+    }
+
+    public static class SanitationToolsSettings {
+        @Config.Name("Warp Ward Duration")
+        @Config.Comment("The amount of time in minutes that Warp Ward lasts. [default: 20]")
+        @Config.RangeInt(min = 0, max = 99999)
+        @Config.RequiresMcRestart
+        public int warpWardDuration = 20;
     }
 
     public static class TAIntegrationSettings {

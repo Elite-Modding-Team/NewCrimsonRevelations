@@ -96,7 +96,7 @@ public class CRItemPrimordialScribingTools extends CRItem implements IScribeTool
             player.playSound(CRSoundEvents.RUNIC_BAUBLE_REGEN, 0.8F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
 
             // 1 hour of Warp Ward.
-            player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, 60 * 1200, 0, false, false));
+            player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, CRConfig.primordial_tools.warpWardDuration * 1200, 0, false, false));
 
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.primordial").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             this.setDamage(stack, -this.getMaxDamage(stack)); // Won't restore on Creative mode but I guess that's normal behavior...?

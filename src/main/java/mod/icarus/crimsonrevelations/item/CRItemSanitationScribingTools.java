@@ -1,5 +1,6 @@
 package mod.icarus.crimsonrevelations.item;
 
+import mod.icarus.crimsonrevelations.config.CRConfig;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -96,7 +97,7 @@ public class CRItemSanitationScribingTools extends CRItem implements IScribeTool
             player.playSound(SoundsTC.hhon, 0.8F, 0.6F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
 
             // 20 minutes of Warp Ward.
-            player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, 20 * 1200, 0, false, false));
+            player.addPotionEffect(new PotionEffect(PotionWarpWard.instance, CRConfig.sanitation_tools.warpWardDuration * 1200, 0, false, false));
 
             player.sendStatusMessage(new TextComponentTranslation("message.crimsonrevelations.scribing_tools.sanitation").setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)), true);
             setDepletedState(stack, true);
