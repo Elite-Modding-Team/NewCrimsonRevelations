@@ -119,6 +119,50 @@
       ]
     },
     {
+      "key": "CR_COMET_BOOTS",
+      "name": "crimsonrevelations.research.comet_boots.title",
+      "icons": [
+        "crimsonrevelations:comet_boots"
+      ],
+      "category": "REVELATIONS",
+      "parents": [
+        "CRIMSON_REVELATIONS_BASE",
+        "~BOOTSTRAVELLER",
+        "~CRYSTALFARMER"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -5,
+        -1
+      ],
+      "reward_item": [],
+      "reward_knowledge": [],
+      "stages": [
+        {
+          "text": "crimsonrevelations.research.comet_boots.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;AUROMANCY;1"
+          ],
+          "required_item": [
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'aer'}]}",
+            "minecraft:snowball",
+            "thaumcraft:quicksilver"
+          ]
+        },
+        {
+          "text": "crimsonrevelations.research.comet_boots.stage.1",
+          "recipes": [
+            "crimsonrevelations:comet_boots"
+          ]
+        }
+      ]
+    },
+    {
       "key": "CR_CRIMSON_BLADE",
       "name": "crimsonrevelations.research.crimson_blade.title",
       "icons": [

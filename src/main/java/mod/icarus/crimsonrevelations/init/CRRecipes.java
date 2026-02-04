@@ -219,7 +219,7 @@ public class CRRecipes {
                     defaultGroup, "CR_THAUMIC_LITMUS_PAPER", 10,
                     new AspectList().add(Aspect.WATER, 1),
                     new ItemStack(CRItems.THAUMIC_LITMUS_PAPER, 4),
-                    new Object[]{Items.PAPER, ItemsTC.salisMundus}));
+                    new Object[]{"paper", ItemsTC.salisMundus}));
         }
 
         // Special Arcane Workbench Recipes
@@ -245,6 +245,18 @@ public class CRRecipes {
                         ThaumcraftApiHelper.makeCrystal(Aspect.ENTROPY, 1),
                         new ItemStack(ItemsTC.nuggets, 1, 10),
                         Blocks.BONE_BLOCK));
+
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "comet_boots"),
+                new InfusionRecipe("CR_COMET_BOOTS", new ItemStack(CRItems.COMET_BOOTS), 4,
+                        new AspectList().add(Aspect.MOTION, 100).add(Aspect.WATER, 50).add(Aspect.FLIGHT, 100).add(Aspect.AIR, 50),
+                        new ItemStack(ItemsTC.travellerBoots),
+                        "oreCrystalWater",
+                        "blockQuartz",
+                        "blockQuartz",
+                        "blockQuartz",
+                        "quicksilver",
+                        Items.SNOWBALL,
+                        "oreCrystalAir"));
 
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "crimsonblade"),
                 new InfusionRecipe("CR_CRIMSON_BLADE", new ItemStack(ItemsTC.crimsonBlade), 7,
@@ -272,13 +284,13 @@ public class CRRecipes {
                 new InfusionRecipe("CR_METEOR_BOOTS", new ItemStack(CRItems.METEOR_BOOTS), 4,
                         new AspectList().add(Aspect.MOTION, 100).add(Aspect.FIRE, 50).add(Aspect.FLIGHT, 100).add(Aspect.ENTROPY, 50),
                         new ItemStack(ItemsTC.travellerBoots),
-                        BlocksTC.crystalFire,
-                        Blocks.OBSIDIAN,
-                        Blocks.OBSIDIAN,
-                        Blocks.OBSIDIAN,
+                        "oreCrystalFire",
+                        "obsidian",
+                        "obsidian",
+                        "obsidian",
                         Items.MAGMA_CREAM,
                         Items.FIRE_CHARGE,
-                        BlocksTC.crystalEntropy));
+                        "oreCrystalEntropy"));
 
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "praetor_helm"),
                 new InfusionRecipe("CR_PRAETOR_ARMOR", new ItemStack(ItemsTC.crimsonPraetorHelm), 2,
@@ -330,8 +342,8 @@ public class CRRecipes {
                         new AspectList().add(Aspect.ENERGY, 50).add(Aspect.MAGIC, 45).add(Aspect.PROTECT, 25),
                         new ItemStack(ItemsTC.baubles, 1, 4),
                         ItemsTC.salisMundus,
-                        ItemsTC.amber,
-                        ItemsTC.amber,
+                        "gemAmber",
+                        "gemAmber",
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
@@ -343,9 +355,9 @@ public class CRRecipes {
                         new AspectList().add(Aspect.ENERGY, 60).add(Aspect.MAGIC, 50).add(Aspect.PROTECT, 30),
                         new ItemStack(ItemsTC.baubles, 1, 6),
                         ItemsTC.salisMundus,
-                        ItemsTC.amber,
-                        ItemsTC.amber,
-                        ItemsTC.amber,
+                        "gemAmber",
+                        "gemAmber",
+                        "gemAmber",
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
@@ -357,7 +369,7 @@ public class CRRecipes {
                         new AspectList().add(Aspect.ENERGY, 40).add(Aspect.MAGIC, 40).add(Aspect.PROTECT, 20),
                         new ItemStack(ItemsTC.baubles, 1, 5),
                         ItemsTC.salisMundus,
-                        ItemsTC.amber,
+                        "gemAmber",
                         ItemsTC.fabric,
                         "nitor",
                         new ItemStack(ItemsTC.nuggets, 1, 10)));
@@ -384,7 +396,7 @@ public class CRRecipes {
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
-                        Items.GUNPOWDER,
+                        "gunpowder",
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.AIR, 1)));
 
@@ -397,7 +409,7 @@ public class CRRecipes {
                         ItemsTC.salisMundus,
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
-                        ItemsTC.amber,
+                        "gemAmber",
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1),
                         ThaumcraftApiHelper.makeCrystal(Aspect.FIRE, 1)));
 
@@ -463,7 +475,7 @@ public class CRRecipes {
         InfusionEnchantmentRecipe chameleonInfusion = new ChameleonInfusionRecipe(
                 new AspectList().add(Aspect.MIND, 60).add(Aspect.MAGIC, 60).add(Aspect.VOID, 20),
                 new IngredientNBTTC(new ItemStack(Items.ENCHANTED_BOOK)),
-                new ItemStack(ItemsTC.quicksilver),
+                "quicksilver",
                 new ItemStack(ItemsTC.nuggets, 1, 10));
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "chameleon_infusion"), chameleonInfusion);
         ThaumcraftApi.addFakeCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "chameleon_infusion_fake"), new InfusionEnchantmentRecipe(
@@ -485,7 +497,7 @@ public class CRRecipes {
                             ItemsTC.thaumiumPick,
                             ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
                             ThaumcraftApiHelper.makeCrystal(Aspect.FLUX, 1),
-                            ItemsTC.quicksilver,
+                            "quicksilver",
                             new ItemStack(ItemsTC.nuggets, 1, 10),
                             BlocksTC.logGreatwood));
         }
@@ -508,7 +520,7 @@ public class CRRecipes {
                             ItemsTC.thaumiumShovel,
                             ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
                             ThaumcraftApiHelper.makeCrystal(Aspect.AURA, 1),
-                            ItemsTC.quicksilver,
+                            "quicksilver",
                             new ItemStack(ItemsTC.nuggets, 1, 10),
                             BlocksTC.logSilverwood));
         }
