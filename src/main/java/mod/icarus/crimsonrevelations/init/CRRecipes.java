@@ -312,8 +312,8 @@ public class CRRecipes {
                         CRItems.EMBELLISHED_CRIMSON_FABRIC));
 
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "primordial_scribing_tools"),
-                new InfusionRecipe("CR_PRIMORDIAL_SCRIBING_TOOLS", new ItemStack(CRItems.PRIMORDIAL_SCRIBING_TOOLS), 0,
-                        new AspectList().add(Aspect.AIR, 50).add(Aspect.EARTH, 50).add(Aspect.ENTROPY, 50).add(Aspect.FIRE, 50).add(Aspect.ORDER, 50).add(Aspect.WATER, 50),
+                new InfusionRecipe("CR_PRIMORDIAL_SCRIBING_TOOLS", new ItemStack(CRItems.PRIMORDIAL_SCRIBING_TOOLS), 10,
+                        new AspectList().add(Aspect.AIR, 75).add(Aspect.EARTH, 75).add(Aspect.ENTROPY, 75).add(Aspect.FIRE, 75).add(Aspect.ORDER, 75).add(Aspect.WATER, 75),
                         ItemsTC.scribingTools,
                         ItemsTC.primordialPearl,
                         ItemsTC.voidSeed,
