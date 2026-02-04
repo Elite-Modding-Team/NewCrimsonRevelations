@@ -5,6 +5,8 @@ import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRMaterials;
 import mod.icarus.crimsonrevelations.init.CRRarities;
+import mod.icarus.crimsonrevelations.util.PlayerMovementAbilityManager;
+import mod.icarus.crimsonrevelations.util.PlayerMovementAbilityManager.MovementType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -28,15 +30,11 @@ import thaumcraft.api.items.IRechargable;
 import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.lib.SoundsTC;
-import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager;
-import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager.MovementType;
-import thecodex6824.thaumicaugmentation.api.item.IArmorReduceFallDamage;
 
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-// Courtesy of TheCodex6824 for some code used from Thaumic Augmentation's Void Thaumaturge Boots.
-public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
+public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/meteor_boots.png").toString();
 
     // Calculate attribute bonuses.    
@@ -135,7 +133,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
 
         // Activate smash state once the sneak key is pressed. Do not activate while flying.
         if (player.isSneaking() && !player.capabilities.isFlying && !player.isElytraFlying() && player.fallDistance > 0.0F && hasCharge) {
-            if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.meteorBoots))) {
+            if (!getSmashingState(stack) && !(player.getCooldownTracker().hasCooldown(CRItems.METEOR_BOOTS))) {
                 setSmashingState(stack, true);
                 player.playSound(SoundsTC.rumble, 1.0F, 0.8F + (float) player.getEntityWorld().rand.nextGaussian() * 0.05F);
                 if (!player.capabilities.isCreativeMode) RechargeHelper.consumeCharge(stack, player, 2);
@@ -181,7 +179,7 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
                 }
 
                 player.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
-                player.getCooldownTracker().setCooldown(CRItems.meteorBoots, 5 * 20);
+                player.getCooldownTracker().setCooldown(CRItems.METEOR_BOOTS, 5 * 20);
             }
         }
 
@@ -232,12 +230,10 @@ public class CRItemMeteorBoots extends ItemArmor implements ISpecialArmor, IRech
         return EnumChargeDisplay.PERIODIC;
     }
 
-    @Override
-    public float getNewFallDamage(ItemStack stack, float origDamage, float distance) {
-        if (RechargeHelper.getCharge(stack) > 0) {
-            return origDamage / 5.0F - 1.0F;
+    public float getAdjustedFallDamage(ItemStack bootStack, float damage) {
+        if (bootStack.getItem() == CRItems.COMET_BOOTS && RechargeHelper.getCharge(bootStack) > 0) {
+            damage = Math.max(0, damage / 5.0F - 1.0F);
         }
-
-        return origDamage;
+        return damage;
     }
 }

@@ -42,54 +42,6 @@
       ]
     },
     {
-      "key": "CR_METEOR_BOOTS",
-      "name": "crimsonrevelations.research.meteor_boots.title",
-      "icons": [
-        "crimsonrevelations:meteor_boots"
-      ],
-      "category": "REVELATIONS",
-      "parents": [
-        "CRIMSON_REVELATIONS_BASE",
-        "~BOOTSTRAVELLER",
-        "~CRYSTALFARMER"
-      ],
-      "siblings": [],
-      "meta": [
-        "HIDDEN"
-      ],
-      "location": [
-        -5,
-        1
-      ],
-      "reward_item": [],
-      "reward_knowledge": [],
-      "stages": [
-        {
-          "text": "crimsonrevelations.research.meteor_boots.stage.0",
-          "required_knowledge": [
-            "THEORY;INFUSION;1",
-            "THEORY;AUROMANCY;1"
-          ],
-          "required_item": [
-            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'ignis'}]}",
-            "thaumcraft:crystal_essence;1;{Aspects:[{amount:1,key:'perditio'}]}",
-            "minecraft:fire_charge",
-            "minecraft:magma_cream"
-          ],
-          "required_craft": [
-            "minecraft:fire_charge",
-            "minecraft:magma_cream"
-          ]
-        },
-        {
-          "text": "crimsonrevelations.research.meteor_boots.stage.1",
-          "recipes": [
-            "crimsonrevelations:meteor_boots"
-          ]
-        }
-      ]
-    },
-    {
       "key": "!CR_OVERGROWN_TAINTACLE",
       "name": "crimsonrevelations.research.overgrown_taintacle.title",
       "icons": [

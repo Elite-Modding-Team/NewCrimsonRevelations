@@ -28,7 +28,6 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -54,6 +53,7 @@ public class CRItems {
     public static final CRItemAncientCultistArmor ANCIENT_CRIMSON_LEGGINGS = null;
     public static final CRItemArrow AQUA_ARROW = null;
     public static final CRItemBoneBow BONE_BOW = null;
+    public static final CRItemCometBoots COMET_BOOTS = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_CHESTPLATE = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_HELMET = null;
     public static final CRItemCultistArcherArmor CRIMSON_ARCHER_LEGGINGS = null;
@@ -71,6 +71,7 @@ public class CRItems {
     public static final CRItemArrow IGNIS_ARROW = null;
     public static final CRItemKnowledgeScribingTools KNOWLEDGE_SCRIBING_TOOLS = null;
     public static final CRItemManaBean MANA_BEAN = null;
+    public static final CRItemMeteorBoots METEOR_BOOTS = null;
     public static final CRItemArrow ORDO_ARROW = null;
     public static final CRItemArrow PERDITIO_ARROW = null;
     public static final CRItemPrimordialScribingTools PRIMORDIAL_SCRIBING_TOOLS = null;
@@ -95,11 +96,6 @@ public class CRItems {
     public static final CRItemBauble NUTRITION_RING = null;
     public static final CRItemPurifyingShovel PURIFYING_SHOVEL = null;
     public static final CRItemLitmusPaper THAUMIC_LITMUS_PAPER = null;
-
-    @GameRegistry.ObjectHolder("comet_boots")
-    public static Item cometBoots;
-    @GameRegistry.ObjectHolder("meteor_boots")
-    public static Item meteorBoots;
 
     @SubscribeEvent
     public static void registerItems(@Nonnull final RegistryEvent.Register<Item> event) {
@@ -145,6 +141,9 @@ public class CRItems {
                 CRRegistry.setup(new CRItemRunicBauble(BaubleType.BELT, EnumRarity.RARE, 9), "runic_girdle_kinetic"),
                 CRRegistry.setup(new CRItemVerdantRing(), "verdant_ring"),
 
+                CRRegistry.setup(new CRItemCometBoots(), "comet_boots"),
+                CRRegistry.setup(new CRItemMeteorBoots(), "meteor_boots"),
+
                 CRRegistry.setup(new CRItemTechnomancerScribingTools(), "technomancer_scribing_tools"),
                 CRRegistry.setup(new CRItemKnowledgeScribingTools(), "knowledge_scribing_tools"),
                 CRRegistry.setup(new CRItemSanitationScribingTools(), "sanitation_scribing_tools"),
@@ -167,11 +166,6 @@ public class CRItems {
 
         if (CRConfig.thaumic_litmus_paper.enableThaumicLitmusPaper) {
             registry.register(CRRegistry.setup(new CRItemLitmusPaper(), "thaumic_litmus_paper"));
-        }
-
-        if (Loader.isModLoaded("thaumicaugmentation")) {
-            registry.register(CRRegistry.setup(new CRItemCometBoots(), "comet_boots"));
-            registry.register(CRRegistry.setup(new CRItemMeteorBoots(), "meteor_boots"));
         }
 
         // Item Blocks

@@ -8,6 +8,9 @@ import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRRegistry;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
 import mod.icarus.crimsonrevelations.item.CRItemManaBean;
+import mod.icarus.crimsonrevelations.item.armor.CRItemCometBoots;
+import mod.icarus.crimsonrevelations.item.armor.CRItemMeteorBoots;
+import mod.icarus.crimsonrevelations.util.PlayerMovementAbilityManager;
 import mod.icarus.crimsonrevelations.world.WorldGenManaPods;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,6 +19,7 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -28,12 +32,14 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApiHelper;
@@ -122,6 +128,7 @@ public class CREvents {
         EntityLivingBase entity = event.getEntityLiving();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+        ItemStack boots = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
@@ -143,13 +150,18 @@ public class CREvents {
             }
         }
 
-        for (ItemStack stack : entity.getArmorInventoryList()) {
-
-            // Prevents screen shaking and damage sound.
-            if (stack.getItem() == CRItems.cometBoots || stack.getItem() == CRItems.meteorBoots) {
-                if (event.getSource() == DamageSource.HOT_FLOOR) {
-                    event.setCanceled(true);
-                }
+        // Prevents screen shaking and damage sound.
+        if (boots.getItem() instanceof CRItemCometBoots) {
+            if (event.getSource() == DamageSource.HOT_FLOOR) {
+                event.setCanceled(true);
+            } else if (event.getSource() == DamageSource.FALL && ((CRItemCometBoots) boots.getItem()).getAdjustedFallDamage(boots, event.getAmount()) <= 0) {
+                event.setCanceled(true);
+            }
+        } else if (boots.getItem() instanceof CRItemMeteorBoots) {
+            if (event.getSource() == DamageSource.HOT_FLOOR) {
+                event.setCanceled(true);
+            } else if (event.getSource() == DamageSource.FALL && ((CRItemMeteorBoots) boots.getItem()).getAdjustedFallDamage(boots, event.getAmount()) <= 0) {
+                event.setCanceled(true);
             }
         }
     }
@@ -159,6 +171,7 @@ public class CREvents {
         EntityLivingBase entity = event.getEntityLiving();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+        ItemStack boots = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
@@ -180,14 +193,21 @@ public class CREvents {
             }
         }
 
-        for (ItemStack stack : entity.getArmorInventoryList()) {
-
-            // Immune to these damage types.
-            if (stack.getItem() == CRItems.cometBoots || stack.getItem() == CRItems.meteorBoots) {
-                if (event.getSource() == DamageSource.HOT_FLOOR) {
-                    event.setAmount(0.0F);
-                    event.setCanceled(true);
-                }
+        if (boots.getItem() instanceof CRItemCometBoots) {
+            if (event.getSource() == DamageSource.HOT_FLOOR) {
+                event.setAmount(0);
+                event.setCanceled(true);
+            } else if (event.getSource() == DamageSource.FALL && ((CRItemCometBoots) boots.getItem()).getAdjustedFallDamage(boots, event.getAmount()) <= 0) {
+                event.setAmount(0);
+                event.setCanceled(true);
+            }
+        } else if (boots.getItem() instanceof CRItemMeteorBoots) {
+            if (event.getSource() == DamageSource.HOT_FLOOR) {
+                event.setAmount(0);
+                event.setCanceled(true);
+            } else if (event.getSource() == DamageSource.FALL && ((CRItemMeteorBoots) boots.getItem()).getAdjustedFallDamage(boots, event.getAmount()) <= 0) {
+                event.setAmount(0);
+                event.setCanceled(true);
             }
         }
     }
@@ -215,6 +235,26 @@ public class CREvents {
         EntityLivingBase entity = event.getEntityLiving();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+
+        if (event.getSource() == DamageSource.FALL) {
+            ItemStack boots = event.getEntityLiving().getItemStackFromSlot(EntityEquipmentSlot.FEET);
+
+            if (boots.getItem() instanceof CRItemCometBoots) {
+                float damage = ((CRItemCometBoots) boots.getItem()).getAdjustedFallDamage(boots, event.getAmount());
+
+                event.setAmount(damage);
+                if (damage == 0) {
+                    event.setCanceled(true);
+                }
+            } else if (boots.getItem() instanceof CRItemMeteorBoots) {
+                float damage = ((CRItemMeteorBoots) boots.getItem()).getAdjustedFallDamage(boots, event.getAmount());
+
+                event.setAmount(damage);
+                if (damage == 0) {
+                    event.setCanceled(true);
+                }
+            }
+        }
 
         if (trueSource instanceof EntityLivingBase && trueSource != null) {
             Item heldItem = ((EntityLivingBase) trueSource).getHeldItemMainhand().getItem();
@@ -266,6 +306,31 @@ public class CREvents {
                     player.getCooldownTracker().setCooldown(CRItems.RUNIC_AMULET_EMERGENCY, 40 * 20);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOW)
+    public static void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
+        if (event.getEntityLiving() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+
+            if (PlayerMovementAbilityManager.isValidSideForMovement(player)) {
+                PlayerMovementAbilityManager.tick(player);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onJump(LivingEvent.LivingJumpEvent event) {
+        if (event.getEntityLiving() instanceof EntityPlayer && PlayerMovementAbilityManager.isValidSideForMovement((EntityPlayer) event.getEntityLiving())) {
+            PlayerMovementAbilityManager.onJump((EntityPlayer) event.getEntityLiving());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
+        if (event.getEntity() instanceof EntityPlayer && PlayerMovementAbilityManager.isValidSideForMovement((EntityPlayer) event.getEntity())) {
+            PlayerMovementAbilityManager.onPlayerRecreation((EntityPlayer) event.getEntity());
         }
     }
 

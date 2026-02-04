@@ -2,7 +2,10 @@ package mod.icarus.crimsonrevelations.item.armor;
 
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRMaterials;
+import mod.icarus.crimsonrevelations.util.PlayerMovementAbilityManager;
+import mod.icarus.crimsonrevelations.util.PlayerMovementAbilityManager.MovementType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentFrostWalker;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -28,14 +31,11 @@ import net.minecraftforge.common.util.Constants.NBT;
 import thaumcraft.api.items.IRechargable;
 import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.api.items.RechargeHelper;
-import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager;
-import thecodex6824.thaumicaugmentation.api.entity.PlayerMovementAbilityManager.MovementType;
-import thecodex6824.thaumicaugmentation.api.item.IArmorReduceFallDamage;
 
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear, IArmorReduceFallDamage {
+public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRechargable, IVisDiscountGear {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/comet_boots.png").toString();
 
     // Calculate attribute bonuses.    
@@ -177,12 +177,10 @@ public class CRItemCometBoots extends ItemArmor implements ISpecialArmor, IRecha
         return EnumChargeDisplay.PERIODIC;
     }
 
-    @Override
-    public float getNewFallDamage(ItemStack stack, float origDamage, float distance) {
-        if (RechargeHelper.getCharge(stack) > 0) {
-            return origDamage / 5.0F - 1.0F;
+    public float getAdjustedFallDamage(ItemStack bootStack, float damage) {
+        if (bootStack.getItem() == CRItems.COMET_BOOTS && RechargeHelper.getCharge(bootStack) > 0) {
+            damage = Math.max(0, damage / 5.0F - 1.0F);
         }
-
-        return origDamage;
+        return damage;
     }
 }
