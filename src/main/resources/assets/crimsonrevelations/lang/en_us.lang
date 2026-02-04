@@ -245,6 +245,9 @@ focus.common.double_duration=Duration (two seconds)
 focus.common.knockback=Knockback
 focus.common.nightshade=Nightshade
 
+key.categories.crimsonrevelations=New Crimson Revelations
+key.swap_chameleon.crimsonrevelations=Swap Enchantments (Chameleon)
+
 status.crimsonrevelations.warp.normal=Normal Warp: %d
 status.crimsonrevelations.warp.permanent=Permanent Warp: %d
 status.crimsonrevelations.warp.temporary=Temporary Warp: %d

@@ -120,7 +120,7 @@ public class CRConfig {
         @Config.Name("Chameleon Blacklist")
         @Config.Comment("List of tools that should never be compatible with the Chameleon infusion enchantment.")
         public String[] chameleonBlacklist = new String[]{
-                "minecraft:absorption"
+                //"minecraft:absorption"
         };
     }
 

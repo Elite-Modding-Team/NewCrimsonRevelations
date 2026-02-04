@@ -193,6 +193,7 @@ public class CREvents {
             }
         }
 
+        // Immune to these damage types.
         if (boots.getItem() instanceof CRItemCometBoots) {
             if (event.getSource() == DamageSource.HOT_FLOOR) {
                 event.setAmount(0);

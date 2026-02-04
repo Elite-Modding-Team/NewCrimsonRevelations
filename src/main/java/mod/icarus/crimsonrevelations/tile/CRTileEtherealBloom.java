@@ -16,7 +16,6 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
     public int rad1 = 0;
     public int growthCounter = 100;
     public int foundTaint = 100;
-    public static final int bloomsleep = 300;
     public int sleepcounter = 300;
     public boolean sleep = false;
 
@@ -42,23 +41,6 @@ public class CRTileEtherealBloom extends TileEntity implements ITickable {
                 this.sleepcounter = 300;
             }
         }
-
-        /*if (!this.world.isRemote && this.counter % 20 == 0 && !this.sleep) {
-            List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(pos.getX() - 16, pos.getY() - 16, pos.getZ() - 16, pos.getX() + 16, pos.getY() + 16, pos.getZ() + 16));
-
-            for (EntityLivingBase victim : entities) {
-                if (victim instanceof ITaintedMob) {
-                    if (!(victim instanceof EntityPlayer)) {
-                        boolean attack = victim.attackEntityFrom(DamageSource.MAGIC, (float) 2.0F);
-
-                        if (attack) {
-                            this.world.playSound(null, pos, SoundsTC.zap, SoundCategory.BLOCKS, 1.0F, 1.1F);
-                            CRPacketHandler.INSTANCE.sendToAllAround(new CRPacketFXArcBolt(new Vec3d(this.pos.add(0.0D, 1.0D, 0.0D)), new Vec3d(victim.getPosition()), 0x23333, 1), new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), victim.posX, victim.posY, victim.posZ, 64.0D));
-                        }
-                    }
-                }
-            }
-        }*/
 
         if (!this.world.isRemote && this.counter % 20 == 0 && !this.sleep) {
             this.rad = (int) ((double) this.rad + (5.0D + Math.sqrt(1 + this.rad1) * 5.0D + (double) this.world.rand.nextInt(5)));
