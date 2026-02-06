@@ -4,7 +4,7 @@
     "name": "New Crimson Revelations",
     "description": "A Thaumcraft addon that allows you to research more about the Crimson Cult.",
     "version": "${version}",
-    "logoFile": "assets/crimsonrevelations/textures/logo.png",
+    "logoFile": "logo.png",
     "mcversion": "${mcversion}",
     "url": "https://github.com/Elite-Modding-Team/NewCrimsonRevelations",
     "authorList": [
