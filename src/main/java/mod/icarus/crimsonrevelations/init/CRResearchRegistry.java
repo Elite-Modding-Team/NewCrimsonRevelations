@@ -78,6 +78,7 @@ public class CRResearchRegistry {
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_ARCHER", EntityCultistArcher.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_CLERIC", EntityCultistCleric.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!CR_CRIMSON_KNIGHT", EntityCultistKnight.class, true));
+        ScanningManager.addScannableThing(new ScanEntity("!CR_OVERGROWN_TAINTACLE", EntityOvergrownTaintacle.class, true));
 
         if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.enableTAIntegration) {
             // Focus Effects
@@ -85,9 +86,6 @@ public class CRResearchRegistry {
 
             // Research Categories
             ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumic_augmentation"));
-
-            // Research
-            ScanningManager.addScannableThing(new ScanEntity("!CR_OVERGROWN_TAINTACLE", EntityOvergrownTaintacle.class, true));
         }
     }
 }
