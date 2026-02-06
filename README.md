@@ -3,6 +3,8 @@
 [![Requires MixinBooter](https://img.shields.io/badge/Requires-MixinBooter-B72F2F.svg?labelColor=3D1A1A&style=for-the-badge)](https://www.curseforge.com/minecraft/mc-mods/mixin-booter)
 [![Requires ConfigAnytime](https://img.shields.io/badge/Requires-ConfigAnytime-B72F2F.svg?labelColor=3D1A1A&style=for-the-badge)](https://www.curseforge.com/minecraft/mc-mods/configanytime)
 
+![All the Content](docs/mod_content.png)
+
 **New Crimson Revelations** is a content addon for Thaumcraft 6 focused on adding more Crimson Cult related content to expand the lore and make the overall mod feel more complete and polished. This also serves as an unofficial continuation of the original Crimson Revelations mod by MobiusFlip, with most content of that mod intact and longtime issues fixed.
 
 To access most of the new content, you'll need to unlock **The Crimson Cult** research by scanning a cultist and also obtain a Crimson Rites book dropped by them, you'll need it to fully unlock **The Crimson Rites** research. Once these are done, the Revelations category will immediately unlock and you can finally start progressing throughout the addon.
@@ -11,7 +13,9 @@ To access most of the new content, you'll need to unlock **The Crimson Cult** re
 
 ## Main Content
 
-Configurable items can be toggled off if they are unwanted.
+![Main Content](docs/research_content.png)
+
+Configurable items can be toggled off if they are unwanted. All sets here are also dyeable!
 
 - **Axe of Execution:** A heavy weapon of everlasting fire that can burn your foes, smelt chopped blocks, and behead slain creatures!
 - **Boots of the Comet:** Upgraded Boots of the Traveler. Walk on water to temporarily freeze it to Frosted Ice like vanilla's Frost Walker enchantment. 
@@ -62,6 +66,8 @@ Items that were previously unobtainable or very hard to get in base Thaumcraft c
 - **Manufacturing Ancient Stone:** Ancient Stone, Ancient Stone Tiles, and Glyphed Stone!
 
 ## Ported from older Thaumcraft versions
+
+![Main Content](docs/ported_research_content.png)
 
 - **Bow of Bone:** Autofires arrows with no extra charge.
 - **Boots of the Meteor:** Upgraded Boots of the Traveler. Jump up and sneak in midair to crash down and create a (non-destructive) explosion around you!
