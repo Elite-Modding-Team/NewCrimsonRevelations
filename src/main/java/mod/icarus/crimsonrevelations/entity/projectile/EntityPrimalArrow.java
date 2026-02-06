@@ -16,6 +16,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -376,6 +377,18 @@ public class EntityPrimalArrow extends EntityArrow implements IEntityAdditionalS
                 living.addPotionEffect(new PotionEffect(MobEffects.WITHER, 10 * 20, 2));
                 break;
         }
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        compound.setInteger("arrowType", getArrowType());
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
+        setArrowType(compound.getInteger("arrowType"));
     }
 
     // Fixes buggy projectile behavior on the client
