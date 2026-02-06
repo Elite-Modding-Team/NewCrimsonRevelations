@@ -16,6 +16,9 @@ public class CRConfig {
     @Config.Comment("Pickaxe of Warped Distortion")
     public static DistortionPickaxeSettings distortion_pickaxe = new DistortionPickaxeSettings();
 
+    @Config.Comment("Ethereal Bloom")
+    public static EtherealBloomSettings ethereal_bloom = new EtherealBloomSettings();
+
     @Config.Comment("Furious Zombie")
     public static FuriousZombieSettings furious_zombie = new FuriousZombieSettings();
 
@@ -102,6 +105,13 @@ public class CRConfig {
         @Config.Name("Mining Sounds")
         @Config.Comment("The Pickaxe of Warped Distortion will play its own unique sounds when mining blocks. [default: true]")
         public boolean miningSounds = true;
+    }
+
+    public static class EtherealBloomSettings {
+        @Config.RequiresMcRestart
+        @Config.Name("Enable Ethereal Bloom")
+        @Config.Comment("Enables the Ethereal Bloom. [default: true]")
+        public boolean enableEtherealBloom = true;
     }
 
     public static class FuriousZombieSettings {

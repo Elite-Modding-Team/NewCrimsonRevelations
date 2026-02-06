@@ -80,7 +80,7 @@ public class CRLootTables {
             main.addEntry(new LootEntryItem(CRItems.PROTECTION_RING, 3, 0, new LootFunction[]{setShielding}, new LootCondition[0], "crimsonrevelations:protection_ring"));
         }
 
-        // Thaumic Augmentation Emptiness Spires
+        // Thaumic Augmentation Eldritch Spires
         if (Loader.isModLoaded("thaumicaugmentation")) {
             if (event.getName().equals(new ResourceLocation("thaumicaugmentation", "block/loot_common"))) {
                 LootPool main = event.getTable().getPool("loot_common");

@@ -68,6 +68,7 @@ public class CRResearchRegistry {
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/compat/thaumcraft"));
 
         if (CRConfig.distortion_pickaxe.enableDistortionPickaxe) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/distortion_pickaxe"));
+        if (CRConfig.ethereal_bloom.enableEtherealBloom) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/ethereal_bloom"));
         if (CRConfig.nutrition_ring.enableNutritionRing) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/nutrition_ring"));
         if (CRConfig.purifying_shovel.enablePurifyingShovel) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/purifying_shovel"));
         if (CRConfig.thaumic_litmus_paper.enableThaumicLitmusPaper) ThaumcraftApi.registerResearchLocation(new ResourceLocation(NewCrimsonRevelations.MODID, "research/optional/litmus_paper"));
