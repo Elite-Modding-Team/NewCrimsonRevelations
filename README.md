@@ -5,7 +5,7 @@
 
 ![All the Content](docs/mod_content.png)
 
-**New Crimson Revelations** is a content addon for Thaumcraft 6 focused on adding more Crimson Cult related content to expand the lore and make the overall mod feel more complete and polished. This also serves as an unofficial continuation of the original Crimson Revelations mod by MobiusFlip, with most content of that mod intact and longtime issues fixed.
+**New Crimson Revelations** is a content addon for Thaumcraft 6 focused on adding more Crimson Cult related content to expand the lore and make the overall mod feel more complete and polished. This also serves as an unofficial continuation of the original [Crimson Revelations](https://www.curseforge.com/minecraft/mc-mods/crimson-revelations) mod by MobiusFlip, with most content of that mod intact and longtime issues fixed.
 
 To access most of the new content, you'll need to unlock **The Crimson Cult** research by scanning a cultist and also obtain a Crimson Rites book dropped by them, you'll need it to fully unlock **The Crimson Rites** research. Once these are done, the Revelations category will immediately unlock and you can finally start progressing throughout the addon.
 
@@ -23,6 +23,7 @@ Configurable items can be toggled off if they are unwanted. All sets here are al
 - **Crimson Archer:** A new cultist spawned from Lesser Crimson Portals, they will fire arrows and strife like skeletons.
 - **Crimson Archer Set:** Armor worn by the cult's archers, pieces can be dropped by the archers themselves or crafted.
 - **Crimson Cult Materials:** New drops from the Crimson Cult used throughout the mod (Crimson Fabric and Crimson Plates).
+- **Crimson Cult Sword:** A stronger than iron tier sword with the ability to poison.
 - **Pickaxe of Warped Distortion (Configurable)**: Mines harder blocks like Obsidian faster but slower on weaker blocks. The particles produced help indicate which blocks can be mined faster.
 - **Ring of Nutriment (Configurable):** Restores more hunger when eating food. It also makes you completely immune to starvation damage.
 - **Shovel of the Purifier (Configurable):** Destroys flux goo instantly. Sneak and right-click to cleanse yourself from any taint effects like Flux Flu.
@@ -41,7 +42,7 @@ Configurable items can be toggled off if they are unwanted. All sets here are al
 - **Flesh:** Cheaper self-repair.
 - **Tallow:** Has no positive or negative golem traits.
 
-## Infusion Enchants
+## Infusion Enchantments
 
 - **Beheading:** Now you can behead creatures with any of your tools!
 - **Chameleon:** Gives you the ability to swap enchantment sets!
@@ -65,7 +66,7 @@ Items that were previously unobtainable or very hard to get in base Thaumcraft c
 - **Crimson Praetor Set**
 - **Manufacturing Ancient Stone:** Ancient Stone, Ancient Stone Tiles, and Glyphed Stone!
 
-## Ported from older Thaumcraft versions
+## Ported Thaumcraft Content
 
 ![Main Content](docs/ported_research_content.png)
 
@@ -83,6 +84,7 @@ Items that were previously unobtainable or very hard to get in base Thaumcraft c
 
 Tweaks to Thaumcraft to enhance gameplay. Most of these features should be configurable.
 
+- **Enhanced Crimson Cult Equipment:** Cultists are now decked with better equipment such as Crimson Cult Swords.
 - **Naturally Spawning Furious Zombies:** You can now encounter Furious Zombies on the Overworld's surface in survival!
 - **Portal Spawn Particles:** Ported from Thaumcraft 5, portals that spawn cultists will have particles.
 
