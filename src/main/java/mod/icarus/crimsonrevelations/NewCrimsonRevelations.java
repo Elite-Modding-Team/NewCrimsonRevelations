@@ -10,13 +10,8 @@ import mod.icarus.crimsonrevelations.network.CRPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -54,17 +49,6 @@ public class NewCrimsonRevelations {
         CRRecipes.initArcaneCrafting();
         CRRecipes.initCrucible();
         CRRecipes.initInfusion();
-
-        // TODO: This should all be turned into a configurable list
-        CRRegistry.registerHeadDropForAll(EntitySkeleton.class, new ItemStack(Items.SKULL, 1, 0));
-        CRRegistry.registerHeadDropForAll(EntityStray.class, new ItemStack(Items.SKULL, 1, 0));
-        CRRegistry.registerHeadDropForAll(EntityWitherSkeleton.class, new ItemStack(Items.SKULL, 1, 1));
-        CRRegistry.registerHeadDropForAll(EntityZombie.class, new ItemStack(Items.SKULL, 1, 2));
-        CRRegistry.registerHeadDrop(EntityPlayer.class, new ItemStack(Items.SKULL, 1, 3));
-        CRRegistry.registerHeadDropForAll(EntityCreeper.class, new ItemStack(Items.SKULL, 1, 4));
-        CRRegistry.registerHeadDropForAll(EntityDragon.class, new ItemStack(Items.SKULL, 1, 5));
-        CRRegistry.registerHeadDrop(EntityIronGolem.class, new ItemStack(Blocks.PUMPKIN, 1));
-        CRRegistry.registerHeadDrop(EntitySnowman.class, new ItemStack(Blocks.PUMPKIN, 1));
     }
 
     @EventHandler

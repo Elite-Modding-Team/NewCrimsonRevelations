@@ -120,6 +120,20 @@ public class CRConfig {
     }
 
     public static class InfusionEnchantmentSettings {
+        @Config.Name("Beheading Mob Head Drops")
+        @Config.Comment({"List of mob head drops in the format 'modid:entity;subtypes;modid:item[:metadata][;max_quantity]'.","Example: 'minecraft:skeleton;true;minecraft:skull:0' or 'minecraft:chicken;false;minecraft:feather;2'"})
+        public String[] beheadingMobHeadDrops = new String[]{
+                "minecraft:skeleton;true;minecraft:skull:0",
+                "minecraft:stray;true;minecraft:skull:0",
+                "minecraft:wither_skeleton;true;minecraft:skull:1",
+                "minecraft:zombie;true;minecraft:skull:2",
+                "minecraft:player;false;minecraft:skull:3",
+                "minecraft:creeper;true;minecraft:skull:4",
+                "minecraft:ender_dragon;true;minecraft:skull:5",
+                "minecraft:snowman;false;minecraft:pumpkin",
+                "minecraft:villager_golem;false;minecraft:pumpkin"
+        };
+
         @Config.Name("Chameleon Blacklist")
         @Config.Comment("List of tools that should never be compatible with the Chameleon infusion enchantment.")
         public String[] chameleonBlacklist = new String[]{
