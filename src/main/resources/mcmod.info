@@ -9,11 +9,9 @@
     "url": "https://github.com/Elite-Modding-Team/NewCrimsonRevelations",
     "authorList": [
       "IcarussOne",
-      "J. Carver",
-      "ACGaming",
-      "xJon"
+      "J. Carver"
     ],
-    "credits": "\n \u00A7eMain Developers:\n [*] IcarussOne - Lead Developer & Writer\n [*] J. Carver - Artist & Lore Enthusiast\n \u00A76Special Thanks:\n [*] MobiusFlip - Originally creating Crimson Revelations and setting up interesting lore for it, which this addon continues from\n [*] Damien Hazard - Crimson Archer Armor, this model also appeared in Thaumic Dyes and Crimson Cult Armory\n [*] keletu - Contributions and the initial port of Ethereal Bloom, Mana Beans, and the Verdant Heart Band\n [*] PessiMysterio - CTM textures for the Magic Tallow Block and some bits of feedback\n [*] fakeginkgo - A few improved textures\n [*] ACGaming - Being a huge help with the mod and answering questions\n [*] xJon - Giving general feedback on improving the mod, as well as creating and maintaining Tekkit SMP\n \u00A7dTranslators:\n [*] fakeginkgo - Simplified Chinese",
+    "credits": "\n \u00A7eMain Developers:\n [*] IcarussOne - Lead Developer & Writer\n [*] J. Carver - Artist & Lore Enthusiast\n \u00A76Special Thanks:\n [*] MobiusFlip - Originally creating Crimson Revelations (licensed under MIT) and setting up interesting lore for it, which this addon continues from\n [*] Mr. Damien Hazard - Crimson Archer, Crimson Paladin, and Crimson Ranger armor models, these models also appeared in Thaumic Dyes and Crimson Cult Armory\n [*] J. Carver - Massively helping with the lore and providing excellent new models\n [*] ACGaming - Being a huge help with the mod and implementing features like the Mana Bean generation\n [*] Invadermonky - Being a huge help with the mod and implementing features like the Chameleon and Vis Attunement infusion enchantments\n [*] PessiMysterio - CTM textures for the Magic Tallow Block and other bits of feedback\n [*] xJon - Giving general feedback to early versions of the mod\n [*] fakeginkgo - Art contributions to early versions of the mod\n [*] keletu66666 - Code contributions to early versions of the mod\n \u00A7dTranslators:\n [*] fakeginkgo - Simplified Chinese",
     "dependencies": [
       "thaumcraft"
     ]

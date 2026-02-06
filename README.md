@@ -80,7 +80,7 @@ Tweaks to Thaumcraft to enhance gameplay. Most of these features should be confi
 - **Naturally Spawning Furious Zombies:** You can now encounter Furious Zombies on the Overworld's surface in survival!
 - **Portal Spawn Particles:** Ported from Thaumcraft 5, portals that spawn cultists will have particles.
 
-## Thaumic Augmentation Integration
+## 🔁 Thaumic Augmentation Integration
 
 Requires Thaumic Augmentation to also be installed to access.
 
@@ -90,6 +90,24 @@ Requires Thaumic Augmentation to also be installed to access.
 - **Extra Tainted Lands Spawns:** Adds Taint Swarms and more Taint Seeds in the Tainted Lands of the Emptiness.
 - **Overgrown Taintacle:** A miniboss based on the original Giant Taintacle that has a chance to spawn in the Tainted Lands of the Emptiness.
 - **Taint Poison Focus Effect:** Ignores armor and infects your foes with taint.
+
+---
+
+## 🙏 Special Thanks
+
+- Originally creating Crimson Revelations (licensed under MIT) and setting up interesting lore for it, which this addon continues from ~ MobiusFlip
+- Crimson Archer, Crimson Paladin, and Crimson Ranger armor models, these models also appeared in Thaumic Dyes and Crimson Cult Armory ~ Mr. Damien Hazard
+- Massively helping with the lore and providing excellent new models ~ John_Carver
+- Being a huge help with the mod and implementing features like the Mana Bean generation ~ ACGaming
+- Being a huge help with the mod and implementing features like the Chameleon and Vis Attunement infusion enchantments ~ Invadermonky
+- CTM textures for the Magic Tallow Block and other bits of feedback ~ PessiMysterio
+- Giving general feedback to early versions of the mod ~ xJon
+- Art contributions to early versions of the mod ~ fakeginkgo
+- Code contributions to early versions of the mod ~ keletu66666
+
+## 🌐 Translators
+
+- Simplified Chinese ~ fakeginkgo
 
 ---
 
