@@ -131,13 +131,34 @@ public class CRConfig {
                 "minecraft:creeper;true;minecraft:skull:4",
                 "minecraft:ender_dragon;true;minecraft:skull:5",
                 "minecraft:snowman;false;minecraft:pumpkin",
-                "minecraft:villager_golem;false;minecraft:pumpkin"
+                "minecraft:villager_golem;false;minecraft:pumpkin",
+                "mod_lavacow:boneworm;false;minecraft:skull:0",
+                "mod_lavacow:forsaken;true;minecraft:skull:0",
+                "mod_lavacow:skeletonking;false;minecraft:skull:0",
+                "mod_lavacow:soulworm;false;minecraft:skull:1",
+                "mod_lavacow:scarecrow;false;mod_lavacow:scarecrowhead_common",
+                "techguns:armysoldier;false;minecraft:skull:3",
+                "techguns:bandit;false;minecraft:skull:3",
+                "techguns:commando;false;minecraft:skull:3",
+                "techguns:dictatordave;false;minecraft:skull:3",
+                "techguns:psychosteve;false;minecraft:skull:3",
+                "techguns:stormtrooper;false;minecraft:skull:3",
+                "techguns:zombiefarmer;true;minecraft:skull:2",
+                "techguns:zombieminer;true;minecraft:skull:2",
+                "techguns:zombiepoliceman;true;minecraft:skull:2",
+                "techguns:zombiesoldier;true;minecraft:skull:2",
+                "thaumcraft:CultistCleric;false;minecraft:skull:2",
+                "thaumcraft:CultistKnight;false;minecraft:skull:2",
+                "thaumcraft:CultistLeader;false;minecraft:skull:2"
         };
 
         @Config.Name("Chameleon Blacklist")
         @Config.Comment("List of tools that should never be compatible with the Chameleon infusion enchantment.")
         public String[] chameleonBlacklist = new String[]{
-                //"minecraft:absorption"
+                "forbiddenmagicre:morph_axe",
+                "forbiddenmagicre:morph_pick",
+                "forbiddenmagicre:morph_shovel",
+                "forbiddenmagicre:morph_sword"
         };
     }
 
