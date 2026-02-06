@@ -26,7 +26,7 @@ public class CRItemCultistPaladinArmor extends ItemArmor implements IVisDiscount
     ModelBiped model2 = null;
 
     public CRItemCultistPaladinArmor(EntityEquipmentSlot equipmentSlot) {
-        super(CRMaterials.ARMOR_ANCIENT_CULTIST, 4, equipmentSlot);
+        super(CRMaterials.ARMOR_CULTIST_PALADIN, 4, equipmentSlot);
     }
 
     @SideOnly(Side.CLIENT)

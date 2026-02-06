@@ -28,7 +28,7 @@ public class CRItemCultistRangerArmor extends CRItemArmorDyeable implements IVis
     ModelBiped model2 = null;
 
     public CRItemCultistRangerArmor(EntityEquipmentSlot equipmentSlot) {
-        super(CRMaterials.ARMOR_ANCIENT_CULTIST, 4, equipmentSlot);
+        super(CRMaterials.ARMOR_CULTIST_RANGER, 4, equipmentSlot);
     }
 
     @SideOnly(Side.CLIENT)
