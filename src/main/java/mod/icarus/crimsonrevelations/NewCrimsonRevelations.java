@@ -48,6 +48,7 @@ public class NewCrimsonRevelations {
 
         CRCompatHandler.init();
         CRConfigLists.initLists();
+        CRLootTables.init();
         CRResearchRegistry.init();
 
         CRRecipes.initArcaneCrafting();

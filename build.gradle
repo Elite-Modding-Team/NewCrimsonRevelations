@@ -111,6 +111,7 @@ dependencies {
     // Had Enough Items
     implementation rfg.deobf('curse.maven:had-enough-items-557549:7515497')
     implementation rfg.deobf('curse.maven:just-enough-resources-jer-240630:4440936')
+    implementation rfg.deobf('curse.maven:just-enough-magiculture-940521:5796192')
 
     // ConfigAnytime
     implementation rfg.deobf('com.cleanroommc:configanytime:3.0')
