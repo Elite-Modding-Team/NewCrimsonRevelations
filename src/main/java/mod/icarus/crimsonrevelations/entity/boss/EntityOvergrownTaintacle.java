@@ -9,6 +9,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
@@ -36,6 +37,7 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
         this.bossInfo = new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS);
         this.setSize(1.0F, 5.5F);
         this.experienceValue = 50;
+        this.isImmuneToFire = true;
     }
 
     @Override
@@ -153,6 +155,12 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
 
     @Override
     public boolean isNonBoss() {
+        return false;
+    }
+
+    // Immune to all effects like the Ender Dragon and the Wither
+    @Override
+    public boolean isPotionApplicable(PotionEffect effect) {
         return false;
     }
 
