@@ -145,7 +145,7 @@ public class CREvents {
 
         // Overgrown Taintacles are immune to arrows
         if (entity instanceof EntityOvergrownTaintacle) {
-            if (damageSource.getImmediateSource() instanceof IProjectile) {
+            if (damageSource.getImmediateSource() instanceof IProjectile && entity.getHealth() <= (entity.getMaxHealth() * CRConfig.overgrown_taintacle.projectileImmunityThreshold)) {
                 event.setCanceled(true);
                 entity.world.playSound(null, entity.getPosition(), SoundEvents.ENTITY_ELDER_GUARDIAN_CURSE, SoundCategory.AMBIENT, 3.0F, 1.5F + entity.world.rand.nextFloat() / 2.0F);
                 PacketHandler.INSTANCE.sendToAllAround(new PacketFXShield(entity.getEntityId(), damageSource.getImmediateSource().getEntityId()), new NetworkRegistry.TargetPoint(event.getEntity().world.provider.getDimension(), event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, 32.0D));
@@ -198,7 +198,7 @@ public class CREvents {
 
         // Overgrown Taintacles are immune to arrows
         if (entity instanceof EntityOvergrownTaintacle) {
-            if (damageSource.getImmediateSource() instanceof IProjectile) {
+            if (damageSource.getImmediateSource() instanceof IProjectile && entity.getHealth() <= (entity.getMaxHealth() * CRConfig.overgrown_taintacle.projectileImmunityThreshold)) {
                 event.setAmount(0.0F);
                 event.setCanceled(true);
             }

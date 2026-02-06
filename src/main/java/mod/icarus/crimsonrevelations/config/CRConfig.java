@@ -37,6 +37,9 @@ public class CRConfig {
     @Config.Comment("Ring of Nutriment")
     public static NutritionRingSettings nutrition_ring = new NutritionRingSettings();
 
+    @Config.Comment("Overgrown Taintacle")
+    public static OvergrownTaintacleSettings overgrown_taintacle = new OvergrownTaintacleSettings();
+
     @Config.Comment("Scribing Tools of Knowledge")
     public static PrimordialToolsSettings primordial_tools = new PrimordialToolsSettings();
 
@@ -121,7 +124,7 @@ public class CRConfig {
 
     public static class InfusionEnchantmentSettings {
         @Config.Name("Beheading Mob Head Drops")
-        @Config.Comment({"List of mob head drops in the format 'modid:entity;subtypes;modid:item[:metadata][;max_quantity]'.","Example: 'minecraft:skeleton;true;minecraft:skull:0' or 'minecraft:chicken;false;minecraft:feather;2'"})
+        @Config.Comment({"List of mob head drops in the format 'modid:entity;subtypes;modid:item[:metadata][;max_quantity]'.", "Example: 'minecraft:skeleton;true;minecraft:skull:0' or 'minecraft:chicken;false;minecraft:feather;2'"})
         public String[] beheadingMobHeadDrops = new String[]{
                 "minecraft:skeleton;true;minecraft:skull:0",
                 "minecraft:stray;true;minecraft:skull:0",
@@ -291,6 +294,25 @@ public class CRConfig {
         public boolean enableNutritionRing = true;
     }
 
+    public static class OvergrownTaintacleSettings {
+        @Config.Name("Overgrown Taintacle Boss Bar")
+        @Config.Comment("Enables the Overgrown Taintacle's boss bar. [default: false]")
+        @Config.RequiresWorldRestart
+        public boolean bossBar = false;
+
+        @Config.Name("Overgrown Taintacle Projectile Immunity Threshold")
+        @Config.Comment("When the percentage of the Overgrown Taintacle's health is this low, it will become immune to projectiles (1.0 to always make it immune). [default: 1.0]")
+        @Config.RangeDouble(min = 0.0D, max = 1.0D)
+        @Config.RequiresMcRestart
+        public double projectileImmunityThreshold = 1.0D;
+
+        @Config.Name("Overgrown Taintacle Spawn Weight")
+        @Config.Comment("Default spawn weight of Overgrown Taintacles in the Emptiness' Tainted Lands. [default: 1]")
+        @Config.RangeInt(min = 0, max = 99999)
+        @Config.RequiresMcRestart
+        public int spawnWeight = 1;
+    }
+
     public static class PrimordialToolsSettings {
         @Config.Name("Curiosity Chance")
         @Config.Comment("The percentage chance for a curiosity to be obtained from the Primordial Scribing Tools. [default: 0.3]")
@@ -333,28 +355,17 @@ public class CRConfig {
     }
 
     public static class TAIntegrationSettings {
-        @Config.Name("Overgrown Taintacle Boss Bar")
-        @Config.Comment("Enables the Overgrown Taintacle's boss bar. [default: false]")
-        @Config.RequiresWorldRestart
-        public boolean overgrownTaintacleBossBar = false;
-
-        @Config.Name("Overgrown Taintacle Spawn Weight")
-        @Config.Comment("Default spawn weight of Overgrown Taintacles in the Emptiness' Tainted Lands. [default: 1]")
-        @Config.RangeInt(min = 0, max = 99999)
-        @Config.RequiresMcRestart
-        public int overgrownTaintacleWeight = 1;
-
         @Config.Name("Taint Seed Spawn Weight")
         @Config.Comment("Default spawn weight of Taint Seeds in the Emptiness' Tainted Lands. [default: 20]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int taintSeedWeight = 20;
+        public int taintSeedSpawnWeight = 20;
 
         @Config.Name("Taint Swarm Spawn Weight")
         @Config.Comment("Default spawn weight of Taint Swarms in the Emptiness' Tainted Lands. [default: 20]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int taintSwarmWeight = 20;
+        public int taintSwarmSpawnWeight = 20;
     }
 
     public static class ThaumicLitmusPaperSettings {

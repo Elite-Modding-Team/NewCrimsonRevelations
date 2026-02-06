@@ -93,11 +93,9 @@ public class CREntities {
         int id = 0;
 
         registerEntity("cultist_archer", EntityCultistArcher.class, id++, 64, 3, true, 9438728, 0x2F8405);
-        registerEntity("primal_arrow", EntityPrimalArrow.class, id++, 64, 1, true);
+        registerEntity("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
 
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.enableTAIntegration) {
-            registerEntity("overgrown_taintacle", EntityOvergrownTaintacle.class, id++, 64, 3, true, 0x1C1A2F, 0x5649B4);
-        }
+        registerEntity("primal_arrow", EntityPrimalArrow.class, id++, 64, 1, true);
     }
 
     public static void registerEntitySpawns() {

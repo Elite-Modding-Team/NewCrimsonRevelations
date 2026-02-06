@@ -1,6 +1,7 @@
 package mod.icarus.crimsonrevelations.entity.boss;
 
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.entity.EntityItemImportant;
 import mod.icarus.crimsonrevelations.init.CRLootTables;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -25,7 +26,6 @@ import thaumcraft.common.entities.monster.mods.ChampionModifier;
 import thaumcraft.common.entities.monster.tainted.EntityTaintacle;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.utils.EntityUtils;
-import thecodex6824.thaumicaugmentation.common.entity.EntityItemImportant;
 
 import javax.annotation.Nullable;
 
@@ -58,13 +58,13 @@ public class EntityOvergrownTaintacle extends EntityTaintacle implements ITainte
     @Override
     public void removeTrackingPlayer(final EntityPlayerMP player) {
         super.removeTrackingPlayer(player);
-        if (CRConfig.thaumic_augmentation_settings.overgrownTaintacleBossBar) this.bossInfo.removePlayer(player);
+        if (CRConfig.overgrown_taintacle.bossBar) this.bossInfo.removePlayer(player);
     }
 
     @Override
     public void addTrackingPlayer(final EntityPlayerMP player) {
         super.addTrackingPlayer(player);
-        if (CRConfig.thaumic_augmentation_settings.overgrownTaintacleBossBar) this.bossInfo.addPlayer(player);
+        if (CRConfig.overgrown_taintacle.bossBar) this.bossInfo.addPlayer(player);
     }
 
     // Fixes it spawning with lower health

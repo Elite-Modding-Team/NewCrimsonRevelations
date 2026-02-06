@@ -33,6 +33,7 @@ import java.util.function.Predicate;
  *
  * @author TheCodex6824
  */
+// Courtesy of TheCodex6824 and Invadermonky
 public final class PlayerMovementAbilityManager {
 
     private static WeakHashMap<EntityPlayer, FlyData> flyData = new WeakHashMap<>();
