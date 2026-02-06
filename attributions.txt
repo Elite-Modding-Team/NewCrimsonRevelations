@@ -2,6 +2,7 @@ Assets used from other sources.
 
 Beheading Enchantment Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/chopped-skull.html (changes made)
 Blinding Flash Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/explosion-rays.html (changes made)
+Chameleon Enchantment Icon: DarkZaitzev, CC BY 3.0, https://game-icons.net/1x1/darkzaitzev/chameleon-glyph.html (changes made)
 Gravity Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/black-hole-bolas.html (changes made)
 Marked Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/delapouite/eye-target.html (changes made)
 Poison Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/foam.html (changes made)
@@ -10,3 +11,4 @@ Punch Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/punch-
 Punch Focus Effect Shoot Sound: damnsatinist, Attribution 4.0, https://freesound.org/people/damnsatinist/sounds/493915/
 Research Tab Background: http://www.terminal26.de
 Taint Poison Focus Effect Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/foamy-disc.html (changes made)
+Vis Attunement Icon: Lorc, CC BY 3.0, https://game-icons.net/1x1/lorc/aura.html (changes made)
