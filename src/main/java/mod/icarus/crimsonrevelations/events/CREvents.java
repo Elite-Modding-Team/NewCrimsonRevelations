@@ -4,6 +4,7 @@ import baubles.api.BaublesApi;
 import mod.icarus.crimsonrevelations.NewCrimsonRevelations;
 import mod.icarus.crimsonrevelations.block.CRBlockManaPod;
 import mod.icarus.crimsonrevelations.config.CRConfig;
+import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.init.CRItems;
 import mod.icarus.crimsonrevelations.init.CRRegistry;
 import mod.icarus.crimsonrevelations.init.CRSoundEvents;
@@ -14,9 +15,11 @@ import mod.icarus.crimsonrevelations.util.PlayerMovementAbilityManager;
 import mod.icarus.crimsonrevelations.world.WorldGenManaPods;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -41,6 +44,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.ThaumcraftMaterials;
@@ -49,6 +53,8 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.entities.monster.EntityPech;
 import thaumcraft.common.entities.monster.cult.EntityCultist;
+import thaumcraft.common.lib.network.PacketHandler;
+import thaumcraft.common.lib.network.fx.PacketFXShield;
 import thaumcraft.common.world.biomes.BiomeGenMagicalForest;
 
 import java.util.ArrayList;
@@ -137,6 +143,15 @@ public class CREvents {
             }
         }
 
+        // Overgrown Taintacles are immune to arrows
+        if (entity instanceof EntityOvergrownTaintacle) {
+            if (damageSource.getImmediateSource() instanceof IProjectile) {
+                event.setCanceled(true);
+                entity.world.playSound(null, entity.getPosition(), SoundEvents.ENTITY_ELDER_GUARDIAN_CURSE, SoundCategory.AMBIENT, 3.0F, 1.5F + entity.world.rand.nextFloat() / 2.0F);
+                PacketHandler.INSTANCE.sendToAllAround(new PacketFXShield(entity.getEntityId(), damageSource.getImmediateSource().getEntityId()), new NetworkRegistry.TargetPoint(event.getEntity().world.provider.getDimension(), event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, 32.0D));
+            }
+        }
+
         if (entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 
@@ -176,6 +191,14 @@ public class CREvents {
         // Cultists no longer harm other cultists and teammates.
         if (trueSource instanceof EntityCultist && trueSource != null) {
             if (entity.isOnSameTeam(trueSource)) {
+                event.setAmount(0.0F);
+                event.setCanceled(true);
+            }
+        }
+
+        // Overgrown Taintacles are immune to arrows
+        if (entity instanceof EntityOvergrownTaintacle) {
+            if (damageSource.getImmediateSource() instanceof IProjectile) {
                 event.setAmount(0.0F);
                 event.setCanceled(true);
             }

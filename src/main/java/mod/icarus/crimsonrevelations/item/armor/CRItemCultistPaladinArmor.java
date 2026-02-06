@@ -19,7 +19,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.api.items.IWarpingGear;
 
-// TODO: Add armor material
 public class CRItemCultistPaladinArmor extends ItemArmor implements IVisDiscountGear, IWarpingGear {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_paladin_armor.png").toString();
     ModelBiped model1 = null;

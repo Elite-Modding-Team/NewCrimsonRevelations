@@ -19,7 +19,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.api.items.IWarpingGear;
 
-// TODO: Add armor material
 public class CRItemCultistRangerArmor extends CRItemArmorDyeable implements IVisDiscountGear, IWarpingGear {
     protected static final String TEXTURE_PATH = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_ranger_armor.png").toString();
     protected static final String TEXTURE_PATH_DYED = new ResourceLocation(NewCrimsonRevelations.MODID, "textures/models/armor/cultist_ranger_armor_dyed.png").toString();
