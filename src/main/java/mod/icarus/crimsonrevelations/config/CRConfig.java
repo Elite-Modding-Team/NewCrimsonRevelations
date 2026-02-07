@@ -343,17 +343,22 @@ public class CRConfig {
         @Config.Comment("Enables the Shovel of the Purifier. [default: true]")
         public boolean enablePurifyingShovel = true;
 
-        @Config.Name("Shovel of the Purifier Flux Goo Max Cost")
+        @Config.Name("Shovel of the Purifier Special Cost")
+        @Config.Comment("Enables the Shovel of the Purifier's special ability when right-clicking and sneaking. [default: true]")
+        @Config.RequiresMcRestart
+        public boolean enableSpecial = true;
+
+        @Config.Name("Shovel of the Purifier Cleanse Max Cost")
         @Config.Comment("The maximum amount of durability that is consumed when the Shovel of the Purifier removes nearby Flux Goo. [default: 15]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int fluxGooMaxCost = 15;
+        public int cleanseMaxCost = 15;
 
         @Config.Name("Shovel of the Purifier Special Cost")
-        @Config.Comment("The amount of durability that is consumed when the Shovel of the Purifier removes taint effects from its user. [default: 15]")
+        @Config.Comment("The amount of durability that is consumed when the Shovel of the Purifier removes taint effects from its user. [default: 100]")
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
-        public int specialCost = 15;
+        public int specialCost = 100;
     }
 
     public static class SanitationToolsSettings {

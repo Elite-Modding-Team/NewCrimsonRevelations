@@ -45,7 +45,7 @@ public class CRItemPurifyingShovel extends CRItemShovel {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-        if (player.isSneaking() && (player.isPotionActive(PotionFluxTaint.instance) || player.isPotionActive(PotionInfectiousVisExhaust.instance) ||
+        if (player.isSneaking() && CRConfig.purifying_shovel.enableSpecial && (player.isPotionActive(PotionFluxTaint.instance) || player.isPotionActive(PotionInfectiousVisExhaust.instance) ||
                 player.isPotionActive(PotionThaumarhia.instance) || player.isPotionActive(PotionVisExhaust.instance))) {
             player.swingArm(hand);
 
@@ -104,7 +104,7 @@ public class CRItemPurifyingShovel extends CRItemShovel {
         }
 
         if (purified > 0) {
-            player.getHeldItem(hand).damageItem(Math.min(purified, CRConfig.purifying_shovel.fluxGooMaxCost), player);
+            player.getHeldItem(hand).damageItem(Math.min(purified, CRConfig.purifying_shovel.cleanseMaxCost), player);
             player.swingArm(hand);
             world.playSound(player, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundsTC.zap, SoundCategory.PLAYERS, 1.0F, 1.0F);
             return EnumActionResult.SUCCESS;
