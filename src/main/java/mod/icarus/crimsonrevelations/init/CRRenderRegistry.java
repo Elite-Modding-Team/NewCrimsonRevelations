@@ -3,7 +3,6 @@ package mod.icarus.crimsonrevelations.init;
 import mod.icarus.crimsonrevelations.client.renderer.RenderCultistArcher;
 import mod.icarus.crimsonrevelations.client.renderer.RenderOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.client.renderer.RenderPrimalArrow;
-import mod.icarus.crimsonrevelations.config.CRConfig;
 import mod.icarus.crimsonrevelations.entity.EntityCultistArcher;
 import mod.icarus.crimsonrevelations.entity.boss.EntityOvergrownTaintacle;
 import mod.icarus.crimsonrevelations.entity.projectile.EntityPrimalArrow;
@@ -14,7 +13,6 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -22,11 +20,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class CRRenderRegistry {
     public static void preInit() {
         RenderingRegistry.registerEntityRenderingHandler(EntityCultistArcher.class, RenderCultistArcher::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityOvergrownTaintacle.class, RenderOvergrownTaintacle::new);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityPrimalArrow.class, RenderPrimalArrow::new);
-
-        if (Loader.isModLoaded("thaumicaugmentation") && CRConfig.mod_integration_settings.enableTAIntegration)
-            RenderingRegistry.registerEntityRenderingHandler(EntityOvergrownTaintacle.class, RenderOvergrownTaintacle::new);
     }
 
     @SideOnly(Side.CLIENT)
