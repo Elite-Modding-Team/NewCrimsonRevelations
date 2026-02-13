@@ -6,7 +6,6 @@ import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 
 import java.util.Set;
 
-// TODO: Add recipe and research
 public class CREnchantments {
     // Infusion Enchantments
     // Enchantment Name, Tool Class, Max Level, Research
