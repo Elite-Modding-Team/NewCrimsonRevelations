@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
@@ -22,6 +21,7 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.*;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.lib.crafting.InfusionEnchantmentRecipe;
+import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 
 public class CRRecipes {
     public static void initArcaneCrafting() {
@@ -271,8 +271,10 @@ public class CRRecipes {
                         CRItems.CRIMSON_FABRIC,
                         CRItems.CRIMSON_FABRIC));
 
+        ItemStack executionAxeStack = new ItemStack(CRItems.EXECUTION_AXE);
+        EnumInfusionEnchantment.addInfusionEnchantment(executionAxeStack, CREnchantments.BEHEADING, 2);
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(NewCrimsonRevelations.MODID, "execution_axe"),
-                new InfusionRecipe("CR_EXECUTION_AXE", new ItemStack(CRItems.EXECUTION_AXE), 4,
+                new InfusionRecipe("CR_EXECUTION_AXE", executionAxeStack, 4,
                         new AspectList().add(Aspect.AVERSION, 75).add(Aspect.FIRE, 75).add(Aspect.DEATH, 25).add(Aspect.MAN, 25),
                         ItemsTC.thaumiumAxe,
                         ThaumcraftApiHelper.makeCrystal(Aspect.AVERSION),
