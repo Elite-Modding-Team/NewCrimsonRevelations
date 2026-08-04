@@ -6,6 +6,7 @@
 - Added a new villager structure for the new villager, it also contains a loot chest containing Thaumcraft items
 - Obsidian Totems (AKA Eldritch Totems) and Hilltop Stones (with loot and Wisps!) are now back from previous Thaumcraft versions, you'll see them uncommonly dotted around the landscape
 ### Changed
+- Updated `ru_ru.lang` courtesy of leskovetz
 - The smash attack from the Boots of the Meteor will now scale depending on how far you fall down with them
 - Crimson Archers now fire Primal Arrows instead of normal arrows (the aspect type they fire will be random per spawn)
 - Restored original Primal Arrow particles from Thaumcraft 4 and 5
