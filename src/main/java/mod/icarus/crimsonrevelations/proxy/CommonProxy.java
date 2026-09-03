@@ -50,8 +50,9 @@ public class CommonProxy {
         ConfigLists.initLists();
         ModLootTablesNCR.init();
 
-        // TODO: Make this configurable
-        GameRegistry.registerWorldGenerator(new WorldGenEldritchRuins(), 0);
+        if (ConfigHandlerNCR.structures.enableEldritchStructures) {
+            GameRegistry.registerWorldGenerator(new WorldGenEldritchRuins(), 0);
+        }
     }
 
     public void postInit() {

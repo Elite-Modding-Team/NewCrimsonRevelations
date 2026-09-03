@@ -49,6 +49,9 @@ public class ConfigHandlerNCR {
     @Config.Comment("Scribing Tools of Sanitation")
     public static SanitationToolsSettings sanitation_tools = new SanitationToolsSettings();
 
+    @Config.Comment("Structures")
+    public static StructureSettings structures = new StructureSettings();
+
     @Config.Comment("Thaumic Augmentation")
     public static TAIntegrationSettings thaumic_augmentation_settings = new TAIntegrationSettings();
 
@@ -348,6 +351,13 @@ public class ConfigHandlerNCR {
         @Config.RangeInt(min = 0, max = 99999)
         @Config.RequiresMcRestart
         public int warpWardDuration = 20;
+    }
+
+    public static class StructureSettings {
+        @Config.Name("Enable Eldritch Structures")
+        @Config.Comment("Enables the Overworld eldritch structures added by New Crimson Revelations. [default: true]")
+        @Config.RequiresMcRestart
+        public boolean enableEldritchStructures = true;
     }
 
     public static class TAIntegrationSettings {
