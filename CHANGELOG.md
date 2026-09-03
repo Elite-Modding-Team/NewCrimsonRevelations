@@ -31,7 +31,7 @@
 - Fixed a critical issue where the Bow of Bone disappears after firing once
 ### Removed
 - Removed the Gold Nugget drop from the cultist loot table
-- Removed `Herba` Mana Pod spawns from Magical Forests, Primal Mana Pods should now be easier to find 
+- Removed `Herba` Mana Pod spawns from Magical Forests, Primal Mana Pods should now be easier to find
 ---
 ## 1.5.3
 ### Update Notes
