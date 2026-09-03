@@ -73,6 +73,8 @@ Items that were previously unobtainable or very hard to get in base Thaumcraft c
 
 - **Bow of Bone:** Autofires arrows with no extra charge.
 - **Boots of the Meteor:** Upgraded Boots of the Traveler. Jump up and sneak in midair to crash down and create a (non-destructive) explosion around you!
+- **Eldritch Structures (Wisp Shrines):** Larger structures that can be found in the Overworld. Wisps will also spawn from these and a loot chest can be found.
+- **Eldritch Totems:** Structures that can be found in the Overworld.
 - **Ethereal Bloom (Configurable):** Wards away taint around it.
 - **Magic Tallow Block**
 - **Mana Beans:** They make a return to the Magical Forest's generation. You can harvest beans for their pure aspects or eat them for research points and randomized (configurable) effects.
@@ -80,6 +82,7 @@ Items that were previously unobtainable or very hard to get in base Thaumcraft c
 - **Runic Baubles:** Simple baubles that provide runic shielding.
 - **Specialized Runic Baubles:** Upgraded runic baubles that come packaged with extra abilities.
 - **Verdant Heart Band:** A ring counterpart to the Verdant Heart Charm in case you want both effects at once.
+- **Villagers:** A new villager type that will sell you Thaumcraft items. New villager structure included!
 
 ## Tweaks
 
