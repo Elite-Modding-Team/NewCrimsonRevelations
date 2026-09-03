@@ -73,9 +73,9 @@ Items that were previously unobtainable or very hard to get in base Thaumcraft c
 
 - **Bow of Bone:** Autofires arrows with no extra charge.
 - **Boots of the Meteor:** Upgraded Boots of the Traveler. Jump up and sneak in midair to crash down and create a (non-destructive) explosion around you!
-- **Eldritch Structures (Wisp Shrines):** Larger structures that can be found in the Overworld. Wisps will also spawn from these and a loot chest can be found.
 - **Eldritch Totems:** Structures that can be found in the Overworld.
 - **Ethereal Bloom (Configurable):** Wards away taint around it.
+- **Hilltop Stones (Wisp Shrines):** Larger structures that can be found in the Overworld. Wisps will also spawn from these and a loot chest can be found.
 - **Magic Tallow Block**
 - **Mana Beans:** They make a return to the Magical Forest's generation. You can harvest beans for their pure aspects or eat them for research points and randomized (configurable) effects.
 - **Primal Arrows:** Available in all primal aspects with each one having a special ability.
