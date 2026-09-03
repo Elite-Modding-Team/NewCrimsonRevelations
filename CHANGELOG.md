@@ -3,7 +3,7 @@
 ### Added
 - Added Primal Mana Beans to treasure bag, urn, and crate loot tables
 - Added a new villager type with four different professions, they offer a variety of Thaumcraft items
-- Added a new villager structure for the new villager, it also contains a loot chest containing Thaumcraft items
+- Added a new villager structure for the new villager, it also contains a loot chest (currently has nothing because the loot table is WIP)
 - Obsidian Totems (AKA Eldritch Totems) and Hilltop Stones (with loot and Wisps!) are now back from previous Thaumcraft versions, you'll see them uncommonly dotted around the landscape
 ### Changed
 - Updated `ru_ru.lang` courtesy of leskovetz
